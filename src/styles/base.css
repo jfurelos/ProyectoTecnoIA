@@ -1,0 +1,211 @@
+/* ==========================================================================
+   BASE & RESET - ESTÉTICA EDITORIAL Y ARQUITECTÓNICA
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  line-height: var(--leading-normal);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(184, 84, 51, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(95, 102, 78, 0.03) 0%, transparent 40%);
+}
+
+/* Tipografía Editorial */
+h1, h2, h3, h4, .font-editorial {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  line-height: var(--leading-tight);
+}
+
+h1 {
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+}
+
+h3 {
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+}
+
+p {
+  color: var(--text-secondary);
+  font-size: var(--text-base);
+}
+
+/* Cotas Técnicas y Datos Numéricos */
+.font-mono, .technical-label, .dimension-tag {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Contenedor Principal */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-lg);
+  padding-right: var(--space-lg);
+}
+
+/* Botones con estilo de arquitectura */
+button {
+  font-family: var(--font-sans);
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+  transition: all var(--transition-fast);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: all var(--transition-normal);
+}
+
+.btn-primary {
+  background-color: var(--text-primary);
+  color: var(--bg-surface);
+  border: 1px solid var(--text-primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--autumn-terracotta);
+  border-color: var(--autumn-terracotta);
+  transform: translateY(-1px);
+}
+
+.btn-terracotta {
+  background-color: var(--autumn-terracotta);
+  color: #ffffff;
+  border: 1px solid var(--autumn-terracotta);
+}
+
+.btn-terracotta:hover {
+  background-color: var(--autumn-terracotta-hover);
+  border-color: var(--autumn-terracotta-hover);
+  box-shadow: 0 4px 14px var(--autumn-terracotta-soft);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-default);
+}
+
+.btn-outline:hover {
+  background-color: var(--bg-surface);
+  border-color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  color: var(--text-secondary);
+  padding: 8px 12px;
+}
+
+.btn-ghost:hover {
+  color: var(--text-primary);
+  background-color: var(--bg-surface-muted);
+}
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: var(--text-xs);
+}
+
+.btn-icon {
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Badges e Indicadores */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: var(--radius-xs);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+.badge-terracotta {
+  background-color: var(--autumn-terracotta-soft);
+  color: var(--autumn-terracotta);
+  border: 1px solid rgba(184, 84, 51, 0.25);
+}
+
+.badge-olive {
+  background-color: var(--autumn-olive-soft);
+  color: var(--autumn-olive);
+  border: 1px solid rgba(95, 102, 78, 0.25);
+}
+
+.badge-neutral {
+  background-color: var(--bg-surface-muted);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+/* Scrollbar refinada */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-canvas);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: var(--radius-pill);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--autumn-terracotta);
+}

@@ -1,0 +1,319 @@
+/* ==========================================================================
+   ONBOARDING MODAL - PROCESO DE PERFILADO INICIAL (OPCIÓN A)
+   ========================================================================== */
+
+.onboarding-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background-color: var(--bg-overlay);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+  opacity: 1;
+  visibility: visible;
+  transition: opacity var(--transition-normal), visibility var(--transition-normal);
+}
+
+.onboarding-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.onboarding-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  width: 100%;
+  max-width: 820px;
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(28, 24, 20, 0.25);
+  animation: modal-slide-in 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modal-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Cabecera del Onboarding */
+.onboarding-header {
+  padding: var(--space-xl) var(--space-2xl) var(--space-md);
+  border-bottom: 1px solid var(--border-subtle);
+  background-color: var(--bg-surface-elevated);
+}
+
+.onboarding-stepper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: var(--space-sm);
+}
+
+.step-indicator {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--autumn-terracotta);
+  font-weight: 600;
+}
+
+.step-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.step-dot {
+  width: 28px;
+  height: 3px;
+  background-color: var(--border-default);
+  border-radius: var(--radius-pill);
+  transition: background-color var(--transition-normal);
+}
+
+.step-dot.active {
+  background-color: var(--autumn-terracotta);
+}
+
+.step-dot.completed {
+  background-color: var(--text-primary);
+}
+
+.onboarding-title {
+  font-size: 1.85rem;
+  margin-bottom: 4px;
+}
+
+.onboarding-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+/* Cuerpo del Onboarding */
+.onboarding-body {
+  padding: var(--space-xl) var(--space-2xl);
+  overflow-y: auto;
+  flex: 1;
+}
+
+.step-content {
+  display: none;
+  animation: step-fade-in 0.3s ease-out;
+}
+
+.step-content.active {
+  display: block;
+}
+
+@keyframes step-fade-in {
+  from { opacity: 0; transform: translateX(8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Cuadrículas de Selección */
+.choice-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-md);
+}
+
+.choice-grid-moodboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: var(--space-md);
+}
+
+/* Tarjeta de Opción (Radio visual) */
+.choice-card {
+  border: 1px solid var(--border-subtle);
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-sm);
+  padding: var(--space-md);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.choice-card:hover {
+  border-color: var(--autumn-terracotta);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-subtle);
+}
+
+.choice-card.selected {
+  border-color: var(--autumn-terracotta);
+  background-color: var(--bg-surface-elevated);
+  box-shadow: 0 0 0 1px var(--autumn-terracotta);
+}
+
+.choice-card.selected::after {
+  content: "✓";
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  color: var(--autumn-terracotta);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* Estilo Moodboard */
+.moodboard-card {
+  overflow: hidden;
+  padding: 0;
+}
+
+.moodboard-img {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--border-subtle);
+  transition: transform var(--transition-normal);
+}
+
+.choice-card:hover .moodboard-img {
+  transform: scale(1.03);
+}
+
+.moodboard-content {
+  padding: var(--space-md);
+}
+
+.choice-name {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.choice-desc {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* Paso de Presupuesto */
+.budget-picker-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.budget-presets {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.budget-preset-card {
+  border: 1px solid var(--border-subtle);
+  padding: var(--space-lg);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-align: center;
+  transition: all var(--transition-fast);
+}
+
+.budget-preset-card:hover {
+  border-color: var(--autumn-terracotta);
+}
+
+.budget-preset-card.selected {
+  border-color: var(--autumn-terracotta);
+  background-color: var(--autumn-terracotta-soft);
+}
+
+.budget-preset-amount {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.budget-preset-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.budget-slider-box {
+  background-color: var(--bg-surface-elevated);
+  padding: var(--space-lg);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+}
+
+.budget-slider-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: var(--space-md);
+}
+
+.budget-slider-display {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  color: var(--autumn-terracotta);
+  font-weight: 600;
+}
+
+.budget-range-input {
+  width: 100%;
+  height: 6px;
+  -webkit-appearance: none;
+  background: var(--border-default);
+  border-radius: var(--radius-pill);
+  outline: none;
+}
+
+.budget-range-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: var(--radius-pill);
+  background: var(--autumn-terracotta);
+  cursor: pointer;
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Paso de Paleta */
+.palette-choice-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.palette-swatch-box {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+/* Pie del Onboarding */
+.onboarding-footer {
+  padding: var(--space-md) var(--space-2xl);
+  border-top: 1px solid var(--border-subtle);
+  background-color: var(--bg-surface-elevated);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

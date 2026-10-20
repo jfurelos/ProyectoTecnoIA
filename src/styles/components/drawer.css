@@ -1,0 +1,244 @@
+/* ==========================================================================
+   DRAWER "MI PROYECTO" - PANEL LATERAL DE MUEBLES ACEPTADOS
+   ========================================================================== */
+
+.project-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  background-color: var(--bg-overlay);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-normal), visibility var(--transition-normal);
+}
+
+.project-drawer-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.project-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 480px;
+  background-color: var(--bg-surface);
+  border-left: 1px solid var(--border-default);
+  box-shadow: var(--shadow-drawer);
+  z-index: 160;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform var(--transition-smooth);
+}
+
+.project-drawer.open {
+  transform: translateX(0);
+}
+
+/* Encabezado del Drawer */
+.drawer-header {
+  padding: var(--space-xl) var(--space-xl) var(--space-md);
+  border-bottom: 1px solid var(--border-subtle);
+  background-color: var(--bg-surface-elevated);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.drawer-header-title {
+  font-family: var(--font-serif);
+  font-size: 1.65rem;
+  margin-bottom: 2px;
+}
+
+.drawer-header-subtitle {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.btn-close-drawer {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+.btn-close-drawer:hover {
+  background-color: var(--bg-surface-muted);
+  color: var(--text-primary);
+}
+
+/* Monitor de Presupuesto del Proyecto */
+.drawer-budget-overview {
+  padding: var(--space-md) var(--space-xl);
+  background-color: var(--bg-surface-muted);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.drawer-budget-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.drawer-budget-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.drawer-budget-val {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.drawer-budget-remaining {
+  font-size: var(--text-xs);
+  color: var(--color-success);
+  font-weight: 600;
+}
+
+.drawer-budget-remaining.exceeded {
+  color: var(--color-danger);
+}
+
+.drawer-budget-bar-track {
+  width: 100%;
+  height: 6px;
+  background-color: var(--border-default);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.drawer-budget-bar-fill {
+  height: 100%;
+  background-color: var(--autumn-terracotta);
+  border-radius: var(--radius-pill);
+  transition: width var(--transition-smooth);
+}
+
+/* Lista de Muebles Aceptados */
+.drawer-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-lg) var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.drawer-item-card {
+  display: flex;
+  gap: var(--space-md);
+  padding: var(--space-sm);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  align-items: center;
+  transition: all var(--transition-fast);
+}
+
+.drawer-item-card:hover {
+  border-color: var(--border-default);
+  box-shadow: var(--shadow-subtle);
+}
+
+.drawer-item-img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: var(--radius-xs);
+  flex-shrink: 0;
+}
+
+.drawer-item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.drawer-item-title {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.drawer-item-cota {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.drawer-item-price {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--text-primary);
+}
+
+.btn-remove-drawer-item {
+  color: var(--text-muted);
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.btn-remove-drawer-item:hover {
+  color: var(--color-danger);
+  background-color: var(--color-danger-bg);
+}
+
+/* Estado Vacío en Drawer */
+.drawer-empty-state {
+  text-align: center;
+  padding: var(--space-3xl) var(--space-md);
+  color: var(--text-muted);
+  margin: auto;
+}
+
+.drawer-empty-icon {
+  font-size: 2.2rem;
+  margin-bottom: var(--space-sm);
+  opacity: 0.6;
+}
+
+.drawer-empty-text {
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}
+
+/* Pie del Drawer con Acciones */
+.drawer-footer {
+  padding: var(--space-md) var(--space-xl);
+  border-top: 1px solid var(--border-subtle);
+  background-color: var(--bg-surface-elevated);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}

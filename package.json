@@ -1,0 +1,24 @@
+{
+  "name": "espacio-matching-mobiliario",
+  "version": "1.0.0",
+  "description": "Plataforma web de recomendación y matching arquitectónico de mobiliario de autor con aprendizaje adaptativo en tiempo real.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "furniture-matching",
+    "architecture",
+    "interior-design",
+    "recommendation-system",
+    "vanilla-js",
+    "vite"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^8.3.4"
+  }
+}

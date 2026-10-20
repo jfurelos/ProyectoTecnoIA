@@ -1,0 +1,179 @@
+/* ==========================================================================
+   DESIGN TOKENS - ARCHITECTURAL & AUTUMNAL FURNITURE MATCHING SYSTEM
+   ========================================================================== */
+
+:root {
+  /* Active Theme Identifier */
+  --theme-name: "Otoño Cálido";
+
+  /* Canvas & Surface Colors (Warm Architectural Neutrals) */
+  --bg-canvas: #f8f6f0;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #fcfbf8;
+  --bg-surface-muted: #f2eee6;
+  --bg-card: #fdfcf9;
+  --bg-overlay: rgba(28, 26, 24, 0.65);
+
+  /* Borders & Architectural Drafting Lines */
+  --border-subtle: #e6e0d4;
+  --border-default: #d8d0c2;
+  --border-strong: #9e9587;
+  --border-dashed: #c8c0b0;
+
+  /* Typography Colors */
+  --text-primary: #211e1b;
+  --text-secondary: #5e5950;
+  --text-muted: #8c8476;
+  --text-inverse: #fbf9f5;
+
+  /* Autumnal Accent Palette */
+  --autumn-terracotta: #b85433;
+  --autumn-terracotta-hover: #9c4326;
+  --autumn-terracotta-soft: rgba(184, 84, 51, 0.12);
+
+  --autumn-sienna: #c67a38;
+  --autumn-sienna-soft: rgba(198, 122, 56, 0.14);
+
+  --autumn-ochre: #d49842;
+  --autumn-ochre-soft: rgba(212, 152, 66, 0.14);
+
+  --autumn-olive: #5f664e;
+  --autumn-olive-soft: rgba(95, 102, 78, 0.14);
+
+  --autumn-walnut: #4a382e;
+  --autumn-walnut-soft: rgba(74, 56, 46, 0.12);
+
+  --autumn-sand: #e8dec8;
+  --autumn-bone: #f2eee5;
+
+  /* Functional / Status Colors */
+  --color-success: #436d4e;
+  --color-success-bg: rgba(67, 109, 78, 0.12);
+  --color-danger: #a23838;
+  --color-danger-bg: rgba(162, 56, 56, 0.1);
+  --color-info: #355f75;
+  --color-info-bg: rgba(53, 95, 117, 0.12);
+
+  /* Typography Scale */
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+  --text-xs: 0.72rem;
+  --text-sm: 0.84rem;
+  --text-base: 0.95rem;
+  --text-md: 1.05rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.55rem;
+  --text-2xl: 1.95rem;
+  --text-3xl: 2.6rem;
+  --text-4xl: 3.4rem;
+
+  --leading-tight: 1.15;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.65;
+
+  /* Spacing Scale */
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+
+  /* Architectural Geometries & Radii */
+  --radius-xs: 3px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 9999px;
+
+  /* Subtle Architectural Elevation Shadows */
+  --shadow-subtle: 0 1px 3px rgba(33, 30, 27, 0.04), 0 2px 8px rgba(33, 30, 27, 0.03);
+  --shadow-card: 0 4px 16px rgba(45, 38, 30, 0.06), 0 1px 4px rgba(45, 38, 30, 0.04);
+  --shadow-hover: 0 12px 32px rgba(45, 38, 30, 0.1), 0 2px 8px rgba(45, 38, 30, 0.06);
+  --shadow-drawer: -8px 0 32px rgba(28, 24, 20, 0.12);
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.2, 0, 0, 1);
+  --transition-normal: 260ms cubic-bezier(0.2, 0, 0, 1);
+  --transition-smooth: 400ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Maximum Content Width */
+  --container-max: 1360px;
+}
+
+/* ==========================================================================
+   THEME VARIANTS (FLEXIBILITY EN DEMOSTRACIÓN)
+   ========================================================================== */
+
+/* Theme: Nórdico Claro & Caliza */
+[data-theme="nordic-light"] {
+  --theme-name: "Nórdico Claro";
+  --bg-canvas: #f4f5f7;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #fafbfc;
+  --bg-surface-muted: #eaedf2;
+  --bg-card: #ffffff;
+  --border-subtle: #dfe3ea;
+  --border-default: #cbd2de;
+  --border-strong: #8591a5;
+  --text-primary: #19202c;
+  --text-secondary: #4a5568;
+  --text-muted: #79869b;
+  --autumn-terracotta: #486581;
+  --autumn-terracotta-hover: #334e68;
+  --autumn-terracotta-soft: rgba(72, 101, 129, 0.12);
+  --autumn-sienna: #627d98;
+  --autumn-ochre: #829ab1;
+  --autumn-olive: #3e6b5c;
+}
+
+/* Theme: Terracota & Roble Oscuro */
+[data-theme="terracotta-dark"] {
+  --theme-name: "Terracota & Roble";
+  --bg-canvas: #26211e;
+  --bg-surface: #2f2a26;
+  --bg-surface-elevated: #37312c;
+  --bg-surface-muted: #3d3630;
+  --bg-card: #322c28;
+  --bg-overlay: rgba(14, 12, 11, 0.8);
+  --border-subtle: #453d36;
+  --border-default: #5a5047;
+  --border-strong: #807266;
+  --text-primary: #f6f3ee;
+  --text-secondary: #cdc3b7;
+  --text-muted: #9c9184;
+  --autumn-terracotta: #d96f4c;
+  --autumn-terracotta-hover: #ea7f5c;
+  --autumn-terracotta-soft: rgba(217, 111, 76, 0.22);
+  --autumn-sienna: #e09453;
+  --autumn-ochre: #e8b065;
+  --autumn-olive: #8a9675;
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.3);
+  --shadow-hover: 0 12px 36px rgba(0, 0, 0, 0.45);
+}
+
+/* Theme: Minimalismo Ceniza & Oliva */
+[data-theme="minimal-olive"] {
+  --theme-name: "Ceniza & Oliva";
+  --bg-canvas: #edece8;
+  --bg-surface: #f7f6f4;
+  --bg-surface-elevated: #faf9f7;
+  --bg-surface-muted: #e2e0da;
+  --bg-card: #fbfbfa;
+  --border-subtle: #d3d1c9;
+  --border-default: #bebbb1;
+  --border-strong: #7d796e;
+  --text-primary: #1e201d;
+  --text-secondary: #50544d;
+  --text-muted: #7c8278;
+  --autumn-terracotta: #526046;
+  --autumn-terracotta-hover: #3f4c34;
+  --autumn-terracotta-soft: rgba(82, 96, 70, 0.15);
+  --autumn-sienna: #758367;
+  --autumn-ochre: #9ba88d;
+  --autumn-olive: #48573d;
+}

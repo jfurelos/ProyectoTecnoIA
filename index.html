@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="autumn-default">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ESPACIO · Matching Arquitectónico de Mobiliario</title>
+  <meta name="description" content="Plataforma de recomendación y matching arquitectónico de mobiliario de autor con aprendizaje adaptativo en tiempo real.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
+  
+  <!-- Estilos de la Aplicación -->
+  <link rel="stylesheet" href="./src/styles/tokens.css">
+  <link rel="stylesheet" href="./src/styles/base.css">
+  <link rel="stylesheet" href="./src/styles/components/navbar.css">
+  <link rel="stylesheet" href="./src/styles/components/hud.css">
+  <link rel="stylesheet" href="./src/styles/components/onboarding.css">
+  <link rel="stylesheet" href="./src/styles/components/feed.css">
+  <link rel="stylesheet" href="./src/styles/components/drawer.css">
+  <link rel="stylesheet" href="./src/styles/components/modal.css">
+  <link rel="stylesheet" href="./src/styles/components/auth.css">
+</head>
+<body>
+
+  <!-- ==================== HEADER ARQUITECTÓNICO ==================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <a href="#" class="brand-group" id="brand-home-link" aria-label="Inicio">
+        <span class="brand-symbol">E</span>
+        <div>
+          <span class="brand-title">ESPACIO</span>
+          <span class="brand-tag">Matching Arquitectónico</span>
+        </div>
+      </a>
+
+      <div class="header-actions">
+        <!-- Selector de Estilo / Tema (Flexibilidad de Diseño) -->
+        <div class="theme-selector-wrap" title="Cambiar tema visual">
+          <label for="theme-selector">Estilo:</label>
+          <select id="theme-selector" class="theme-select" aria-label="Seleccionar tema visual">
+            <option value="autumn-default">Otoño Cálido</option>
+            <option value="nordic-light">Nórdico Claro</option>
+            <option value="terracotta-dark">Terracota & Roble</option>
+            <option value="minimal-olive">Ceniza & Oliva</option>
+          </select>
+        </div>
+
+        <!-- Importar Catálogo CSV -->
+        <button id="btn-open-csv" class="btn btn-outline btn-sm" title="Importar muebles desde archivo CSV">
+          <span>📁</span>
+          <span>Importar CSV</span>
+        </button>
+
+        <!-- Reiniciar Onboarding -->
+        <button id="btn-restart-onboarding" class="btn btn-ghost btn-sm" title="Volver a configurar mis preferencias">
+          <span>⚙️</span>
+          <span>Preferencias</span>
+        </button>
+
+        <!-- Sistema de Cuentas: Menú de Usuario -->
+        <div class="user-menu-wrap" id="user-menu-wrap">
+          <button id="btn-user-trigger" class="btn-user-trigger" aria-label="Cuenta de usuario">
+            <span class="user-avatar-badge" id="user-avatar-badge">👤</span>
+            <span id="user-display-name">Iniciar Sesión</span>
+            <span class="user-caret">▼</span>
+          </button>
+          
+          <div class="user-dropdown-menu" id="user-dropdown-menu">
+            <div class="user-dropdown-header">
+              <div class="user-dropdown-name" id="dropdown-user-name">Invitado</div>
+              <div class="user-dropdown-meta" id="dropdown-user-meta">Sin cuenta activa</div>
+            </div>
+            <button class="user-dropdown-item" id="dropdown-btn-auth">
+              <span>🔑</span>
+              <span id="dropdown-auth-text">Iniciar Sesión / Registrarse</span>
+            </button>
+            <button class="user-dropdown-item" id="dropdown-btn-preferences">
+              <span>⚙️</span>
+              <span>Modificar Preferencias</span>
+            </button>
+            <button class="user-dropdown-item danger" id="dropdown-btn-logout" style="display: none;">
+              <span>🚪</span>
+              <span>Cerrar Sesión</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Botón Desplegar Cesta (anteriormente Mi Proyecto) -->
+        <button id="btn-toggle-project" class="btn-project-trigger" aria-label="Ver muebles en la cesta">
+          <span>🧺 Cesta</span>
+          <span id="project-count-badge" class="project-count-badge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== LIVING PROFILE HUD (APRENDIZAJE EN VIVO) ==================== -->
+  <section class="living-profile-hud" id="living-profile-hud" aria-label="Panel de aprendizaje dinámico">
+    <div class="container hud-container">
+      <div class="hud-status-badge">
+        <div class="pulsing-dot" aria-hidden="true"></div>
+        <div>
+          <div class="hud-title">ADN de tu Espacio</div>
+          <div class="hud-subtitle" id="hud-learning-status">Aprendiendo de tus elecciones en vivo</div>
+        </div>
+      </div>
+
+      <div class="hud-metrics">
+        <!-- Desglose de Estilos -->
+        <div class="hud-style-bars" id="hud-style-bars">
+          <!-- Inyectado con JS -->
+        </div>
+
+        <!-- Paleta Dominante -->
+        <div class="hud-palette-group" id="hud-palette-group" title="Muestras cromáticas activas en tu perfil">
+          <!-- Inyectado con JS -->
+        </div>
+
+        <!-- Monitor de Presupuesto -->
+        <div class="hud-budget-group">
+          <div class="hud-budget-text">
+            <span class="hud-budget-title">Presupuesto</span>
+            <span class="hud-budget-amount" id="hud-budget-text">0 € / 4.500 €</span>
+          </div>
+          <div class="hud-budget-meter" title="Consumo de presupuesto">
+            <div id="hud-budget-meter-fill" class="hud-budget-meter-fill" style="width: 0%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTENIDO PRINCIPAL: FEED DE RECOMENDACIONES ==================== -->
+  <main class="feed-section">
+    <div class="container">
+      <!-- Barra de Filtros, Búsqueda y Ordenación -->
+      <div class="feed-toolbar">
+        <div class="toolbar-primary">
+          <div class="feed-header-info">
+            <h1 class="font-editorial" id="feed-room-title">Recomendaciones para tu Espacio</h1>
+            <p class="feed-stats-text" id="feed-stats-text">Calculando afinidad vectorial con piezas catalogadas</p>
+          </div>
+
+          <div class="toolbar-controls">
+            <!-- Buscador -->
+            <div class="search-input-wrap">
+              <span class="search-icon">🔍</span>
+              <input type="text" id="feed-search-input" class="search-input" placeholder="Buscar por pieza, material o estilo...">
+            </div>
+
+            <!-- Ordenación -->
+            <select id="feed-sort-select" class="sort-select" aria-label="Ordenar recomendaciones">
+              <option value="match-desc">Mayor Coincidencia (% Match)</option>
+              <option value="price-asc">Precio: más accesible primero</option>
+              <option value="price-desc">Precio: mayor valor primero</option>
+              <option value="width-desc">Dimensiones: mayor tamaño</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Filtros por Categoría -->
+        <div class="category-filter-pills" id="category-filter-pills" role="tablist">
+          <button class="filter-pill active" data-category="all">Todos los Muebles</button>
+          <button class="filter-pill" data-category="Asientos">Asientos & Sofás</button>
+          <button class="filter-pill" data-category="Mesas">Mesas & Escritorios</button>
+          <button class="filter-pill" data-category="Almacenaje">Almacenaje & Librerías</button>
+          <button class="filter-pill" data-category="Iluminación">Iluminación</button>
+          <button class="filter-pill" data-category="Dormitorio">Dormitorio</button>
+          <button class="filter-pill" data-category="Accesorios">Accesorios & Textil</button>
+        </div>
+      </div>
+
+      <!-- Cuadrícula de Muebles Recomendados -->
+      <div class="furniture-grid" id="furniture-grid" aria-live="polite">
+        <!-- Inyectado con JS -->
+      </div>
+    </div>
+  </main>
+
+  <!-- ==================== DRAWER LATERAL: CESTA (ANTES MI PROYECTO) ==================== -->
+  <div id="project-drawer-overlay" class="project-drawer-overlay" aria-hidden="true"></div>
+  <aside id="project-drawer" class="project-drawer" aria-label="Panel Cesta de Mobiliario" role="dialog">
+    <div class="drawer-header">
+      <div>
+        <h2 class="drawer-header-title">Tu Cesta</h2>
+        <span class="drawer-header-subtitle" id="drawer-subtitle">0 muebles en la cesta</span>
+      </div>
+      <button id="btn-close-drawer" class="btn-close-drawer" aria-label="Cerrar cesta">✕</button>
+    </div>
+
+    <!-- Resumen de Presupuesto de la Cesta -->
+    <div class="drawer-budget-overview">
+      <div class="drawer-budget-row">
+        <span class="drawer-budget-label">Total en Cesta:</span>
+        <span class="drawer-budget-val" id="drawer-spent-val">0 €</span>
+      </div>
+      <div class="drawer-budget-row">
+        <span class="drawer-budget-label">Presupuesto Límite:</span>
+        <span class="drawer-budget-remaining" id="drawer-remaining-val">Restante: 4.500 €</span>
+      </div>
+      <div class="drawer-budget-bar-track">
+        <div id="drawer-budget-bar-fill" class="drawer-budget-bar-fill" style="width: 0%;"></div>
+      </div>
+    </div>
+
+    <!-- Lista de Piezas en la Cesta -->
+    <div class="drawer-content" id="drawer-items-list">
+      <!-- Inyectado con JS -->
+    </div>
+
+    <!-- Acciones de la Cesta -->
+    <div class="drawer-footer">
+      <button id="btn-export-project" class="btn btn-primary" style="width: 100%;">
+        <span>📋</span>
+        <span>Descargar Resumen de la Cesta</span>
+      </button>
+      <button id="btn-clear-project" class="btn btn-ghost btn-sm" style="width: 100%;">
+        Vaciar cesta actual
+      </button>
+    </div>
+  </aside>
+
+  <!-- ==================== MODAL DE AUTENTICACIÓN Y CUENTAS ==================== -->
+  <div id="auth-modal-overlay" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-container" style="max-width: 440px;">
+      <div class="modal-header">
+        <h3 class="modal-title font-editorial">Cuenta de Usuario</h3>
+        <button id="btn-close-auth-modal" class="btn-close-drawer" aria-label="Cerrar modal">✕</button>
+      </div>
+
+      <!-- Pestañas Iniciar Sesión / Crear Cuenta -->
+      <div class="auth-tabs">
+        <button class="auth-tab-btn active" id="tab-login" data-tab="login">Iniciar Sesión</button>
+        <button class="auth-tab-btn" id="tab-register" data-tab="register">Crear Cuenta</button>
+      </div>
+
+      <div class="auth-form-wrap">
+        <!-- Alerta de Error -->
+        <div class="auth-error-alert" id="auth-error-alert"></div>
+
+        <form id="auth-form" onsubmit="return false;">
+          <div class="form-group">
+            <label for="auth-username" class="form-label">Nombre de Usuario</label>
+            <input type="text" id="auth-username" class="form-input" placeholder="ej. Carlos_Arquitectura" autocomplete="username" required>
+          </div>
+
+          <div class="form-group" style="margin-top: var(--space-md);">
+            <label for="auth-password" class="form-label">Contraseña</label>
+            <input type="password" id="auth-password" class="form-input" placeholder="••••••••" autocomplete="current-password" required>
+          </div>
+
+          <!-- Campo solo visible en Registro -->
+          <div class="form-group" id="group-confirm-password" style="margin-top: var(--space-md); display: none;">
+            <label for="auth-confirm-password" class="form-label">Confirmar Contraseña</label>
+            <input type="password" id="auth-confirm-password" class="form-input" placeholder="••••••••" autocomplete="new-password">
+          </div>
+
+          <button type="submit" id="btn-auth-submit" class="btn btn-terracotta" style="width: 100%; margin-top: var(--space-lg);">
+            Iniciar Sesión
+          </button>
+        </form>
+
+        <p class="auth-helper-text">
+          <span id="auth-switch-prompt">¿No tienes cuenta todavía?</span>
+          <a class="auth-switch-link" id="auth-switch-link">Regístrate aquí</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== ONBOARDING MODAL (OPCIÓN A) ==================== -->
+  <div id="onboarding-overlay" class="onboarding-overlay" role="dialog" aria-modal="true">
+    <div class="onboarding-card">
+      <div class="onboarding-header">
+        <div class="onboarding-stepper">
+          <span class="step-indicator" id="onboarding-step-text">Paso 1 de 4</span>
+          <div class="step-dots">
+            <span class="step-dot active" data-step="1"></span>
+            <span class="step-dot" data-step="2"></span>
+            <span class="step-dot" data-step="3"></span>
+            <span class="step-dot" data-step="4"></span>
+          </div>
+        </div>
+        <h2 class="onboarding-title" id="onboarding-title">Configura tu Espacio Arquitectónico</h2>
+        <p class="onboarding-subtitle" id="onboarding-subtitle">Definamos los cimientos de tu estancia para personalizar las recomendaciones.</p>
+      </div>
+
+      <div class="onboarding-body">
+        <!-- Paso 1: Estancia -->
+        <div class="step-content active" id="step-1">
+          <div class="choice-grid" id="room-choice-grid">
+            <!-- Inyectado por JS -->
+          </div>
+        </div>
+
+        <!-- Paso 2: Estilo Base con Moodboards -->
+        <div class="step-content" id="step-2">
+          <div class="choice-grid-moodboard" id="style-choice-grid">
+            <!-- Inyectado por JS -->
+          </div>
+        </div>
+
+        <!-- Paso 3: Presupuesto Estimado -->
+        <div class="step-content" id="step-3">
+          <div class="budget-picker-wrap">
+            <div class="budget-presets" id="budget-presets-grid">
+              <div class="budget-preset-card" data-budget="2000">
+                <div class="budget-preset-amount">2.000 €</div>
+                <div class="budget-preset-label">Esencial</div>
+              </div>
+              <div class="budget-preset-card selected" data-budget="4500">
+                <div class="budget-preset-amount">4.500 €</div>
+                <div class="budget-preset-label">Estudio de Autor</div>
+              </div>
+              <div class="budget-preset-card" data-budget="8000">
+                <div class="budget-preset-amount">8.000 €</div>
+                <div class="budget-preset-label">Integral Premium</div>
+              </div>
+            </div>
+
+            <div class="budget-slider-box">
+              <div class="budget-slider-header">
+                <span class="technical-label">Presupuesto Personalizado</span>
+                <span class="budget-slider-display" id="budget-slider-display">4.500 €</span>
+              </div>
+              <input type="range" id="budget-slider" class="budget-range-input" min="1000" max="15000" step="250" value="4500">
+            </div>
+          </div>
+        </div>
+
+        <!-- Paso 4: Paleta Cromática Inicial -->
+        <div class="step-content" id="step-4">
+          <div class="choice-grid" id="palette-choice-grid">
+            <!-- Inyectado por JS -->
+          </div>
+        </div>
+      </div>
+
+      <div class="onboarding-footer">
+        <button id="btn-onboarding-prev" class="btn btn-outline" style="visibility: hidden;">Anterior</button>
+        <button id="btn-onboarding-next" class="btn btn-terracotta">Siguiente paso</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL IMPORTAR CATÁLOGO CSV ==================== -->
+  <div id="csv-modal-overlay" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title font-editorial">Importar Catálogo de Muebles CSV</h3>
+        <button id="btn-close-csv-modal" class="btn-close-drawer" aria-label="Cerrar modal">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <p style="margin-bottom: var(--space-md); font-size: var(--text-sm);">
+          Carga un archivo CSV con tus propios muebles (dimensiones, nombre, precio, estilo, color, etc.). El sistema normalizará las columnas automáticamente.
+        </p>
+
+        <!-- Dropzone -->
+        <div id="csv-dropzone" class="csv-dropzone">
+          <div class="dropzone-icon">📥</div>
+          <div class="dropzone-title">Arrastra tu archivo CSV aquí</div>
+          <div class="dropzone-desc">o haz clic para seleccionar desde tu equipo</div>
+          <input type="file" id="csv-file-input" accept=".csv,text/csv" style="display: none;">
+        </div>
+
+        <!-- Resumen de previsualización -->
+        <div id="csv-preview-box" class="csv-preview-box">
+          <div class="csv-preview-title">Resultado del Análisis</div>
+          <div id="csv-stats-summary" class="csv-stats-summary">0 piezas preparadas para importación</div>
+        </div>
+
+        <div style="display: flex; gap: var(--space-sm); align-items: center; flex-wrap: wrap;">
+          <button id="btn-download-sample-csv" class="btn btn-outline btn-sm">
+            <span>📄</span>
+            <span>Descargar Plantilla CSV de Muestra</span>
+          </button>
+          <button id="btn-restore-default-catalog" class="btn btn-ghost btn-sm">
+            Restaurar catálogo por defecto
+          </button>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button id="btn-cancel-csv" class="btn btn-outline">Cancelar</button>
+        <button id="btn-confirm-csv" class="btn btn-terracotta" disabled>Cargar Catálogo</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contenedor Flotante de Toasts -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- Script Principal -->
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
