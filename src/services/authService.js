@@ -48,9 +48,10 @@ export class AuthService {
   /**
    * Registra una nueva cuenta comprobando duplicidad y requisitos
    */
-  static register(username, password, confirmPassword) {
+  static register(username, password, confirmPassword, tasteDescription = "") {
     const cleanUsername = (username || "").trim();
     const cleanPassword = (password || "").trim();
+    const cleanTasteDescription = (tasteDescription || "").trim();
 
     // 1. Validaciones de nombre de usuario
     if (!cleanUsername) {
@@ -89,6 +90,7 @@ export class AuthService {
       id: "usr-" + Date.now().toString(36) + Math.random().toString(36).substring(2, 6),
       username: cleanUsername,
       password: cleanPassword,
+      tasteDescription: cleanTasteDescription,
       createdAt: new Date().toISOString(),
       profile: {
         userName: cleanUsername,
@@ -185,9 +187,9 @@ export class AuthService {
   }
 
   /**
-   * Guarda los datos actualizados del usuario (perfil, cesta, rechazados)
+   * Guarda los datos actualizados del usuario (perfil, cesta, rechazados, gustos RAG)
    */
-  static syncCurrentUserData(profileData, cestaIds, rejectedIds) {
+  static syncCurrentUserData(profileData, cestaIds = [], rejectedIds = [], tasteDescription = null) {
     const currentUser = this.getCurrentUser();
     if (!currentUser) return;
 
@@ -198,6 +200,9 @@ export class AuthService {
       users[index].profile = { ...users[index].profile, ...profileData };
       users[index].cestaIds = [...cestaIds];
       users[index].rejectedIds = [...rejectedIds];
+      if (tasteDescription !== null && tasteDescription !== undefined) {
+        users[index].tasteDescription = tasteDescription;
+      }
       this.saveUsers(users);
     }
   }

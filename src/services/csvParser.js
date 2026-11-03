@@ -97,7 +97,7 @@ export class CsvCatalogParser {
    */
   static mapHeaders(headers) {
     const findHeader = (candidates) => {
-      return headers.find(h => candidates.some(c => h.includes(c))) || null;
+      return headers.find(h => candidates.some(c => c.length <= 2 ? h === c : h.includes(c))) || null;
     };
 
     return {

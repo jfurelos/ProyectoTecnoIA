@@ -7,10 +7,27 @@ const STORAGE_KEYS = {
   PROFILE: "arch_furniture_profile",
   CATALOG: "arch_furniture_catalog",
   THEME: "arch_furniture_theme",
-  ONBOARDING_DONE: "arch_furniture_onboarding_done"
+  ONBOARDING_DONE: "arch_furniture_onboarding_done",
+  TASTE_DESCRIPTION: "arch_furniture_taste_description"
 };
 
 export class StorageService {
+  static saveTasteDescription(desc) {
+    try {
+      localStorage.setItem(STORAGE_KEYS.TASTE_DESCRIPTION, desc || "");
+    } catch (e) {
+      console.warn("No se pudo guardar la descripción de gustos en localStorage:", e);
+    }
+  }
+
+  static getTasteDescription() {
+    try {
+      return localStorage.getItem(STORAGE_KEYS.TASTE_DESCRIPTION) || "";
+    } catch (e) {
+      return "";
+    }
+  }
+
   static saveProfile(profile) {
     try {
       localStorage.setItem(STORAGE_KEYS.PROFILE, JSON.stringify(profile));

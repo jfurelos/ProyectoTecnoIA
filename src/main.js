@@ -4,10 +4,14 @@
  */
 
 import { INITIAL_FURNITURE_DATA, ROOM_OPTIONS, STYLE_OPTIONS, PALETTE_OPTIONS } from './data/furnitureData.js';
+import { FURNITURE_CATALOG_RAG } from './data/furnitureCatalogRAG.js';
 import { MatchingEngine } from './services/matchingEngine.js';
+import { RagEngine } from './services/ragEngine.js';
 import { CsvCatalogParser } from './services/csvParser.js';
 import { StorageService } from './services/storage.js';
 import { AuthService } from './services/authService.js';
+import { DatabaseAdapter } from './services/dbAdapter.js';
+import { CheckoutService } from './services/checkoutService.js';
 
 // ==========================================================================
 // ESTADO GLOBAL DE LA APLICACIÓN
@@ -17,11 +21,21 @@ class AppState {
     // 1. Usuario actual
     this.currentUser = AuthService.getCurrentUser();
 
-    // 2. Catálogo de Muebles
+    // 2. Catálogo de Muebles (usa el catálogo extendido RAG de 130+ piezas si no hay uno guardado)
     const savedCatalog = StorageService.getCatalog();
-    this.catalog = savedCatalog && savedCatalog.length > 0 ? savedCatalog : [...INITIAL_FURNITURE_DATA];
+    this.catalog = savedCatalog && savedCatalog.length > 20 
+      ? savedCatalog 
+      : [...FURNITURE_CATALOG_RAG];
 
-    // 3. Perfil del Usuario & Motor de Matching
+    // 3. Motor RAG Semántico (Indexa el catálogo actual)
+    this.ragEngine = new RagEngine(this.catalog);
+
+    // 4. Descripción de Gustos en Lenguaje Natural (RAG)
+    this.tasteDescription = (this.currentUser && this.currentUser.tasteDescription)
+      ? this.currentUser.tasteDescription
+      : StorageService.getTasteDescription() || "";
+
+    // 5. Perfil del Usuario & Motor de Matching
     let profileData = null;
     if (this.currentUser && this.currentUser.profile) {
       profileData = {
@@ -34,12 +48,12 @@ class AppState {
     }
     this.matchingEngine = new MatchingEngine(profileData);
 
-    // 4. Filtros y Búsqueda del Feed
+    // 6. Filtros y Búsqueda del Feed
     this.filterCategory = "all";
     this.searchQuery = "";
     this.sortOption = "match-desc";
 
-    // 5. Estado de Onboarding (Opción A)
+    // 7. Estado de Onboarding (Opción A)
     this.onboardingStep = 1;
     this.onboardingSelections = {
       room: this.matchingEngine.profile.room || "salón",
@@ -48,45 +62,51 @@ class AppState {
       palette: this.matchingEngine.profile.preferredPalette || "terracota"
     };
 
-    // 6. CSV Temporal para previsualización
+    // 8. CSV Temporal para previsualización
     this.pendingCsvItems = null;
 
-    // 7. Tema Activo
+    // 9. Tema Activo
     this.theme = StorageService.getTheme() || "autumn-default";
 
-    // 8. Estado del modal de autenticación
+    // 10. Estado del modal de autenticación y checkout
     this.authMode = "login"; // "login" o "register"
+    this.selectedPaymentMethod = "Tarjeta Bancaria";
   }
 
   save() {
     StorageService.saveCatalog(this.catalog);
     StorageService.saveProfile(this.matchingEngine.profile);
     StorageService.saveTheme(this.theme);
+    StorageService.saveTasteDescription(this.tasteDescription);
 
-    // Sincronizar en la cuenta del usuario si ha iniciado sesión
-    if (this.currentUser) {
-      AuthService.syncCurrentUserData(
-        this.matchingEngine.profile,
-        this.matchingEngine.profile.acceptedIds,
-        this.matchingEngine.profile.rejectedIds
-      );
-    }
+    // Sincronizar en la capa de datos híbrida (LocalStorage y Firestore si está activo)
+    DatabaseAdapter.syncUserData(
+      this.matchingEngine.profile,
+      this.matchingEngine.profile.acceptedIds,
+      this.matchingEngine.profile.rejectedIds,
+      this.tasteDescription
+    );
   }
 
   loadUser(user) {
     this.currentUser = user;
-    if (user && user.profile) {
-      this.matchingEngine = new MatchingEngine({
-        ...user.profile,
-        acceptedIds: user.cestaIds || [],
-        rejectedIds: user.rejectedIds || []
-      });
-      this.onboardingSelections = {
-        room: this.matchingEngine.profile.room || "salón",
-        style: this.matchingEngine.profile.preferredStyle || "Japandi",
-        budget: this.matchingEngine.profile.budget || 4500,
-        palette: this.matchingEngine.profile.preferredPalette || "terracota"
-      };
+    if (user) {
+      if (user.tasteDescription !== undefined) {
+        this.tasteDescription = user.tasteDescription || "";
+      }
+      if (user.profile) {
+        this.matchingEngine = new MatchingEngine({
+          ...user.profile,
+          acceptedIds: user.cestaIds || [],
+          rejectedIds: user.rejectedIds || []
+        });
+        this.onboardingSelections = {
+          room: this.matchingEngine.profile.room || "salón",
+          style: this.matchingEngine.profile.preferredStyle || "Japandi",
+          budget: this.matchingEngine.profile.budget || 4500,
+          palette: this.matchingEngine.profile.preferredPalette || "terracota"
+        };
+      }
     }
     this.save();
   }
@@ -104,8 +124,11 @@ document.addEventListener("DOMContentLoaded", () => {
   initToolbarAndFilters();
   initCestaDrawer();
   initCsvModal();
+  initVisionModal();
+  initCheckoutAndTicket();
   updateUserHeaderDisplay();
   updateLivingProfileHud();
+  updateVisionBannerDisplay();
   renderFeed();
 
   // Si no hay usuario y no se ha completado el onboarding previamente, mostrarlo al inicio (Opción A)
@@ -196,15 +219,28 @@ function initAuthSystem() {
     });
   }
 
+  // Click en chips de sugerencias del registro
+  const regChips = document.querySelectorAll("#group-taste-description .taste-chip");
+  regChips.forEach(chip => {
+    chip.addEventListener("click", () => {
+      const tasteInput = document.getElementById("auth-taste-desc");
+      if (tasteInput) {
+        tasteInput.value = chip.getAttribute("data-text");
+      }
+    });
+  });
+
   // Cerrar sesión
   if (dropdownBtnLogout) {
     dropdownBtnLogout.addEventListener("click", () => {
       AuthService.logout();
       state.currentUser = null;
+      state.tasteDescription = "";
       state.matchingEngine = new MatchingEngine();
       state.save();
       updateUserHeaderDisplay();
       updateLivingProfileHud();
+      updateVisionBannerDisplay();
       renderFeed();
       if (dropdown) dropdown.classList.remove("open");
       showToast("Has cerrado sesión. Navegando como invitado.");
@@ -237,15 +273,17 @@ function initAuthSystem() {
       const usernameInput = document.getElementById("auth-username");
       const passwordInput = document.getElementById("auth-password");
       const confirmInput = document.getElementById("auth-confirm-password");
+      const tasteInput = document.getElementById("auth-taste-desc");
 
       const username = usernameInput ? usernameInput.value : "";
       const password = passwordInput ? passwordInput.value : "";
       const confirmPassword = confirmInput ? confirmInput.value : "";
+      const tasteDescription = tasteInput ? tasteInput.value : "";
 
       if (errorAlert) errorAlert.classList.remove("visible");
 
       if (state.authMode === "register") {
-        const result = AuthService.register(username, password, confirmPassword);
+        const result = AuthService.register(username, password, confirmPassword, tasteDescription);
         if (!result.success) {
           showAuthError(result.error);
           return;
@@ -254,6 +292,7 @@ function initAuthSystem() {
         closeAuthModal();
         updateUserHeaderDisplay();
         updateLivingProfileHud();
+        updateVisionBannerDisplay();
         renderFeed();
         showToast(`¡Cuenta creada con éxito! Bienvenido, ${result.user.username}.`);
         // Abrir onboarding para configurar preferencias del nuevo usuario
@@ -268,6 +307,7 @@ function initAuthSystem() {
         closeAuthModal();
         updateUserHeaderDisplay();
         updateLivingProfileHud();
+        updateVisionBannerDisplay();
         renderFeed();
         showToast(`Sesión iniciada. Bienvenido de nuevo, ${result.user.username}.`);
       }
@@ -285,6 +325,7 @@ function initAuthSystem() {
     const tabLog = document.getElementById("tab-login");
     const tabReg = document.getElementById("tab-register");
     const groupConfirm = document.getElementById("group-confirm-password");
+    const groupTaste = document.getElementById("group-taste-description");
     const submitBtn = document.getElementById("btn-auth-submit");
     const switchPrompt = document.getElementById("auth-switch-prompt");
     const switchLnk = document.getElementById("auth-switch-link");
@@ -296,6 +337,7 @@ function initAuthSystem() {
       if (tabReg) tabReg.classList.add("active");
       if (tabLog) tabLog.classList.remove("active");
       if (groupConfirm) groupConfirm.style.display = "flex";
+      if (groupTaste) groupTaste.style.display = "block";
       if (submitBtn) submitBtn.textContent = "Crear Cuenta de Usuario";
       if (switchPrompt) switchPrompt.textContent = "¿Ya tienes cuenta?";
       if (switchLnk) switchLnk.textContent = "Inicia sesión aquí";
@@ -303,6 +345,7 @@ function initAuthSystem() {
       if (tabLog) tabLog.classList.add("active");
       if (tabReg) tabReg.classList.remove("active");
       if (groupConfirm) groupConfirm.style.display = "none";
+      if (groupTaste) groupTaste.style.display = "none";
       if (submitBtn) submitBtn.textContent = "Iniciar Sesión";
       if (switchPrompt) switchPrompt.textContent = "¿No tienes cuenta todavía?";
       if (switchLnk) switchLnk.textContent = "Regístrate aquí";
@@ -317,6 +360,20 @@ function updateUserHeaderDisplay() {
   const dropdownMeta = document.getElementById("dropdown-user-meta");
   const dropdownAuthText = document.getElementById("dropdown-auth-text");
   const dropdownBtnLogout = document.getElementById("dropdown-btn-logout");
+  const cloudBadge = document.getElementById("cloud-status-badge");
+  const cloudText = document.getElementById("cloud-status-text");
+
+  // Estado de conexión a la nube / Firebase
+  if (cloudBadge && cloudText) {
+    const isCloud = DatabaseAdapter.isCloudMode();
+    if (isCloud) {
+      cloudBadge.classList.add("connected");
+      cloudText.textContent = "Firebase Cloud";
+    } else {
+      cloudBadge.classList.remove("connected");
+      cloudText.textContent = "Almacenamiento Local";
+    }
+  }
 
   if (state.currentUser) {
     const name = state.currentUser.username;
@@ -667,11 +724,36 @@ function renderFeed() {
     });
   }
 
-  const scoredItems = items.map(item => {
-    const score = state.matchingEngine.calculateScore(item);
-    const matchReason = state.matchingEngine.generateMatchReason(item, score);
-    return { ...item, score, matchReason };
-  });
+  const hasRagVision = Boolean(state.tasteDescription && state.tasteDescription.trim().length > 2);
+  let scoredItems = [];
+
+  if (hasRagVision) {
+    const ragResults = state.ragEngine.searchAndRerank({
+      userTasteDescription: state.tasteDescription,
+      targetRoom: state.matchingEngine.profile.room,
+      budgetTotal: state.matchingEngine.profile.budget,
+      budgetSpent: state.matchingEngine.profile.spent,
+      preferredStyle: state.matchingEngine.profile.preferredStyle,
+      preferredPalette: state.matchingEngine.profile.preferredPalette,
+      topK: 0
+    });
+
+    const itemMap = new Map(items.map(it => [it.id, it]));
+    scoredItems = ragResults
+      .filter(r => itemMap.has(r.id))
+      .map(r => ({
+        ...itemMap.get(r.id),
+        score: r.score,
+        matchReason: r.matchReason,
+        semanticCosine: r.semanticCosine
+      }));
+  } else {
+    scoredItems = items.map(item => {
+      const score = state.matchingEngine.calculateScore(item);
+      const matchReason = state.matchingEngine.generateMatchReason(item, score);
+      return { ...item, score, matchReason };
+    });
+  }
 
   scoredItems.sort((a, b) => {
     if (state.sortOption === "match-desc") {
@@ -687,7 +769,9 @@ function renderFeed() {
   });
 
   if (statsText) {
-    statsText.textContent = `Mostrando ${scoredItems.length} recomendaciones afinadas a tu perfil arquitectónico`;
+    statsText.textContent = hasRagVision
+      ? `Mostrando ${scoredItems.length} recomendaciones afinadas por Motor RAG semántico`
+      : `Mostrando ${scoredItems.length} recomendaciones afinadas a tu perfil arquitectónico`;
   }
 
   if (scoredItems.length === 0) {
@@ -1097,16 +1181,334 @@ function initCsvModal() {
 
   if (btnRestore) {
     btnRestore.addEventListener("click", () => {
-      if (confirm("¿Deseas restaurar el catálogo predeterminado de 18 piezas arquitectónicas?")) {
-        state.catalog = [...INITIAL_FURNITURE_DATA];
+      if (confirm("¿Deseas restaurar el catálogo predeterminado de 134 piezas arquitectónicas RAG?")) {
+        state.catalog = [...FURNITURE_CATALOG_RAG];
+        state.ragEngine.indexCatalog(state.catalog);
         state.save();
         closeModal();
         renderFeed();
         updateLivingProfileHud();
-        showToast("Catálogo por defecto restaurado.");
+        showToast("Catálogo arquitectónico RAG restaurado.");
       }
     });
   }
+}
+
+// ==========================================================================
+// VISIÓN ARQUITECTÓNICA & GUSTOS EN LENGUAJE NATURAL (RAG)
+// ==========================================================================
+function initVisionModal() {
+  const modal = document.getElementById("vision-modal-overlay");
+  const btnClose = document.getElementById("btn-close-vision-modal");
+  const btnCancel = document.getElementById("btn-cancel-vision");
+  const btnSave = document.getElementById("btn-save-vision");
+  const textarea = document.getElementById("vision-modal-textarea");
+  const chips = document.querySelectorAll("#vision-modal-chips .taste-chip");
+
+  const btnHeader = document.getElementById("btn-open-vision-header");
+  const btnDropdown = document.getElementById("dropdown-btn-vision");
+  const btnHud = document.getElementById("btn-edit-vision-hud");
+
+  const openVisionModal = () => {
+    if (textarea) textarea.value = state.tasteDescription || "";
+    if (modal) modal.classList.add("open");
+    const dropdown = document.getElementById("user-dropdown-menu");
+    if (dropdown) dropdown.classList.remove("open");
+  };
+
+  const closeVisionModal = () => {
+    if (modal) modal.classList.remove("open");
+  };
+
+  if (btnHeader) btnHeader.addEventListener("click", openVisionModal);
+  if (btnDropdown) btnDropdown.addEventListener("click", openVisionModal);
+  if (btnHud) btnHud.addEventListener("click", openVisionModal);
+  if (btnClose) btnClose.addEventListener("click", closeVisionModal);
+  if (btnCancel) btnCancel.addEventListener("click", closeVisionModal);
+
+  chips.forEach(chip => {
+    chip.addEventListener("click", () => {
+      if (textarea) {
+        textarea.value = chip.getAttribute("data-text");
+      }
+    });
+  });
+
+  if (btnSave) {
+    btnSave.addEventListener("click", () => {
+      const text = textarea ? textarea.value.trim() : "";
+      state.tasteDescription = text;
+      state.save();
+      updateVisionBannerDisplay();
+      renderFeed();
+      closeVisionModal();
+      showToast(text 
+        ? "¡Visión arquitectónica actualizada! Matching semántico RAG recalculado." 
+        : "Filtro de visión textual limpiado. Mostrando afinidad estándar."
+      );
+    });
+  }
+}
+
+function updateVisionBannerDisplay() {
+  const display = document.getElementById("hud-vision-desc-display");
+  if (!display) return;
+
+  if (state.tasteDescription && state.tasteDescription.trim().length > 0) {
+    display.textContent = `"${state.tasteDescription}"`;
+    display.style.fontStyle = "italic";
+    display.style.color = "var(--text-primary)";
+  } else {
+    display.textContent = "Sin descripción textual de gustos activa. Haz clic en 'Afinar Visión' para activar matching semántico.";
+    display.style.fontStyle = "normal";
+    display.style.color = "var(--text-secondary)";
+  }
+}
+
+// ==========================================================================
+// PASARELA DE CHECKOUT Y TICKET ARQUITECTÓNICO
+// ==========================================================================
+function initCheckoutAndTicket() {
+  const btnOpenCheckout = document.getElementById("btn-open-checkout");
+  const checkoutModal = document.getElementById("checkout-modal-overlay");
+  const btnCloseCheckout = document.getElementById("btn-close-checkout-modal");
+  const btnCancelCheckout = document.getElementById("btn-cancel-checkout");
+  const btnConfirmCheckout = document.getElementById("btn-confirm-checkout");
+  const paymentCards = document.querySelectorAll("#checkout-payment-methods .payment-method-card");
+  const cardFields = document.getElementById("checkout-card-fields");
+
+  const ticketModal = document.getElementById("ticket-modal-overlay");
+  const btnPrintTicket = document.getElementById("btn-print-ticket");
+  const btnCloseTicketHeader = document.getElementById("btn-close-ticket-modal-header");
+  const btnFinishTicket = document.getElementById("btn-finish-ticket");
+
+  // Abrir Modal de Checkout
+  if (btnOpenCheckout) {
+    btnOpenCheckout.addEventListener("click", () => {
+      const acceptedIds = state.matchingEngine.profile.acceptedIds;
+      const acceptedItems = state.catalog.filter(it => acceptedIds.includes(it.id));
+
+      if (acceptedItems.length === 0) {
+        showToast("Tu cesta está vacía. Añade al menos un mueble antes de finalizar compra.");
+        return;
+      }
+
+      // Cerrar Drawer
+      const drawer = document.getElementById("project-drawer");
+      const drawerOverlay = document.getElementById("project-drawer-overlay");
+      if (drawer) drawer.classList.remove("open");
+      if (drawerOverlay) drawerOverlay.classList.remove("open");
+
+      // Calcular totales
+      const totals = CheckoutService.calculateTotals(acceptedItems);
+      const itemsCountEl = document.getElementById("checkout-items-count");
+      const subtotalEl = document.getElementById("checkout-subtotal-val");
+      const vatEl = document.getElementById("checkout-vat-val");
+      const totalEl = document.getElementById("checkout-total-val");
+
+      if (itemsCountEl) itemsCountEl.textContent = `${totals.count} piezas`;
+      if (subtotalEl) subtotalEl.textContent = `${totals.subtotal.toLocaleString()} €`;
+      if (vatEl) vatEl.textContent = `${totals.vat.toLocaleString()} €`;
+      if (totalEl) totalEl.textContent = `${totals.total.toLocaleString()} €`;
+
+      // Autorellenar nombre y email si hay usuario
+      const nameInput = document.getElementById("checkout-client-name");
+      const emailInput = document.getElementById("checkout-client-email");
+      if (state.currentUser) {
+        if (nameInput && !nameInput.value) nameInput.value = state.currentUser.username;
+        if (emailInput && !emailInput.value) emailInput.value = state.currentUser.email || `${state.currentUser.username.toLowerCase()}@espacio-arq.local`;
+      }
+
+      if (checkoutModal) checkoutModal.classList.add("open");
+    });
+  }
+
+  const closeCheckout = () => {
+    if (checkoutModal) checkoutModal.classList.remove("open");
+  };
+
+  if (btnCloseCheckout) btnCloseCheckout.addEventListener("click", closeCheckout);
+  if (btnCancelCheckout) btnCancelCheckout.addEventListener("click", closeCheckout);
+
+  // Selector interactivo de métodos de pago
+  paymentCards.forEach(card => {
+    card.addEventListener("click", () => {
+      paymentCards.forEach(c => c.classList.remove("selected"));
+      card.classList.add("selected");
+      state.selectedPaymentMethod = card.getAttribute("data-method");
+
+      if (cardFields) {
+        cardFields.style.display = state.selectedPaymentMethod === "Tarjeta Bancaria" ? "block" : "none";
+      }
+    });
+  });
+
+  // Confirmar Pago
+  if (btnConfirmCheckout) {
+    btnConfirmCheckout.addEventListener("click", async () => {
+      const nameInput = document.getElementById("checkout-client-name");
+      const emailInput = document.getElementById("checkout-client-email");
+      const addressInput = document.getElementById("checkout-client-address");
+      const phoneInput = document.getElementById("checkout-client-phone");
+
+      const clientName = nameInput ? nameInput.value.trim() : "";
+      const email = emailInput ? emailInput.value.trim() : "";
+      const address = addressInput ? addressInput.value.trim() : "";
+      const phone = phoneInput ? phoneInput.value.trim() : "";
+
+      if (!clientName) {
+        alert("Por favor, introduce el nombre del titular o estudio.");
+        if (nameInput) nameInput.focus();
+        return;
+      }
+      if (!address) {
+        alert("Por favor, introduce la dirección de entrega del proyecto.");
+        if (addressInput) addressInput.focus();
+        return;
+      }
+
+      const acceptedIds = state.matchingEngine.profile.acceptedIds;
+      const acceptedItems = state.catalog.filter(it => acceptedIds.includes(it.id));
+
+      try {
+        btnConfirmCheckout.disabled = true;
+        btnConfirmCheckout.textContent = "Procesando...";
+
+        const result = await CheckoutService.completeCheckout({
+          clientName,
+          email,
+          address,
+          phone,
+          paymentMethod: state.selectedPaymentMethod,
+          items: acceptedItems,
+          matchingEngine: state.matchingEngine,
+          currentUser: state.currentUser
+        });
+
+        state.save();
+        closeCheckout();
+
+        // Renderizar y abrir ticket de compra
+        renderArchitecturalTicket(result.order);
+        if (ticketModal) ticketModal.classList.add("open");
+
+        // Actualizar vistas
+        updateLivingProfileHud();
+        renderFeed();
+        showToast("¡Pago tramitado con éxito! Ticket oficial emitido y cesta vaciada.");
+      } catch (err) {
+        alert("Error al procesar el pedido: " + err.message);
+      } finally {
+        btnConfirmCheckout.disabled = false;
+        btnConfirmCheckout.innerHTML = `<span>✓</span><span>Confirmar Pago y Emitir Ticket</span>`;
+      }
+    });
+  }
+
+  // Acciones del modal de ticket
+  const closeTicket = () => {
+    if (ticketModal) ticketModal.classList.remove("open");
+  };
+
+  if (btnCloseTicketHeader) btnCloseTicketHeader.addEventListener("click", closeTicket);
+  if (btnFinishTicket) btnFinishTicket.addEventListener("click", closeTicket);
+
+  if (btnPrintTicket) {
+    btnPrintTicket.addEventListener("click", () => {
+      window.print();
+    });
+  }
+}
+
+function renderArchitecturalTicket(order) {
+  const container = document.getElementById("ticket-render-container");
+  if (!container) return;
+
+  container.innerHTML = `
+    <div class="architectural-ticket">
+      <div class="ticket-header">
+        <div>
+          <div class="ticket-brand">ESPACIO</div>
+          <div class="ticket-brand-sub">Estudio de Arquitectura & Mobiliario de Autor</div>
+        </div>
+        <div class="ticket-meta-block">
+          <div>Ref. Factura: <span class="ticket-ref-number">${order.orderId}</span></div>
+          <div>Fecha: ${order.formattedDate}</div>
+          <div>Método: <strong>${order.payment.method}</strong></div>
+        </div>
+      </div>
+
+      <div class="ticket-client-box">
+        <div class="ticket-client-row">
+          <span class="ticket-client-label">Titular:</span>
+          <span>${order.client.name}</span>
+        </div>
+        <div class="ticket-client-row">
+          <span class="ticket-client-label">Email:</span>
+          <span>${order.client.email}</span>
+        </div>
+        <div class="ticket-client-row">
+          <span class="ticket-client-label">Entrega:</span>
+          <span>${order.client.address}</span>
+        </div>
+        ${order.client.phone ? `
+          <div class="ticket-client-row">
+            <span class="ticket-client-label">Teléfono:</span>
+            <span>${order.client.phone}</span>
+          </div>
+        ` : ''}
+      </div>
+
+      <table class="ticket-table">
+        <thead>
+          <tr>
+            <th>Pieza de Mobiliario</th>
+            <th>Estilo & Cotas (A × H × P)</th>
+            <th style="text-align: right;">Importe</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${order.items.map(item => `
+            <tr>
+              <td>
+                <strong>${item.name}</strong><br>
+                <span style="color: var(--text-secondary); font-size: 11px;">${item.category} · ${item.materials[0]}</span>
+              </td>
+              <td style="color: var(--text-secondary);">
+                ${item.style}<br>
+                <span>${item.dimensions.width} × ${item.dimensions.height} × ${item.dimensions.depth} cm</span>
+              </td>
+              <td class="td-price">${item.price.toLocaleString()} €</td>
+            </tr>
+          `).join("")}
+        </tbody>
+      </table>
+
+      <div class="ticket-totals-wrap">
+        <div class="ticket-total-line">
+          <span>Base Imponible:</span>
+          <span>${order.totals.subtotal.toLocaleString()} €</span>
+        </div>
+        <div class="ticket-total-line">
+          <span>IVA Arquitectónico (21%):</span>
+          <span>${order.totals.vat.toLocaleString()} €</span>
+        </div>
+        <div class="ticket-total-line final">
+          <span>TOTAL FACTURADO:</span>
+          <span>${order.totals.total.toLocaleString()} €</span>
+        </div>
+      </div>
+
+      <div class="ticket-seal">
+        <div>
+          <span>Certificación de autenticidad y cotas arquitectónicas homologadas.</span>
+        </div>
+        <div class="ticket-seal-badge">
+          PAGADO · CERTIFICADO
+        </div>
+      </div>
+    </div>
+  `;
 }
 
 // ==========================================================================

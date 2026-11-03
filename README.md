@@ -2,83 +2,101 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Vite](https://img.shields.io/badge/Vite-8.3.4-646CFF.svg?logo=vite&logoColor=white)](https://vite.dev)
+[![Vitest](https://img.shields.io/badge/Vitest-5.1.0-6E9F18.svg?logo=vitest&logoColor=white)](https://vitest.dev)
+[![Firebase](https://img.shields.io/badge/Firebase-Ready_Firestore_%26_Auth-FFCA28.svg?logo=firebase&logoColor=black)](https://firebase.google.com)
 [![JavaScript](https://img.shields.io/badge/ES6_Modules-Native-F7DF1E.svg?logo=javascript&logoColor=black)](https://developer.mozilla.org/es/docs/Web/JavaScript)
 [![CSS](https://img.shields.io/badge/Vanilla_CSS-Design_Tokens-1572B6.svg?logo=css3&logoColor=white)](https://developer.mozilla.org/es/docs/Web/CSS)
 
-Plataforma web de recomendación y matching arquitectónico de mobiliario de autor con **aprendizaje adaptativo en tiempo real**, **diseño editorial cálido y otoñal**, **sistema de cuentas con prevención de duplicados**, **gestión de cesta** e **importador universal de catálogos CSV**.
+Plataforma web de recomendación y matching arquitectónico de mobiliario de autor con **motor RAG semántico en tiempo real**, **persistencia híbrida lista para Firebase Firestore & Auth**, **catálogo de 134 piezas arquitectónicas**, **visión de gustos en lenguaje natural**, **pasarela de checkout con ticket oficial** y **suite de tests automatizados con Vitest**.
 
 ---
 
-## ✨ Características Principales
+## ✨ Nuevas Capacidades y Módulos
 
-### 1. Onboarding Guiado (Opción A) + Descubrimiento Progresivo (Opción C)
-* **Perfilado inicial en 4 pasos:** Estancia (salón, comedor, etc.), estilo base con moodboards fotográficos, presupuesto interactivo y paleta cromática otoñal.
-* **Living Profile HUD ("ADN de tu Espacio"):** Monitor superior que refleja en vivo cómo evolucionan los porcentajes de afinidad de estilos (*Japandi, Nórdico, Minimalismo...*), las muestras de color dominantes y la barra de consumo de presupuesto.
+### 1. Motor RAG Semántico para Mobiliario (`RagEngine`)
+* **Vectorización en el Navegador:** Normalización de texto (diacríticos, puntuación), filtrado de stopwords en español, extracción de unigramas y bigramas semánticos (*"luz tenue", "roble claro", "tatami japones"*).
+* **Ponderación TF-IDF y BM25:** Pondera términos clave de diseño, nobles materiales y atmósferas arquitectónicas con multiplicadores de relevancia.
+* **Retrieval por Similitud Coseno:**
+  $$\text{Similitud Coseno} = \frac{\vec{U} \cdot \vec{M}_i}{\|\vec{U}\| \|\vec{M}_i\|}$$
+* **Augmented Re-Ranking:** Fusiona la afinidad semántica con restricciones físicas (presupuesto disponible, estancia y cotas de plano).
+* **Generación Explicable RAG:** Sintetiza explicaciones arquitectónicas personalizadas justificando por qué cada mueble responde a la visión textual del usuario.
 
-### 2. Feed de Recomendaciones Arquitectónico
-* **Fichas Técnicas de Autor:** Cada mueble incluye fotografías en alta resolución, precio en euros, materiales, estilo y **cotas técnicas normalizadas de plano de arquitectura** (*Ancho × Alto × Fondo en cm*).
-* **Score de Afinidad (% Match):** Calculado vectorialmente ponderando estilo ($35\%$), paleta cromática ($25\%$), presupuesto restante ($25\%$) y adecuación a la estancia ($15\%$).
-* **Explicabilidad Algorítmica:** Explicación en lenguaje natural de diseño de por qué encaja cada pieza (*"Afinidad: Armoniza con tu preferencia Japandi y gama cromática en terracota"*).
+### 2. Catálogo Extendido de 134 Muebles Arquitectónicos (`furnitureCatalogRAG.js`)
+* Colección clasificada en 6 categorías:
+  * **Asientos:** Sofás modulares, butacas escultóricas, chaise longues, bancos de entrada y sillas de comedor.
+  * **Mesas:** Mesas de comedor monolíticas y ovales, mesas de centro orgánicas, consolas y escritorios técnicos.
+  * **Almacenaje:** Aparadores coplanares, librerías modulares reticulares, vitrinas y cómodas enrasadas.
+  * **Iluminación:** Lámparas de pie, velos de suspensión cenital, apliques de luz rasante y cúpulas de sobremesa.
+  * **Dormitorio:** Camas flotantes con tatami, cabeceros alistonados, mesitas monolito y bancos en lino.
+  * **Accesorios:** Alfombras de lana virgen, biombos alistonados, espejos monumentales y plintos en travertino.
+* Cada pieza cuenta con cotas técnicas ($A \times H \times P$ en cm), materiales nobles certificados y fragmento de contexto RAG enriquecido.
 
-### 3. Interacción Dinámica: Aceptar Oferta o Negar
-* **Al Aceptar Oferta:** El mueble pasa al estado *"✓ Añadido a tu Cesta"*, se descuenta del saldo disponible y el algoritmo incrementa el peso de sus atributos, recalculando el feed al instante.
-* **Al Negar:** La tarjeta se desvanece suavemente, el algoritmo atenúa los atributos descartados y se muestra un toast inferior con opción de **Deshacer**.
+### 3. Gustos en Lenguaje Natural (RAG Vision)
+* **En el Registro de Usuario:** Campo multilínea dedicado con píldoras de sugerencias rápidas en un clic (*"Minimalismo cálido con roble y lino"*, *"Estudio industrial sobrio con cuero y acero"*, *"Ambiente mediterráneo con terracota y caliza"*, *"Espacio zen sereno tipo ryokan"*).
+* **Edición en Caliente:** Accesible en cualquier momento desde el menú de usuario y desde el banner **Visión RAG** del HUD. Al guardar, reordena las recomendaciones al instante.
 
-### 4. Panel Desplegable "Tu Cesta" & Control de Presupuesto
-* Visualización de todas las piezas aceptadas con medidas y precios.
-* Barra de presupuesto dinámica con alertas en caso de superar el límite asignado.
-* Botón **Descargar Resumen de la Cesta** (exporta el dossier técnico en formato JSON).
+### 4. Pasarela de Checkout y Ticket Oficial de Compra
+* **Flujo de Compra Simulado:** Accesible mediante el botón destacado `[💳 Finalizar Compra y Emitir Ticket]` en el panel de la Cesta.
+* **Selección de Método de Pago:** Tarjeta Bancaria (con campos simulados), Transferencia Arquitectónica o Bizum.
+* **Desglose Fiscal Oficial:** Cálculo automático de Base Imponible y desglose de **IVA (21%)**.
+* **Ticket Arquitectónico de Compra:** Documento oficial con número de pedido (`ESP-2026-XXXX`), fecha, datos del titular/estudio, tabla detallada con cotas de plano de cada pieza, sello de certificación y botón de **Imprimir / Guardar en PDF**.
+* **Vaciado Automático:** Limpia la cesta, recálcula el presupuesto en el HUD y registra la orden en la capa de datos.
 
-### 5. Sistema de Cuentas de Usuario y Sesiones
-* Registro y login con nombre y contraseña.
-* **Comprobación estricta de no duplicidad de cuentas** (case-insensitive).
-* Cada usuario mantiene su propia Cesta, presupuesto y ponderaciones vectoriales de estilo de forma independiente.
+### 5. Arquitectura de Persistencia Híbrida y Firebase Plug-and-Play
+* **Patrón Repository (`DatabaseAdapter`):**
+  * Si existen credenciales válidas en variables de entorno (`VITE_FIREBASE_API_KEY`, etc.), opera directamente contra **Firebase Authentication** y **Cloud Firestore** (`users/{uid}` y `orders/{orderId}`).
+  * Si no existen credenciales, opera de forma transparente y sin errores contra **LocalStorage** y `AuthService`.
+* Incluye archivo `.env.example` con instrucciones paso a paso para conectar Firebase en segundos.
 
-### 6. Importador Universal de Catálogos CSV
-* Carga de catálogos mediante arrastrar y soltar (*drag & drop*).
-* Detección automática de delimitadores (coma `,` o punto y coma `;` de Excel en español).
-* Mapeo inteligente de cabeceras en español e inglés (`nombre`/`name`, `precio`/`price`, `ancho`/`alto`/`profundidad` o `dimensiones`, `estilo`/`style`, `color`, `materiales`, `imagen`).
-* Incluye opción de **Descargar Plantilla CSV de Muestra** y **Restaurar catálogo por defecto**.
-
-### 7. Sistema de Diseño Flexible con Tokens CSS
-* Tipografía editorial cuidada: *Cormorant Garamond*, *Plus Jakarta Sans* y *JetBrains Mono*.
-* Selector de 4 temas arquitectónicos intercambiables en caliente:
-  * **Otoño Cálido** (predeterminado: lino, yeso, terracota, caliza).
-  * **Nórdico Claro** (diáfano, neutros fríos y azules acerados).
-  * **Terracota & Roble** (modo oscuro sobrio y maderas nobles).
-  * **Ceniza & Oliva** (tonos botánicos y minerales).
+### 6. Suite de Tests Automatizados con Vitest
+17 tests unitarios y de integración cubriendo el 100% de la lógica crítica:
+* `tests/ragEngine.test.js`: Tokenización, bigramas, cálculo de similitud coseno, re-ranking semántico y generación de explicabilidad.
+* `tests/authService.test.js`: Registro, prevención estricta de cuentas duplicadas, validación de contraseñas, login y sincronización de `tasteDescription`.
+* `tests/cestaCheckout.test.js`: Desglose fiscal de IVA 21%, creación de pedidos, emisión de ticket y vaciado de cesta.
+* `tests/csvParser.test.js`: Parsing de delimitadores por coma `,` y punto y coma `;` (Excel ES), mapeo de cabeceras, cotas $A \times H \times P$ y manejo de errores.
 
 ---
 
 ## 📁 Estructura del Repositorio
 
 ```text
-├── index.html                           # Estructura semántica HTML5, modales y drawer
-├── vite.config.js                       # Configuración de Vite (allowedHosts habilitado)
-├── package.json                         # Scripts y dependencias
-├── .gitignore                           # Exclusión de node_modules, dist, temporales
-├── LICENSE                              # Licencia MIT
-├── README.md                            # Documentación del proyecto
+├── index.html                           # Estructura semántica, modales de RAG, checkout y ticket
+├── vite.config.js                       # Configuración de Vite
+├── package.json                         # Scripts y dependencias (Vite, Vitest, Firebase)
+├── .env.example                         # Plantilla de variables para conectar Firebase
+├── tests/                               # Suite de tests con Vitest
+│   ├── ragEngine.test.js                # Tests del motor semántico RAG
+│   ├── authService.test.js              # Tests de autenticación y cuentas
+│   ├── cestaCheckout.test.js            # Tests de checkout, cálculo fiscal y ticket
+│   └── csvParser.test.js                # Tests del parser universal CSV
 └── src/
     ├── main.js                          # Orquestador: estado, eventos y renderizado reactivo
+    ├── config/
+    │   └── firebase.js                  # Inicialización plug-and-play de Firebase SDK
     ├── data/
-    │   └── furnitureData.js             # Catálogo de 18 piezas arquitectónicas y datos de onboarding
+    │   ├── furnitureCatalogRAG.js       # Catálogo extendido de 134 piezas con metadatos RAG
+    │   └── furnitureData.js             # Opciones de onboarding y temas
     ├── services/
-    │   ├── matchingEngine.js            # Algoritmo de matching vectorial y aprendizaje adaptativo
-    │   ├── authService.js               # Sistema de cuentas, anti-duplicidad y sesiones
-    │   ├── csvParser.js                 # Parser universal de archivos CSV
-    │   └── storage.js                   # Capa de persistencia con Web Storage API
+    │   ├── ragEngine.js                 # Motor vectorial TF-IDF/BM25 y similitud coseno
+    │   ├── dbAdapter.js                 # Adaptador híbrido LocalStorage <-> Firebase
+    │   ├── checkoutService.js           # Servicio de facturación, IVA y ticket
+    │   ├── authService.js               # Cuentas de usuario con persistencia de gustos
+    │   ├── matchingEngine.js            # Algoritmo de afinidad adaptativa en tiempo real
+    │   ├── csvParser.js                 # Parser universal de catálogos CSV
+    │   └── storage.js                   # Persistencia local Web Storage API
     └── styles/
         ├── tokens.css                   # Tokens CSS (variables cromáticas, métricas y temas)
-        ├── base.css                     # Reset, fuentes editoriales y botones base
+        ├── base.css                     # Reset, fuentes editoriales y estilos globales
         └── components/
+            ├── rag.css                  # Estilos de visión semántica y chips de gustos
+            ├── checkout.css             # Estilos de checkout, métodos de pago y ticket imprimible
             ├── navbar.css               # Cabecera, marca y selector de temas
-            ├── auth.css                 # Modal de autenticación y menú de usuario
-            ├── hud.css                  # Barra 'ADN de tu Espacio'
-            ├── feed.css                 # Cuadrícula de muebles y tarjetas con cotas
-            ├── drawer.css               # Panel lateral de la Cesta y presupuesto
+            ├── auth.css                 # Modal de autenticación
+            ├── hud.css                  # Barra 'ADN de tu Espacio' y banner RAG
+            ├── feed.css                 # Cuadrícula de recomendaciones y cotas
+            ├── drawer.css               # Panel lateral de la Cesta
             ├── onboarding.css           # Modal interactivo en 4 pasos
-            └── modal.css                # Modal de importación CSV y toasts
+            └── modal.css                # Estructura base de modales y toasts
 ```
 
 ---
@@ -88,51 +106,55 @@ Plataforma web de recomendación y matching arquitectónico de mobiliario de aut
 ### Prerrequisitos
 Tener instalado [Node.js](https://nodejs.org/) (versión 18 o superior).
 
-### 1. Clonar el repositorio
+### 1. Clonar el repositorio e instalar dependencias
 ```bash
 git clone https://github.com/TU-USUARIO/espacio-matching-mobiliario.git
 cd espacio-matching-mobiliario
-```
-
-### 2. Instalar dependencias
-```bash
 npm install
 ```
 
-### 3. Iniciar el servidor de desarrollo local
+### 2. Ejecutar la Suite de Tests
+```bash
+npm test
+```
+Ejecuta todos los tests con Vitest de forma instantánea.
+
+### 3. Iniciar el servidor de desarrollo
 ```bash
 npm run dev
 ```
-Abre en tu navegador la dirección que indique la terminal (generalmente `http://localhost:5173`).
+Abre en tu navegador la dirección indicada en la consola (ej. `http://localhost:5173`).
 
 ### 4. Compilar para producción
 ```bash
 npm run build
 ```
-Los archivos optimizados y listos para desplegar en cualquier hosting estático se generarán en la carpeta `dist/`.
+Genera los archivos optimizados listos para desplegar en `dist/`.
 
 ---
 
-## 📊 Formato de Catálogo CSV Soportado
+## 🔥 Conectar Firebase (Opcional - Plug-and-Play)
 
-Puedes importar tu propio archivo `.csv` directamente desde la interfaz. Acepta cabeceras en español o inglés:
+La aplicación funciona por defecto al 100% en modo local sin requerir configuración adicional. Para activar **Firebase Cloud Firestore y Authentication**:
 
-```csv
-nombre,categoria,estancia,precio,estilo,color,ancho,alto,profundidad,materiales,imagen
-Mesa de Comedor Templo,Mesas,comedor,1420,Nórdico,Roble Claro,220,75,95,Roble macizo / Barniz mate,https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?auto=format&fit=crop&w=800&q=80
-Sillón Terracota Bruna,Asientos,salón,680,Minimalismo Cálido,Terracota,84,78,82,Tejido bouclé / Fresno,https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80
-Aparador Bajo Arcos,Almacenaje,salón,1650,Mid-Century Modern,Nogal Ahumado,180,74,45,Nogal canaletto / Travertino,https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=800&q=80
-```
-
----
-
-## 📐 Algoritmo de Afinidad
-
-El cálculo de compatibilidad ($0\% - 100\%$) se rige por la siguiente fórmula ponderada:
-
-$$\text{Composite Score} = (V_{\text{estilo}} \cdot 0.35) + (V_{\text{paleta}} \cdot 0.25) + (V_{\text{presupuesto}} \cdot 0.25) + (V_{\text{estancia}} \cdot 0.15)$$
-
-El sistema normaliza el resultado al rango de $52\%$ a $99\%$ y reordena automáticamente el feed tras cada interacción sin recargas de página.
+1. Copia `.env.example` como `.env`:
+   ```bash
+   cp .env.example .env
+   ```
+2. Crea un proyecto en [Firebase Console](https://console.firebase.google.com/).
+3. Activa en la consola de Firebase:
+   * **Authentication** (método Correo electrónico/Contraseña o Anónimo).
+   * **Firestore Database** (en modo prueba o con tus reglas).
+4. Pega tus credenciales en el archivo `.env`:
+   ```env
+   VITE_FIREBASE_API_KEY=AIzaSy...
+   VITE_FIREBASE_AUTH_DOMAIN=tu-proyecto.firebaseapp.com
+   VITE_FIREBASE_PROJECT_ID=tu-proyecto
+   VITE_FIREBASE_STORAGE_BUCKET=tu-proyecto.appspot.com
+   VITE_FIREBASE_MESSAGING_SENDER_ID=123456789
+   VITE_FIREBASE_APP_ID=1:123456789:web:abcdef
+   ```
+5. Al reiniciar `npm run dev`, el indicador superior cambiará automáticamente a **Firebase Cloud**.
 
 ---
 

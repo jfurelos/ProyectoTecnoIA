@@ -17,6 +17,8 @@
   <link rel="stylesheet" href="./src/styles/components/drawer.css">
   <link rel="stylesheet" href="./src/styles/components/modal.css">
   <link rel="stylesheet" href="./src/styles/components/auth.css">
+  <link rel="stylesheet" href="./src/styles/components/rag.css">
+  <link rel="stylesheet" href="./src/styles/components/checkout.css">
 </head>
 <body>
 
@@ -42,6 +44,18 @@
             <option value="minimal-olive">Ceniza & Oliva</option>
           </select>
         </div>
+
+        <!-- Estado de Persistencia (Local / Firebase) -->
+        <div id="cloud-status-badge" class="cloud-status-badge" title="Estado de almacenamiento">
+          <span>●</span>
+          <span id="cloud-status-text">Local</span>
+        </div>
+
+        <!-- Botón Gustos / Visión RAG -->
+        <button id="btn-open-vision-header" class="btn btn-outline btn-sm" title="Describir mi visión en lenguaje natural (RAG)">
+          <span>✨</span>
+          <span>Visión RAG</span>
+        </button>
 
         <!-- Importar Catálogo CSV -->
         <button id="btn-open-csv" class="btn btn-outline btn-sm" title="Importar muebles desde archivo CSV">
@@ -71,6 +85,10 @@
             <button class="user-dropdown-item" id="dropdown-btn-auth">
               <span>🔑</span>
               <span id="dropdown-auth-text">Iniciar Sesión / Registrarse</span>
+            </button>
+            <button class="user-dropdown-item" id="dropdown-btn-vision">
+              <span>✨</span>
+              <span>Mi Visión Arquitectónica (RAG)</span>
             </button>
             <button class="user-dropdown-item" id="dropdown-btn-preferences">
               <span>⚙️</span>
@@ -124,6 +142,17 @@
             <div id="hud-budget-meter-fill" class="hud-budget-meter-fill" style="width: 0%;"></div>
           </div>
         </div>
+      </div>
+
+      <!-- Banner de Visión Arquitectónica RAG -->
+      <div class="hud-vision-banner" id="hud-vision-banner">
+        <div class="hud-vision-text" id="hud-vision-text">
+          <strong>Visión RAG Activa:</strong>
+          <span id="hud-vision-desc-display">Sin descripción textual de gustos activa. Haz clic en "Afinar Visión" para activar matching semántico.</span>
+        </div>
+        <button id="btn-edit-vision-hud" class="hud-vision-btn-edit">
+          <span>✨ Afinar Visión RAG</span>
+        </button>
       </div>
     </div>
   </section>
@@ -208,6 +237,10 @@
 
     <!-- Acciones de la Cesta -->
     <div class="drawer-footer">
+      <button id="btn-open-checkout" class="btn btn-terracotta" style="width: 100%; margin-bottom: var(--space-xs);">
+        <span>💳</span>
+        <span>Finalizar Compra y Emitir Ticket</span>
+      </button>
       <button id="btn-export-project" class="btn btn-primary" style="width: 100%;">
         <span>📋</span>
         <span>Descargar Resumen de la Cesta</span>
@@ -251,6 +284,18 @@
           <div class="form-group" id="group-confirm-password" style="margin-top: var(--space-md); display: none;">
             <label for="auth-confirm-password" class="form-label">Confirmar Contraseña</label>
             <input type="password" id="auth-confirm-password" class="form-input" placeholder="••••••••" autocomplete="new-password">
+          </div>
+
+          <!-- Campo Gustos RAG (visible en Registro) -->
+          <div class="form-group" id="group-taste-description" style="margin-top: var(--space-md); display: none;">
+            <label for="auth-taste-desc" class="form-label">Tu Visión o Sensaciones de Espacio (RAG)</label>
+            <textarea id="auth-taste-desc" class="taste-textarea" rows="2" placeholder="ej. Salón sereno con luz tenue, maderas de roble y lino..."></textarea>
+            <div class="taste-chips-group">
+              <span class="taste-chip" data-text="Minimalismo cálido con roble, lino y luz tenue">Minimalismo cálido</span>
+              <span class="taste-chip" data-text="Estudio industrial sobrio con cuero, nogal y acero">Estudio industrial</span>
+              <span class="taste-chip" data-text="Ambiente mediterráneo con terracota y caliza">Mediterráneo cálido</span>
+              <span class="taste-chip" data-text="Espacio zen sereno tipo ryokan japonés">Zen Ryokan</span>
+            </div>
           </div>
 
           <button type="submit" id="btn-auth-submit" class="btn btn-terracotta" style="width: 100%; margin-top: var(--space-lg);">
@@ -382,6 +427,176 @@
       <div class="modal-footer">
         <button id="btn-cancel-csv" class="btn btn-outline">Cancelar</button>
         <button id="btn-confirm-csv" class="btn btn-terracotta" disabled>Cargar Catálogo</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL VISIÓN ARQUITECTÓNICA & GUSTOS RAG ==================== -->
+  <div id="vision-modal-overlay" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-container" style="max-width: 580px;">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title font-editorial">Tu Visión de Espacio (RAG Semántico)</h3>
+          <span style="font-size: var(--text-xs); color: var(--text-secondary);">Matching en lenguaje natural por similitud vectorial coseno</span>
+        </div>
+        <button id="btn-close-vision-modal" class="btn-close-drawer" aria-label="Cerrar modal">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <p style="margin-bottom: var(--space-sm); font-size: var(--text-sm); line-height: 1.5;">
+          Describe libremente las sensaciones, iluminación, texturas y materiales que imaginas. El motor RAG vectorizará tu descripción y reordenará el catálogo priorizando las piezas que mejor capturen tu visión.
+        </p>
+
+        <div class="form-group">
+          <label for="vision-modal-textarea" class="form-label">Descripción Textual de Gustos & Atmósfera</label>
+          <textarea id="vision-modal-textarea" class="taste-textarea" rows="4" placeholder="ej. Busco un salón sereno, con luz tenue y maderas claras que me recuerde a un ryokan japonés contemporáneo..."></textarea>
+        </div>
+
+        <div style="margin-top: var(--space-md);">
+          <span class="technical-label" style="display: block; margin-bottom: 6px;">Sugerencias Rápidas de Autor</span>
+          <div class="taste-chips-group" id="vision-modal-chips">
+            <span class="taste-chip" data-text="Minimalismo cálido con roble blanqueado, lino y luz tenue tamizada">Minimalismo cálido</span>
+            <span class="taste-chip" data-text="Estudio industrial sobrio con cuero desgastado, nogal y perfiles de acero">Estudio industrial</span>
+            <span class="taste-chip" data-text="Ambiente mediterráneo con terracota, caliza porosa y barro cocido">Mediterráneo vernáculo</span>
+            <span class="taste-chip" data-text="Espacio zen sereno estilo ryokan japonés con tatamis y maderas claras">Zen Ryokan</span>
+            <span class="taste-chip" data-text="Salón contemporáneo mid-century con nogal, mármol travertino y latón cepillado">Mid-Century Modern</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button id="btn-cancel-vision" class="btn btn-outline">Cancelar</button>
+        <button id="btn-save-vision" class="btn btn-terracotta">Guardar y Actualizar Recomendaciones</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL DE CHECKOUT SIMULADO ==================== -->
+  <div id="checkout-modal-overlay" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-container" style="max-width: 620px;">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title font-editorial">Pasarela de Checkout · Pedido Arquitectónico</h3>
+          <span style="font-size: var(--text-xs); color: var(--text-secondary);">Simulación segura de compra y emisión de factura oficial</span>
+        </div>
+        <button id="btn-close-checkout-modal" class="btn-close-drawer" aria-label="Cerrar checkout">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Selector de Métodos de Pago -->
+        <span class="technical-label" style="display: block; margin-bottom: 8px;">1. Selecciona Método de Pago</span>
+        <div class="payment-methods-grid" id="checkout-payment-methods">
+          <div class="payment-method-card selected" data-method="Tarjeta Bancaria">
+            <div class="payment-method-icon">💳</div>
+            <div class="payment-method-name">Tarjeta Bancaria</div>
+          </div>
+          <div class="payment-method-card" data-method="Transferencia Arquitectónica">
+            <div class="payment-method-icon">🏛️</div>
+            <div class="payment-method-name">Transferencia</div>
+          </div>
+          <div class="payment-method-card" data-method="Bizum">
+            <div class="payment-method-icon">📱</div>
+            <div class="payment-method-name">Bizum</div>
+          </div>
+        </div>
+
+        <!-- Campos de Tarjeta Simulada (Ocultables según método) -->
+        <div class="card-fields-wrap" id="checkout-card-fields">
+          <div class="form-group" style="margin-bottom: var(--space-sm);">
+            <label class="form-label">Número de Tarjeta</label>
+            <input type="text" id="checkout-card-number" class="form-input" placeholder="4532 •••• •••• 8821" maxlength="19" value="4532 8920 1142 8821">
+          </div>
+          <div class="card-fields-row">
+            <div class="form-group" style="flex: 1;">
+              <label class="form-label">Caducidad</label>
+              <input type="text" id="checkout-card-expiry" class="form-input" placeholder="MM/AA" maxlength="5" value="12/28">
+            </div>
+            <div class="form-group" style="flex: 1;">
+              <label class="form-label">CVC / CVV</label>
+              <input type="text" id="checkout-card-cvc" class="form-input" placeholder="•••" maxlength="4" value="419">
+            </div>
+          </div>
+        </div>
+
+        <!-- Datos de Entrega y Facturación -->
+        <span class="technical-label" style="display: block; margin-bottom: 8px;">2. Datos de Facturación y Entrega</span>
+        <form id="checkout-form" onsubmit="return false;">
+          <div class="form-group" style="margin-bottom: var(--space-sm);">
+            <label for="checkout-client-name" class="form-label">Titular / Nombre del Estudio</label>
+            <input type="text" id="checkout-client-name" class="form-input" placeholder="ej. Estudio Arquitectura & Diseño" required>
+          </div>
+          <div class="card-fields-row" style="margin-bottom: var(--space-sm);">
+            <div class="form-group" style="flex: 1;">
+              <label for="checkout-client-email" class="form-label">Correo Electrónico</label>
+              <input type="email" id="checkout-client-email" class="form-input" placeholder="proyectos@estudio.es" required>
+            </div>
+            <div class="form-group" style="flex: 1;">
+              <label for="checkout-client-phone" class="form-label">Teléfono de Contacto</label>
+              <input type="tel" id="checkout-client-phone" class="form-input" placeholder="+34 600 000 000">
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom: var(--space-md);">
+            <label for="checkout-client-address" class="form-label">Dirección de Entrega del Proyecto</label>
+            <input type="text" id="checkout-client-address" class="form-input" placeholder="Calle, número, piso y ciudad" required>
+          </div>
+        </form>
+
+        <!-- Desglose de Totales -->
+        <div class="checkout-breakdown" id="checkout-breakdown">
+          <div class="breakdown-row">
+            <span>Piezas en la Cesta:</span>
+            <span id="checkout-items-count">0 muebles</span>
+          </div>
+          <div class="breakdown-row">
+            <span>Base Imponible:</span>
+            <span id="checkout-subtotal-val">0 €</span>
+          </div>
+          <div class="breakdown-row">
+            <span>IVA Arquitectónico (21%):</span>
+            <span id="checkout-vat-val">0 €</span>
+          </div>
+          <div class="breakdown-row total">
+            <span>Total a Pagar:</span>
+            <span id="checkout-total-val" style="color: var(--autumn-terracotta);">0 €</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button id="btn-cancel-checkout" class="btn btn-outline">Cancelar</button>
+        <button id="btn-confirm-checkout" class="btn btn-terracotta">
+          <span>✓</span>
+          <span>Confirmar Pago y Emitir Ticket</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL DE TICKET ARQUITECTÓNICO DE COMPRA ==================== -->
+  <div id="ticket-modal-overlay" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-container" style="max-width: 680px;">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title font-editorial">Ticket de Compra Arquitectónico</h3>
+          <span style="font-size: var(--text-xs); color: var(--text-secondary);">Documento acreditativo oficial de selección</span>
+        </div>
+        <button id="btn-close-ticket-modal-header" class="btn-close-drawer" aria-label="Cerrar ticket">✕</button>
+      </div>
+
+      <div class="modal-body" style="padding: var(--space-lg);">
+        <div id="ticket-render-container">
+          <!-- Renderizado con JS -->
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button id="btn-print-ticket" class="btn btn-outline">
+          <span>🖨️</span>
+          <span>Imprimir / Guardar en PDF</span>
+        </button>
+        <button id="btn-finish-ticket" class="btn btn-terracotta">
+          <span>Aceptar y Volver al Catálogo</span>
+        </button>
       </div>
     </div>
   </div>

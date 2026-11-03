@@ -1,0 +1,123 @@
+/* ==========================================================================
+   INTERFAZ DE GUSTOS EN LENGUAJE NATURAL Y RAG SEMÁNTICO
+   ========================================================================== */
+
+/* Píldoras de sugerencias rápidas de gustos arquitectónicos */
+.taste-chips-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-top: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+.taste-chip {
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+
+.taste-chip:hover {
+  border-color: var(--autumn-terracotta);
+  color: var(--text-primary);
+  background-color: var(--autumn-terracotta-soft);
+}
+
+/* Textarea de gustos RAG */
+.taste-textarea {
+  width: 100%;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  resize: vertical;
+  min-height: 85px;
+  transition: border-color var(--transition-fast);
+}
+
+.taste-textarea:focus {
+  outline: none;
+  border-color: var(--autumn-terracotta);
+  box-shadow: 0 0 0 2px var(--autumn-terracotta-soft);
+}
+
+/* Banner de Visión Activa en el HUD */
+.hud-vision-banner {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 8px 14px;
+  margin-top: var(--space-sm);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  font-size: var(--text-xs);
+}
+
+.hud-vision-text {
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hud-vision-text strong {
+  color: var(--autumn-terracotta);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+.hud-vision-btn-edit {
+  background: transparent;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-xs);
+  color: var(--text-primary);
+  padding: 3px 8px;
+  font-size: 11px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.hud-vision-btn-edit:hover {
+  border-color: var(--autumn-terracotta);
+  color: var(--autumn-terracotta);
+}
+
+/* Badge de modo Cloud / Firebase */
+.cloud-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+}
+
+.cloud-status-badge.connected {
+  border-color: #2e7d32;
+  color: #2e7d32;
+  background-color: rgba(46, 125, 50, 0.08);
+}
+

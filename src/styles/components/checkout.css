@@ -1,0 +1,264 @@
+/* ==========================================================================
+   CHECKOUT, PASARELA DE PAGO Y TICKET ARQUITECTÓNICO
+   ========================================================================== */
+
+/* Métodos de Pago */
+.payment-methods-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.payment-method-card {
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  padding: var(--space-md) var(--space-sm);
+  text-align: center;
+  cursor: pointer;
+  background-color: var(--bg-surface-elevated);
+  transition: all var(--transition-fast);
+}
+
+.payment-method-card:hover {
+  border-color: var(--autumn-terracotta);
+}
+
+.payment-method-card.selected {
+  border-color: var(--autumn-terracotta);
+  background-color: var(--autumn-terracotta-soft);
+  box-shadow: 0 0 0 1px var(--autumn-terracotta);
+}
+
+.payment-method-icon {
+  font-size: 1.5rem;
+  margin-bottom: 4px;
+}
+
+.payment-method-name {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Campos de tarjeta simulada */
+.card-fields-wrap {
+  background-color: var(--bg-surface-muted);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.card-fields-row {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+/* Desglose de totales de Checkout */
+.checkout-breakdown {
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.breakdown-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--text-sm);
+  padding: 4px 0;
+  color: var(--text-secondary);
+}
+
+.breakdown-row.total {
+  font-size: var(--text-md);
+  font-weight: 700;
+  color: var(--text-primary);
+  border-top: 1px dashed var(--border-default);
+  margin-top: var(--space-xs);
+  padding-top: var(--space-sm);
+}
+
+/* ==========================================================================
+   TICKET ARQUITECTÓNICO DE COMPRA (INVOICE ARCHITECTURAL TICKET)
+   ========================================================================== */
+
+.architectural-ticket {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2xl);
+  font-family: var(--font-sans);
+  position: relative;
+  box-shadow: 0 8px 32px rgba(28, 24, 20, 0.08);
+}
+
+.ticket-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 2px solid var(--text-primary);
+  padding-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.ticket-brand {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.ticket-brand-sub {
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.ticket-meta-block {
+  text-align: right;
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.ticket-ref-number {
+  font-family: monospace;
+  font-weight: 700;
+  font-size: var(--text-sm);
+  color: var(--autumn-terracotta);
+}
+
+.ticket-client-box {
+  background-color: var(--bg-surface-elevated);
+  border-left: 3px solid var(--autumn-terracotta);
+  padding: var(--space-sm) var(--space-md);
+  margin-bottom: var(--space-lg);
+  font-size: var(--text-xs);
+}
+
+.ticket-client-row {
+  display: flex;
+  gap: var(--space-sm);
+  line-height: 1.6;
+}
+
+.ticket-client-label {
+  font-weight: 600;
+  color: var(--text-secondary);
+  min-width: 80px;
+}
+
+/* Tabla de Muebles en el Ticket */
+.ticket-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-xs);
+  margin-bottom: var(--space-lg);
+}
+
+.ticket-table th {
+  text-align: left;
+  border-bottom: 1px solid var(--border-strong);
+  padding: var(--space-xs) var(--space-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+}
+
+.ticket-table td {
+  padding: var(--space-sm);
+  border-bottom: 1px solid var(--border-subtle);
+  vertical-align: top;
+}
+
+.ticket-table .td-price {
+  text-align: right;
+  font-weight: 600;
+}
+
+.ticket-totals-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  border-top: 2px solid var(--border-strong);
+  padding-top: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.ticket-total-line {
+  display: flex;
+  justify-content: space-between;
+  width: 260px;
+  font-size: var(--text-xs);
+  padding: 3px 0;
+  color: var(--text-secondary);
+}
+
+.ticket-total-line.final {
+  font-size: var(--text-md);
+  font-weight: 700;
+  color: var(--autumn-terracotta);
+  border-top: 1px solid var(--border-default);
+  margin-top: 6px;
+  padding-top: 6px;
+}
+
+.ticket-seal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px dashed var(--border-default);
+  padding-top: var(--space-md);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+.ticket-seal-badge {
+  border: 1px dashed var(--autumn-terracotta);
+  color: var(--autumn-terracotta);
+  padding: 4px 10px;
+  border-radius: var(--radius-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Estilos de Impresión */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #ticket-modal-overlay,
+  #ticket-modal-overlay * {
+    visibility: visible;
+  }
+  #ticket-modal-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    background: #fff;
+    padding: 0;
+    margin: 0;
+  }
+  .modal-container {
+    box-shadow: none;
+    border: none;
+    max-width: 100%;
+  }
+  .modal-header,
+  .modal-footer {
+    display: none !important;
+  }
+  .architectural-ticket {
+    border: 1px solid #000;
+    box-shadow: none;
+  }
+}
+
