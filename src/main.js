@@ -21,11 +21,16 @@ class AppState {
     // 1. Usuario actual
     this.currentUser = AuthService.getCurrentUser();
 
-    // 2. Catálogo de Muebles (usa el catálogo extendido RAG de 130+ piezas si no hay uno guardado)
+    // 2. Catálogo de Muebles (usa el catálogo canónico de 120 piezas con 4 a 6 etiquetas si no hay uno actualizado)
     const savedCatalog = StorageService.getCatalog();
-    this.catalog = savedCatalog && savedCatalog.length > 20 
+    this.catalog = savedCatalog && savedCatalog.length === 120 && Array.isArray(savedCatalog[0]?.tags) && savedCatalog[0].tags.length >= 4
       ? savedCatalog 
       : [...FURNITURE_CATALOG_RAG];
+
+    // Asegurar que todas las imágenes del dataset utilicen la foto local foto mueble.png
+    this.catalog.forEach(item => {
+      item.imageUrl = "/foto mueble.png";
+    });
 
     // 3. Motor RAG Semántico (Indexa el catálogo actual)
     this.ragEngine = new RagEngine(this.catalog);
@@ -840,10 +845,11 @@ function renderFeed() {
             </div>
           </div>
 
-          <!-- Etiquetas de Materiales -->
+          <!-- Etiquetas de Diseño Oficiales y Materiales -->
           <div class="card-tags-row">
+            ${Array.isArray(item.tags) ? item.tags.map(t => `<span class="material-tag" style="font-weight: 600; color: var(--autumn-terracotta); border-color: rgba(184,84,51,0.35); background: rgba(184,84,51,0.06);">${t}</span>`).join("") : ""}
             ${item.materials.map(m => `<span class="material-tag">${m}</span>`).join("")}
-            <span class="material-tag" style="color: var(--autumn-terracotta); border-color: rgba(184,84,51,0.3);">${item.color}</span>
+            <span class="material-tag" style="color: var(--text-secondary);">${item.color}</span>
           </div>
 
           <!-- Acciones de Aceptar / Negar (Cesta) -->
@@ -1181,14 +1187,14 @@ function initCsvModal() {
 
   if (btnRestore) {
     btnRestore.addEventListener("click", () => {
-      if (confirm("¿Deseas restaurar el catálogo predeterminado de 134 piezas arquitectónicas RAG?")) {
+      if (confirm("¿Deseas restaurar el catálogo predeterminado de 120 piezas optimizadas para RAG (4 a 6 etiquetas por mueble)?")) {
         state.catalog = [...FURNITURE_CATALOG_RAG];
         state.ragEngine.indexCatalog(state.catalog);
         state.save();
         closeModal();
         renderFeed();
         updateLivingProfileHud();
-        showToast("Catálogo arquitectónico RAG restaurado.");
+        showToast("Catálogo de 120 piezas con 4 a 6 etiquetas restaurado.");
       }
     });
   }

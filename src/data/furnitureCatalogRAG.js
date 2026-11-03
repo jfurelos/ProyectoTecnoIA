@@ -1,3156 +1,3509 @@
 /**
- * CATÁLOGO EXTENDIDO DE MOBILIARIO ARQUITECTÓNICO CON METADATOS RAG
- * 134 piezas catalogadas con cotas técnicas precisas, materiales nobles y contexto semántico.
+ * CATÁLOGO EXTENDIDO DE MOBILIARIO ARQUITECTÓNICO CON ETIQUETAS Y RAG
+ * 120 piezas únicas sin redundancias distribuidas en 6 categorías (20 piezas por categoría).
+ * Cada mueble cuenta con entre 4 y 6 etiquetas arquitectónicas.
+ * Todas las imágenes utilizan '/foto mueble.png'.
  */
 
 export const FURNITURE_CATALOG_RAG = [
   {
-    "id": "rag-furn-001",
-    "name": "Sofá Modular Nara en Nogal",
+    "id": "furn-001",
+    "name": "Sofá Modular Kumo Low",
     "category": "Asientos",
     "room": "salón",
-    "price": 1800,
-    "style": "Minimalismo Cálido",
-    "color": "Nogal Profundo & Humo",
-    "paletteKey": "nogal",
-    "dimensions": {
-      "width": 239,
-      "height": 70,
-      "depth": 99
-    },
-    "materials": [
-      "Mortero de cal",
-      "Lino lavado belga",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una atmósfera serena y despojada. Combina mortero de cal y lino lavado belga con acabados sensoriales de tonalidad tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 239 × 70 × 99 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Sofá Modular Nara en Nogal. Categoría: Asientos. Estancia idónea: salón. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: atmósfera serena y despojada. Materiales constructivos: Mortero de cal, Lino lavado belga, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Nogal Profundo & Humo, tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil. Dimensiones técnicas: 239 cm ancho por 70 cm alto por 99 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 239 × 70 × 99 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una atmósfera serena y despojada. Combina mortero de cal y lino lavado belga con acabados sensoriales de tonalidad tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil."
-  },
-  {
-    "id": "rag-furn-002",
-    "name": "Sofá Curvo Monolito en Terracota",
-    "category": "Asientos",
-    "room": "salón",
-    "price": 1670,
-    "style": "Mid-Century Modern",
-    "color": "Terracota Silvestre",
-    "paletteKey": "terracota",
-    "dimensions": {
-      "width": 221,
-      "height": 72,
-      "depth": 93
-    },
-    "materials": [
-      "Mármol travertino romano",
-      "Latón cepillado"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una curvas voluptuosas y maderas nobles. Combina mármol travertino romano y latón cepillado con acabados sensoriales de tonalidad tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 221 × 72 × 93 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Sofá Curvo Monolito en Terracota. Categoría: Asientos. Estancia idónea: salón. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: curvas voluptuosas y maderas nobles. Materiales constructivos: Mármol travertino romano, Latón cepillado. Paleta y tonalidades: Terracota Silvestre, tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal. Dimensiones técnicas: 221 cm ancho por 72 cm alto por 93 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 221 × 72 × 93 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una curvas voluptuosas y maderas nobles. Combina mármol travertino romano y latón cepillado con acabados sensoriales de tonalidad tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal."
-  },
-  {
-    "id": "rag-furn-003",
-    "name": "Butaca Escultórica Kumo en Oliva",
-    "category": "Asientos",
-    "room": "salón",
-    "price": 670,
-    "style": "Industrial Sutil",
-    "color": "Oliva Seco & Musgo",
-    "paletteKey": "oliva",
-    "dimensions": {
-      "width": 82,
-      "height": 80,
-      "depth": 82
-    },
-    "materials": [
-      "Nogal oscuro",
-      "Microcemento pulido",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una perfiles oscuros y cuero desgastado. Combina nogal oscuro y microcemento pulido con acabados sensoriales de tonalidad tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 82 × 80 × 82 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Butaca Escultórica Kumo en Oliva. Categoría: Asientos. Estancia idónea: salón. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: perfiles oscuros y cuero desgastado. Materiales constructivos: Nogal oscuro, Microcemento pulido, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Oliva Seco & Musgo, tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre. Dimensiones técnicas: 82 cm ancho por 80 cm alto por 82 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 82 × 80 × 82 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una perfiles oscuros y cuero desgastado. Combina nogal oscuro y microcemento pulido con acabados sensoriales de tonalidad tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre."
-  },
-  {
-    "id": "rag-furn-004",
-    "name": "Chaise Longue Bosque en Lino",
-    "category": "Asientos",
-    "room": "salón",
-    "price": 1170,
-    "style": "Minimalismo Cálido",
-    "color": "Lino Crudo & Yeso",
+    "price": 1950,
+    "style": "Japandi",
+    "color": "Lino Crudo",
     "paletteKey": "lino",
     "dimensions": {
-      "width": 182,
-      "height": 65,
-      "depth": 90
-    },
-    "materials": [
-      "Travertino poroso",
-      "Tejido bouclé"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1580481077195-c29013b82289?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una piedras calizas y linos naturales. Combina travertino poroso y tejido bouclé con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 182 × 65 × 90 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Chaise Longue Bosque en Lino. Categoría: Asientos. Estancia idónea: salón. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: piedras calizas y linos naturales. Materiales constructivos: Travertino poroso, Tejido bouclé. Paleta y tonalidades: Lino Crudo & Yeso, tonos lino natural, arena suave, blanco roto y tiza apagada. Dimensiones técnicas: 182 cm ancho por 65 cm alto por 90 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 182 × 65 × 90 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una piedras calizas y linos naturales. Combina travertino poroso y tejido bouclé con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada."
-  },
-  {
-    "id": "rag-furn-005",
-    "name": "Sillón de Lectura Zenit en Ocre",
-    "category": "Asientos",
-    "room": "estudio",
-    "price": 970,
-    "style": "Mid-Century Modern",
-    "color": "Ocre Dorado & Mostaza",
-    "paletteKey": "ocre",
-    "dimensions": {
-      "width": 86,
-      "height": 90,
-      "depth": 80
-    },
-    "materials": [
-      "Vidrio ahumado",
-      "Nogal canaletto",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una proporciones icónicas y nobleza material. Combina vidrio ahumado y nogal canaletto con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 86 × 90 × 80 cm. Ensambles vistos y pureza estructural idónea para estudio.",
-    "ragContext": "Sillón de Lectura Zenit en Ocre. Categoría: Asientos. Estancia idónea: estudio. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: proporciones icónicas y nobleza material. Materiales constructivos: Vidrio ahumado, Nogal canaletto, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Ocre Dorado & Mostaza, tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo. Dimensiones técnicas: 86 cm ancho por 90 cm alto por 80 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 86 × 90 × 80 cm. Ensambles vistos y pureza estructural idónea para estudio. Descripción sensorial: Pieza de autor pensada para proyectar una proporciones icónicas y nobleza material. Combina vidrio ahumado y nogal canaletto con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo."
-  },
-  {
-    "id": "rag-furn-006",
-    "name": "Banco de Entrada Nara en Roble",
-    "category": "Asientos",
-    "room": "salón",
-    "price": 680,
-    "style": "Industrial Sutil",
-    "color": "Roble Claro & Paja",
-    "paletteKey": "roble",
-    "dimensions": {
-      "width": 120,
-      "height": 47,
-      "depth": 39
-    },
-    "materials": [
-      "Acero pavonado",
-      "Cuero de curtición vegetal"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1532372576444-dda954194ad0?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una sobriedad tectónica y rigor estructural. Combina acero pavonado y cuero de curtición vegetal con acabados sensoriales de tonalidad tonos madera rubia, trigo seco, fresno tostado y roble blanqueado.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 120 × 47 × 39 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Banco de Entrada Nara en Roble. Categoría: Asientos. Estancia idónea: salón. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: sobriedad tectónica y rigor estructural. Materiales constructivos: Acero pavonado, Cuero de curtición vegetal. Paleta y tonalidades: Roble Claro & Paja, tonos madera rubia, trigo seco, fresno tostado y roble blanqueado. Dimensiones técnicas: 120 cm ancho por 47 cm alto por 39 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 120 × 47 × 39 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una sobriedad tectónica y rigor estructural. Combina acero pavonado y cuero de curtición vegetal con acabados sensoriales de tonalidad tonos madera rubia, trigo seco, fresno tostado y roble blanqueado."
-  },
-  {
-    "id": "rag-furn-007",
-    "name": "Juego de Sillas Comedor Monolito en Caliza",
-    "category": "Asientos",
-    "room": "comedor",
-    "price": 1190,
-    "style": "Minimalismo Cálido",
-    "color": "Caliza Crema & Alabastro",
-    "paletteKey": "caliza",
-    "dimensions": {
-      "width": 50,
-      "height": 74,
-      "depth": 55
-    },
-    "materials": [
-      "Lino lavado belga",
-      "Fresno aceitado",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una texturas táctiles envolventes. Combina lino lavado belga y fresno aceitado con acabados sensoriales de tonalidad tonos piedra de campaspero, hueso mineral, marfil poroso y travertino.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 50 × 74 × 55 cm. Ensambles vistos y pureza estructural idónea para comedor.",
-    "ragContext": "Juego de Sillas Comedor Monolito en Caliza. Categoría: Asientos. Estancia idónea: comedor. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: texturas táctiles envolventes. Materiales constructivos: Lino lavado belga, Fresno aceitado, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Caliza Crema & Alabastro, tonos piedra de campaspero, hueso mineral, marfil poroso y travertino. Dimensiones técnicas: 50 cm ancho por 74 cm alto por 55 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 50 × 74 × 55 cm. Ensambles vistos y pureza estructural idónea para comedor. Descripción sensorial: Pieza de autor pensada para proyectar una texturas táctiles envolventes. Combina lino lavado belga y fresno aceitado con acabados sensoriales de tonalidad tonos piedra de campaspero, hueso mineral, marfil poroso y travertino."
-  },
-  {
-    "id": "rag-furn-008",
-    "name": "Taburete Bajo Artesano Kumo en Nogal",
-    "category": "Asientos",
-    "room": "salón",
-    "price": 240,
-    "style": "Mid-Century Modern",
-    "color": "Nogal Profundo & Humo",
-    "paletteKey": "nogal",
-    "dimensions": {
-      "width": 42,
-      "height": 44,
-      "depth": 45
-    },
-    "materials": [
-      "Latón cepillado",
-      "Cuero teñido al anilina"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1519947486513-ce62b99f2162?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una acentos dorados y encimeras pétreas. Combina latón cepillado y cuero teñido al anilina con acabados sensoriales de tonalidad tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 42 × 44 × 45 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Taburete Bajo Artesano Kumo en Nogal. Categoría: Asientos. Estancia idónea: salón. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: acentos dorados y encimeras pétreas. Materiales constructivos: Latón cepillado, Cuero teñido al anilina. Paleta y tonalidades: Nogal Profundo & Humo, tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil. Dimensiones técnicas: 42 cm ancho por 44 cm alto por 45 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 42 × 44 × 45 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una acentos dorados y encimeras pétreas. Combina latón cepillado y cuero teñido al anilina con acabados sensoriales de tonalidad tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil."
-  },
-  {
-    "id": "rag-furn-009",
-    "name": "Butaca de Descanso Bosque en Terracota",
-    "category": "Asientos",
-    "room": "dormitorio",
-    "price": 1060,
-    "style": "Industrial Sutil",
-    "color": "Terracota Silvestre",
-    "paletteKey": "terracota",
-    "dimensions": {
-      "width": 81,
-      "height": 79,
-      "depth": 71
-    },
-    "materials": [
-      "Microcemento pulido",
-      "Hierro forjado negro",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una arquitectura loft y nobleza del acero. Combina microcemento pulido y hierro forjado negro con acabados sensoriales de tonalidad tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 81 × 79 × 71 cm. Ensambles vistos y pureza estructural idónea para dormitorio.",
-    "ragContext": "Butaca de Descanso Bosque en Terracota. Categoría: Asientos. Estancia idónea: dormitorio. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: arquitectura loft y nobleza del acero. Materiales constructivos: Microcemento pulido, Hierro forjado negro, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Terracota Silvestre, tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal. Dimensiones técnicas: 81 cm ancho por 79 cm alto por 71 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 81 × 79 × 71 cm. Ensambles vistos y pureza estructural idónea para dormitorio. Descripción sensorial: Pieza de autor pensada para proyectar una arquitectura loft y nobleza del acero. Combina microcemento pulido y hierro forjado negro con acabados sensoriales de tonalidad tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal."
-  },
-  {
-    "id": "rag-furn-010",
-    "name": "Sofá Modular Zenit en Oliva",
-    "category": "Asientos",
-    "room": "salón",
-    "price": 2460,
-    "style": "Minimalismo Cálido",
-    "color": "Oliva Seco & Musgo",
-    "paletteKey": "oliva",
-    "dimensions": {
-      "width": 281,
-      "height": 70,
-      "depth": 103
-    },
-    "materials": [
-      "Tejido bouclé",
-      "Mortero de cal"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una arquitectura sensorial táctil. Combina tejido bouclé y mortero de cal con acabados sensoriales de tonalidad tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 281 × 70 × 103 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Sofá Modular Zenit en Oliva. Categoría: Asientos. Estancia idónea: salón. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: arquitectura sensorial táctil. Materiales constructivos: Tejido bouclé, Mortero de cal. Paleta y tonalidades: Oliva Seco & Musgo, tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre. Dimensiones técnicas: 281 cm ancho por 70 cm alto por 103 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 281 × 70 × 103 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una arquitectura sensorial táctil. Combina tejido bouclé y mortero de cal con acabados sensoriales de tonalidad tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre."
-  },
-  {
-    "id": "rag-furn-011",
-    "name": "Sofá Curvo Nara en Lino",
-    "category": "Asientos",
-    "room": "salón",
-    "price": 2330,
-    "style": "Mid-Century Modern",
-    "color": "Lino Crudo & Yeso",
-    "paletteKey": "lino",
-    "dimensions": {
-      "width": 212,
-      "height": 72,
-      "depth": 97
-    },
-    "materials": [
-      "Nogal canaletto",
-      "Mármol travertino romano",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una sofisticación de los años 50. Combina nogal canaletto y mármol travertino romano con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 212 × 72 × 97 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Sofá Curvo Nara en Lino. Categoría: Asientos. Estancia idónea: salón. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: sofisticación de los años 50. Materiales constructivos: Nogal canaletto, Mármol travertino romano, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Lino Crudo & Yeso, tonos lino natural, arena suave, blanco roto y tiza apagada. Dimensiones técnicas: 212 cm ancho por 72 cm alto por 97 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 212 × 72 × 97 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una sofisticación de los años 50. Combina nogal canaletto y mármol travertino romano con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada."
-  },
-  {
-    "id": "rag-furn-012",
-    "name": "Butaca Escultórica Monolito en Ocre",
-    "category": "Asientos",
-    "room": "salón",
-    "price": 1320,
-    "style": "Industrial Sutil",
-    "color": "Ocre Dorado & Mostaza",
-    "paletteKey": "ocre",
-    "dimensions": {
-      "width": 79,
-      "height": 80,
-      "depth": 85
-    },
-    "materials": [
-      "Cuero de curtición vegetal",
-      "Nogal oscuro"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1580481077195-c29013b82289?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una estudio de diseño y precisión técnica. Combina cuero de curtición vegetal y nogal oscuro con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 79 × 80 × 85 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Butaca Escultórica Monolito en Ocre. Categoría: Asientos. Estancia idónea: salón. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: estudio de diseño y precisión técnica. Materiales constructivos: Cuero de curtición vegetal, Nogal oscuro. Paleta y tonalidades: Ocre Dorado & Mostaza, tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo. Dimensiones técnicas: 79 cm ancho por 80 cm alto por 85 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 79 × 80 × 85 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una estudio de diseño y precisión técnica. Combina cuero de curtición vegetal y nogal oscuro con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo."
-  },
-  {
-    "id": "rag-furn-013",
-    "name": "Chaise Longue Kumo en Roble",
-    "category": "Asientos",
-    "room": "salón",
-    "price": 1830,
-    "style": "Minimalismo Cálido",
-    "color": "Roble Claro & Paja",
-    "paletteKey": "roble",
-    "dimensions": {
-      "width": 175,
-      "height": 65,
-      "depth": 80
-    },
-    "materials": [
-      "Fresno aceitado",
-      "Travertino poroso",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una luz tamizada y formas orgánicas. Combina fresno aceitado y travertino poroso con acabados sensoriales de tonalidad tonos madera rubia, trigo seco, fresno tostado y roble blanqueado.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 175 × 65 × 80 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Chaise Longue Kumo en Roble. Categoría: Asientos. Estancia idónea: salón. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: luz tamizada y formas orgánicas. Materiales constructivos: Fresno aceitado, Travertino poroso, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Roble Claro & Paja, tonos madera rubia, trigo seco, fresno tostado y roble blanqueado. Dimensiones técnicas: 175 cm ancho por 65 cm alto por 80 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 175 × 65 × 80 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una luz tamizada y formas orgánicas. Combina fresno aceitado y travertino poroso con acabados sensoriales de tonalidad tonos madera rubia, trigo seco, fresno tostado y roble blanqueado."
-  },
-  {
-    "id": "rag-furn-014",
-    "name": "Sillón de Lectura Bosque en Caliza",
-    "category": "Asientos",
-    "room": "estudio",
-    "price": 860,
-    "style": "Mid-Century Modern",
-    "color": "Caliza Crema & Alabastro",
-    "paletteKey": "caliza",
-    "dimensions": {
-      "width": 83,
-      "height": 90,
-      "depth": 83
-    },
-    "materials": [
-      "Cuero teñido al anilina",
-      "Vidrio ahumado"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1532372576444-dda954194ad0?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una elegancia residencial modernista. Combina cuero teñido al anilina y vidrio ahumado con acabados sensoriales de tonalidad tonos piedra de campaspero, hueso mineral, marfil poroso y travertino.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 83 × 90 × 83 cm. Ensambles vistos y pureza estructural idónea para estudio.",
-    "ragContext": "Sillón de Lectura Bosque en Caliza. Categoría: Asientos. Estancia idónea: estudio. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: elegancia residencial modernista. Materiales constructivos: Cuero teñido al anilina, Vidrio ahumado. Paleta y tonalidades: Caliza Crema & Alabastro, tonos piedra de campaspero, hueso mineral, marfil poroso y travertino. Dimensiones técnicas: 83 cm ancho por 90 cm alto por 83 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 83 × 90 × 83 cm. Ensambles vistos y pureza estructural idónea para estudio. Descripción sensorial: Pieza de autor pensada para proyectar una elegancia residencial modernista. Combina cuero teñido al anilina y vidrio ahumado con acabados sensoriales de tonalidad tonos piedra de campaspero, hueso mineral, marfil poroso y travertino."
-  },
-  {
-    "id": "rag-furn-015",
-    "name": "Banco de Entrada Zenit en Nogal",
-    "category": "Asientos",
-    "room": "salón",
-    "price": 510,
-    "style": "Industrial Sutil",
-    "color": "Nogal Profundo & Humo",
-    "paletteKey": "nogal",
-    "dimensions": {
-      "width": 140,
-      "height": 47,
-      "depth": 41
-    },
-    "materials": [
-      "Hierro forjado negro",
-      "Acero pavonado",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una geometría honesta y constructivista. Combina hierro forjado negro y acero pavonado con acabados sensoriales de tonalidad tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 140 × 47 × 41 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Banco de Entrada Zenit en Nogal. Categoría: Asientos. Estancia idónea: salón. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: geometría honesta y constructivista. Materiales constructivos: Hierro forjado negro, Acero pavonado, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Nogal Profundo & Humo, tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil. Dimensiones técnicas: 140 cm ancho por 47 cm alto por 41 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 140 × 47 × 41 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una geometría honesta y constructivista. Combina hierro forjado negro y acero pavonado con acabados sensoriales de tonalidad tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil."
-  },
-  {
-    "id": "rag-furn-016",
-    "name": "Juego de Sillas Comedor Nara en Terracota",
-    "category": "Asientos",
-    "room": "comedor",
-    "price": 1000,
-    "style": "Minimalismo Cálido",
-    "color": "Terracota Silvestre",
-    "paletteKey": "terracota",
-    "dimensions": {
-      "width": 48,
-      "height": 74,
-      "depth": 57
-    },
-    "materials": [
-      "Mortero de cal",
-      "Lino lavado belga"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1519947486513-ce62b99f2162?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una atmósfera serena y despojada. Combina mortero de cal y lino lavado belga con acabados sensoriales de tonalidad tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 48 × 74 × 57 cm. Ensambles vistos y pureza estructural idónea para comedor.",
-    "ragContext": "Juego de Sillas Comedor Nara en Terracota. Categoría: Asientos. Estancia idónea: comedor. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: atmósfera serena y despojada. Materiales constructivos: Mortero de cal, Lino lavado belga. Paleta y tonalidades: Terracota Silvestre, tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal. Dimensiones técnicas: 48 cm ancho por 74 cm alto por 57 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 48 × 74 × 57 cm. Ensambles vistos y pureza estructural idónea para comedor. Descripción sensorial: Pieza de autor pensada para proyectar una atmósfera serena y despojada. Combina mortero de cal y lino lavado belga con acabados sensoriales de tonalidad tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal."
-  },
-  {
-    "id": "rag-furn-017",
-    "name": "Taburete Bajo Artesano Monolito en Oliva",
-    "category": "Asientos",
-    "room": "salón",
-    "price": 210,
-    "style": "Mid-Century Modern",
-    "color": "Oliva Seco & Musgo",
-    "paletteKey": "oliva",
-    "dimensions": {
-      "width": 40,
-      "height": 44,
-      "depth": 39
-    },
-    "materials": [
-      "Mármol travertino romano",
-      "Latón cepillado",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una curvas voluptuosas y maderas nobles. Combina mármol travertino romano y latón cepillado con acabados sensoriales de tonalidad tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 40 × 44 × 39 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Taburete Bajo Artesano Monolito en Oliva. Categoría: Asientos. Estancia idónea: salón. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: curvas voluptuosas y maderas nobles. Materiales constructivos: Mármol travertino romano, Latón cepillado, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Oliva Seco & Musgo, tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre. Dimensiones técnicas: 40 cm ancho por 44 cm alto por 39 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 40 × 44 × 39 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una curvas voluptuosas y maderas nobles. Combina mármol travertino romano y latón cepillado con acabados sensoriales de tonalidad tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre."
-  },
-  {
-    "id": "rag-furn-018",
-    "name": "Butaca de Descanso Kumo en Lino",
-    "category": "Asientos",
-    "room": "dormitorio",
-    "price": 480,
-    "style": "Industrial Sutil",
-    "color": "Lino Crudo & Yeso",
-    "paletteKey": "lino",
-    "dimensions": {
-      "width": 78,
-      "height": 79,
-      "depth": 74
-    },
-    "materials": [
-      "Nogal oscuro",
-      "Microcemento pulido"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una perfiles oscuros y cuero desgastado. Combina nogal oscuro y microcemento pulido con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 78 × 79 × 74 cm. Ensambles vistos y pureza estructural idónea para dormitorio.",
-    "ragContext": "Butaca de Descanso Kumo en Lino. Categoría: Asientos. Estancia idónea: dormitorio. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: perfiles oscuros y cuero desgastado. Materiales constructivos: Nogal oscuro, Microcemento pulido. Paleta y tonalidades: Lino Crudo & Yeso, tonos lino natural, arena suave, blanco roto y tiza apagada. Dimensiones técnicas: 78 cm ancho por 79 cm alto por 74 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 78 × 79 × 74 cm. Ensambles vistos y pureza estructural idónea para dormitorio. Descripción sensorial: Pieza de autor pensada para proyectar una perfiles oscuros y cuero desgastado. Combina nogal oscuro y microcemento pulido con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada."
-  },
-  {
-    "id": "rag-furn-019",
-    "name": "Sofá Modular Bosque en Ocre",
-    "category": "Asientos",
-    "room": "salón",
-    "price": 3110,
-    "style": "Minimalismo Cálido",
-    "color": "Ocre Dorado & Mostaza",
-    "paletteKey": "ocre",
-    "dimensions": {
-      "width": 270,
-      "height": 70,
-      "depth": 107
-    },
-    "materials": [
-      "Travertino poroso",
-      "Tejido bouclé",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una piedras calizas y linos naturales. Combina travertino poroso y tejido bouclé con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 270 × 70 × 107 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Sofá Modular Bosque en Ocre. Categoría: Asientos. Estancia idónea: salón. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: piedras calizas y linos naturales. Materiales constructivos: Travertino poroso, Tejido bouclé, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Ocre Dorado & Mostaza, tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo. Dimensiones técnicas: 270 cm ancho por 70 cm alto por 107 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 270 × 70 × 107 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una piedras calizas y linos naturales. Combina travertino poroso y tejido bouclé con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo."
-  },
-  {
-    "id": "rag-furn-020",
-    "name": "Sofá Curvo Zenit en Roble",
-    "category": "Asientos",
-    "room": "salón",
-    "price": 2990,
-    "style": "Mid-Century Modern",
-    "color": "Roble Claro & Paja",
-    "paletteKey": "roble",
-    "dimensions": {
-      "width": 248,
-      "height": 72,
-      "depth": 101
-    },
-    "materials": [
-      "Vidrio ahumado",
-      "Nogal canaletto"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1580481077195-c29013b82289?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una proporciones icónicas y nobleza material. Combina vidrio ahumado y nogal canaletto con acabados sensoriales de tonalidad tonos madera rubia, trigo seco, fresno tostado y roble blanqueado.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 248 × 72 × 101 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Sofá Curvo Zenit en Roble. Categoría: Asientos. Estancia idónea: salón. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: proporciones icónicas y nobleza material. Materiales constructivos: Vidrio ahumado, Nogal canaletto. Paleta y tonalidades: Roble Claro & Paja, tonos madera rubia, trigo seco, fresno tostado y roble blanqueado. Dimensiones técnicas: 248 cm ancho por 72 cm alto por 101 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 248 × 72 × 101 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una proporciones icónicas y nobleza material. Combina vidrio ahumado y nogal canaletto con acabados sensoriales de tonalidad tonos madera rubia, trigo seco, fresno tostado y roble blanqueado."
-  },
-  {
-    "id": "rag-furn-021",
-    "name": "Butaca Escultórica Nara en Caliza",
-    "category": "Asientos",
-    "room": "salón",
-    "price": 1150,
-    "style": "Industrial Sutil",
-    "color": "Caliza Crema & Alabastro",
-    "paletteKey": "caliza",
-    "dimensions": {
-      "width": 75,
-      "height": 80,
-      "depth": 75
-    },
-    "materials": [
-      "Acero pavonado",
-      "Cuero de curtición vegetal",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una sobriedad tectónica y rigor estructural. Combina acero pavonado y cuero de curtición vegetal con acabados sensoriales de tonalidad tonos piedra de campaspero, hueso mineral, marfil poroso y travertino.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 75 × 80 × 75 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Butaca Escultórica Nara en Caliza. Categoría: Asientos. Estancia idónea: salón. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: sobriedad tectónica y rigor estructural. Materiales constructivos: Acero pavonado, Cuero de curtición vegetal, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Caliza Crema & Alabastro, tonos piedra de campaspero, hueso mineral, marfil poroso y travertino. Dimensiones técnicas: 75 cm ancho por 80 cm alto por 75 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 75 × 80 × 75 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una sobriedad tectónica y rigor estructural. Combina acero pavonado y cuero de curtición vegetal con acabados sensoriales de tonalidad tonos piedra de campaspero, hueso mineral, marfil poroso y travertino."
-  },
-  {
-    "id": "rag-furn-022",
-    "name": "Chaise Longue Monolito en Nogal",
-    "category": "Asientos",
-    "room": "salón",
-    "price": 1230,
-    "style": "Minimalismo Cálido",
-    "color": "Nogal Profundo & Humo",
-    "paletteKey": "nogal",
-    "dimensions": {
-      "width": 168,
-      "height": 65,
-      "depth": 83
-    },
-    "materials": [
-      "Lino lavado belga",
-      "Fresno aceitado"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1532372576444-dda954194ad0?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una texturas táctiles envolventes. Combina lino lavado belga y fresno aceitado con acabados sensoriales de tonalidad tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 168 × 65 × 83 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Chaise Longue Monolito en Nogal. Categoría: Asientos. Estancia idónea: salón. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: texturas táctiles envolventes. Materiales constructivos: Lino lavado belga, Fresno aceitado. Paleta y tonalidades: Nogal Profundo & Humo, tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil. Dimensiones técnicas: 168 cm ancho por 65 cm alto por 83 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 168 × 65 × 83 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una texturas táctiles envolventes. Combina lino lavado belga y fresno aceitado con acabados sensoriales de tonalidad tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil."
-  },
-  {
-    "id": "rag-furn-023",
-    "name": "Sillón de Lectura Kumo en Terracota",
-    "category": "Asientos",
-    "room": "estudio",
-    "price": 750,
-    "style": "Mid-Century Modern",
-    "color": "Terracota Silvestre",
-    "paletteKey": "terracota",
-    "dimensions": {
-      "width": 80,
-      "height": 90,
-      "depth": 87
-    },
-    "materials": [
-      "Latón cepillado",
-      "Cuero teñido al anilina",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una acentos dorados y encimeras pétreas. Combina latón cepillado y cuero teñido al anilina con acabados sensoriales de tonalidad tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 80 × 90 × 87 cm. Ensambles vistos y pureza estructural idónea para estudio.",
-    "ragContext": "Sillón de Lectura Kumo en Terracota. Categoría: Asientos. Estancia idónea: estudio. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: acentos dorados y encimeras pétreas. Materiales constructivos: Latón cepillado, Cuero teñido al anilina, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Terracota Silvestre, tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal. Dimensiones técnicas: 80 cm ancho por 90 cm alto por 87 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 80 × 90 × 87 cm. Ensambles vistos y pureza estructural idónea para estudio. Descripción sensorial: Pieza de autor pensada para proyectar una acentos dorados y encimeras pétreas. Combina latón cepillado y cuero teñido al anilina con acabados sensoriales de tonalidad tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal."
-  },
-  {
-    "id": "rag-furn-024",
-    "name": "Banco de Entrada Bosque en Oliva",
-    "category": "Asientos",
-    "room": "salón",
-    "price": 350,
-    "style": "Industrial Sutil",
-    "color": "Oliva Seco & Musgo",
-    "paletteKey": "oliva",
-    "dimensions": {
-      "width": 135,
-      "height": 47,
-      "depth": 42
-    },
-    "materials": [
-      "Microcemento pulido",
-      "Hierro forjado negro"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1519947486513-ce62b99f2162?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una arquitectura loft y nobleza del acero. Combina microcemento pulido y hierro forjado negro con acabados sensoriales de tonalidad tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 135 × 47 × 42 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Banco de Entrada Bosque en Oliva. Categoría: Asientos. Estancia idónea: salón. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: arquitectura loft y nobleza del acero. Materiales constructivos: Microcemento pulido, Hierro forjado negro. Paleta y tonalidades: Oliva Seco & Musgo, tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre. Dimensiones técnicas: 135 cm ancho por 47 cm alto por 42 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 135 × 47 × 42 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una arquitectura loft y nobleza del acero. Combina microcemento pulido y hierro forjado negro con acabados sensoriales de tonalidad tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre."
-  },
-  {
-    "id": "rag-furn-025",
-    "name": "Juego de Sillas Comedor Zenit en Lino",
-    "category": "Asientos",
-    "room": "comedor",
-    "price": 800,
-    "style": "Minimalismo Cálido",
-    "color": "Lino Crudo & Yeso",
-    "paletteKey": "lino",
-    "dimensions": {
-      "width": 56,
-      "height": 74,
-      "depth": 51
-    },
-    "materials": [
-      "Tejido bouclé",
-      "Mortero de cal",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una arquitectura sensorial táctil. Combina tejido bouclé y mortero de cal con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 56 × 74 × 51 cm. Ensambles vistos y pureza estructural idónea para comedor.",
-    "ragContext": "Juego de Sillas Comedor Zenit en Lino. Categoría: Asientos. Estancia idónea: comedor. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: arquitectura sensorial táctil. Materiales constructivos: Tejido bouclé, Mortero de cal, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Lino Crudo & Yeso, tonos lino natural, arena suave, blanco roto y tiza apagada. Dimensiones técnicas: 56 cm ancho por 74 cm alto por 51 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 56 × 74 × 51 cm. Ensambles vistos y pureza estructural idónea para comedor. Descripción sensorial: Pieza de autor pensada para proyectar una arquitectura sensorial táctil. Combina tejido bouclé y mortero de cal con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada."
-  },
-  {
-    "id": "rag-furn-026",
-    "name": "Taburete Bajo Artesano Nara en Ocre",
-    "category": "Asientos",
-    "room": "salón",
-    "price": 410,
-    "style": "Mid-Century Modern",
-    "color": "Ocre Dorado & Mostaza",
-    "paletteKey": "ocre",
-    "dimensions": {
-      "width": 39,
-      "height": 44,
-      "depth": 41
-    },
-    "materials": [
-      "Nogal canaletto",
-      "Mármol travertino romano"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una sofisticación de los años 50. Combina nogal canaletto y mármol travertino romano con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 39 × 44 × 41 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Taburete Bajo Artesano Nara en Ocre. Categoría: Asientos. Estancia idónea: salón. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: sofisticación de los años 50. Materiales constructivos: Nogal canaletto, Mármol travertino romano. Paleta y tonalidades: Ocre Dorado & Mostaza, tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo. Dimensiones técnicas: 39 cm ancho por 44 cm alto por 41 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 39 × 44 × 41 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una sofisticación de los años 50. Combina nogal canaletto y mármol travertino romano con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo."
-  },
-  {
-    "id": "rag-furn-027",
-    "name": "Mesa de Comedor Monolítica Voxel en Oliva",
-    "category": "Mesas",
-    "room": "comedor",
-    "price": 1200,
-    "style": "Mid-Century Modern",
-    "color": "Oliva Seco & Musgo",
-    "paletteKey": "oliva",
-    "dimensions": {
-      "width": 221,
-      "height": 71,
-      "depth": 94
-    },
-    "materials": [
-      "Nogal canaletto",
-      "Mármol travertino romano",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una sofisticación de los años 50. Combina nogal canaletto y mármol travertino romano con acabados sensoriales de tonalidad tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 221 × 71 × 94 cm. Ensambles vistos y pureza estructural idónea para comedor.",
-    "ragContext": "Mesa de Comedor Monolítica Voxel en Oliva. Categoría: Mesas. Estancia idónea: comedor. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: sofisticación de los años 50. Materiales constructivos: Nogal canaletto, Mármol travertino romano, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Oliva Seco & Musgo, tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre. Dimensiones técnicas: 221 cm ancho por 71 cm alto por 94 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 221 × 71 × 94 cm. Ensambles vistos y pureza estructural idónea para comedor. Descripción sensorial: Pieza de autor pensada para proyectar una sofisticación de los años 50. Combina nogal canaletto y mármol travertino romano con acabados sensoriales de tonalidad tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre."
-  },
-  {
-    "id": "rag-furn-028",
-    "name": "Mesa de Comedor Oval Serena en Lino",
-    "category": "Mesas",
-    "room": "comedor",
-    "price": 1420,
-    "style": "Industrial Sutil",
-    "color": "Lino Crudo & Yeso",
-    "paletteKey": "lino",
-    "dimensions": {
-      "width": 202,
-      "height": 75,
-      "depth": 108
-    },
-    "materials": [
-      "Cuero de curtición vegetal",
-      "Nogal oscuro"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una estudio de diseño y precisión técnica. Combina cuero de curtición vegetal y nogal oscuro con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 202 × 75 × 108 cm. Ensambles vistos y pureza estructural idónea para comedor.",
-    "ragContext": "Mesa de Comedor Oval Serena en Lino. Categoría: Mesas. Estancia idónea: comedor. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: estudio de diseño y precisión técnica. Materiales constructivos: Cuero de curtición vegetal, Nogal oscuro. Paleta y tonalidades: Lino Crudo & Yeso, tonos lino natural, arena suave, blanco roto y tiza apagada. Dimensiones técnicas: 202 cm ancho por 75 cm alto por 108 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 202 × 75 × 108 cm. Ensambles vistos y pureza estructural idónea para comedor. Descripción sensorial: Pieza de autor pensada para proyectar una estudio de diseño y precisión técnica. Combina cuero de curtición vegetal y nogal oscuro con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada."
-  },
-  {
-    "id": "rag-furn-029",
-    "name": "Mesa de Centro Escultórica Estrato en Ocre",
-    "category": "Mesas",
-    "room": "salón",
-    "price": 570,
-    "style": "Minimalismo Cálido",
-    "color": "Ocre Dorado & Mostaza",
-    "paletteKey": "ocre",
-    "dimensions": {
-      "width": 120,
-      "height": 37,
-      "depth": 77
-    },
-    "materials": [
-      "Fresno aceitado",
-      "Travertino poroso",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una luz tamizada y formas orgánicas. Combina fresno aceitado y travertino poroso con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 120 × 37 × 77 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Mesa de Centro Escultórica Estrato en Ocre. Categoría: Mesas. Estancia idónea: salón. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: luz tamizada y formas orgánicas. Materiales constructivos: Fresno aceitado, Travertino poroso, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Ocre Dorado & Mostaza, tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo. Dimensiones técnicas: 120 cm ancho por 37 cm alto por 77 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 120 × 37 × 77 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una luz tamizada y formas orgánicas. Combina fresno aceitado y travertino poroso con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo."
-  },
-  {
-    "id": "rag-furn-030",
-    "name": "Mesa de Centro Orgánica Duna en Roble",
-    "category": "Mesas",
-    "room": "salón",
-    "price": 770,
-    "style": "Mid-Century Modern",
-    "color": "Roble Claro & Paja",
-    "paletteKey": "roble",
-    "dimensions": {
-      "width": 140,
-      "height": 30,
-      "depth": 85
-    },
-    "materials": [
-      "Cuero teñido al anilina",
-      "Vidrio ahumado"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1533779283484-8499292d2427?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una elegancia residencial modernista. Combina cuero teñido al anilina y vidrio ahumado con acabados sensoriales de tonalidad tonos madera rubia, trigo seco, fresno tostado y roble blanqueado.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 140 × 30 × 85 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Mesa de Centro Orgánica Duna en Roble. Categoría: Mesas. Estancia idónea: salón. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: elegancia residencial modernista. Materiales constructivos: Cuero teñido al anilina, Vidrio ahumado. Paleta y tonalidades: Roble Claro & Paja, tonos madera rubia, trigo seco, fresno tostado y roble blanqueado. Dimensiones técnicas: 140 cm ancho por 30 cm alto por 85 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 140 × 30 × 85 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una elegancia residencial modernista. Combina cuero teñido al anilina y vidrio ahumado con acabados sensoriales de tonalidad tonos madera rubia, trigo seco, fresno tostado y roble blanqueado."
-  },
-  {
-    "id": "rag-furn-031",
-    "name": "Mesa Auxiliar Cilíndrica Linear en Caliza",
-    "category": "Mesas",
-    "room": "salón",
-    "price": 550,
-    "style": "Industrial Sutil",
-    "color": "Caliza Crema & Alabastro",
-    "paletteKey": "caliza",
-    "dimensions": {
-      "width": 49,
-      "height": 52,
-      "depth": 42
-    },
-    "materials": [
-      "Hierro forjado negro",
-      "Acero pavonado",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1530018607912-eff2daa1bac4?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una geometría honesta y constructivista. Combina hierro forjado negro y acero pavonado con acabados sensoriales de tonalidad tonos piedra de campaspero, hueso mineral, marfil poroso y travertino.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 49 × 52 × 42 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Mesa Auxiliar Cilíndrica Linear en Caliza. Categoría: Mesas. Estancia idónea: salón. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: geometría honesta y constructivista. Materiales constructivos: Hierro forjado negro, Acero pavonado, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Caliza Crema & Alabastro, tonos piedra de campaspero, hueso mineral, marfil poroso y travertino. Dimensiones técnicas: 49 cm ancho por 52 cm alto por 42 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 49 × 52 × 42 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una geometría honesta y constructivista. Combina hierro forjado negro y acero pavonado con acabados sensoriales de tonalidad tonos piedra de campaspero, hueso mineral, marfil poroso y travertino."
-  },
-  {
-    "id": "rag-furn-032",
-    "name": "Consola de Pared Flotante Voxel en Nogal",
-    "category": "Mesas",
-    "room": "salón",
-    "price": 850,
-    "style": "Minimalismo Cálido",
-    "color": "Nogal Profundo & Humo",
-    "paletteKey": "nogal",
-    "dimensions": {
-      "width": 129,
-      "height": 84,
-      "depth": 34
-    },
-    "materials": [
-      "Mortero de cal",
-      "Lino lavado belga"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1577140917170-285929fb55b7?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una atmósfera serena y despojada. Combina mortero de cal y lino lavado belga con acabados sensoriales de tonalidad tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 129 × 84 × 34 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Consola de Pared Flotante Voxel en Nogal. Categoría: Mesas. Estancia idónea: salón. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: atmósfera serena y despojada. Materiales constructivos: Mortero de cal, Lino lavado belga. Paleta y tonalidades: Nogal Profundo & Humo, tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil. Dimensiones técnicas: 129 cm ancho por 84 cm alto por 34 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 129 × 84 × 34 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una atmósfera serena y despojada. Combina mortero de cal y lino lavado belga con acabados sensoriales de tonalidad tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil."
-  },
-  {
-    "id": "rag-furn-033",
-    "name": "Escritorio Técnico de Arquitecto Serena en Terracota",
-    "category": "Mesas",
-    "room": "estudio",
-    "price": 1290,
-    "style": "Mid-Century Modern",
-    "color": "Terracota Silvestre",
-    "paletteKey": "terracota",
-    "dimensions": {
-      "width": 154,
-      "height": 71,
-      "depth": 82
-    },
-    "materials": [
-      "Mármol travertino romano",
-      "Latón cepillado",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una curvas voluptuosas y maderas nobles. Combina mármol travertino romano y latón cepillado con acabados sensoriales de tonalidad tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 154 × 71 × 82 cm. Ensambles vistos y pureza estructural idónea para estudio.",
-    "ragContext": "Escritorio Técnico de Arquitecto Serena en Terracota. Categoría: Mesas. Estancia idónea: estudio. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: curvas voluptuosas y maderas nobles. Materiales constructivos: Mármol travertino romano, Latón cepillado, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Terracota Silvestre, tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal. Dimensiones técnicas: 154 cm ancho por 71 cm alto por 82 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 154 × 71 × 82 cm. Ensambles vistos y pureza estructural idónea para estudio. Descripción sensorial: Pieza de autor pensada para proyectar una curvas voluptuosas y maderas nobles. Combina mármol travertino romano y latón cepillado con acabados sensoriales de tonalidad tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal."
-  },
-  {
-    "id": "rag-furn-034",
-    "name": "Mesa de Trabajo Compacta Estrato en Oliva",
-    "category": "Mesas",
-    "room": "estudio",
-    "price": 540,
-    "style": "Industrial Sutil",
-    "color": "Oliva Seco & Musgo",
-    "paletteKey": "oliva",
-    "dimensions": {
-      "width": 120,
-      "height": 74,
-      "depth": 69
-    },
-    "materials": [
-      "Nogal oscuro",
-      "Microcemento pulido"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una perfiles oscuros y cuero desgastado. Combina nogal oscuro y microcemento pulido con acabados sensoriales de tonalidad tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 120 × 74 × 69 cm. Ensambles vistos y pureza estructural idónea para estudio.",
-    "ragContext": "Mesa de Trabajo Compacta Estrato en Oliva. Categoría: Mesas. Estancia idónea: estudio. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: perfiles oscuros y cuero desgastado. Materiales constructivos: Nogal oscuro, Microcemento pulido. Paleta y tonalidades: Oliva Seco & Musgo, tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre. Dimensiones técnicas: 120 cm ancho por 74 cm alto por 69 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 120 × 74 × 69 cm. Ensambles vistos y pureza estructural idónea para estudio. Descripción sensorial: Pieza de autor pensada para proyectar una perfiles oscuros y cuero desgastado. Combina nogal oscuro y microcemento pulido con acabados sensoriales de tonalidad tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre."
-  },
-  {
-    "id": "rag-furn-035",
-    "name": "Mesa de Comedor Monolítica Duna en Lino",
-    "category": "Mesas",
-    "room": "comedor",
-    "price": 1780,
-    "style": "Minimalismo Cálido",
-    "color": "Lino Crudo & Yeso",
-    "paletteKey": "lino",
-    "dimensions": {
-      "width": 250,
-      "height": 79,
-      "depth": 94
-    },
-    "materials": [
-      "Travertino poroso",
-      "Tejido bouclé",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una piedras calizas y linos naturales. Combina travertino poroso y tejido bouclé con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 250 × 79 × 94 cm. Ensambles vistos y pureza estructural idónea para comedor.",
-    "ragContext": "Mesa de Comedor Monolítica Duna en Lino. Categoría: Mesas. Estancia idónea: comedor. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: piedras calizas y linos naturales. Materiales constructivos: Travertino poroso, Tejido bouclé, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Lino Crudo & Yeso, tonos lino natural, arena suave, blanco roto y tiza apagada. Dimensiones técnicas: 250 cm ancho por 79 cm alto por 94 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 250 × 79 × 94 cm. Ensambles vistos y pureza estructural idónea para comedor. Descripción sensorial: Pieza de autor pensada para proyectar una piedras calizas y linos naturales. Combina travertino poroso y tejido bouclé con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada."
-  },
-  {
-    "id": "rag-furn-036",
-    "name": "Mesa de Comedor Oval Linear en Ocre",
-    "category": "Mesas",
-    "room": "comedor",
-    "price": 2010,
-    "style": "Mid-Century Modern",
-    "color": "Ocre Dorado & Mostaza",
-    "paletteKey": "ocre",
-    "dimensions": {
-      "width": 227,
-      "height": 71,
-      "depth": 108
-    },
-    "materials": [
-      "Vidrio ahumado",
-      "Nogal canaletto"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1533779283484-8499292d2427?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una proporciones icónicas y nobleza material. Combina vidrio ahumado y nogal canaletto con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 227 × 71 × 108 cm. Ensambles vistos y pureza estructural idónea para comedor.",
-    "ragContext": "Mesa de Comedor Oval Linear en Ocre. Categoría: Mesas. Estancia idónea: comedor. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: proporciones icónicas y nobleza material. Materiales constructivos: Vidrio ahumado, Nogal canaletto. Paleta y tonalidades: Ocre Dorado & Mostaza, tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo. Dimensiones técnicas: 227 cm ancho por 71 cm alto por 108 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 227 × 71 × 108 cm. Ensambles vistos y pureza estructural idónea para comedor. Descripción sensorial: Pieza de autor pensada para proyectar una proporciones icónicas y nobleza material. Combina vidrio ahumado y nogal canaletto con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo."
-  },
-  {
-    "id": "rag-furn-037",
-    "name": "Mesa de Centro Escultórica Voxel en Roble",
-    "category": "Mesas",
-    "room": "salón",
-    "price": 470,
-    "style": "Industrial Sutil",
-    "color": "Roble Claro & Paja",
-    "paletteKey": "roble",
-    "dimensions": {
-      "width": 110,
-      "height": 35,
-      "depth": 77
-    },
-    "materials": [
-      "Acero pavonado",
-      "Cuero de curtición vegetal",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1530018607912-eff2daa1bac4?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una sobriedad tectónica y rigor estructural. Combina acero pavonado y cuero de curtición vegetal con acabados sensoriales de tonalidad tonos madera rubia, trigo seco, fresno tostado y roble blanqueado.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 110 × 35 × 77 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Mesa de Centro Escultórica Voxel en Roble. Categoría: Mesas. Estancia idónea: salón. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: sobriedad tectónica y rigor estructural. Materiales constructivos: Acero pavonado, Cuero de curtición vegetal, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Roble Claro & Paja, tonos madera rubia, trigo seco, fresno tostado y roble blanqueado. Dimensiones técnicas: 110 cm ancho por 35 cm alto por 77 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 110 × 35 × 77 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una sobriedad tectónica y rigor estructural. Combina acero pavonado y cuero de curtición vegetal con acabados sensoriales de tonalidad tonos madera rubia, trigo seco, fresno tostado y roble blanqueado."
-  },
-  {
-    "id": "rag-furn-038",
-    "name": "Mesa de Centro Orgánica Serena en Caliza",
-    "category": "Mesas",
-    "room": "salón",
-    "price": 650,
-    "style": "Minimalismo Cálido",
-    "color": "Caliza Crema & Alabastro",
-    "paletteKey": "caliza",
-    "dimensions": {
-      "width": 130,
-      "height": 34,
-      "depth": 85
-    },
-    "materials": [
-      "Lino lavado belga",
-      "Fresno aceitado"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1577140917170-285929fb55b7?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una texturas táctiles envolventes. Combina lino lavado belga y fresno aceitado con acabados sensoriales de tonalidad tonos piedra de campaspero, hueso mineral, marfil poroso y travertino.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 130 × 34 × 85 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Mesa de Centro Orgánica Serena en Caliza. Categoría: Mesas. Estancia idónea: salón. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: texturas táctiles envolventes. Materiales constructivos: Lino lavado belga, Fresno aceitado. Paleta y tonalidades: Caliza Crema & Alabastro, tonos piedra de campaspero, hueso mineral, marfil poroso y travertino. Dimensiones técnicas: 130 cm ancho por 34 cm alto por 85 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 130 × 34 × 85 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una texturas táctiles envolventes. Combina lino lavado belga y fresno aceitado con acabados sensoriales de tonalidad tonos piedra de campaspero, hueso mineral, marfil poroso y travertino."
-  },
-  {
-    "id": "rag-furn-039",
-    "name": "Mesa Auxiliar Cilíndrica Estrato en Nogal",
-    "category": "Mesas",
-    "room": "salón",
-    "price": 500,
-    "style": "Mid-Century Modern",
-    "color": "Nogal Profundo & Humo",
-    "paletteKey": "nogal",
-    "dimensions": {
-      "width": 45,
-      "height": 49,
-      "depth": 42
-    },
-    "materials": [
-      "Latón cepillado",
-      "Cuero teñido al anilina",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una acentos dorados y encimeras pétreas. Combina latón cepillado y cuero teñido al anilina con acabados sensoriales de tonalidad tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 45 × 49 × 42 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Mesa Auxiliar Cilíndrica Estrato en Nogal. Categoría: Mesas. Estancia idónea: salón. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: acentos dorados y encimeras pétreas. Materiales constructivos: Latón cepillado, Cuero teñido al anilina, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Nogal Profundo & Humo, tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil. Dimensiones técnicas: 45 cm ancho por 49 cm alto por 42 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 45 × 49 × 42 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una acentos dorados y encimeras pétreas. Combina latón cepillado y cuero teñido al anilina con acabados sensoriales de tonalidad tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil."
-  },
-  {
-    "id": "rag-furn-040",
-    "name": "Consola de Pared Flotante Duna en Terracota",
-    "category": "Mesas",
-    "room": "salón",
-    "price": 550,
-    "style": "Industrial Sutil",
-    "color": "Terracota Silvestre",
-    "paletteKey": "terracota",
-    "dimensions": {
-      "width": 146,
-      "height": 80,
-      "depth": 34
-    },
-    "materials": [
-      "Microcemento pulido",
-      "Hierro forjado negro"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una arquitectura loft y nobleza del acero. Combina microcemento pulido y hierro forjado negro con acabados sensoriales de tonalidad tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 146 × 80 × 34 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Consola de Pared Flotante Duna en Terracota. Categoría: Mesas. Estancia idónea: salón. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: arquitectura loft y nobleza del acero. Materiales constructivos: Microcemento pulido, Hierro forjado negro. Paleta y tonalidades: Terracota Silvestre, tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal. Dimensiones técnicas: 146 cm ancho por 80 cm alto por 34 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 146 × 80 × 34 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una arquitectura loft y nobleza del acero. Combina microcemento pulido y hierro forjado negro con acabados sensoriales de tonalidad tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal."
-  },
-  {
-    "id": "rag-furn-041",
-    "name": "Escritorio Técnico de Arquitecto Linear en Oliva",
-    "category": "Mesas",
-    "room": "estudio",
-    "price": 870,
-    "style": "Minimalismo Cálido",
-    "color": "Oliva Seco & Musgo",
-    "paletteKey": "oliva",
-    "dimensions": {
-      "width": 173,
-      "height": 79,
-      "depth": 82
-    },
-    "materials": [
-      "Tejido bouclé",
-      "Mortero de cal",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una arquitectura sensorial táctil. Combina tejido bouclé y mortero de cal con acabados sensoriales de tonalidad tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 173 × 79 × 82 cm. Ensambles vistos y pureza estructural idónea para estudio.",
-    "ragContext": "Escritorio Técnico de Arquitecto Linear en Oliva. Categoría: Mesas. Estancia idónea: estudio. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: arquitectura sensorial táctil. Materiales constructivos: Tejido bouclé, Mortero de cal, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Oliva Seco & Musgo, tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre. Dimensiones técnicas: 173 cm ancho por 79 cm alto por 82 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 173 × 79 × 82 cm. Ensambles vistos y pureza estructural idónea para estudio. Descripción sensorial: Pieza de autor pensada para proyectar una arquitectura sensorial táctil. Combina tejido bouclé y mortero de cal con acabados sensoriales de tonalidad tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre."
-  },
-  {
-    "id": "rag-furn-042",
-    "name": "Mesa de Trabajo Compacta Voxel en Lino",
-    "category": "Mesas",
-    "room": "estudio",
-    "price": 670,
-    "style": "Mid-Century Modern",
-    "color": "Lino Crudo & Yeso",
-    "paletteKey": "lino",
-    "dimensions": {
-      "width": 110,
-      "height": 70,
-      "depth": 69
-    },
-    "materials": [
-      "Nogal canaletto",
-      "Mármol travertino romano"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1533779283484-8499292d2427?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una sofisticación de los años 50. Combina nogal canaletto y mármol travertino romano con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 110 × 70 × 69 cm. Ensambles vistos y pureza estructural idónea para estudio.",
-    "ragContext": "Mesa de Trabajo Compacta Voxel en Lino. Categoría: Mesas. Estancia idónea: estudio. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: sofisticación de los años 50. Materiales constructivos: Nogal canaletto, Mármol travertino romano. Paleta y tonalidades: Lino Crudo & Yeso, tonos lino natural, arena suave, blanco roto y tiza apagada. Dimensiones técnicas: 110 cm ancho por 70 cm alto por 69 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 110 × 70 × 69 cm. Ensambles vistos y pureza estructural idónea para estudio. Descripción sensorial: Pieza de autor pensada para proyectar una sofisticación de los años 50. Combina nogal canaletto y mármol travertino romano con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada."
-  },
-  {
-    "id": "rag-furn-043",
-    "name": "Mesa de Comedor Monolítica Serena en Ocre",
-    "category": "Mesas",
-    "room": "comedor",
-    "price": 2370,
-    "style": "Industrial Sutil",
-    "color": "Ocre Dorado & Mostaza",
-    "paletteKey": "ocre",
-    "dimensions": {
-      "width": 230,
-      "height": 75,
-      "depth": 94
-    },
-    "materials": [
-      "Cuero de curtición vegetal",
-      "Nogal oscuro",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1530018607912-eff2daa1bac4?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una estudio de diseño y precisión técnica. Combina cuero de curtición vegetal y nogal oscuro con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 230 × 75 × 94 cm. Ensambles vistos y pureza estructural idónea para comedor.",
-    "ragContext": "Mesa de Comedor Monolítica Serena en Ocre. Categoría: Mesas. Estancia idónea: comedor. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: estudio de diseño y precisión técnica. Materiales constructivos: Cuero de curtición vegetal, Nogal oscuro, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Ocre Dorado & Mostaza, tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo. Dimensiones técnicas: 230 cm ancho por 75 cm alto por 94 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 230 × 75 × 94 cm. Ensambles vistos y pureza estructural idónea para comedor. Descripción sensorial: Pieza de autor pensada para proyectar una estudio de diseño y precisión técnica. Combina cuero de curtición vegetal y nogal oscuro con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo."
-  },
-  {
-    "id": "rag-furn-044",
-    "name": "Mesa de Comedor Oval Estrato en Roble",
-    "category": "Mesas",
-    "room": "comedor",
-    "price": 2590,
-    "style": "Minimalismo Cálido",
-    "color": "Roble Claro & Paja",
-    "paletteKey": "roble",
-    "dimensions": {
-      "width": 210,
-      "height": 79,
-      "depth": 108
-    },
-    "materials": [
-      "Fresno aceitado",
-      "Travertino poroso"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1577140917170-285929fb55b7?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una luz tamizada y formas orgánicas. Combina fresno aceitado y travertino poroso con acabados sensoriales de tonalidad tonos madera rubia, trigo seco, fresno tostado y roble blanqueado.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 210 × 79 × 108 cm. Ensambles vistos y pureza estructural idónea para comedor.",
-    "ragContext": "Mesa de Comedor Oval Estrato en Roble. Categoría: Mesas. Estancia idónea: comedor. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: luz tamizada y formas orgánicas. Materiales constructivos: Fresno aceitado, Travertino poroso. Paleta y tonalidades: Roble Claro & Paja, tonos madera rubia, trigo seco, fresno tostado y roble blanqueado. Dimensiones técnicas: 210 cm ancho por 79 cm alto por 108 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 210 × 79 × 108 cm. Ensambles vistos y pureza estructural idónea para comedor. Descripción sensorial: Pieza de autor pensada para proyectar una luz tamizada y formas orgánicas. Combina fresno aceitado y travertino poroso con acabados sensoriales de tonalidad tonos madera rubia, trigo seco, fresno tostado y roble blanqueado."
-  },
-  {
-    "id": "rag-furn-045",
-    "name": "Mesa de Centro Escultórica Duna en Caliza",
-    "category": "Mesas",
-    "room": "salón",
-    "price": 1050,
-    "style": "Mid-Century Modern",
-    "color": "Caliza Crema & Alabastro",
-    "paletteKey": "caliza",
-    "dimensions": {
-      "width": 125,
-      "height": 33,
-      "depth": 77
-    },
-    "materials": [
-      "Cuero teñido al anilina",
-      "Vidrio ahumado",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una elegancia residencial modernista. Combina cuero teñido al anilina y vidrio ahumado con acabados sensoriales de tonalidad tonos piedra de campaspero, hueso mineral, marfil poroso y travertino.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 125 × 33 × 77 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Mesa de Centro Escultórica Duna en Caliza. Categoría: Mesas. Estancia idónea: salón. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: elegancia residencial modernista. Materiales constructivos: Cuero teñido al anilina, Vidrio ahumado, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Caliza Crema & Alabastro, tonos piedra de campaspero, hueso mineral, marfil poroso y travertino. Dimensiones técnicas: 125 cm ancho por 33 cm alto por 77 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 125 × 33 × 77 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una elegancia residencial modernista. Combina cuero teñido al anilina y vidrio ahumado con acabados sensoriales de tonalidad tonos piedra de campaspero, hueso mineral, marfil poroso y travertino."
-  },
-  {
-    "id": "rag-furn-046",
-    "name": "Mesa de Centro Orgánica Linear en Nogal",
-    "category": "Mesas",
-    "room": "salón",
-    "price": 1240,
-    "style": "Industrial Sutil",
-    "color": "Nogal Profundo & Humo",
-    "paletteKey": "nogal",
-    "dimensions": {
-      "width": 146,
-      "height": 32,
-      "depth": 85
-    },
-    "materials": [
-      "Hierro forjado negro",
-      "Acero pavonado"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una geometría honesta y constructivista. Combina hierro forjado negro y acero pavonado con acabados sensoriales de tonalidad tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 146 × 32 × 85 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Mesa de Centro Orgánica Linear en Nogal. Categoría: Mesas. Estancia idónea: salón. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: geometría honesta y constructivista. Materiales constructivos: Hierro forjado negro, Acero pavonado. Paleta y tonalidades: Nogal Profundo & Humo, tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil. Dimensiones técnicas: 146 cm ancho por 32 cm alto por 85 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 146 × 32 × 85 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una geometría honesta y constructivista. Combina hierro forjado negro y acero pavonado con acabados sensoriales de tonalidad tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil."
-  },
-  {
-    "id": "rag-furn-047",
-    "name": "Mesa Auxiliar Cilíndrica Voxel en Terracota",
-    "category": "Mesas",
-    "room": "salón",
-    "price": 440,
-    "style": "Minimalismo Cálido",
-    "color": "Terracota Silvestre",
-    "paletteKey": "terracota",
-    "dimensions": {
-      "width": 41,
-      "height": 55,
-      "depth": 42
-    },
-    "materials": [
-      "Mortero de cal",
-      "Lino lavado belga",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una atmósfera serena y despojada. Combina mortero de cal y lino lavado belga con acabados sensoriales de tonalidad tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 41 × 55 × 42 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Mesa Auxiliar Cilíndrica Voxel en Terracota. Categoría: Mesas. Estancia idónea: salón. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: atmósfera serena y despojada. Materiales constructivos: Mortero de cal, Lino lavado belga, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Terracota Silvestre, tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal. Dimensiones técnicas: 41 cm ancho por 55 cm alto por 42 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 41 × 55 × 42 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una atmósfera serena y despojada. Combina mortero de cal y lino lavado belga con acabados sensoriales de tonalidad tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal."
-  },
-  {
-    "id": "rag-furn-048",
-    "name": "Consola de Pared Flotante Serena en Oliva",
-    "category": "Mesas",
-    "room": "salón",
-    "price": 690,
-    "style": "Mid-Century Modern",
-    "color": "Oliva Seco & Musgo",
-    "paletteKey": "oliva",
-    "dimensions": {
-      "width": 134,
-      "height": 76,
-      "depth": 34
-    },
-    "materials": [
-      "Mármol travertino romano",
-      "Latón cepillado"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1533779283484-8499292d2427?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una curvas voluptuosas y maderas nobles. Combina mármol travertino romano y latón cepillado con acabados sensoriales de tonalidad tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 134 × 76 × 34 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Consola de Pared Flotante Serena en Oliva. Categoría: Mesas. Estancia idónea: salón. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: curvas voluptuosas y maderas nobles. Materiales constructivos: Mármol travertino romano, Latón cepillado. Paleta y tonalidades: Oliva Seco & Musgo, tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre. Dimensiones técnicas: 134 cm ancho por 76 cm alto por 34 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 134 × 76 × 34 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una curvas voluptuosas y maderas nobles. Combina mármol travertino romano y latón cepillado con acabados sensoriales de tonalidad tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre."
-  },
-  {
-    "id": "rag-furn-049",
-    "name": "Escritorio Técnico de Arquitecto Estrato en Lino",
-    "category": "Mesas",
-    "room": "estudio",
-    "price": 1460,
-    "style": "Industrial Sutil",
-    "color": "Lino Crudo & Yeso",
-    "paletteKey": "lino",
-    "dimensions": {
-      "width": 160,
-      "height": 75,
-      "depth": 82
-    },
-    "materials": [
-      "Nogal oscuro",
-      "Microcemento pulido",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1530018607912-eff2daa1bac4?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una perfiles oscuros y cuero desgastado. Combina nogal oscuro y microcemento pulido con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 160 × 75 × 82 cm. Ensambles vistos y pureza estructural idónea para estudio.",
-    "ragContext": "Escritorio Técnico de Arquitecto Estrato en Lino. Categoría: Mesas. Estancia idónea: estudio. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: perfiles oscuros y cuero desgastado. Materiales constructivos: Nogal oscuro, Microcemento pulido, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Lino Crudo & Yeso, tonos lino natural, arena suave, blanco roto y tiza apagada. Dimensiones técnicas: 160 cm ancho por 75 cm alto por 82 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 160 × 75 × 82 cm. Ensambles vistos y pureza estructural idónea para estudio. Descripción sensorial: Pieza de autor pensada para proyectar una perfiles oscuros y cuero desgastado. Combina nogal oscuro y microcemento pulido con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada."
-  },
-  {
-    "id": "rag-furn-050",
-    "name": "Mesa de Trabajo Compacta Duna en Ocre",
-    "category": "Mesas",
-    "room": "estudio",
-    "price": 790,
-    "style": "Minimalismo Cálido",
-    "color": "Ocre Dorado & Mostaza",
-    "paletteKey": "ocre",
-    "dimensions": {
-      "width": 125,
-      "height": 78,
-      "depth": 69
-    },
-    "materials": [
-      "Travertino poroso",
-      "Tejido bouclé"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1577140917170-285929fb55b7?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una piedras calizas y linos naturales. Combina travertino poroso y tejido bouclé con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 125 × 78 × 69 cm. Ensambles vistos y pureza estructural idónea para estudio.",
-    "ragContext": "Mesa de Trabajo Compacta Duna en Ocre. Categoría: Mesas. Estancia idónea: estudio. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: piedras calizas y linos naturales. Materiales constructivos: Travertino poroso, Tejido bouclé. Paleta y tonalidades: Ocre Dorado & Mostaza, tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo. Dimensiones técnicas: 125 cm ancho por 78 cm alto por 69 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 125 × 78 × 69 cm. Ensambles vistos y pureza estructural idónea para estudio. Descripción sensorial: Pieza de autor pensada para proyectar una piedras calizas y linos naturales. Combina travertino poroso y tejido bouclé con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo."
-  },
-  {
-    "id": "rag-furn-051",
-    "name": "Aparador Bajo Coplanares Voxel en Caliza",
-    "category": "Almacenaje",
-    "room": "salón",
-    "price": 1250,
-    "style": "Mid-Century Modern",
-    "color": "Caliza Crema & Alabastro",
-    "paletteKey": "caliza",
-    "dimensions": {
-      "width": 175,
+      "width": 245,
       "height": 68,
-      "depth": 43
+      "depth": 98
     },
     "materials": [
-      "Nogal canaletto",
-      "Mármol travertino romano",
-      "Tratamiento mate hidrófugo biológico"
+      "Lino Belga",
+      "Roble Macizo"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una sofisticación de los años 50. Combina nogal canaletto y mármol travertino romano con acabados sensoriales de tonalidad tonos piedra de campaspero, hueso mineral, marfil poroso y travertino.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 175 × 68 × 43 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Aparador Bajo Coplanares Voxel en Caliza. Categoría: Almacenaje. Estancia idónea: salón. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: sofisticación de los años 50. Materiales constructivos: Nogal canaletto, Mármol travertino romano, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Caliza Crema & Alabastro, tonos piedra de campaspero, hueso mineral, marfil poroso y travertino. Dimensiones técnicas: 175 cm ancho por 68 cm alto por 43 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 175 × 68 × 43 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una sofisticación de los años 50. Combina nogal canaletto y mármol travertino romano con acabados sensoriales de tonalidad tonos piedra de campaspero, hueso mineral, marfil poroso y travertino."
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera japandi. Combina lino belga y roble macizo con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 245 cm (Ancho) × 68 cm (Alto) × 98 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Japandi",
+      "Lino Belga",
+      "Tatami",
+      "Low-Sitting",
+      "Modular"
+    ],
+    "ragContext": "Sofá Modular Kumo Low. Categoría: Asientos. Estancia idónea: salón. Estilo: Japandi. Etiquetas de diseño: Japandi, Lino Belga, Tatami, Low-Sitting, Modular. Materiales certificados: Lino Belga, Roble Macizo. Acabado cromático: Lino Crudo. Dimensiones técnicas: 245 cm de ancho por 68 cm de alto por 98 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera japandi. Combina lino belga y roble macizo con proporciones equilibradas. Cotas arquitectónicas de plano: 245 cm (Ancho) × 68 cm (Alto) × 98 cm (Profundidad). Ensamble de precisión idóneo para salón."
   },
   {
-    "id": "rag-furn-052",
-    "name": "Librería Modular Reticular Serena en Nogal",
-    "category": "Almacenaje",
-    "room": "estudio",
-    "price": 1170,
-    "style": "Industrial Sutil",
-    "color": "Nogal Profundo & Humo",
-    "paletteKey": "nogal",
-    "dimensions": {
-      "width": 173,
-      "height": 210,
-      "depth": 35
-    },
-    "materials": [
-      "Cuero de curtición vegetal",
-      "Nogal oscuro"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1594698316135-115e93f815d4?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una estudio de diseño y precisión técnica. Combina cuero de curtición vegetal y nogal oscuro con acabados sensoriales de tonalidad tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 173 × 210 × 35 cm. Ensambles vistos y pureza estructural idónea para estudio.",
-    "ragContext": "Librería Modular Reticular Serena en Nogal. Categoría: Almacenaje. Estancia idónea: estudio. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: estudio de diseño y precisión técnica. Materiales constructivos: Cuero de curtición vegetal, Nogal oscuro. Paleta y tonalidades: Nogal Profundo & Humo, tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil. Dimensiones técnicas: 173 cm ancho por 210 cm alto por 35 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 173 × 210 × 35 cm. Ensambles vistos y pureza estructural idónea para estudio. Descripción sensorial: Pieza de autor pensada para proyectar una estudio de diseño y precisión técnica. Combina cuero de curtición vegetal y nogal oscuro con acabados sensoriales de tonalidad tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil."
-  },
-  {
-    "id": "rag-furn-053",
-    "name": "Vitrina de Exposición Transparente Estrato en Terracota",
-    "category": "Almacenaje",
-    "room": "comedor",
-    "price": 1130,
-    "style": "Minimalismo Cálido",
-    "color": "Terracota Silvestre",
-    "paletteKey": "terracota",
-    "dimensions": {
-      "width": 100,
-      "height": 189,
-      "depth": 43
-    },
-    "materials": [
-      "Fresno aceitado",
-      "Travertino poroso",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una luz tamizada y formas orgánicas. Combina fresno aceitado y travertino poroso con acabados sensoriales de tonalidad tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 100 × 189 × 43 cm. Ensambles vistos y pureza estructural idónea para comedor.",
-    "ragContext": "Vitrina de Exposición Transparente Estrato en Terracota. Categoría: Almacenaje. Estancia idónea: comedor. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: luz tamizada y formas orgánicas. Materiales constructivos: Fresno aceitado, Travertino poroso, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Terracota Silvestre, tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal. Dimensiones técnicas: 100 cm ancho por 189 cm alto por 43 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 100 × 189 × 43 cm. Ensambles vistos y pureza estructural idónea para comedor. Descripción sensorial: Pieza de autor pensada para proyectar una luz tamizada y formas orgánicas. Combina fresno aceitado y travertino poroso con acabados sensoriales de tonalidad tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal."
-  },
-  {
-    "id": "rag-furn-054",
-    "name": "Estantería Suspendida Liviana Duna en Oliva",
-    "category": "Almacenaje",
-    "room": "salón",
-    "price": 640,
-    "style": "Mid-Century Modern",
-    "color": "Oliva Seco & Musgo",
-    "paletteKey": "oliva",
-    "dimensions": {
-      "width": 156,
-      "height": 105,
-      "depth": 30
-    },
-    "materials": [
-      "Cuero teñido al anilina",
-      "Vidrio ahumado"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1544457070-4cd773b4d71e?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una elegancia residencial modernista. Combina cuero teñido al anilina y vidrio ahumado con acabados sensoriales de tonalidad tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 156 × 105 × 30 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Estantería Suspendida Liviana Duna en Oliva. Categoría: Almacenaje. Estancia idónea: salón. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: elegancia residencial modernista. Materiales constructivos: Cuero teñido al anilina, Vidrio ahumado. Paleta y tonalidades: Oliva Seco & Musgo, tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre. Dimensiones técnicas: 156 cm ancho por 105 cm alto por 30 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 156 × 105 × 30 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una elegancia residencial modernista. Combina cuero teñido al anilina y vidrio ahumado con acabados sensoriales de tonalidad tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre."
-  },
-  {
-    "id": "rag-furn-055",
-    "name": "Cómoda de Cajones Enrasados Linear en Lino",
-    "category": "Almacenaje",
-    "room": "dormitorio",
-    "price": 1180,
-    "style": "Industrial Sutil",
-    "color": "Lino Crudo & Yeso",
-    "paletteKey": "lino",
-    "dimensions": {
-      "width": 140,
-      "height": 84,
-      "depth": 45
-    },
-    "materials": [
-      "Hierro forjado negro",
-      "Acero pavonado",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1597072689227-8882273e8f6a?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una geometría honesta y constructivista. Combina hierro forjado negro y acero pavonado con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 140 × 84 × 45 cm. Ensambles vistos y pureza estructural idónea para dormitorio.",
-    "ragContext": "Cómoda de Cajones Enrasados Linear en Lino. Categoría: Almacenaje. Estancia idónea: dormitorio. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: geometría honesta y constructivista. Materiales constructivos: Hierro forjado negro, Acero pavonado, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Lino Crudo & Yeso, tonos lino natural, arena suave, blanco roto y tiza apagada. Dimensiones técnicas: 140 cm ancho por 84 cm alto por 45 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 140 × 84 × 45 cm. Ensambles vistos y pureza estructural idónea para dormitorio. Descripción sensorial: Pieza de autor pensada para proyectar una geometría honesta y constructivista. Combina hierro forjado negro y acero pavonado con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada."
-  },
-  {
-    "id": "rag-furn-056",
-    "name": "Mueble Bar Escultural Voxel en Ocre",
-    "category": "Almacenaje",
-    "room": "salón",
-    "price": 1190,
-    "style": "Minimalismo Cálido",
-    "color": "Ocre Dorado & Mostaza",
-    "paletteKey": "ocre",
-    "dimensions": {
-      "width": 83,
-      "height": 142,
-      "depth": 44
-    },
-    "materials": [
-      "Mortero de cal",
-      "Lino lavado belga"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una atmósfera serena y despojada. Combina mortero de cal y lino lavado belga con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 83 × 142 × 44 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Mueble Bar Escultural Voxel en Ocre. Categoría: Almacenaje. Estancia idónea: salón. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: atmósfera serena y despojada. Materiales constructivos: Mortero de cal, Lino lavado belga. Paleta y tonalidades: Ocre Dorado & Mostaza, tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo. Dimensiones técnicas: 83 cm ancho por 142 cm alto por 44 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 83 × 142 × 44 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una atmósfera serena y despojada. Combina mortero de cal y lino lavado belga con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo."
-  },
-  {
-    "id": "rag-furn-057",
-    "name": "Librería Baja Divisoria Serena en Roble",
-    "category": "Almacenaje",
-    "room": "salón",
-    "price": 1090,
-    "style": "Mid-Century Modern",
-    "color": "Roble Claro & Paja",
-    "paletteKey": "roble",
-    "dimensions": {
-      "width": 154,
-      "height": 81,
-      "depth": 41
-    },
-    "materials": [
-      "Mármol travertino romano",
-      "Latón cepillado",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1594698316135-115e93f815d4?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una curvas voluptuosas y maderas nobles. Combina mármol travertino romano y latón cepillado con acabados sensoriales de tonalidad tonos madera rubia, trigo seco, fresno tostado y roble blanqueado.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 154 × 81 × 41 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Librería Baja Divisoria Serena en Roble. Categoría: Almacenaje. Estancia idónea: salón. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: curvas voluptuosas y maderas nobles. Materiales constructivos: Mármol travertino romano, Latón cepillado, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Roble Claro & Paja, tonos madera rubia, trigo seco, fresno tostado y roble blanqueado. Dimensiones técnicas: 154 cm ancho por 81 cm alto por 41 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 154 × 81 × 41 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una curvas voluptuosas y maderas nobles. Combina mármol travertino romano y latón cepillado con acabados sensoriales de tonalidad tonos madera rubia, trigo seco, fresno tostado y roble blanqueado."
-  },
-  {
-    "id": "rag-furn-058",
-    "name": "Aparador Bajo Coplanares Estrato en Caliza",
-    "category": "Almacenaje",
-    "room": "salón",
-    "price": 1760,
-    "style": "Industrial Sutil",
-    "color": "Caliza Crema & Alabastro",
-    "paletteKey": "caliza",
-    "dimensions": {
-      "width": 190,
-      "height": 72,
-      "depth": 49
-    },
-    "materials": [
-      "Nogal oscuro",
-      "Microcemento pulido"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una perfiles oscuros y cuero desgastado. Combina nogal oscuro y microcemento pulido con acabados sensoriales de tonalidad tonos piedra de campaspero, hueso mineral, marfil poroso y travertino.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 190 × 72 × 49 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Aparador Bajo Coplanares Estrato en Caliza. Categoría: Almacenaje. Estancia idónea: salón. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: perfiles oscuros y cuero desgastado. Materiales constructivos: Nogal oscuro, Microcemento pulido. Paleta y tonalidades: Caliza Crema & Alabastro, tonos piedra de campaspero, hueso mineral, marfil poroso y travertino. Dimensiones técnicas: 190 cm ancho por 72 cm alto por 49 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 190 × 72 × 49 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una perfiles oscuros y cuero desgastado. Combina nogal oscuro y microcemento pulido con acabados sensoriales de tonalidad tonos piedra de campaspero, hueso mineral, marfil poroso y travertino."
-  },
-  {
-    "id": "rag-furn-059",
-    "name": "Librería Modular Reticular Duna en Nogal",
-    "category": "Almacenaje",
-    "room": "estudio",
-    "price": 1680,
-    "style": "Minimalismo Cálido",
-    "color": "Nogal Profundo & Humo",
-    "paletteKey": "nogal",
-    "dimensions": {
-      "width": 187,
-      "height": 221,
-      "depth": 34
-    },
-    "materials": [
-      "Travertino poroso",
-      "Tejido bouclé",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1544457070-4cd773b4d71e?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una piedras calizas y linos naturales. Combina travertino poroso y tejido bouclé con acabados sensoriales de tonalidad tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 187 × 221 × 34 cm. Ensambles vistos y pureza estructural idónea para estudio.",
-    "ragContext": "Librería Modular Reticular Duna en Nogal. Categoría: Almacenaje. Estancia idónea: estudio. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: piedras calizas y linos naturales. Materiales constructivos: Travertino poroso, Tejido bouclé, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Nogal Profundo & Humo, tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil. Dimensiones técnicas: 187 cm ancho por 221 cm alto por 34 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 187 × 221 × 34 cm. Ensambles vistos y pureza estructural idónea para estudio. Descripción sensorial: Pieza de autor pensada para proyectar una piedras calizas y linos naturales. Combina travertino poroso y tejido bouclé con acabados sensoriales de tonalidad tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil."
-  },
-  {
-    "id": "rag-furn-060",
-    "name": "Vitrina de Exposición Transparente Linear en Terracota",
-    "category": "Almacenaje",
-    "room": "comedor",
-    "price": 1640,
-    "style": "Mid-Century Modern",
-    "color": "Terracota Silvestre",
-    "paletteKey": "terracota",
-    "dimensions": {
-      "width": 108,
-      "height": 171,
-      "depth": 41
-    },
-    "materials": [
-      "Vidrio ahumado",
-      "Nogal canaletto"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1597072689227-8882273e8f6a?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una proporciones icónicas y nobleza material. Combina vidrio ahumado y nogal canaletto con acabados sensoriales de tonalidad tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 108 × 171 × 41 cm. Ensambles vistos y pureza estructural idónea para comedor.",
-    "ragContext": "Vitrina de Exposición Transparente Linear en Terracota. Categoría: Almacenaje. Estancia idónea: comedor. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: proporciones icónicas y nobleza material. Materiales constructivos: Vidrio ahumado, Nogal canaletto. Paleta y tonalidades: Terracota Silvestre, tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal. Dimensiones técnicas: 108 cm ancho por 171 cm alto por 41 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 108 × 171 × 41 cm. Ensambles vistos y pureza estructural idónea para comedor. Descripción sensorial: Pieza de autor pensada para proyectar una proporciones icónicas y nobleza material. Combina vidrio ahumado y nogal canaletto con acabados sensoriales de tonalidad tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal."
-  },
-  {
-    "id": "rag-furn-061",
-    "name": "Estantería Suspendida Liviana Voxel en Oliva",
-    "category": "Almacenaje",
-    "room": "salón",
-    "price": 680,
-    "style": "Industrial Sutil",
-    "color": "Oliva Seco & Musgo",
-    "paletteKey": "oliva",
-    "dimensions": {
-      "width": 138,
-      "height": 110,
-      "depth": 29
-    },
-    "materials": [
-      "Acero pavonado",
-      "Cuero de curtición vegetal",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una sobriedad tectónica y rigor estructural. Combina acero pavonado y cuero de curtición vegetal con acabados sensoriales de tonalidad tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 138 × 110 × 29 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Estantería Suspendida Liviana Voxel en Oliva. Categoría: Almacenaje. Estancia idónea: salón. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: sobriedad tectónica y rigor estructural. Materiales constructivos: Acero pavonado, Cuero de curtición vegetal, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Oliva Seco & Musgo, tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre. Dimensiones técnicas: 138 cm ancho por 110 cm alto por 29 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 138 × 110 × 29 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una sobriedad tectónica y rigor estructural. Combina acero pavonado y cuero de curtición vegetal con acabados sensoriales de tonalidad tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre."
-  },
-  {
-    "id": "rag-furn-062",
-    "name": "Cómoda de Cajones Enrasados Serena en Lino",
-    "category": "Almacenaje",
-    "room": "dormitorio",
-    "price": 1690,
-    "style": "Minimalismo Cálido",
-    "color": "Lino Crudo & Yeso",
-    "paletteKey": "lino",
-    "dimensions": {
-      "width": 125,
-      "height": 88,
-      "depth": 51
-    },
-    "materials": [
-      "Lino lavado belga",
-      "Fresno aceitado"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1594698316135-115e93f815d4?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una texturas táctiles envolventes. Combina lino lavado belga y fresno aceitado con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 125 × 88 × 51 cm. Ensambles vistos y pureza estructural idónea para dormitorio.",
-    "ragContext": "Cómoda de Cajones Enrasados Serena en Lino. Categoría: Almacenaje. Estancia idónea: dormitorio. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: texturas táctiles envolventes. Materiales constructivos: Lino lavado belga, Fresno aceitado. Paleta y tonalidades: Lino Crudo & Yeso, tonos lino natural, arena suave, blanco roto y tiza apagada. Dimensiones técnicas: 125 cm ancho por 88 cm alto por 51 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 125 × 88 × 51 cm. Ensambles vistos y pureza estructural idónea para dormitorio. Descripción sensorial: Pieza de autor pensada para proyectar una texturas táctiles envolventes. Combina lino lavado belga y fresno aceitado con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada."
-  },
-  {
-    "id": "rag-furn-063",
-    "name": "Mueble Bar Escultural Estrato en Ocre",
-    "category": "Almacenaje",
-    "room": "salón",
-    "price": 1700,
-    "style": "Mid-Century Modern",
-    "color": "Ocre Dorado & Mostaza",
-    "paletteKey": "ocre",
-    "dimensions": {
-      "width": 90,
-      "height": 128,
-      "depth": 42
-    },
-    "materials": [
-      "Latón cepillado",
-      "Cuero teñido al anilina",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una acentos dorados y encimeras pétreas. Combina latón cepillado y cuero teñido al anilina con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 90 × 128 × 42 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Mueble Bar Escultural Estrato en Ocre. Categoría: Almacenaje. Estancia idónea: salón. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: acentos dorados y encimeras pétreas. Materiales constructivos: Latón cepillado, Cuero teñido al anilina, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Ocre Dorado & Mostaza, tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo. Dimensiones técnicas: 90 cm ancho por 128 cm alto por 42 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 90 × 128 × 42 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una acentos dorados y encimeras pétreas. Combina latón cepillado y cuero teñido al anilina con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo."
-  },
-  {
-    "id": "rag-furn-064",
-    "name": "Librería Baja Divisoria Duna en Roble",
-    "category": "Almacenaje",
-    "room": "salón",
-    "price": 850,
-    "style": "Industrial Sutil",
-    "color": "Roble Claro & Paja",
-    "paletteKey": "roble",
-    "dimensions": {
-      "width": 166,
-      "height": 85,
-      "depth": 39
-    },
-    "materials": [
-      "Microcemento pulido",
-      "Hierro forjado negro"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1544457070-4cd773b4d71e?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una arquitectura loft y nobleza del acero. Combina microcemento pulido y hierro forjado negro con acabados sensoriales de tonalidad tonos madera rubia, trigo seco, fresno tostado y roble blanqueado.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 166 × 85 × 39 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Librería Baja Divisoria Duna en Roble. Categoría: Almacenaje. Estancia idónea: salón. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: arquitectura loft y nobleza del acero. Materiales constructivos: Microcemento pulido, Hierro forjado negro. Paleta y tonalidades: Roble Claro & Paja, tonos madera rubia, trigo seco, fresno tostado y roble blanqueado. Dimensiones técnicas: 166 cm ancho por 85 cm alto por 39 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 166 × 85 × 39 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una arquitectura loft y nobleza del acero. Combina microcemento pulido y hierro forjado negro con acabados sensoriales de tonalidad tonos madera rubia, trigo seco, fresno tostado y roble blanqueado."
-  },
-  {
-    "id": "rag-furn-065",
-    "name": "Aparador Bajo Coplanares Linear en Caliza",
-    "category": "Almacenaje",
-    "room": "salón",
-    "price": 2270,
-    "style": "Minimalismo Cálido",
-    "color": "Caliza Crema & Alabastro",
-    "paletteKey": "caliza",
-    "dimensions": {
-      "width": 205,
-      "height": 76,
-      "depth": 47
-    },
-    "materials": [
-      "Tejido bouclé",
-      "Mortero de cal",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1597072689227-8882273e8f6a?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una arquitectura sensorial táctil. Combina tejido bouclé y mortero de cal con acabados sensoriales de tonalidad tonos piedra de campaspero, hueso mineral, marfil poroso y travertino.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 205 × 76 × 47 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Aparador Bajo Coplanares Linear en Caliza. Categoría: Almacenaje. Estancia idónea: salón. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: arquitectura sensorial táctil. Materiales constructivos: Tejido bouclé, Mortero de cal, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Caliza Crema & Alabastro, tonos piedra de campaspero, hueso mineral, marfil poroso y travertino. Dimensiones técnicas: 205 cm ancho por 76 cm alto por 47 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 205 × 76 × 47 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una arquitectura sensorial táctil. Combina tejido bouclé y mortero de cal con acabados sensoriales de tonalidad tonos piedra de campaspero, hueso mineral, marfil poroso y travertino."
-  },
-  {
-    "id": "rag-furn-066",
-    "name": "Librería Modular Reticular Voxel en Nogal",
-    "category": "Almacenaje",
-    "room": "estudio",
-    "price": 2200,
-    "style": "Mid-Century Modern",
-    "color": "Nogal Profundo & Humo",
-    "paletteKey": "nogal",
-    "dimensions": {
-      "width": 166,
-      "height": 200,
-      "depth": 38
-    },
-    "materials": [
-      "Nogal canaletto",
-      "Mármol travertino romano"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una sofisticación de los años 50. Combina nogal canaletto y mármol travertino romano con acabados sensoriales de tonalidad tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 166 × 200 × 38 cm. Ensambles vistos y pureza estructural idónea para estudio.",
-    "ragContext": "Librería Modular Reticular Voxel en Nogal. Categoría: Almacenaje. Estancia idónea: estudio. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: sofisticación de los años 50. Materiales constructivos: Nogal canaletto, Mármol travertino romano. Paleta y tonalidades: Nogal Profundo & Humo, tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil. Dimensiones técnicas: 166 cm ancho por 200 cm alto por 38 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 166 × 200 × 38 cm. Ensambles vistos y pureza estructural idónea para estudio. Descripción sensorial: Pieza de autor pensada para proyectar una sofisticación de los años 50. Combina nogal canaletto y mármol travertino romano con acabados sensoriales de tonalidad tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil."
-  },
-  {
-    "id": "rag-furn-067",
-    "name": "Vitrina de Exposición Transparente Serena en Terracota",
-    "category": "Almacenaje",
-    "room": "comedor",
-    "price": 1030,
-    "style": "Industrial Sutil",
-    "color": "Terracota Silvestre",
-    "paletteKey": "terracota",
-    "dimensions": {
-      "width": 96,
-      "height": 180,
-      "depth": 39
-    },
-    "materials": [
-      "Cuero de curtición vegetal",
-      "Nogal oscuro",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1594698316135-115e93f815d4?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una estudio de diseño y precisión técnica. Combina cuero de curtición vegetal y nogal oscuro con acabados sensoriales de tonalidad tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 96 × 180 × 39 cm. Ensambles vistos y pureza estructural idónea para comedor.",
-    "ragContext": "Vitrina de Exposición Transparente Serena en Terracota. Categoría: Almacenaje. Estancia idónea: comedor. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: estudio de diseño y precisión técnica. Materiales constructivos: Cuero de curtición vegetal, Nogal oscuro, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Terracota Silvestre, tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal. Dimensiones técnicas: 96 cm ancho por 180 cm alto por 39 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 96 × 180 × 39 cm. Ensambles vistos y pureza estructural idónea para comedor. Descripción sensorial: Pieza de autor pensada para proyectar una estudio de diseño y precisión técnica. Combina cuero de curtición vegetal y nogal oscuro con acabados sensoriales de tonalidad tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal."
-  },
-  {
-    "id": "rag-furn-068",
-    "name": "Estantería Suspendida Liviana Estrato en Oliva",
-    "category": "Almacenaje",
+    "id": "furn-002",
+    "name": "Butaca Curva Bouclé Silvestre",
+    "category": "Asientos",
     "room": "salón",
     "price": 720,
     "style": "Minimalismo Cálido",
-    "color": "Oliva Seco & Musgo",
+    "color": "Oliva Seco",
     "paletteKey": "oliva",
     "dimensions": {
-      "width": 150,
-      "height": 116,
-      "depth": 27
+      "width": 84,
+      "height": 76,
+      "depth": 82
     },
     "materials": [
-      "Fresno aceitado",
-      "Travertino poroso"
+      "Tejido Bouclé",
+      "Madera de Fresno"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una luz tamizada y formas orgánicas. Combina fresno aceitado y travertino poroso con acabados sensoriales de tonalidad tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 150 × 116 × 27 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Estantería Suspendida Liviana Estrato en Oliva. Categoría: Almacenaje. Estancia idónea: salón. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: luz tamizada y formas orgánicas. Materiales constructivos: Fresno aceitado, Travertino poroso. Paleta y tonalidades: Oliva Seco & Musgo, tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre. Dimensiones técnicas: 150 cm ancho por 116 cm alto por 27 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 150 × 116 × 27 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una luz tamizada y formas orgánicas. Combina fresno aceitado y travertino poroso con acabados sensoriales de tonalidad tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre."
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera minimalismo cálido. Combina tejido bouclé y madera de fresno con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 84 cm (Ancho) × 76 cm (Alto) × 82 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Minimalismo Cálido",
+      "Textura Bouclé",
+      "Madera de Fresno",
+      "Líneas Orgánicas"
+    ],
+    "ragContext": "Butaca Curva Bouclé Silvestre. Categoría: Asientos. Estancia idónea: salón. Estilo: Minimalismo Cálido. Etiquetas de diseño: Minimalismo Cálido, Textura Bouclé, Madera de Fresno, Líneas Orgánicas. Materiales certificados: Tejido Bouclé, Madera de Fresno. Acabado cromático: Oliva Seco. Dimensiones técnicas: 84 cm de ancho por 76 cm de alto por 82 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera minimalismo cálido. Combina tejido bouclé y madera de fresno con proporciones equilibradas. Cotas arquitectónicas de plano: 84 cm (Ancho) × 76 cm (Alto) × 82 cm (Profundidad). Ensamble de precisión idóneo para salón."
   },
   {
-    "id": "rag-furn-069",
-    "name": "Cómoda de Cajones Enrasados Duna en Lino",
-    "category": "Almacenaje",
-    "room": "dormitorio",
-    "price": 1340,
-    "style": "Mid-Century Modern",
-    "color": "Lino Crudo & Yeso",
-    "paletteKey": "lino",
-    "dimensions": {
-      "width": 135,
-      "height": 80,
-      "depth": 49
-    },
-    "materials": [
-      "Cuero teñido al anilina",
-      "Vidrio ahumado",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1544457070-4cd773b4d71e?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una elegancia residencial modernista. Combina cuero teñido al anilina y vidrio ahumado con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 135 × 80 × 49 cm. Ensambles vistos y pureza estructural idónea para dormitorio.",
-    "ragContext": "Cómoda de Cajones Enrasados Duna en Lino. Categoría: Almacenaje. Estancia idónea: dormitorio. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: elegancia residencial modernista. Materiales constructivos: Cuero teñido al anilina, Vidrio ahumado, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Lino Crudo & Yeso, tonos lino natural, arena suave, blanco roto y tiza apagada. Dimensiones técnicas: 135 cm ancho por 80 cm alto por 49 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 135 × 80 × 49 cm. Ensambles vistos y pureza estructural idónea para dormitorio. Descripción sensorial: Pieza de autor pensada para proyectar una elegancia residencial modernista. Combina cuero teñido al anilina y vidrio ahumado con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada."
-  },
-  {
-    "id": "rag-furn-070",
-    "name": "Mueble Bar Escultural Linear en Ocre",
-    "category": "Almacenaje",
+    "id": "furn-003",
+    "name": "Sillón Club Cuero Taller",
+    "category": "Asientos",
     "room": "salón",
-    "price": 1080,
+    "price": 1190,
     "style": "Industrial Sutil",
-    "color": "Ocre Dorado & Mostaza",
-    "paletteKey": "ocre",
-    "dimensions": {
-      "width": 97,
-      "height": 135,
-      "depth": 48
-    },
-    "materials": [
-      "Hierro forjado negro",
-      "Acero pavonado"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1597072689227-8882273e8f6a?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una geometría honesta y constructivista. Combina hierro forjado negro y acero pavonado con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 97 × 135 × 48 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Mueble Bar Escultural Linear en Ocre. Categoría: Almacenaje. Estancia idónea: salón. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: geometría honesta y constructivista. Materiales constructivos: Hierro forjado negro, Acero pavonado. Paleta y tonalidades: Ocre Dorado & Mostaza, tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo. Dimensiones técnicas: 97 cm ancho por 135 cm alto por 48 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 97 × 135 × 48 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una geometría honesta y constructivista. Combina hierro forjado negro y acero pavonado con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo."
-  },
-  {
-    "id": "rag-furn-071",
-    "name": "Librería Baja Divisoria Voxel en Roble",
-    "category": "Almacenaje",
-    "room": "salón",
-    "price": 1360,
-    "style": "Minimalismo Cálido",
-    "color": "Roble Claro & Paja",
-    "paletteKey": "roble",
-    "dimensions": {
-      "width": 147,
-      "height": 89,
-      "depth": 38
-    },
-    "materials": [
-      "Mortero de cal",
-      "Lino lavado belga",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una atmósfera serena y despojada. Combina mortero de cal y lino lavado belga con acabados sensoriales de tonalidad tonos madera rubia, trigo seco, fresno tostado y roble blanqueado.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 147 × 89 × 38 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Librería Baja Divisoria Voxel en Roble. Categoría: Almacenaje. Estancia idónea: salón. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: atmósfera serena y despojada. Materiales constructivos: Mortero de cal, Lino lavado belga, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Roble Claro & Paja, tonos madera rubia, trigo seco, fresno tostado y roble blanqueado. Dimensiones técnicas: 147 cm ancho por 89 cm alto por 38 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 147 × 89 × 38 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una atmósfera serena y despojada. Combina mortero de cal y lino lavado belga con acabados sensoriales de tonalidad tonos madera rubia, trigo seco, fresno tostado y roble blanqueado."
-  },
-  {
-    "id": "rag-furn-072",
-    "name": "Aparador Bajo Coplanares Serena en Caliza",
-    "category": "Almacenaje",
-    "room": "salón",
-    "price": 1330,
-    "style": "Mid-Century Modern",
-    "color": "Caliza Crema & Alabastro",
-    "paletteKey": "caliza",
-    "dimensions": {
-      "width": 182,
-      "height": 68,
-      "depth": 45
-    },
-    "materials": [
-      "Mármol travertino romano",
-      "Latón cepillado"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1594698316135-115e93f815d4?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una curvas voluptuosas y maderas nobles. Combina mármol travertino romano y latón cepillado con acabados sensoriales de tonalidad tonos piedra de campaspero, hueso mineral, marfil poroso y travertino.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 182 × 68 × 45 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Aparador Bajo Coplanares Serena en Caliza. Categoría: Almacenaje. Estancia idónea: salón. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: curvas voluptuosas y maderas nobles. Materiales constructivos: Mármol travertino romano, Latón cepillado. Paleta y tonalidades: Caliza Crema & Alabastro, tonos piedra de campaspero, hueso mineral, marfil poroso y travertino. Dimensiones técnicas: 182 cm ancho por 68 cm alto por 45 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 182 × 68 × 45 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una curvas voluptuosas y maderas nobles. Combina mármol travertino romano y latón cepillado con acabados sensoriales de tonalidad tonos piedra de campaspero, hueso mineral, marfil poroso y travertino."
-  },
-  {
-    "id": "rag-furn-073",
-    "name": "Librería Modular Reticular Estrato en Nogal",
-    "category": "Almacenaje",
-    "room": "estudio",
-    "price": 1310,
-    "style": "Industrial Sutil",
-    "color": "Nogal Profundo & Humo",
+    "color": "Cuero Caramelo",
     "paletteKey": "nogal",
+    "dimensions": {
+      "width": 86,
+      "height": 84,
+      "depth": 88
+    },
+    "materials": [
+      "Cuero Vegetal",
+      "Acero Pavonado"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera industrial sutil. Combina cuero vegetal y acero pavonado con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 86 cm (Ancho) × 84 cm (Alto) × 88 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Industrial Sutil",
+      "Cuero Vegetal",
+      "Acero Pavonado",
+      "Pátina Artesanal"
+    ],
+    "ragContext": "Sillón Club Cuero Taller. Categoría: Asientos. Estancia idónea: salón. Estilo: Industrial Sutil. Etiquetas de diseño: Industrial Sutil, Cuero Vegetal, Acero Pavonado, Pátina Artesanal. Materiales certificados: Cuero Vegetal, Acero Pavonado. Acabado cromático: Cuero Caramelo. Dimensiones técnicas: 86 cm de ancho por 84 cm de alto por 88 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera industrial sutil. Combina cuero vegetal y acero pavonado con proporciones equilibradas. Cotas arquitectónicas de plano: 86 cm (Ancho) × 84 cm (Alto) × 88 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-004",
+    "name": "Chaise Longue Escultórica Calma",
+    "category": "Asientos",
+    "room": "salón",
+    "price": 1450,
+    "style": "Mediterráneo",
+    "color": "Lino Natural",
+    "paletteKey": "lino",
     "dimensions": {
       "width": 180,
-      "height": 210,
-      "depth": 37
+      "height": 68,
+      "depth": 85
     },
     "materials": [
-      "Nogal oscuro",
-      "Microcemento pulido",
-      "Tratamiento mate hidrófugo biológico"
+      "Lino Belga",
+      "Piedra Caliza"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una perfiles oscuros y cuero desgastado. Combina nogal oscuro y microcemento pulido con acabados sensoriales de tonalidad tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 180 × 210 × 37 cm. Ensambles vistos y pureza estructural idónea para estudio.",
-    "ragContext": "Librería Modular Reticular Estrato en Nogal. Categoría: Almacenaje. Estancia idónea: estudio. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: perfiles oscuros y cuero desgastado. Materiales constructivos: Nogal oscuro, Microcemento pulido, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Nogal Profundo & Humo, tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil. Dimensiones técnicas: 180 cm ancho por 210 cm alto por 37 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 180 × 210 × 37 cm. Ensambles vistos y pureza estructural idónea para estudio. Descripción sensorial: Pieza de autor pensada para proyectar una perfiles oscuros y cuero desgastado. Combina nogal oscuro y microcemento pulido con acabados sensoriales de tonalidad tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil."
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera mediterráneo. Combina lino belga y piedra caliza con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 180 cm (Ancho) × 68 cm (Alto) × 85 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Mediterráneo",
+      "Lino Belga",
+      "Líneas Orgánicas",
+      "Confort Ergonómico"
+    ],
+    "ragContext": "Chaise Longue Escultórica Calma. Categoría: Asientos. Estancia idónea: salón. Estilo: Mediterráneo. Etiquetas de diseño: Mediterráneo, Lino Belga, Líneas Orgánicas, Confort Ergonómico. Materiales certificados: Lino Belga, Piedra Caliza. Acabado cromático: Lino Natural. Dimensiones técnicas: 180 cm de ancho por 68 cm de alto por 85 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera mediterráneo. Combina lino belga y piedra caliza con proporciones equilibradas. Cotas arquitectónicas de plano: 180 cm (Ancho) × 68 cm (Alto) × 85 cm (Profundidad). Ensamble de precisión idóneo para salón."
   },
   {
-    "id": "rag-furn-074",
-    "name": "Vitrina de Exposición Transparente Duna en Terracota",
-    "category": "Almacenaje",
-    "room": "comedor",
-    "price": 1540,
-    "style": "Minimalismo Cálido",
-    "color": "Terracota Silvestre",
-    "paletteKey": "terracota",
-    "dimensions": {
-      "width": 104,
-      "height": 189,
-      "depth": 45
-    },
-    "materials": [
-      "Travertino poroso",
-      "Tejido bouclé"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1544457070-4cd773b4d71e?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una piedras calizas y linos naturales. Combina travertino poroso y tejido bouclé con acabados sensoriales de tonalidad tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 104 × 189 × 45 cm. Ensambles vistos y pureza estructural idónea para comedor.",
-    "ragContext": "Vitrina de Exposición Transparente Duna en Terracota. Categoría: Almacenaje. Estancia idónea: comedor. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: piedras calizas y linos naturales. Materiales constructivos: Travertino poroso, Tejido bouclé. Paleta y tonalidades: Terracota Silvestre, tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal. Dimensiones técnicas: 104 cm ancho por 189 cm alto por 45 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 104 × 189 × 45 cm. Ensambles vistos y pureza estructural idónea para comedor. Descripción sensorial: Pieza de autor pensada para proyectar una piedras calizas y linos naturales. Combina travertino poroso y tejido bouclé con acabados sensoriales de tonalidad tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal."
-  },
-  {
-    "id": "rag-furn-075",
-    "name": "Lámpara de Pie Arquitectónica Voxel en Lino",
-    "category": "Iluminación",
+    "id": "furn-005",
+    "name": "Banco Entrada Dovetail Roble",
+    "category": "Asientos",
     "room": "salón",
-    "price": 320,
-    "style": "Mid-Century Modern",
-    "color": "Lino Crudo & Yeso",
-    "paletteKey": "lino",
-    "dimensions": {
-      "width": 41,
-      "height": 157,
-      "depth": 42
-    },
-    "materials": [
-      "Nogal canaletto",
-      "Mármol travertino romano",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una sofisticación de los años 50. Combina nogal canaletto y mármol travertino romano con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 41 × 157 × 42 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Lámpara de Pie Arquitectónica Voxel en Lino. Categoría: Iluminación. Estancia idónea: salón. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: sofisticación de los años 50. Materiales constructivos: Nogal canaletto, Mármol travertino romano, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Lino Crudo & Yeso, tonos lino natural, arena suave, blanco roto y tiza apagada. Dimensiones técnicas: 41 cm ancho por 157 cm alto por 42 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 41 × 157 × 42 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una sofisticación de los años 50. Combina nogal canaletto y mármol travertino romano con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada."
-  },
-  {
-    "id": "rag-furn-076",
-    "name": "Lámpara Colgante Velo Cenital Serena en Ocre",
-    "category": "Iluminación",
-    "room": "comedor",
-    "price": 310,
-    "style": "Industrial Sutil",
-    "color": "Ocre Dorado & Mostaza",
-    "paletteKey": "ocre",
-    "dimensions": {
-      "width": 58,
-      "height": 40,
-      "depth": 59
-    },
-    "materials": [
-      "Cuero de curtición vegetal",
-      "Nogal oscuro"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una estudio de diseño y precisión técnica. Combina cuero de curtición vegetal y nogal oscuro con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 58 × 40 × 59 cm. Ensambles vistos y pureza estructural idónea para comedor.",
-    "ragContext": "Lámpara Colgante Velo Cenital Serena en Ocre. Categoría: Iluminación. Estancia idónea: comedor. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: estudio de diseño y precisión técnica. Materiales constructivos: Cuero de curtición vegetal, Nogal oscuro. Paleta y tonalidades: Ocre Dorado & Mostaza, tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo. Dimensiones técnicas: 58 cm ancho por 40 cm alto por 59 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 58 × 40 × 59 cm. Ensambles vistos y pureza estructural idónea para comedor. Descripción sensorial: Pieza de autor pensada para proyectar una estudio de diseño y precisión técnica. Combina cuero de curtición vegetal y nogal oscuro con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo."
-  },
-  {
-    "id": "rag-furn-077",
-    "name": "Aplique de Pared Luz Rasante Estrato en Roble",
-    "category": "Iluminación",
-    "room": "salón",
-    "price": 310,
-    "style": "Minimalismo Cálido",
-    "color": "Roble Claro & Paja",
-    "paletteKey": "roble",
-    "dimensions": {
-      "width": 30,
-      "height": 32,
-      "depth": 10
-    },
-    "materials": [
-      "Fresno aceitado",
-      "Travertino poroso",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1540932239986-30128078f3c5?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una luz tamizada y formas orgánicas. Combina fresno aceitado y travertino poroso con acabados sensoriales de tonalidad tonos madera rubia, trigo seco, fresno tostado y roble blanqueado.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 30 × 32 × 10 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Aplique de Pared Luz Rasante Estrato en Roble. Categoría: Iluminación. Estancia idónea: salón. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: luz tamizada y formas orgánicas. Materiales constructivos: Fresno aceitado, Travertino poroso, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Roble Claro & Paja, tonos madera rubia, trigo seco, fresno tostado y roble blanqueado. Dimensiones técnicas: 30 cm ancho por 32 cm alto por 10 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 30 × 32 × 10 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una luz tamizada y formas orgánicas. Combina fresno aceitado y travertino poroso con acabados sensoriales de tonalidad tonos madera rubia, trigo seco, fresno tostado y roble blanqueado."
-  },
-  {
-    "id": "rag-furn-078",
-    "name": "Lámpara de Sobremesa Cúpula Duna en Caliza",
-    "category": "Iluminación",
-    "room": "estudio",
-    "price": 410,
-    "style": "Mid-Century Modern",
-    "color": "Caliza Crema & Alabastro",
-    "paletteKey": "caliza",
-    "dimensions": {
-      "width": 33,
-      "height": 44,
-      "depth": 34
-    },
-    "materials": [
-      "Cuero teñido al anilina",
-      "Vidrio ahumado"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una elegancia residencial modernista. Combina cuero teñido al anilina y vidrio ahumado con acabados sensoriales de tonalidad tonos piedra de campaspero, hueso mineral, marfil poroso y travertino.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 33 × 44 × 34 cm. Ensambles vistos y pureza estructural idónea para estudio.",
-    "ragContext": "Lámpara de Sobremesa Cúpula Duna en Caliza. Categoría: Iluminación. Estancia idónea: estudio. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: elegancia residencial modernista. Materiales constructivos: Cuero teñido al anilina, Vidrio ahumado. Paleta y tonalidades: Caliza Crema & Alabastro, tonos piedra de campaspero, hueso mineral, marfil poroso y travertino. Dimensiones técnicas: 33 cm ancho por 44 cm alto por 34 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 33 × 44 × 34 cm. Ensambles vistos y pureza estructural idónea para estudio. Descripción sensorial: Pieza de autor pensada para proyectar una elegancia residencial modernista. Combina cuero teñido al anilina y vidrio ahumado con acabados sensoriales de tonalidad tonos piedra de campaspero, hueso mineral, marfil poroso y travertino."
-  },
-  {
-    "id": "rag-furn-079",
-    "name": "Lámpara de Suspensión Lineal Linear en Nogal",
-    "category": "Iluminación",
-    "room": "comedor",
-    "price": 670,
-    "style": "Industrial Sutil",
-    "color": "Nogal Profundo & Humo",
+    "price": 460,
+    "style": "Rústico Contemporáneo",
+    "color": "Madera Quemada",
     "paletteKey": "nogal",
     "dimensions": {
-      "width": 140,
-      "height": 15,
-      "depth": 11
-    },
-    "materials": [
-      "Hierro forjado negro",
-      "Acero pavonado",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1517991104123-1d56a6e81ed9?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una geometría honesta y constructivista. Combina hierro forjado negro y acero pavonado con acabados sensoriales de tonalidad tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 140 × 15 × 11 cm. Ensambles vistos y pureza estructural idónea para comedor.",
-    "ragContext": "Lámpara de Suspensión Lineal Linear en Nogal. Categoría: Iluminación. Estancia idónea: comedor. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: geometría honesta y constructivista. Materiales constructivos: Hierro forjado negro, Acero pavonado, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Nogal Profundo & Humo, tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil. Dimensiones técnicas: 140 cm ancho por 15 cm alto por 11 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 140 × 15 × 11 cm. Ensambles vistos y pureza estructural idónea para comedor. Descripción sensorial: Pieza de autor pensada para proyectar una geometría honesta y constructivista. Combina hierro forjado negro y acero pavonado con acabados sensoriales de tonalidad tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil."
-  },
-  {
-    "id": "rag-furn-080",
-    "name": "Aplique de Lectura Cabecero Voxel en Terracota",
-    "category": "Iluminación",
-    "room": "dormitorio",
-    "price": 170,
-    "style": "Minimalismo Cálido",
-    "color": "Terracota Silvestre",
-    "paletteKey": "terracota",
-    "dimensions": {
-      "width": 17,
-      "height": 27,
-      "depth": 14
-    },
-    "materials": [
-      "Mortero de cal",
-      "Lino lavado belga"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una atmósfera serena y despojada. Combina mortero de cal y lino lavado belga con acabados sensoriales de tonalidad tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 17 × 27 × 14 cm. Ensambles vistos y pureza estructural idónea para dormitorio.",
-    "ragContext": "Aplique de Lectura Cabecero Voxel en Terracota. Categoría: Iluminación. Estancia idónea: dormitorio. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: atmósfera serena y despojada. Materiales constructivos: Mortero de cal, Lino lavado belga. Paleta y tonalidades: Terracota Silvestre, tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal. Dimensiones técnicas: 17 cm ancho por 27 cm alto por 14 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 17 × 27 × 14 cm. Ensambles vistos y pureza estructural idónea para dormitorio. Descripción sensorial: Pieza de autor pensada para proyectar una atmósfera serena y despojada. Combina mortero de cal y lino lavado belga con acabados sensoriales de tonalidad tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal."
-  },
-  {
-    "id": "rag-furn-081",
-    "name": "Lámpara de Pie Arquitectónica Serena en Oliva",
-    "category": "Iluminación",
-    "room": "salón",
-    "price": 760,
-    "style": "Mid-Century Modern",
-    "color": "Oliva Seco & Musgo",
-    "paletteKey": "oliva",
-    "dimensions": {
-      "width": 43,
-      "height": 157,
-      "depth": 46
-    },
-    "materials": [
-      "Mármol travertino romano",
-      "Latón cepillado",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una curvas voluptuosas y maderas nobles. Combina mármol travertino romano y latón cepillado con acabados sensoriales de tonalidad tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 43 × 157 × 46 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Lámpara de Pie Arquitectónica Serena en Oliva. Categoría: Iluminación. Estancia idónea: salón. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: curvas voluptuosas y maderas nobles. Materiales constructivos: Mármol travertino romano, Latón cepillado, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Oliva Seco & Musgo, tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre. Dimensiones técnicas: 43 cm ancho por 157 cm alto por 46 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 43 × 157 × 46 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una curvas voluptuosas y maderas nobles. Combina mármol travertino romano y latón cepillado con acabados sensoriales de tonalidad tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre."
-  },
-  {
-    "id": "rag-furn-082",
-    "name": "Lámpara Colgante Velo Cenital Estrato en Lino",
-    "category": "Iluminación",
-    "room": "comedor",
-    "price": 300,
-    "style": "Industrial Sutil",
-    "color": "Lino Crudo & Yeso",
-    "paletteKey": "lino",
-    "dimensions": {
-      "width": 60,
-      "height": 40,
-      "depth": 64
-    },
-    "materials": [
-      "Nogal oscuro",
-      "Microcemento pulido"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1540932239986-30128078f3c5?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una perfiles oscuros y cuero desgastado. Combina nogal oscuro y microcemento pulido con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 60 × 40 × 64 cm. Ensambles vistos y pureza estructural idónea para comedor.",
-    "ragContext": "Lámpara Colgante Velo Cenital Estrato en Lino. Categoría: Iluminación. Estancia idónea: comedor. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: perfiles oscuros y cuero desgastado. Materiales constructivos: Nogal oscuro, Microcemento pulido. Paleta y tonalidades: Lino Crudo & Yeso, tonos lino natural, arena suave, blanco roto y tiza apagada. Dimensiones técnicas: 60 cm ancho por 40 cm alto por 64 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 60 × 40 × 64 cm. Ensambles vistos y pureza estructural idónea para comedor. Descripción sensorial: Pieza de autor pensada para proyectar una perfiles oscuros y cuero desgastado. Combina nogal oscuro y microcemento pulido con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada."
-  },
-  {
-    "id": "rag-furn-083",
-    "name": "Aplique de Pared Luz Rasante Duna en Ocre",
-    "category": "Iluminación",
-    "room": "salón",
-    "price": 300,
-    "style": "Minimalismo Cálido",
-    "color": "Ocre Dorado & Mostaza",
-    "paletteKey": "ocre",
-    "dimensions": {
-      "width": 31,
-      "height": 32,
-      "depth": 9
-    },
-    "materials": [
-      "Travertino poroso",
-      "Tejido bouclé",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una piedras calizas y linos naturales. Combina travertino poroso y tejido bouclé con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 31 × 32 × 9 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Aplique de Pared Luz Rasante Duna en Ocre. Categoría: Iluminación. Estancia idónea: salón. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: piedras calizas y linos naturales. Materiales constructivos: Travertino poroso, Tejido bouclé, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Ocre Dorado & Mostaza, tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo. Dimensiones técnicas: 31 cm ancho por 32 cm alto por 9 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 31 × 32 × 9 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una piedras calizas y linos naturales. Combina travertino poroso y tejido bouclé con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo."
-  },
-  {
-    "id": "rag-furn-084",
-    "name": "Lámpara de Sobremesa Cúpula Linear en Roble",
-    "category": "Iluminación",
-    "room": "estudio",
-    "price": 330,
-    "style": "Mid-Century Modern",
-    "color": "Roble Claro & Paja",
-    "paletteKey": "roble",
-    "dimensions": {
-      "width": 35,
+      "width": 135,
       "height": 44,
-      "depth": 31
+      "depth": 40
     },
     "materials": [
-      "Vidrio ahumado",
-      "Nogal canaletto"
+      "Madera Recuperada",
+      "Roble Macizo"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1517991104123-1d56a6e81ed9?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una proporciones icónicas y nobleza material. Combina vidrio ahumado y nogal canaletto con acabados sensoriales de tonalidad tonos madera rubia, trigo seco, fresno tostado y roble blanqueado.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 35 × 44 × 31 cm. Ensambles vistos y pureza estructural idónea para estudio.",
-    "ragContext": "Lámpara de Sobremesa Cúpula Linear en Roble. Categoría: Iluminación. Estancia idónea: estudio. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: proporciones icónicas y nobleza material. Materiales constructivos: Vidrio ahumado, Nogal canaletto. Paleta y tonalidades: Roble Claro & Paja, tonos madera rubia, trigo seco, fresno tostado y roble blanqueado. Dimensiones técnicas: 35 cm ancho por 44 cm alto por 31 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 35 × 44 × 31 cm. Ensambles vistos y pureza estructural idónea para estudio. Descripción sensorial: Pieza de autor pensada para proyectar una proporciones icónicas y nobleza material. Combina vidrio ahumado y nogal canaletto con acabados sensoriales de tonalidad tonos madera rubia, trigo seco, fresno tostado y roble blanqueado."
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera rústico contemporáneo. Combina madera recuperada y roble macizo con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 135 cm (Ancho) × 44 cm (Alto) × 40 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Rústico Contemporáneo",
+      "Madera Recuperada",
+      "Roble Macizo",
+      "Pátina Artesanal"
+    ],
+    "ragContext": "Banco Entrada Dovetail Roble. Categoría: Asientos. Estancia idónea: salón. Estilo: Rústico Contemporáneo. Etiquetas de diseño: Rústico Contemporáneo, Madera Recuperada, Roble Macizo, Pátina Artesanal. Materiales certificados: Madera Recuperada, Roble Macizo. Acabado cromático: Madera Quemada. Dimensiones técnicas: 135 cm de ancho por 44 cm de alto por 40 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera rústico contemporáneo. Combina madera recuperada y roble macizo con proporciones equilibradas. Cotas arquitectónicas de plano: 135 cm (Ancho) × 44 cm (Alto) × 40 cm (Profundidad). Ensamble de precisión idóneo para salón."
   },
   {
-    "id": "rag-furn-085",
-    "name": "Lámpara de Suspensión Lineal Voxel en Caliza",
-    "category": "Iluminación",
-    "room": "comedor",
-    "price": 600,
-    "style": "Industrial Sutil",
-    "color": "Caliza Crema & Alabastro",
-    "paletteKey": "caliza",
-    "dimensions": {
-      "width": 120,
-      "height": 15,
-      "depth": 12
-    },
-    "materials": [
-      "Acero pavonado",
-      "Cuero de curtición vegetal",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una sobriedad tectónica y rigor estructural. Combina acero pavonado y cuero de curtición vegetal con acabados sensoriales de tonalidad tonos piedra de campaspero, hueso mineral, marfil poroso y travertino.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 120 × 15 × 12 cm. Ensambles vistos y pureza estructural idónea para comedor.",
-    "ragContext": "Lámpara de Suspensión Lineal Voxel en Caliza. Categoría: Iluminación. Estancia idónea: comedor. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: sobriedad tectónica y rigor estructural. Materiales constructivos: Acero pavonado, Cuero de curtición vegetal, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Caliza Crema & Alabastro, tonos piedra de campaspero, hueso mineral, marfil poroso y travertino. Dimensiones técnicas: 120 cm ancho por 15 cm alto por 12 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 120 × 15 × 12 cm. Ensambles vistos y pureza estructural idónea para comedor. Descripción sensorial: Pieza de autor pensada para proyectar una sobriedad tectónica y rigor estructural. Combina acero pavonado y cuero de curtición vegetal con acabados sensoriales de tonalidad tonos piedra de campaspero, hueso mineral, marfil poroso y travertino."
-  },
-  {
-    "id": "rag-furn-086",
-    "name": "Aplique de Lectura Cabecero Serena en Nogal",
-    "category": "Iluminación",
-    "room": "dormitorio",
-    "price": 260,
-    "style": "Minimalismo Cálido",
-    "color": "Nogal Profundo & Humo",
-    "paletteKey": "nogal",
-    "dimensions": {
-      "width": 17,
-      "height": 27,
-      "depth": 15
-    },
-    "materials": [
-      "Lino lavado belga",
-      "Fresno aceitado"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una texturas táctiles envolventes. Combina lino lavado belga y fresno aceitado con acabados sensoriales de tonalidad tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 17 × 27 × 15 cm. Ensambles vistos y pureza estructural idónea para dormitorio.",
-    "ragContext": "Aplique de Lectura Cabecero Serena en Nogal. Categoría: Iluminación. Estancia idónea: dormitorio. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: texturas táctiles envolventes. Materiales constructivos: Lino lavado belga, Fresno aceitado. Paleta y tonalidades: Nogal Profundo & Humo, tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil. Dimensiones técnicas: 17 cm ancho por 27 cm alto por 15 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 17 × 27 × 15 cm. Ensambles vistos y pureza estructural idónea para dormitorio. Descripción sensorial: Pieza de autor pensada para proyectar una texturas táctiles envolventes. Combina lino lavado belga y fresno aceitado con acabados sensoriales de tonalidad tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil."
-  },
-  {
-    "id": "rag-furn-087",
-    "name": "Lámpara de Pie Arquitectónica Estrato en Terracota",
-    "category": "Iluminación",
+    "id": "furn-006",
+    "name": "Juego 4 Sillas Comedor Cordón",
+    "category": "Asientos",
     "room": "salón",
-    "price": 670,
-    "style": "Mid-Century Modern",
-    "color": "Terracota Silvestre",
-    "paletteKey": "terracota",
-    "dimensions": {
-      "width": 45,
-      "height": 157,
-      "depth": 42
-    },
-    "materials": [
-      "Latón cepillado",
-      "Cuero teñido al anilina",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1540932239986-30128078f3c5?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una acentos dorados y encimeras pétreas. Combina latón cepillado y cuero teñido al anilina con acabados sensoriales de tonalidad tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 45 × 157 × 42 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Lámpara de Pie Arquitectónica Estrato en Terracota. Categoría: Iluminación. Estancia idónea: salón. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: acentos dorados y encimeras pétreas. Materiales constructivos: Latón cepillado, Cuero teñido al anilina, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Terracota Silvestre, tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal. Dimensiones técnicas: 45 cm ancho por 157 cm alto por 42 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 45 × 157 × 42 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una acentos dorados y encimeras pétreas. Combina latón cepillado y cuero teñido al anilina con acabados sensoriales de tonalidad tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal."
-  },
-  {
-    "id": "rag-furn-088",
-    "name": "Lámpara Colgante Velo Cenital Duna en Oliva",
-    "category": "Iluminación",
-    "room": "comedor",
-    "price": 290,
-    "style": "Industrial Sutil",
-    "color": "Oliva Seco & Musgo",
-    "paletteKey": "oliva",
-    "dimensions": {
-      "width": 62,
-      "height": 40,
-      "depth": 59
-    },
-    "materials": [
-      "Microcemento pulido",
-      "Hierro forjado negro"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una arquitectura loft y nobleza del acero. Combina microcemento pulido y hierro forjado negro con acabados sensoriales de tonalidad tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 62 × 40 × 59 cm. Ensambles vistos y pureza estructural idónea para comedor.",
-    "ragContext": "Lámpara Colgante Velo Cenital Duna en Oliva. Categoría: Iluminación. Estancia idónea: comedor. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: arquitectura loft y nobleza del acero. Materiales constructivos: Microcemento pulido, Hierro forjado negro. Paleta y tonalidades: Oliva Seco & Musgo, tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre. Dimensiones técnicas: 62 cm ancho por 40 cm alto por 59 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 62 × 40 × 59 cm. Ensambles vistos y pureza estructural idónea para comedor. Descripción sensorial: Pieza de autor pensada para proyectar una arquitectura loft y nobleza del acero. Combina microcemento pulido y hierro forjado negro con acabados sensoriales de tonalidad tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre."
-  },
-  {
-    "id": "rag-furn-089",
-    "name": "Aplique de Pared Luz Rasante Linear en Lino",
-    "category": "Iluminación",
-    "room": "salón",
-    "price": 300,
-    "style": "Minimalismo Cálido",
-    "color": "Lino Crudo & Yeso",
-    "paletteKey": "lino",
-    "dimensions": {
-      "width": 32,
-      "height": 32,
-      "depth": 10
-    },
-    "materials": [
-      "Tejido bouclé",
-      "Mortero de cal",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1517991104123-1d56a6e81ed9?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una arquitectura sensorial táctil. Combina tejido bouclé y mortero de cal con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 32 × 32 × 10 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Aplique de Pared Luz Rasante Linear en Lino. Categoría: Iluminación. Estancia idónea: salón. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: arquitectura sensorial táctil. Materiales constructivos: Tejido bouclé, Mortero de cal, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Lino Crudo & Yeso, tonos lino natural, arena suave, blanco roto y tiza apagada. Dimensiones técnicas: 32 cm ancho por 32 cm alto por 10 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 32 × 32 × 10 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una arquitectura sensorial táctil. Combina tejido bouclé y mortero de cal con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada."
-  },
-  {
-    "id": "rag-furn-090",
-    "name": "Lámpara de Sobremesa Cúpula Voxel en Ocre",
-    "category": "Iluminación",
-    "room": "estudio",
-    "price": 250,
-    "style": "Mid-Century Modern",
-    "color": "Ocre Dorado & Mostaza",
-    "paletteKey": "ocre",
-    "dimensions": {
-      "width": 29,
-      "height": 44,
-      "depth": 34
-    },
-    "materials": [
-      "Nogal canaletto",
-      "Mármol travertino romano"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una sofisticación de los años 50. Combina nogal canaletto y mármol travertino romano con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 29 × 44 × 34 cm. Ensambles vistos y pureza estructural idónea para estudio.",
-    "ragContext": "Lámpara de Sobremesa Cúpula Voxel en Ocre. Categoría: Iluminación. Estancia idónea: estudio. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: sofisticación de los años 50. Materiales constructivos: Nogal canaletto, Mármol travertino romano. Paleta y tonalidades: Ocre Dorado & Mostaza, tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo. Dimensiones técnicas: 29 cm ancho por 44 cm alto por 34 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 29 × 44 × 34 cm. Ensambles vistos y pureza estructural idónea para estudio. Descripción sensorial: Pieza de autor pensada para proyectar una sofisticación de los años 50. Combina nogal canaletto y mármol travertino romano con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo."
-  },
-  {
-    "id": "rag-furn-091",
-    "name": "Lámpara de Suspensión Lineal Serena en Roble",
-    "category": "Iluminación",
-    "room": "comedor",
-    "price": 530,
-    "style": "Industrial Sutil",
-    "color": "Roble Claro & Paja",
-    "paletteKey": "roble",
-    "dimensions": {
-      "width": 125,
-      "height": 15,
-      "depth": 11
-    },
-    "materials": [
-      "Cuero de curtición vegetal",
-      "Nogal oscuro",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una estudio de diseño y precisión técnica. Combina cuero de curtición vegetal y nogal oscuro con acabados sensoriales de tonalidad tonos madera rubia, trigo seco, fresno tostado y roble blanqueado.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 125 × 15 × 11 cm. Ensambles vistos y pureza estructural idónea para comedor.",
-    "ragContext": "Lámpara de Suspensión Lineal Serena en Roble. Categoría: Iluminación. Estancia idónea: comedor. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: estudio de diseño y precisión técnica. Materiales constructivos: Cuero de curtición vegetal, Nogal oscuro, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Roble Claro & Paja, tonos madera rubia, trigo seco, fresno tostado y roble blanqueado. Dimensiones técnicas: 125 cm ancho por 15 cm alto por 11 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 125 × 15 × 11 cm. Ensambles vistos y pureza estructural idónea para comedor. Descripción sensorial: Pieza de autor pensada para proyectar una estudio de diseño y precisión técnica. Combina cuero de curtición vegetal y nogal oscuro con acabados sensoriales de tonalidad tonos madera rubia, trigo seco, fresno tostado y roble blanqueado."
-  },
-  {
-    "id": "rag-furn-092",
-    "name": "Aplique de Lectura Cabecero Estrato en Caliza",
-    "category": "Iluminación",
-    "room": "dormitorio",
-    "price": 190,
-    "style": "Minimalismo Cálido",
-    "color": "Caliza Crema & Alabastro",
-    "paletteKey": "caliza",
-    "dimensions": {
-      "width": 18,
-      "height": 27,
-      "depth": 14
-    },
-    "materials": [
-      "Fresno aceitado",
-      "Travertino poroso"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1540932239986-30128078f3c5?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una luz tamizada y formas orgánicas. Combina fresno aceitado y travertino poroso con acabados sensoriales de tonalidad tonos piedra de campaspero, hueso mineral, marfil poroso y travertino.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 18 × 27 × 14 cm. Ensambles vistos y pureza estructural idónea para dormitorio.",
-    "ragContext": "Aplique de Lectura Cabecero Estrato en Caliza. Categoría: Iluminación. Estancia idónea: dormitorio. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: luz tamizada y formas orgánicas. Materiales constructivos: Fresno aceitado, Travertino poroso. Paleta y tonalidades: Caliza Crema & Alabastro, tonos piedra de campaspero, hueso mineral, marfil poroso y travertino. Dimensiones técnicas: 18 cm ancho por 27 cm alto por 14 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 18 × 27 × 14 cm. Ensambles vistos y pureza estructural idónea para dormitorio. Descripción sensorial: Pieza de autor pensada para proyectar una luz tamizada y formas orgánicas. Combina fresno aceitado y travertino poroso con acabados sensoriales de tonalidad tonos piedra de campaspero, hueso mineral, marfil poroso y travertino."
-  },
-  {
-    "id": "rag-furn-093",
-    "name": "Lámpara de Pie Arquitectónica Duna en Nogal",
-    "category": "Iluminación",
-    "room": "salón",
-    "price": 570,
-    "style": "Mid-Century Modern",
-    "color": "Nogal Profundo & Humo",
-    "paletteKey": "nogal",
-    "dimensions": {
-      "width": 47,
-      "height": 157,
-      "depth": 46
-    },
-    "materials": [
-      "Cuero teñido al anilina",
-      "Vidrio ahumado",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una elegancia residencial modernista. Combina cuero teñido al anilina y vidrio ahumado con acabados sensoriales de tonalidad tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 47 × 157 × 46 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Lámpara de Pie Arquitectónica Duna en Nogal. Categoría: Iluminación. Estancia idónea: salón. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: elegancia residencial modernista. Materiales constructivos: Cuero teñido al anilina, Vidrio ahumado, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Nogal Profundo & Humo, tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil. Dimensiones técnicas: 47 cm ancho por 157 cm alto por 46 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 47 × 157 × 46 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una elegancia residencial modernista. Combina cuero teñido al anilina y vidrio ahumado con acabados sensoriales de tonalidad tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil."
-  },
-  {
-    "id": "rag-furn-094",
-    "name": "Lámpara Colgante Velo Cenital Linear en Terracota",
-    "category": "Iluminación",
-    "room": "comedor",
-    "price": 280,
-    "style": "Industrial Sutil",
-    "color": "Terracota Silvestre",
-    "paletteKey": "terracota",
-    "dimensions": {
-      "width": 65,
-      "height": 40,
-      "depth": 64
-    },
-    "materials": [
-      "Hierro forjado negro",
-      "Acero pavonado"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1517991104123-1d56a6e81ed9?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una geometría honesta y constructivista. Combina hierro forjado negro y acero pavonado con acabados sensoriales de tonalidad tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 65 × 40 × 64 cm. Ensambles vistos y pureza estructural idónea para comedor.",
-    "ragContext": "Lámpara Colgante Velo Cenital Linear en Terracota. Categoría: Iluminación. Estancia idónea: comedor. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: geometría honesta y constructivista. Materiales constructivos: Hierro forjado negro, Acero pavonado. Paleta y tonalidades: Terracota Silvestre, tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal. Dimensiones técnicas: 65 cm ancho por 40 cm alto por 64 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 65 × 40 × 64 cm. Ensambles vistos y pureza estructural idónea para comedor. Descripción sensorial: Pieza de autor pensada para proyectar una geometría honesta y constructivista. Combina hierro forjado negro y acero pavonado con acabados sensoriales de tonalidad tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal."
-  },
-  {
-    "id": "rag-furn-095",
-    "name": "Aplique de Pared Luz Rasante Voxel en Oliva",
-    "category": "Iluminación",
-    "room": "salón",
-    "price": 300,
-    "style": "Minimalismo Cálido",
-    "color": "Oliva Seco & Musgo",
-    "paletteKey": "oliva",
-    "dimensions": {
-      "width": 28,
-      "height": 32,
-      "depth": 9
-    },
-    "materials": [
-      "Mortero de cal",
-      "Lino lavado belga",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una atmósfera serena y despojada. Combina mortero de cal y lino lavado belga con acabados sensoriales de tonalidad tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 28 × 32 × 9 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Aplique de Pared Luz Rasante Voxel en Oliva. Categoría: Iluminación. Estancia idónea: salón. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: atmósfera serena y despojada. Materiales constructivos: Mortero de cal, Lino lavado belga, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Oliva Seco & Musgo, tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre. Dimensiones técnicas: 28 cm ancho por 32 cm alto por 9 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 28 × 32 × 9 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una atmósfera serena y despojada. Combina mortero de cal y lino lavado belga con acabados sensoriales de tonalidad tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre."
-  },
-  {
-    "id": "rag-furn-096",
-    "name": "Lámpara de Sobremesa Cúpula Serena en Lino",
-    "category": "Iluminación",
-    "room": "estudio",
-    "price": 420,
-    "style": "Mid-Century Modern",
-    "color": "Lino Crudo & Yeso",
-    "paletteKey": "lino",
-    "dimensions": {
-      "width": 31,
-      "height": 44,
-      "depth": 31
-    },
-    "materials": [
-      "Mármol travertino romano",
-      "Latón cepillado"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una curvas voluptuosas y maderas nobles. Combina mármol travertino romano y latón cepillado con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 31 × 44 × 31 cm. Ensambles vistos y pureza estructural idónea para estudio.",
-    "ragContext": "Lámpara de Sobremesa Cúpula Serena en Lino. Categoría: Iluminación. Estancia idónea: estudio. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: curvas voluptuosas y maderas nobles. Materiales constructivos: Mármol travertino romano, Latón cepillado. Paleta y tonalidades: Lino Crudo & Yeso, tonos lino natural, arena suave, blanco roto y tiza apagada. Dimensiones técnicas: 31 cm ancho por 44 cm alto por 31 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 31 × 44 × 31 cm. Ensambles vistos y pureza estructural idónea para estudio. Descripción sensorial: Pieza de autor pensada para proyectar una curvas voluptuosas y maderas nobles. Combina mármol travertino romano y latón cepillado con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada."
-  },
-  {
-    "id": "rag-furn-097",
-    "name": "Cama Flotante con Tatami Nara en Oliva",
-    "category": "Dormitorio",
-    "room": "dormitorio",
-    "price": 1600,
-    "style": "Minimalismo Cálido",
-    "color": "Oliva Seco & Musgo",
-    "paletteKey": "oliva",
-    "dimensions": {
-      "width": 179,
-      "height": 84,
-      "depth": 207
-    },
-    "materials": [
-      "Mortero de cal",
-      "Lino lavado belga",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una atmósfera serena y despojada. Combina mortero de cal y lino lavado belga con acabados sensoriales de tonalidad tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 179 × 84 × 207 cm. Ensambles vistos y pureza estructural idónea para dormitorio.",
-    "ragContext": "Cama Flotante con Tatami Nara en Oliva. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: atmósfera serena y despojada. Materiales constructivos: Mortero de cal, Lino lavado belga, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Oliva Seco & Musgo, tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre. Dimensiones técnicas: 179 cm ancho por 84 cm alto por 207 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 179 × 84 × 207 cm. Ensambles vistos y pureza estructural idónea para dormitorio. Descripción sensorial: Pieza de autor pensada para proyectar una atmósfera serena y despojada. Combina mortero de cal y lino lavado belga con acabados sensoriales de tonalidad tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre."
-  },
-  {
-    "id": "rag-furn-098",
-    "name": "Cama con Cabecero Alistonado Monolito en Lino",
-    "category": "Dormitorio",
-    "room": "dormitorio",
-    "price": 1520,
-    "style": "Mid-Century Modern",
-    "color": "Lino Crudo & Yeso",
-    "paletteKey": "lino",
-    "dimensions": {
-      "width": 178,
-      "height": 105,
-      "depth": 211
-    },
-    "materials": [
-      "Mármol travertino romano",
-      "Latón cepillado"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1540518614846-7ede433c4ef9?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una curvas voluptuosas y maderas nobles. Combina mármol travertino romano y latón cepillado con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 178 × 105 × 211 cm. Ensambles vistos y pureza estructural idónea para dormitorio.",
-    "ragContext": "Cama con Cabecero Alistonado Monolito en Lino. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: curvas voluptuosas y maderas nobles. Materiales constructivos: Mármol travertino romano, Latón cepillado. Paleta y tonalidades: Lino Crudo & Yeso, tonos lino natural, arena suave, blanco roto y tiza apagada. Dimensiones técnicas: 178 cm ancho por 105 cm alto por 211 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 178 × 105 × 211 cm. Ensambles vistos y pureza estructural idónea para dormitorio. Descripción sensorial: Pieza de autor pensada para proyectar una curvas voluptuosas y maderas nobles. Combina mármol travertino romano y latón cepillado con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada."
-  },
-  {
-    "id": "rag-furn-099",
-    "name": "Mesita de Noche Monolito Kumo en Ocre",
-    "category": "Dormitorio",
-    "room": "dormitorio",
-    "price": 370,
-    "style": "Industrial Sutil",
-    "color": "Ocre Dorado & Mostaza",
-    "paletteKey": "ocre",
-    "dimensions": {
-      "width": 46,
-      "height": 50,
-      "depth": 41
-    },
-    "materials": [
-      "Nogal oscuro",
-      "Microcemento pulido",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una perfiles oscuros y cuero desgastado. Combina nogal oscuro y microcemento pulido con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 46 × 50 × 41 cm. Ensambles vistos y pureza estructural idónea para dormitorio.",
-    "ragContext": "Mesita de Noche Monolito Kumo en Ocre. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: perfiles oscuros y cuero desgastado. Materiales constructivos: Nogal oscuro, Microcemento pulido, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Ocre Dorado & Mostaza, tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo. Dimensiones técnicas: 46 cm ancho por 50 cm alto por 41 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 46 × 50 × 41 cm. Ensambles vistos y pureza estructural idónea para dormitorio. Descripción sensorial: Pieza de autor pensada para proyectar una perfiles oscuros y cuero desgastado. Combina nogal oscuro y microcemento pulido con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo."
-  },
-  {
-    "id": "rag-furn-100",
-    "name": "Mesita de Noche Suspendida Bosque en Roble",
-    "category": "Dormitorio",
-    "room": "dormitorio",
-    "price": 410,
-    "style": "Minimalismo Cálido",
-    "color": "Roble Claro & Paja",
+    "price": 890,
+    "style": "Nórdico",
+    "color": "Roble Rubio",
     "paletteKey": "roble",
     "dimensions": {
       "width": 52,
-      "height": 21,
+      "height": 78,
+      "depth": 54
+    },
+    "materials": [
+      "Roble Macizo",
+      "Cuerda Kraft"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera nórdico. Combina roble macizo y cuerda kraft con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 52 cm (Ancho) × 78 cm (Alto) × 54 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Nórdico",
+      "Roble Macizo",
+      "Cuerda Kraft",
+      "Geometría Pura"
+    ],
+    "ragContext": "Juego 4 Sillas Comedor Cordón. Categoría: Asientos. Estancia idónea: salón. Estilo: Nórdico. Etiquetas de diseño: Nórdico, Roble Macizo, Cuerda Kraft, Geometría Pura. Materiales certificados: Roble Macizo, Cuerda Kraft. Acabado cromático: Roble Rubio. Dimensiones técnicas: 52 cm de ancho por 78 cm de alto por 54 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera nórdico. Combina roble macizo y cuerda kraft con proporciones equilibradas. Cotas arquitectónicas de plano: 52 cm (Ancho) × 78 cm (Alto) × 54 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-007",
+    "name": "Sillón Orejero Mid-Century Cantilever",
+    "category": "Asientos",
+    "room": "salón",
+    "price": 1320,
+    "style": "Mid-Century",
+    "color": "Nogal y Ocre",
+    "paletteKey": "ocre",
+    "dimensions": {
+      "width": 88,
+      "height": 96,
+      "depth": 90
+    },
+    "materials": [
+      "Madera de Nogal",
+      "Lana Virgen"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera mid-century. Combina madera de nogal y lana virgen con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 88 cm (Ancho) × 96 cm (Alto) × 90 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Mid-Century",
+      "Madera de Nogal",
+      "Lana Virgen",
+      "Líneas Orgánicas",
+      "Confort Ergonómico"
+    ],
+    "ragContext": "Sillón Orejero Mid-Century Cantilever. Categoría: Asientos. Estancia idónea: salón. Estilo: Mid-Century. Etiquetas de diseño: Mid-Century, Madera de Nogal, Lana Virgen, Líneas Orgánicas, Confort Ergonómico. Materiales certificados: Madera de Nogal, Lana Virgen. Acabado cromático: Nogal y Ocre. Dimensiones técnicas: 88 cm de ancho por 96 cm de alto por 90 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera mid-century. Combina madera de nogal y lana virgen con proporciones equilibradas. Cotas arquitectónicas de plano: 88 cm (Ancho) × 96 cm (Alto) × 90 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-008",
+    "name": "Taburete Monolítico Cerámico",
+    "category": "Asientos",
+    "room": "salón",
+    "price": 280,
+    "style": "Wabi-Sabi",
+    "color": "Barro Ceniza",
+    "paletteKey": "terracota",
+    "dimensions": {
+      "width": 38,
+      "height": 45,
       "depth": 38
     },
     "materials": [
-      "Travertino poroso",
-      "Tejido bouclé"
+      "Cerámica Artesanal",
+      "Barro Cocido"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una piedras calizas y linos naturales. Combina travertino poroso y tejido bouclé con acabados sensoriales de tonalidad tonos madera rubia, trigo seco, fresno tostado y roble blanqueado.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 52 × 21 × 38 cm. Ensambles vistos y pureza estructural idónea para dormitorio.",
-    "ragContext": "Mesita de Noche Suspendida Bosque en Roble. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: piedras calizas y linos naturales. Materiales constructivos: Travertino poroso, Tejido bouclé. Paleta y tonalidades: Roble Claro & Paja, tonos madera rubia, trigo seco, fresno tostado y roble blanqueado. Dimensiones técnicas: 52 cm ancho por 21 cm alto por 38 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 52 × 21 × 38 cm. Ensambles vistos y pureza estructural idónea para dormitorio. Descripción sensorial: Pieza de autor pensada para proyectar una piedras calizas y linos naturales. Combina travertino poroso y tejido bouclé con acabados sensoriales de tonalidad tonos madera rubia, trigo seco, fresno tostado y roble blanqueado."
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera wabi-sabi. Combina cerámica artesanal y barro cocido con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 38 cm (Ancho) × 45 cm (Alto) × 38 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Wabi-Sabi",
+      "Cerámica Artesanal",
+      "Tacto Poroso",
+      "Barro Cocido"
+    ],
+    "ragContext": "Taburete Monolítico Cerámico. Categoría: Asientos. Estancia idónea: salón. Estilo: Wabi-Sabi. Etiquetas de diseño: Wabi-Sabi, Cerámica Artesanal, Tacto Poroso, Barro Cocido. Materiales certificados: Cerámica Artesanal, Barro Cocido. Acabado cromático: Barro Ceniza. Dimensiones técnicas: 38 cm de ancho por 45 cm de alto por 38 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera wabi-sabi. Combina cerámica artesanal y barro cocido con proporciones equilibradas. Cotas arquitectónicas de plano: 38 cm (Ancho) × 45 cm (Alto) × 38 cm (Profundidad). Ensamble de precisión idóneo para salón."
   },
   {
-    "id": "rag-furn-101",
-    "name": "Banco Pie de Cama en Lino Zenit en Caliza",
-    "category": "Dormitorio",
-    "room": "dormitorio",
-    "price": 630,
-    "style": "Mid-Century Modern",
-    "color": "Caliza Crema & Alabastro",
-    "paletteKey": "caliza",
+    "id": "furn-009",
+    "name": "Silla Bauhaus Tubular Cantilever",
+    "category": "Asientos",
+    "room": "salón",
+    "price": 510,
+    "style": "Bauhaus",
+    "color": "Fresno y Acero",
+    "paletteKey": "roble",
     "dimensions": {
-      "width": 151,
-      "height": 44,
-      "depth": 39
+      "width": 48,
+      "height": 82,
+      "depth": 56
     },
     "materials": [
-      "Vidrio ahumado",
-      "Nogal canaletto",
-      "Tratamiento mate hidrófugo biológico"
+      "Acero Pavonado",
+      "Madera de Fresno"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una proporciones icónicas y nobleza material. Combina vidrio ahumado y nogal canaletto con acabados sensoriales de tonalidad tonos piedra de campaspero, hueso mineral, marfil poroso y travertino.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 151 × 44 × 39 cm. Ensambles vistos y pureza estructural idónea para dormitorio.",
-    "ragContext": "Banco Pie de Cama en Lino Zenit en Caliza. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: proporciones icónicas y nobleza material. Materiales constructivos: Vidrio ahumado, Nogal canaletto, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Caliza Crema & Alabastro, tonos piedra de campaspero, hueso mineral, marfil poroso y travertino. Dimensiones técnicas: 151 cm ancho por 44 cm alto por 39 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 151 × 44 × 39 cm. Ensambles vistos y pureza estructural idónea para dormitorio. Descripción sensorial: Pieza de autor pensada para proyectar una proporciones icónicas y nobleza material. Combina vidrio ahumado y nogal canaletto con acabados sensoriales de tonalidad tonos piedra de campaspero, hueso mineral, marfil poroso y travertino."
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera bauhaus. Combina acero pavonado y madera de fresno con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 48 cm (Ancho) × 82 cm (Alto) × 56 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Bauhaus",
+      "Acero Pavonado",
+      "Madera de Fresno",
+      "Geometría Pura"
+    ],
+    "ragContext": "Silla Bauhaus Tubular Cantilever. Categoría: Asientos. Estancia idónea: salón. Estilo: Bauhaus. Etiquetas de diseño: Bauhaus, Acero Pavonado, Madera de Fresno, Geometría Pura. Materiales certificados: Acero Pavonado, Madera de Fresno. Acabado cromático: Fresno y Acero. Dimensiones técnicas: 48 cm de ancho por 82 cm de alto por 56 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera bauhaus. Combina acero pavonado y madera de fresno con proporciones equilibradas. Cotas arquitectónicas de plano: 48 cm (Ancho) × 82 cm (Alto) × 56 cm (Profundidad). Ensamble de precisión idóneo para salón."
   },
   {
-    "id": "rag-furn-102",
-    "name": "Galán de Noche Escultórico Nara en Nogal",
-    "category": "Dormitorio",
-    "room": "dormitorio",
-    "price": 290,
+    "id": "furn-010",
+    "name": "Banco de Descanso Zenit Tatami",
+    "category": "Asientos",
+    "room": "salón",
+    "price": 540,
+    "style": "Zen",
+    "color": "Roble Blanqueado",
+    "paletteKey": "roble",
+    "dimensions": {
+      "width": 140,
+      "height": 42,
+      "depth": 42
+    },
+    "materials": [
+      "Roble Macizo",
+      "Tatami"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera zen. Combina roble macizo y tatami con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 140 cm (Ancho) × 42 cm (Alto) × 42 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Zen",
+      "Roble Macizo",
+      "Tatami",
+      "Low-Sitting",
+      "Geometría Pura"
+    ],
+    "ragContext": "Banco de Descanso Zenit Tatami. Categoría: Asientos. Estancia idónea: salón. Estilo: Zen. Etiquetas de diseño: Zen, Roble Macizo, Tatami, Low-Sitting, Geometría Pura. Materiales certificados: Roble Macizo, Tatami. Acabado cromático: Roble Blanqueado. Dimensiones técnicas: 140 cm de ancho por 42 cm de alto por 42 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera zen. Combina roble macizo y tatami con proporciones equilibradas. Cotas arquitectónicas de plano: 140 cm (Ancho) × 42 cm (Alto) × 42 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-011",
+    "name": "Sofá Rinconero Diáfano Lino",
+    "category": "Asientos",
+    "room": "salón",
+    "price": 2600,
+    "style": "Minimalismo Cálido",
+    "color": "Arena Suave",
+    "paletteKey": "lino",
+    "dimensions": {
+      "width": 290,
+      "height": 70,
+      "depth": 175
+    },
+    "materials": [
+      "Lino Belga",
+      "Madera de Fresno"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera minimalismo cálido. Combina lino belga y madera de fresno con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 290 cm (Ancho) × 70 cm (Alto) × 175 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Minimalismo Cálido",
+      "Lino Belga",
+      "Modular",
+      "Líneas Orgánicas",
+      "Confort Ergonómico"
+    ],
+    "ragContext": "Sofá Rinconero Diáfano Lino. Categoría: Asientos. Estancia idónea: salón. Estilo: Minimalismo Cálido. Etiquetas de diseño: Minimalismo Cálido, Lino Belga, Modular, Líneas Orgánicas, Confort Ergonómico. Materiales certificados: Lino Belga, Madera de Fresno. Acabado cromático: Arena Suave. Dimensiones técnicas: 290 cm de ancho por 70 cm de alto por 175 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera minimalismo cálido. Combina lino belga y madera de fresno con proporciones equilibradas. Cotas arquitectónicas de plano: 290 cm (Ancho) × 70 cm (Alto) × 175 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-012",
+    "name": "Butaca Giratoria Cuero Negro",
+    "category": "Asientos",
+    "room": "salón",
+    "price": 980,
     "style": "Industrial Sutil",
-    "color": "Nogal Profundo & Humo",
+    "color": "Negro Humo",
     "paletteKey": "nogal",
     "dimensions": {
-      "width": 44,
-      "height": 124,
-      "depth": 34
+      "width": 80,
+      "height": 78,
+      "depth": 82
     },
     "materials": [
-      "Acero pavonado",
-      "Cuero de curtición vegetal"
+      "Cuero Vegetal",
+      "Acero Pavonado"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1540518614846-7ede433c4ef9?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una sobriedad tectónica y rigor estructural. Combina acero pavonado y cuero de curtición vegetal con acabados sensoriales de tonalidad tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 44 × 124 × 34 cm. Ensambles vistos y pureza estructural idónea para dormitorio.",
-    "ragContext": "Galán de Noche Escultórico Nara en Nogal. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: sobriedad tectónica y rigor estructural. Materiales constructivos: Acero pavonado, Cuero de curtición vegetal. Paleta y tonalidades: Nogal Profundo & Humo, tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil. Dimensiones técnicas: 44 cm ancho por 124 cm alto por 34 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 44 × 124 × 34 cm. Ensambles vistos y pureza estructural idónea para dormitorio. Descripción sensorial: Pieza de autor pensada para proyectar una sobriedad tectónica y rigor estructural. Combina acero pavonado y cuero de curtición vegetal con acabados sensoriales de tonalidad tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil."
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera industrial sutil. Combina cuero vegetal y acero pavonado con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 80 cm (Ancho) × 78 cm (Alto) × 82 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Industrial Sutil",
+      "Cuero Vegetal",
+      "Acero Pavonado",
+      "Confort Ergonómico"
+    ],
+    "ragContext": "Butaca Giratoria Cuero Negro. Categoría: Asientos. Estancia idónea: salón. Estilo: Industrial Sutil. Etiquetas de diseño: Industrial Sutil, Cuero Vegetal, Acero Pavonado, Confort Ergonómico. Materiales certificados: Cuero Vegetal, Acero Pavonado. Acabado cromático: Negro Humo. Dimensiones técnicas: 80 cm de ancho por 78 cm de alto por 82 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera industrial sutil. Combina cuero vegetal y acero pavonado con proporciones equilibradas. Cotas arquitectónicas de plano: 80 cm (Ancho) × 78 cm (Alto) × 82 cm (Profundidad). Ensamble de precisión idóneo para salón."
   },
   {
-    "id": "rag-furn-103",
-    "name": "Cama Flotante con Tatami Monolito en Terracota",
-    "category": "Dormitorio",
-    "room": "dormitorio",
-    "price": 2040,
-    "style": "Minimalismo Cálido",
-    "color": "Terracota Silvestre",
+    "id": "furn-013",
+    "name": "Banco Pie Cama Alistonado",
+    "category": "Asientos",
+    "room": "salón",
+    "price": 480,
+    "style": "Japandi",
+    "color": "Cedro Natural",
+    "paletteKey": "roble",
+    "dimensions": {
+      "width": 145,
+      "height": 42,
+      "depth": 38
+    },
+    "materials": [
+      "Madera de Cedro",
+      "Cuerda Kraft"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera japandi. Combina madera de cedro y cuerda kraft con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 145 cm (Ancho) × 42 cm (Alto) × 38 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Japandi",
+      "Madera de Cedro",
+      "Cuerda Kraft",
+      "Low-Sitting"
+    ],
+    "ragContext": "Banco Pie Cama Alistonado. Categoría: Asientos. Estancia idónea: salón. Estilo: Japandi. Etiquetas de diseño: Japandi, Madera de Cedro, Cuerda Kraft, Low-Sitting. Materiales certificados: Madera de Cedro, Cuerda Kraft. Acabado cromático: Cedro Natural. Dimensiones técnicas: 145 cm de ancho por 42 cm de alto por 38 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera japandi. Combina madera de cedro y cuerda kraft con proporciones equilibradas. Cotas arquitectónicas de plano: 145 cm (Ancho) × 42 cm (Alto) × 38 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-014",
+    "name": "Sillón Lectura Lana Bouclé",
+    "category": "Asientos",
+    "room": "salón",
+    "price": 850,
+    "style": "Nórdico",
+    "color": "Blanco Crudo",
+    "paletteKey": "lino",
+    "dimensions": {
+      "width": 82,
+      "height": 90,
+      "depth": 86
+    },
+    "materials": [
+      "Textura Bouclé",
+      "Roble Macizo"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera nórdico. Combina textura bouclé y roble macizo con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 82 cm (Ancho) × 90 cm (Alto) × 86 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Nórdico",
+      "Textura Bouclé",
+      "Roble Macizo",
+      "Confort Ergonómico"
+    ],
+    "ragContext": "Sillón Lectura Lana Bouclé. Categoría: Asientos. Estancia idónea: salón. Estilo: Nórdico. Etiquetas de diseño: Nórdico, Textura Bouclé, Roble Macizo, Confort Ergonómico. Materiales certificados: Textura Bouclé, Roble Macizo. Acabado cromático: Blanco Crudo. Dimensiones técnicas: 82 cm de ancho por 90 cm de alto por 86 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera nórdico. Combina textura bouclé y roble macizo con proporciones equilibradas. Cotas arquitectónicas de plano: 82 cm (Ancho) × 90 cm (Alto) × 86 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-015",
+    "name": "Puff Orgánico Arcilla",
+    "category": "Asientos",
+    "room": "salón",
+    "price": 320,
+    "style": "Mediterráneo",
+    "color": "Terracota Cálida",
     "paletteKey": "terracota",
     "dimensions": {
-      "width": 187,
-      "height": 84,
-      "depth": 224
+      "width": 75,
+      "height": 38,
+      "depth": 75
     },
     "materials": [
-      "Lino lavado belga",
-      "Fresno aceitado",
-      "Tratamiento mate hidrófugo biológico"
+      "Lino Belga",
+      "Barro Cocido"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una texturas táctiles envolventes. Combina lino lavado belga y fresno aceitado con acabados sensoriales de tonalidad tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 187 × 84 × 224 cm. Ensambles vistos y pureza estructural idónea para dormitorio.",
-    "ragContext": "Cama Flotante con Tatami Monolito en Terracota. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: texturas táctiles envolventes. Materiales constructivos: Lino lavado belga, Fresno aceitado, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Terracota Silvestre, tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal. Dimensiones técnicas: 187 cm ancho por 84 cm alto por 224 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 187 × 84 × 224 cm. Ensambles vistos y pureza estructural idónea para dormitorio. Descripción sensorial: Pieza de autor pensada para proyectar una texturas táctiles envolventes. Combina lino lavado belga y fresno aceitado con acabados sensoriales de tonalidad tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal."
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera mediterráneo. Combina lino belga y barro cocido con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 75 cm (Ancho) × 38 cm (Alto) × 75 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Mediterráneo",
+      "Lino Belga",
+      "Líneas Orgánicas",
+      "Low-Sitting"
+    ],
+    "ragContext": "Puff Orgánico Arcilla. Categoría: Asientos. Estancia idónea: salón. Estilo: Mediterráneo. Etiquetas de diseño: Mediterráneo, Lino Belga, Líneas Orgánicas, Low-Sitting. Materiales certificados: Lino Belga, Barro Cocido. Acabado cromático: Terracota Cálida. Dimensiones técnicas: 75 cm de ancho por 38 cm de alto por 75 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera mediterráneo. Combina lino belga y barro cocido con proporciones equilibradas. Cotas arquitectónicas de plano: 75 cm (Ancho) × 38 cm (Alto) × 75 cm (Profundidad). Ensamble de precisión idóneo para salón."
   },
   {
-    "id": "rag-furn-104",
-    "name": "Cama con Cabecero Alistonado Kumo en Oliva",
-    "category": "Dormitorio",
-    "room": "dormitorio",
-    "price": 1960,
-    "style": "Mid-Century Modern",
-    "color": "Oliva Seco & Musgo",
+    "id": "furn-016",
+    "name": "Silla Estudio Ergonómica Nórdica",
+    "category": "Asientos",
+    "room": "salón",
+    "price": 440,
+    "style": "Nórdico",
+    "color": "Roble y Gris",
+    "paletteKey": "roble",
+    "dimensions": {
+      "width": 56,
+      "height": 84,
+      "depth": 58
+    },
+    "materials": [
+      "Roble Macizo",
+      "Lana Virgen"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera nórdico. Combina roble macizo y lana virgen con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 56 cm (Ancho) × 84 cm (Alto) × 58 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Nórdico",
+      "Roble Macizo",
+      "Lana Virgen",
+      "Confort Ergonómico"
+    ],
+    "ragContext": "Silla Estudio Ergonómica Nórdica. Categoría: Asientos. Estancia idónea: salón. Estilo: Nórdico. Etiquetas de diseño: Nórdico, Roble Macizo, Lana Virgen, Confort Ergonómico. Materiales certificados: Roble Macizo, Lana Virgen. Acabado cromático: Roble y Gris. Dimensiones técnicas: 56 cm de ancho por 84 cm de alto por 58 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera nórdico. Combina roble macizo y lana virgen con proporciones equilibradas. Cotas arquitectónicas de plano: 56 cm (Ancho) × 84 cm (Alto) × 58 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-017",
+    "name": "Butaca Escultórica Asimétrica",
+    "category": "Asientos",
+    "room": "salón",
+    "price": 1250,
+    "style": "Brutalista Sutil",
+    "color": "Caliza y Cuero",
+    "paletteKey": "caliza",
+    "dimensions": {
+      "width": 90,
+      "height": 80,
+      "depth": 85
+    },
+    "materials": [
+      "Cuero Vegetal",
+      "Piedra Caliza"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera brutalista sutil. Combina cuero vegetal y piedra caliza con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 90 cm (Ancho) × 80 cm (Alto) × 85 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Brutalista Sutil",
+      "Cuero Vegetal",
+      "Piedra Caliza",
+      "Geometría Pura"
+    ],
+    "ragContext": "Butaca Escultórica Asimétrica. Categoría: Asientos. Estancia idónea: salón. Estilo: Brutalista Sutil. Etiquetas de diseño: Brutalista Sutil, Cuero Vegetal, Piedra Caliza, Geometría Pura. Materiales certificados: Cuero Vegetal, Piedra Caliza. Acabado cromático: Caliza y Cuero. Dimensiones técnicas: 90 cm de ancho por 80 cm de alto por 85 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera brutalista sutil. Combina cuero vegetal y piedra caliza con proporciones equilibradas. Cotas arquitectónicas de plano: 90 cm (Ancho) × 80 cm (Alto) × 85 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-018",
+    "name": "Sofá Dos Plazas Terciopelo Lino",
+    "category": "Asientos",
+    "room": "salón",
+    "price": 1680,
+    "style": "Mid-Century",
+    "color": "Verde Oliva",
     "paletteKey": "oliva",
     "dimensions": {
       "width": 185,
-      "height": 105,
-      "depth": 228
+      "height": 74,
+      "depth": 92
     },
     "materials": [
-      "Latón cepillado",
-      "Cuero teñido al anilina"
+      "Lino Belga",
+      "Madera de Nogal"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una acentos dorados y encimeras pétreas. Combina latón cepillado y cuero teñido al anilina con acabados sensoriales de tonalidad tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 185 × 105 × 228 cm. Ensambles vistos y pureza estructural idónea para dormitorio.",
-    "ragContext": "Cama con Cabecero Alistonado Kumo en Oliva. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: acentos dorados y encimeras pétreas. Materiales constructivos: Latón cepillado, Cuero teñido al anilina. Paleta y tonalidades: Oliva Seco & Musgo, tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre. Dimensiones técnicas: 185 cm ancho por 105 cm alto por 228 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 185 × 105 × 228 cm. Ensambles vistos y pureza estructural idónea para dormitorio. Descripción sensorial: Pieza de autor pensada para proyectar una acentos dorados y encimeras pétreas. Combina latón cepillado y cuero teñido al anilina con acabados sensoriales de tonalidad tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre."
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera mid-century. Combina lino belga y madera de nogal con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 185 cm (Ancho) × 74 cm (Alto) × 92 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Mid-Century",
+      "Lino Belga",
+      "Madera de Nogal",
+      "Líneas Orgánicas"
+    ],
+    "ragContext": "Sofá Dos Plazas Terciopelo Lino. Categoría: Asientos. Estancia idónea: salón. Estilo: Mid-Century. Etiquetas de diseño: Mid-Century, Lino Belga, Madera de Nogal, Líneas Orgánicas. Materiales certificados: Lino Belga, Madera de Nogal. Acabado cromático: Verde Oliva. Dimensiones técnicas: 185 cm de ancho por 74 cm de alto por 92 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera mid-century. Combina lino belga y madera de nogal con proporciones equilibradas. Cotas arquitectónicas de plano: 185 cm (Ancho) × 74 cm (Alto) × 92 cm (Profundidad). Ensamble de precisión idóneo para salón."
   },
   {
-    "id": "rag-furn-105",
-    "name": "Mesita de Noche Monolito Bosque en Lino",
-    "category": "Dormitorio",
-    "room": "dormitorio",
-    "price": 260,
-    "style": "Industrial Sutil",
-    "color": "Lino Crudo & Yeso",
-    "paletteKey": "lino",
+    "id": "furn-019",
+    "name": "Banqueta Baja de Cocina Rústica",
+    "category": "Asientos",
+    "room": "salón",
+    "price": 210,
+    "style": "Rústico Contemporáneo",
+    "color": "Roble Oscuro",
+    "paletteKey": "nogal",
     "dimensions": {
-      "width": 48,
-      "height": 50,
-      "depth": 38
-    },
-    "materials": [
-      "Microcemento pulido",
-      "Hierro forjado negro",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una arquitectura loft y nobleza del acero. Combina microcemento pulido y hierro forjado negro con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 48 × 50 × 38 cm. Ensambles vistos y pureza estructural idónea para dormitorio.",
-    "ragContext": "Mesita de Noche Monolito Bosque en Lino. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: arquitectura loft y nobleza del acero. Materiales constructivos: Microcemento pulido, Hierro forjado negro, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Lino Crudo & Yeso, tonos lino natural, arena suave, blanco roto y tiza apagada. Dimensiones técnicas: 48 cm ancho por 50 cm alto por 38 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 48 × 50 × 38 cm. Ensambles vistos y pureza estructural idónea para dormitorio. Descripción sensorial: Pieza de autor pensada para proyectar una arquitectura loft y nobleza del acero. Combina microcemento pulido y hierro forjado negro con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada."
-  },
-  {
-    "id": "rag-furn-106",
-    "name": "Mesita de Noche Suspendida Zenit en Ocre",
-    "category": "Dormitorio",
-    "room": "dormitorio",
-    "price": 390,
-    "style": "Minimalismo Cálido",
-    "color": "Ocre Dorado & Mostaza",
-    "paletteKey": "ocre",
-    "dimensions": {
-      "width": 54,
-      "height": 21,
+      "width": 42,
+      "height": 48,
       "depth": 35
     },
     "materials": [
-      "Tejido bouclé",
-      "Mortero de cal"
+      "Madera Recuperada",
+      "Roble Macizo"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1540518614846-7ede433c4ef9?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una arquitectura sensorial táctil. Combina tejido bouclé y mortero de cal con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 54 × 21 × 35 cm. Ensambles vistos y pureza estructural idónea para dormitorio.",
-    "ragContext": "Mesita de Noche Suspendida Zenit en Ocre. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: arquitectura sensorial táctil. Materiales constructivos: Tejido bouclé, Mortero de cal. Paleta y tonalidades: Ocre Dorado & Mostaza, tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo. Dimensiones técnicas: 54 cm ancho por 21 cm alto por 35 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 54 × 21 × 35 cm. Ensambles vistos y pureza estructural idónea para dormitorio. Descripción sensorial: Pieza de autor pensada para proyectar una arquitectura sensorial táctil. Combina tejido bouclé y mortero de cal con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo."
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera rústico contemporáneo. Combina madera recuperada y roble macizo con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 42 cm (Ancho) × 48 cm (Alto) × 35 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Rústico Contemporáneo",
+      "Madera Recuperada",
+      "Roble Macizo",
+      "Pátina Artesanal"
+    ],
+    "ragContext": "Banqueta Baja de Cocina Rústica. Categoría: Asientos. Estancia idónea: salón. Estilo: Rústico Contemporáneo. Etiquetas de diseño: Rústico Contemporáneo, Madera Recuperada, Roble Macizo, Pátina Artesanal. Materiales certificados: Madera Recuperada, Roble Macizo. Acabado cromático: Roble Oscuro. Dimensiones técnicas: 42 cm de ancho por 48 cm de alto por 35 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera rústico contemporáneo. Combina madera recuperada y roble macizo con proporciones equilibradas. Cotas arquitectónicas de plano: 42 cm (Ancho) × 48 cm (Alto) × 35 cm (Profundidad). Ensamble de precisión idóneo para salón."
   },
   {
-    "id": "rag-furn-107",
-    "name": "Banco Pie de Cama en Lino Nara en Roble",
-    "category": "Dormitorio",
-    "room": "dormitorio",
-    "price": 690,
-    "style": "Mid-Century Modern",
-    "color": "Roble Claro & Paja",
-    "paletteKey": "roble",
+    "id": "furn-020",
+    "name": "Sillón de Meditación Zafu Wood",
+    "category": "Asientos",
+    "room": "salón",
+    "price": 390,
+    "style": "Zen",
+    "color": "Lino Tostado",
+    "paletteKey": "lino",
     "dimensions": {
-      "width": 129,
-      "height": 44,
-      "depth": 43
+      "width": 70,
+      "height": 40,
+      "depth": 65
     },
     "materials": [
-      "Nogal canaletto",
-      "Mármol travertino romano",
-      "Tratamiento mate hidrófugo biológico"
+      "Lino Belga",
+      "Madera de Cedro"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una sofisticación de los años 50. Combina nogal canaletto y mármol travertino romano con acabados sensoriales de tonalidad tonos madera rubia, trigo seco, fresno tostado y roble blanqueado.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 129 × 44 × 43 cm. Ensambles vistos y pureza estructural idónea para dormitorio.",
-    "ragContext": "Banco Pie de Cama en Lino Nara en Roble. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: sofisticación de los años 50. Materiales constructivos: Nogal canaletto, Mármol travertino romano, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Roble Claro & Paja, tonos madera rubia, trigo seco, fresno tostado y roble blanqueado. Dimensiones técnicas: 129 cm ancho por 44 cm alto por 43 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 129 × 44 × 43 cm. Ensambles vistos y pureza estructural idónea para dormitorio. Descripción sensorial: Pieza de autor pensada para proyectar una sofisticación de los años 50. Combina nogal canaletto y mármol travertino romano con acabados sensoriales de tonalidad tonos madera rubia, trigo seco, fresno tostado y roble blanqueado."
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera zen. Combina lino belga y madera de cedro con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 70 cm (Ancho) × 40 cm (Alto) × 65 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Zen",
+      "Lino Belga",
+      "Madera de Cedro",
+      "Tatami",
+      "Low-Sitting"
+    ],
+    "ragContext": "Sillón de Meditación Zafu Wood. Categoría: Asientos. Estancia idónea: salón. Estilo: Zen. Etiquetas de diseño: Zen, Lino Belga, Madera de Cedro, Tatami, Low-Sitting. Materiales certificados: Lino Belga, Madera de Cedro. Acabado cromático: Lino Tostado. Dimensiones técnicas: 70 cm de ancho por 40 cm de alto por 65 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera zen. Combina lino belga y madera de cedro con proporciones equilibradas. Cotas arquitectónicas de plano: 70 cm (Ancho) × 40 cm (Alto) × 65 cm (Profundidad). Ensamble de precisión idóneo para salón."
   },
   {
-    "id": "rag-furn-108",
-    "name": "Galán de Noche Escultórico Monolito en Caliza",
+    "id": "furn-021",
+    "name": "Mesa Comedor Templo Roble Macizo",
+    "category": "Mesas",
+    "room": "comedor",
+    "price": 1590,
+    "style": "Nórdico",
+    "color": "Roble Claro",
+    "paletteKey": "roble",
+    "dimensions": {
+      "width": 230,
+      "height": 75,
+      "depth": 95
+    },
+    "materials": [
+      "Roble Macizo",
+      "Barniz biológico"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera nórdico. Combina roble macizo y barniz biológico con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 230 cm (Ancho) × 75 cm (Alto) × 95 cm (Profundidad). Ensamble de precisión idóneo para comedor.",
+    "tags": [
+      "Nórdico",
+      "Roble Macizo",
+      "Geometría Pura",
+      "Luz Cenital"
+    ],
+    "ragContext": "Mesa Comedor Templo Roble Macizo. Categoría: Mesas. Estancia idónea: comedor. Estilo: Nórdico. Etiquetas de diseño: Nórdico, Roble Macizo, Geometría Pura, Luz Cenital. Materiales certificados: Roble Macizo, Barniz biológico. Acabado cromático: Roble Claro. Dimensiones técnicas: 230 cm de ancho por 75 cm de alto por 95 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera nórdico. Combina roble macizo y barniz biológico con proporciones equilibradas. Cotas arquitectónicas de plano: 230 cm (Ancho) × 75 cm (Alto) × 95 cm (Profundidad). Ensamble de precisión idóneo para comedor."
+  },
+  {
+    "id": "furn-022",
+    "name": "Mesa Centro Monolítica Caliza",
+    "category": "Mesas",
+    "room": "comedor",
+    "price": 590,
+    "style": "Minimalismo Cálido",
+    "color": "Caliza Crema",
+    "paletteKey": "caliza",
+    "dimensions": {
+      "width": 115,
+      "height": 32,
+      "depth": 75
+    },
+    "materials": [
+      "Piedra Caliza",
+      "Mortero"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera minimalismo cálido. Combina piedra caliza y mortero con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 115 cm (Ancho) × 32 cm (Alto) × 75 cm (Profundidad). Ensamble de precisión idóneo para comedor.",
+    "tags": [
+      "Minimalismo Cálido",
+      "Piedra Caliza",
+      "Tacto Poroso",
+      "Low-Sitting"
+    ],
+    "ragContext": "Mesa Centro Monolítica Caliza. Categoría: Mesas. Estancia idónea: comedor. Estilo: Minimalismo Cálido. Etiquetas de diseño: Minimalismo Cálido, Piedra Caliza, Tacto Poroso, Low-Sitting. Materiales certificados: Piedra Caliza, Mortero. Acabado cromático: Caliza Crema. Dimensiones técnicas: 115 cm de ancho por 32 cm de alto por 75 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera minimalismo cálido. Combina piedra caliza y mortero con proporciones equilibradas. Cotas arquitectónicas de plano: 115 cm (Ancho) × 32 cm (Alto) × 75 cm (Profundidad). Ensamble de precisión idóneo para comedor."
+  },
+  {
+    "id": "furn-023",
+    "name": "Escritorio Técnico de Arquitecto",
+    "category": "Mesas",
+    "room": "comedor",
+    "price": 940,
+    "style": "Industrial Sutil",
+    "color": "Nogal y Acero",
+    "paletteKey": "nogal",
+    "dimensions": {
+      "width": 160,
+      "height": 75,
+      "depth": 75
+    },
+    "materials": [
+      "Madera de Nogal",
+      "Acero Pavonado"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera industrial sutil. Combina madera de nogal y acero pavonado con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 160 cm (Ancho) × 75 cm (Alto) × 75 cm (Profundidad). Ensamble de precisión idóneo para comedor.",
+    "tags": [
+      "Industrial Sutil",
+      "Madera de Nogal",
+      "Acero Pavonado",
+      "Geometría Pura"
+    ],
+    "ragContext": "Escritorio Técnico de Arquitecto. Categoría: Mesas. Estancia idónea: comedor. Estilo: Industrial Sutil. Etiquetas de diseño: Industrial Sutil, Madera de Nogal, Acero Pavonado, Geometría Pura. Materiales certificados: Madera de Nogal, Acero Pavonado. Acabado cromático: Nogal y Acero. Dimensiones técnicas: 160 cm de ancho por 75 cm de alto por 75 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera industrial sutil. Combina madera de nogal y acero pavonado con proporciones equilibradas. Cotas arquitectónicas de plano: 160 cm (Ancho) × 75 cm (Alto) × 75 cm (Profundidad). Ensamble de precisión idóneo para comedor."
+  },
+  {
+    "id": "furn-024",
+    "name": "Mesa Auxiliar Cilíndrica en Latón",
+    "category": "Mesas",
+    "room": "comedor",
+    "price": 380,
+    "style": "Mid-Century",
+    "color": "Dorado Satinado",
+    "paletteKey": "ocre",
+    "dimensions": {
+      "width": 45,
+      "height": 52,
+      "depth": 45
+    },
+    "materials": [
+      "Latón Satinado",
+      "Mármol Travertino"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera mid-century. Combina latón satinado y mármol travertino con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 45 cm (Ancho) × 52 cm (Alto) × 45 cm (Profundidad). Ensamble de precisión idóneo para comedor.",
+    "tags": [
+      "Mid-Century",
+      "Latón Satinado",
+      "Mármol Travertino",
+      "Geometría Pura"
+    ],
+    "ragContext": "Mesa Auxiliar Cilíndrica en Latón. Categoría: Mesas. Estancia idónea: comedor. Estilo: Mid-Century. Etiquetas de diseño: Mid-Century, Latón Satinado, Mármol Travertino, Geometría Pura. Materiales certificados: Latón Satinado, Mármol Travertino. Acabado cromático: Dorado Satinado. Dimensiones técnicas: 45 cm de ancho por 52 cm de alto por 45 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera mid-century. Combina latón satinado y mármol travertino con proporciones equilibradas. Cotas arquitectónicas de plano: 45 cm (Ancho) × 52 cm (Alto) × 45 cm (Profundidad). Ensamble de precisión idóneo para comedor."
+  },
+  {
+    "id": "furn-025",
+    "name": "Mesa de Té Japonesa Tatami",
+    "category": "Mesas",
+    "room": "comedor",
+    "price": 480,
+    "style": "Japandi",
+    "color": "Madera Rubia",
+    "paletteKey": "roble",
+    "dimensions": {
+      "width": 120,
+      "height": 28,
+      "depth": 65
+    },
+    "materials": [
+      "Roble Macizo",
+      "Tatami"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera japandi. Combina roble macizo y tatami con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 120 cm (Ancho) × 28 cm (Alto) × 65 cm (Profundidad). Ensamble de precisión idóneo para comedor.",
+    "tags": [
+      "Japandi",
+      "Roble Macizo",
+      "Tatami",
+      "Low-Sitting",
+      "Líneas Orgánicas"
+    ],
+    "ragContext": "Mesa de Té Japonesa Tatami. Categoría: Mesas. Estancia idónea: comedor. Estilo: Japandi. Etiquetas de diseño: Japandi, Roble Macizo, Tatami, Low-Sitting, Líneas Orgánicas. Materiales certificados: Roble Macizo, Tatami. Acabado cromático: Madera Rubia. Dimensiones técnicas: 120 cm de ancho por 28 cm de alto por 65 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera japandi. Combina roble macizo y tatami con proporciones equilibradas. Cotas arquitectónicas de plano: 120 cm (Ancho) × 28 cm (Alto) × 65 cm (Profundidad). Ensamble de precisión idóneo para comedor."
+  },
+  {
+    "id": "furn-026",
+    "name": "Mesa Comedor Oval Escultórica",
+    "category": "Mesas",
+    "room": "comedor",
+    "price": 1890,
+    "style": "Mediterráneo",
+    "color": "Piedra Blanca",
+    "paletteKey": "caliza",
+    "dimensions": {
+      "width": 220,
+      "height": 75,
+      "depth": 105
+    },
+    "materials": [
+      "Piedra Caliza",
+      "Mortero"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera mediterráneo. Combina piedra caliza y mortero con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 220 cm (Ancho) × 75 cm (Alto) × 105 cm (Profundidad). Ensamble de precisión idóneo para comedor.",
+    "tags": [
+      "Mediterráneo",
+      "Piedra Caliza",
+      "Líneas Orgánicas",
+      "Tacto Poroso"
+    ],
+    "ragContext": "Mesa Comedor Oval Escultórica. Categoría: Mesas. Estancia idónea: comedor. Estilo: Mediterráneo. Etiquetas de diseño: Mediterráneo, Piedra Caliza, Líneas Orgánicas, Tacto Poroso. Materiales certificados: Piedra Caliza, Mortero. Acabado cromático: Piedra Blanca. Dimensiones técnicas: 220 cm de ancho por 75 cm de alto por 105 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera mediterráneo. Combina piedra caliza y mortero con proporciones equilibradas. Cotas arquitectónicas de plano: 220 cm (Ancho) × 75 cm (Alto) × 105 cm (Profundidad). Ensamble de precisión idóneo para comedor."
+  },
+  {
+    "id": "furn-027",
+    "name": "Consola Suspendida Umbral",
+    "category": "Mesas",
+    "room": "comedor",
+    "price": 560,
+    "style": "Minimalismo Cálido",
+    "color": "Fresno Natural",
+    "paletteKey": "roble",
+    "dimensions": {
+      "width": 140,
+      "height": 22,
+      "depth": 34
+    },
+    "materials": [
+      "Madera de Fresno",
+      "Herrajes invisibles"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera minimalismo cálido. Combina madera de fresno y herrajes invisibles con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 140 cm (Ancho) × 22 cm (Alto) × 34 cm (Profundidad). Ensamble de precisión idóneo para comedor.",
+    "tags": [
+      "Minimalismo Cálido",
+      "Madera de Fresno",
+      "Estructura Suspendida",
+      "Perfil Extraplano"
+    ],
+    "ragContext": "Consola Suspendida Umbral. Categoría: Mesas. Estancia idónea: comedor. Estilo: Minimalismo Cálido. Etiquetas de diseño: Minimalismo Cálido, Madera de Fresno, Estructura Suspendida, Perfil Extraplano. Materiales certificados: Madera de Fresno, Herrajes invisibles. Acabado cromático: Fresno Natural. Dimensiones técnicas: 140 cm de ancho por 22 cm de alto por 34 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera minimalismo cálido. Combina madera de fresno y herrajes invisibles con proporciones equilibradas. Cotas arquitectónicas de plano: 140 cm (Ancho) × 22 cm (Alto) × 34 cm (Profundidad). Ensamble de precisión idóneo para comedor."
+  },
+  {
+    "id": "furn-028",
+    "name": "Mesa Centro Asimétrica Tronco Vivo",
+    "category": "Mesas",
+    "room": "comedor",
+    "price": 630,
+    "style": "Wabi-Sabi",
+    "color": "Madera Vieja",
+    "paletteKey": "nogal",
+    "dimensions": {
+      "width": 125,
+      "height": 35,
+      "depth": 70
+    },
+    "materials": [
+      "Madera Recuperada",
+      "Cera virgen"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera wabi-sabi. Combina madera recuperada y cera virgen con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 125 cm (Ancho) × 35 cm (Alto) × 70 cm (Profundidad). Ensamble de precisión idóneo para comedor.",
+    "tags": [
+      "Wabi-Sabi",
+      "Madera Recuperada",
+      "Líneas Orgánicas",
+      "Pátina Artesanal"
+    ],
+    "ragContext": "Mesa Centro Asimétrica Tronco Vivo. Categoría: Mesas. Estancia idónea: comedor. Estilo: Wabi-Sabi. Etiquetas de diseño: Wabi-Sabi, Madera Recuperada, Líneas Orgánicas, Pátina Artesanal. Materiales certificados: Madera Recuperada, Cera virgen. Acabado cromático: Madera Vieja. Dimensiones técnicas: 125 cm de ancho por 35 cm de alto por 70 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera wabi-sabi. Combina madera recuperada y cera virgen con proporciones equilibradas. Cotas arquitectónicas de plano: 125 cm (Ancho) × 35 cm (Alto) × 70 cm (Profundidad). Ensamble de precisión idóneo para comedor."
+  },
+  {
+    "id": "furn-029",
+    "name": "Mesa Redonda Bauhaus Trípode",
+    "category": "Mesas",
+    "room": "comedor",
+    "price": 1150,
+    "style": "Bauhaus",
+    "color": "Fresno y Acero",
+    "paletteKey": "roble",
+    "dimensions": {
+      "width": 130,
+      "height": 74,
+      "depth": 130
+    },
+    "materials": [
+      "Madera de Fresno",
+      "Acero Pavonado"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera bauhaus. Combina madera de fresno y acero pavonado con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 130 cm (Ancho) × 74 cm (Alto) × 130 cm (Profundidad). Ensamble de precisión idóneo para comedor.",
+    "tags": [
+      "Bauhaus",
+      "Madera de Fresno",
+      "Acero Pavonado",
+      "Geometría Pura"
+    ],
+    "ragContext": "Mesa Redonda Bauhaus Trípode. Categoría: Mesas. Estancia idónea: comedor. Estilo: Bauhaus. Etiquetas de diseño: Bauhaus, Madera de Fresno, Acero Pavonado, Geometría Pura. Materiales certificados: Madera de Fresno, Acero Pavonado. Acabado cromático: Fresno y Acero. Dimensiones técnicas: 130 cm de ancho por 74 cm de alto por 130 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera bauhaus. Combina madera de fresno y acero pavonado con proporciones equilibradas. Cotas arquitectónicas de plano: 130 cm (Ancho) × 74 cm (Alto) × 130 cm (Profundidad). Ensamble de precisión idóneo para comedor."
+  },
+  {
+    "id": "furn-030",
+    "name": "Mesa Auxiliar Zenit Travertino",
+    "category": "Mesas",
+    "room": "comedor",
+    "price": 410,
+    "style": "Zen",
+    "color": "Travertino Poroso",
+    "paletteKey": "caliza",
+    "dimensions": {
+      "width": 44,
+      "height": 48,
+      "depth": 44
+    },
+    "materials": [
+      "Mármol Travertino",
+      "Latón Satinado"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera zen. Combina mármol travertino y latón satinado con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 44 cm (Ancho) × 48 cm (Alto) × 44 cm (Profundidad). Ensamble de precisión idóneo para comedor.",
+    "tags": [
+      "Zen",
+      "Mármol Travertino",
+      "Latón Satinado",
+      "Tacto Poroso"
+    ],
+    "ragContext": "Mesa Auxiliar Zenit Travertino. Categoría: Mesas. Estancia idónea: comedor. Estilo: Zen. Etiquetas de diseño: Zen, Mármol Travertino, Latón Satinado, Tacto Poroso. Materiales certificados: Mármol Travertino, Latón Satinado. Acabado cromático: Travertino Poroso. Dimensiones técnicas: 44 cm de ancho por 48 cm de alto por 44 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera zen. Combina mármol travertino y latón satinado con proporciones equilibradas. Cotas arquitectónicas de plano: 44 cm (Ancho) × 48 cm (Alto) × 44 cm (Profundidad). Ensamble de precisión idóneo para comedor."
+  },
+  {
+    "id": "furn-031",
+    "name": "Mesa Comedor Nogal Canaletto",
+    "category": "Mesas",
+    "room": "comedor",
+    "price": 2100,
+    "style": "Mid-Century",
+    "color": "Nogal Intenso",
+    "paletteKey": "nogal",
+    "dimensions": {
+      "width": 240,
+      "height": 75,
+      "depth": 100
+    },
+    "materials": [
+      "Madera de Nogal",
+      "Latón Satinado"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera mid-century. Combina madera de nogal y latón satinado con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 240 cm (Ancho) × 75 cm (Alto) × 100 cm (Profundidad). Ensamble de precisión idóneo para comedor.",
+    "tags": [
+      "Mid-Century",
+      "Madera de Nogal",
+      "Latón Satinado",
+      "Líneas Orgánicas"
+    ],
+    "ragContext": "Mesa Comedor Nogal Canaletto. Categoría: Mesas. Estancia idónea: comedor. Estilo: Mid-Century. Etiquetas de diseño: Mid-Century, Madera de Nogal, Latón Satinado, Líneas Orgánicas. Materiales certificados: Madera de Nogal, Latón Satinado. Acabado cromático: Nogal Intenso. Dimensiones técnicas: 240 cm de ancho por 75 cm de alto por 100 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera mid-century. Combina madera de nogal y latón satinado con proporciones equilibradas. Cotas arquitectónicas de plano: 240 cm (Ancho) × 75 cm (Alto) × 100 cm (Profundidad). Ensamble de precisión idóneo para comedor."
+  },
+  {
+    "id": "furn-032",
+    "name": "Mesa Centro Nido Vidrio Estriado",
+    "category": "Mesas",
+    "room": "comedor",
+    "price": 480,
+    "style": "Industrial Sutil",
+    "color": "Acero y Cristal",
+    "paletteKey": "nogal",
+    "dimensions": {
+      "width": 90,
+      "height": 40,
+      "depth": 90
+    },
+    "materials": [
+      "Acero Pavonado",
+      "Vidrio Estriado"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera industrial sutil. Combina acero pavonado y vidrio estriado con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 90 cm (Ancho) × 40 cm (Alto) × 90 cm (Profundidad). Ensamble de precisión idóneo para comedor.",
+    "tags": [
+      "Industrial Sutil",
+      "Acero Pavonado",
+      "Vidrio Estriado",
+      "Geometría Pura"
+    ],
+    "ragContext": "Mesa Centro Nido Vidrio Estriado. Categoría: Mesas. Estancia idónea: comedor. Estilo: Industrial Sutil. Etiquetas de diseño: Industrial Sutil, Acero Pavonado, Vidrio Estriado, Geometría Pura. Materiales certificados: Acero Pavonado, Vidrio Estriado. Acabado cromático: Acero y Cristal. Dimensiones técnicas: 90 cm de ancho por 40 cm de alto por 90 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera industrial sutil. Combina acero pavonado y vidrio estriado con proporciones equilibradas. Cotas arquitectónicas de plano: 90 cm (Ancho) × 40 cm (Alto) × 90 cm (Profundidad). Ensamble de precisión idóneo para comedor."
+  },
+  {
+    "id": "furn-033",
+    "name": "Velador de Terraza Forjado",
+    "category": "Mesas",
+    "room": "comedor",
+    "price": 290,
+    "style": "Mediterráneo",
+    "color": "Hierro y Barro",
+    "paletteKey": "terracota",
+    "dimensions": {
+      "width": 60,
+      "height": 72,
+      "depth": 60
+    },
+    "materials": [
+      "Barro Cocido",
+      "Acero Pavonado"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera mediterráneo. Combina barro cocido y acero pavonado con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 60 cm (Ancho) × 72 cm (Alto) × 60 cm (Profundidad). Ensamble de precisión idóneo para comedor.",
+    "tags": [
+      "Mediterráneo",
+      "Barro Cocido",
+      "Acero Pavonado",
+      "Tacto Poroso"
+    ],
+    "ragContext": "Velador de Terraza Forjado. Categoría: Mesas. Estancia idónea: comedor. Estilo: Mediterráneo. Etiquetas de diseño: Mediterráneo, Barro Cocido, Acero Pavonado, Tacto Poroso. Materiales certificados: Barro Cocido, Acero Pavonado. Acabado cromático: Hierro y Barro. Dimensiones técnicas: 60 cm de ancho por 72 cm de alto por 60 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera mediterráneo. Combina barro cocido y acero pavonado con proporciones equilibradas. Cotas arquitectónicas de plano: 60 cm (Ancho) × 72 cm (Alto) × 60 cm (Profundidad). Ensamble de precisión idóneo para comedor."
+  },
+  {
+    "id": "furn-034",
+    "name": "Escritorio Compacto Mural Plegable",
+    "category": "Mesas",
+    "room": "comedor",
+    "price": 580,
+    "style": "Bauhaus",
+    "color": "Fresno Blanco",
+    "paletteKey": "roble",
+    "dimensions": {
+      "width": 100,
+      "height": 65,
+      "depth": 25
+    },
+    "materials": [
+      "Madera de Fresno",
+      "Acero Pavonado"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera bauhaus. Combina madera de fresno y acero pavonado con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 100 cm (Ancho) × 65 cm (Alto) × 25 cm (Profundidad). Ensamble de precisión idóneo para comedor.",
+    "tags": [
+      "Bauhaus",
+      "Madera de Fresno",
+      "Estructura Suspendida",
+      "Perfil Extraplano"
+    ],
+    "ragContext": "Escritorio Compacto Mural Plegable. Categoría: Mesas. Estancia idónea: comedor. Estilo: Bauhaus. Etiquetas de diseño: Bauhaus, Madera de Fresno, Estructura Suspendida, Perfil Extraplano. Materiales certificados: Madera de Fresno, Acero Pavonado. Acabado cromático: Fresno Blanco. Dimensiones técnicas: 100 cm de ancho por 65 cm de alto por 25 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera bauhaus. Combina madera de fresno y acero pavonado con proporciones equilibradas. Cotas arquitectónicas de plano: 100 cm (Ancho) × 65 cm (Alto) × 25 cm (Profundidad). Ensamble de precisión idóneo para comedor."
+  },
+  {
+    "id": "furn-035",
+    "name": "Mesa Centro Doble Altura Japandi",
+    "category": "Mesas",
+    "room": "comedor",
+    "price": 540,
+    "style": "Japandi",
+    "color": "Roble Blanqueado",
+    "paletteKey": "roble",
+    "dimensions": {
+      "width": 110,
+      "height": 36,
+      "depth": 70
+    },
+    "materials": [
+      "Roble Macizo",
+      "Madera de Cedro"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera japandi. Combina roble macizo y madera de cedro con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 110 cm (Ancho) × 36 cm (Alto) × 70 cm (Profundidad). Ensamble de precisión idóneo para comedor.",
+    "tags": [
+      "Japandi",
+      "Roble Macizo",
+      "Madera de Cedro",
+      "Low-Sitting"
+    ],
+    "ragContext": "Mesa Centro Doble Altura Japandi. Categoría: Mesas. Estancia idónea: comedor. Estilo: Japandi. Etiquetas de diseño: Japandi, Roble Macizo, Madera de Cedro, Low-Sitting. Materiales certificados: Roble Macizo, Madera de Cedro. Acabado cromático: Roble Blanqueado. Dimensiones técnicas: 110 cm de ancho por 36 cm de alto por 70 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera japandi. Combina roble macizo y madera de cedro con proporciones equilibradas. Cotas arquitectónicas de plano: 110 cm (Ancho) × 36 cm (Alto) × 70 cm (Profundidad). Ensamble de precisión idóneo para comedor."
+  },
+  {
+    "id": "furn-036",
+    "name": "Mesa Comedor Monolito Hormigón",
+    "category": "Mesas",
+    "room": "comedor",
+    "price": 2400,
+    "style": "Brutalista Sutil",
+    "color": "Gris Cemento",
+    "paletteKey": "caliza",
+    "dimensions": {
+      "width": 220,
+      "height": 75,
+      "depth": 95
+    },
+    "materials": [
+      "Piedra Caliza",
+      "Acero Pavonado"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera brutalista sutil. Combina piedra caliza y acero pavonado con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 220 cm (Ancho) × 75 cm (Alto) × 95 cm (Profundidad). Ensamble de precisión idóneo para comedor.",
+    "tags": [
+      "Brutalista Sutil",
+      "Piedra Caliza",
+      "Acero Pavonado",
+      "Geometría Pura"
+    ],
+    "ragContext": "Mesa Comedor Monolito Hormigón. Categoría: Mesas. Estancia idónea: comedor. Estilo: Brutalista Sutil. Etiquetas de diseño: Brutalista Sutil, Piedra Caliza, Acero Pavonado, Geometría Pura. Materiales certificados: Piedra Caliza, Acero Pavonado. Acabado cromático: Gris Cemento. Dimensiones técnicas: 220 cm de ancho por 75 cm de alto por 95 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera brutalista sutil. Combina piedra caliza y acero pavonado con proporciones equilibradas. Cotas arquitectónicas de plano: 220 cm (Ancho) × 75 cm (Alto) × 95 cm (Profundidad). Ensamble de precisión idóneo para comedor."
+  },
+  {
+    "id": "furn-037",
+    "name": "Mesa Auxiliar Escultórica Arcilla",
+    "category": "Mesas",
+    "room": "comedor",
+    "price": 310,
+    "style": "Rústico Contemporáneo",
+    "color": "Terracota Seca",
+    "paletteKey": "terracota",
+    "dimensions": {
+      "width": 40,
+      "height": 50,
+      "depth": 40
+    },
+    "materials": [
+      "Cerámica Artesanal",
+      "Barro Cocido"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera rústico contemporáneo. Combina cerámica artesanal y barro cocido con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 40 cm (Ancho) × 50 cm (Alto) × 40 cm (Profundidad). Ensamble de precisión idóneo para comedor.",
+    "tags": [
+      "Rústico Contemporáneo",
+      "Cerámica Artesanal",
+      "Barro Cocido",
+      "Tacto Poroso"
+    ],
+    "ragContext": "Mesa Auxiliar Escultórica Arcilla. Categoría: Mesas. Estancia idónea: comedor. Estilo: Rústico Contemporáneo. Etiquetas de diseño: Rústico Contemporáneo, Cerámica Artesanal, Barro Cocido, Tacto Poroso. Materiales certificados: Cerámica Artesanal, Barro Cocido. Acabado cromático: Terracota Seca. Dimensiones técnicas: 40 cm de ancho por 50 cm de alto por 40 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera rústico contemporáneo. Combina cerámica artesanal y barro cocido con proporciones equilibradas. Cotas arquitectónicas de plano: 40 cm (Ancho) × 50 cm (Alto) × 40 cm (Profundidad). Ensamble de precisión idóneo para comedor."
+  },
+  {
+    "id": "furn-038",
+    "name": "Mesa Centro Bloque Travertino Enrasado",
+    "category": "Mesas",
+    "room": "comedor",
+    "price": 890,
+    "style": "Minimalismo Cálido",
+    "color": "Travertino Crema",
+    "paletteKey": "caliza",
+    "dimensions": {
+      "width": 100,
+      "height": 30,
+      "depth": 100
+    },
+    "materials": [
+      "Mármol Travertino",
+      "Madera de Fresno"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera minimalismo cálido. Combina mármol travertino y madera de fresno con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 100 cm (Ancho) × 30 cm (Alto) × 100 cm (Profundidad). Ensamble de precisión idóneo para comedor.",
+    "tags": [
+      "Minimalismo Cálido",
+      "Mármol Travertino",
+      "Low-Sitting",
+      "Tacto Poroso"
+    ],
+    "ragContext": "Mesa Centro Bloque Travertino Enrasado. Categoría: Mesas. Estancia idónea: comedor. Estilo: Minimalismo Cálido. Etiquetas de diseño: Minimalismo Cálido, Mármol Travertino, Low-Sitting, Tacto Poroso. Materiales certificados: Mármol Travertino, Madera de Fresno. Acabado cromático: Travertino Crema. Dimensiones técnicas: 100 cm de ancho por 30 cm de alto por 100 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera minimalismo cálido. Combina mármol travertino y madera de fresno con proporciones equilibradas. Cotas arquitectónicas de plano: 100 cm (Ancho) × 30 cm (Alto) × 100 cm (Profundidad). Ensamble de precisión idóneo para comedor."
+  },
+  {
+    "id": "furn-039",
+    "name": "Escritorio de Estudio Nogal Puro",
+    "category": "Mesas",
+    "room": "comedor",
+    "price": 880,
+    "style": "Nórdico",
+    "color": "Nogal Suave",
+    "paletteKey": "nogal",
+    "dimensions": {
+      "width": 140,
+      "height": 75,
+      "depth": 65
+    },
+    "materials": [
+      "Madera de Nogal",
+      "Roble Macizo"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera nórdico. Combina madera de nogal y roble macizo con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 140 cm (Ancho) × 75 cm (Alto) × 65 cm (Profundidad). Ensamble de precisión idóneo para comedor.",
+    "tags": [
+      "Nórdico",
+      "Madera de Nogal",
+      "Roble Macizo",
+      "Geometría Pura"
+    ],
+    "ragContext": "Escritorio de Estudio Nogal Puro. Categoría: Mesas. Estancia idónea: comedor. Estilo: Nórdico. Etiquetas de diseño: Nórdico, Madera de Nogal, Roble Macizo, Geometría Pura. Materiales certificados: Madera de Nogal, Roble Macizo. Acabado cromático: Nogal Suave. Dimensiones técnicas: 140 cm de ancho por 75 cm de alto por 65 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera nórdico. Combina madera de nogal y roble macizo con proporciones equilibradas. Cotas arquitectónicas de plano: 140 cm (Ancho) × 75 cm (Alto) × 65 cm (Profundidad). Ensamble de precisión idóneo para comedor."
+  },
+  {
+    "id": "furn-040",
+    "name": "Mesa Rincón Té Cerámica & Roble",
+    "category": "Mesas",
+    "room": "comedor",
+    "price": 350,
+    "style": "Zen",
+    "color": "Roble y Gris",
+    "paletteKey": "roble",
+    "dimensions": {
+      "width": 50,
+      "height": 42,
+      "depth": 50
+    },
+    "materials": [
+      "Roble Macizo",
+      "Cerámica Artesanal"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera zen. Combina roble macizo y cerámica artesanal con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 50 cm (Ancho) × 42 cm (Alto) × 50 cm (Profundidad). Ensamble de precisión idóneo para comedor.",
+    "tags": [
+      "Zen",
+      "Roble Macizo",
+      "Cerámica Artesanal",
+      "Tatami",
+      "Low-Sitting"
+    ],
+    "ragContext": "Mesa Rincón Té Cerámica & Roble. Categoría: Mesas. Estancia idónea: comedor. Estilo: Zen. Etiquetas de diseño: Zen, Roble Macizo, Cerámica Artesanal, Tatami, Low-Sitting. Materiales certificados: Roble Macizo, Cerámica Artesanal. Acabado cromático: Roble y Gris. Dimensiones técnicas: 50 cm de ancho por 42 cm de alto por 50 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera zen. Combina roble macizo y cerámica artesanal con proporciones equilibradas. Cotas arquitectónicas de plano: 50 cm (Ancho) × 42 cm (Alto) × 50 cm (Profundidad). Ensamble de precisión idóneo para comedor."
+  },
+  {
+    "id": "furn-041",
+    "name": "Aparador Coplanar Nogal y Travertino",
+    "category": "Almacenaje",
+    "room": "salón",
+    "price": 1750,
+    "style": "Mid-Century",
+    "color": "Nogal Ahumado",
+    "paletteKey": "nogal",
+    "dimensions": {
+      "width": 190,
+      "height": 72,
+      "depth": 48
+    },
+    "materials": [
+      "Madera de Nogal",
+      "Mármol Travertino"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera mid-century. Combina madera de nogal y mármol travertino con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 190 cm (Ancho) × 72 cm (Alto) × 48 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Mid-Century",
+      "Madera de Nogal",
+      "Mármol Travertino",
+      "Geometría Pura"
+    ],
+    "ragContext": "Aparador Coplanar Nogal y Travertino. Categoría: Almacenaje. Estancia idónea: salón. Estilo: Mid-Century. Etiquetas de diseño: Mid-Century, Madera de Nogal, Mármol Travertino, Geometría Pura. Materiales certificados: Madera de Nogal, Mármol Travertino. Acabado cromático: Nogal Ahumado. Dimensiones técnicas: 190 cm de ancho por 72 cm de alto por 48 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera mid-century. Combina madera de nogal y mármol travertino con proporciones equilibradas. Cotas arquitectónicas de plano: 190 cm (Ancho) × 72 cm (Alto) × 48 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-042",
+    "name": "Librería Reticular Modular Grid",
+    "category": "Almacenaje",
+    "room": "salón",
+    "price": 1390,
+    "style": "Nórdico",
+    "color": "Roble Rubio",
+    "paletteKey": "roble",
+    "dimensions": {
+      "width": 175,
+      "height": 210,
+      "depth": 36
+    },
+    "materials": [
+      "Roble Macizo",
+      "Madera de Fresno"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera nórdico. Combina roble macizo y madera de fresno con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 175 cm (Ancho) × 210 cm (Alto) × 36 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Nórdico",
+      "Roble Macizo",
+      "Madera de Fresno",
+      "Geometría Pura"
+    ],
+    "ragContext": "Librería Reticular Modular Grid. Categoría: Almacenaje. Estancia idónea: salón. Estilo: Nórdico. Etiquetas de diseño: Nórdico, Roble Macizo, Madera de Fresno, Geometría Pura. Materiales certificados: Roble Macizo, Madera de Fresno. Acabado cromático: Roble Rubio. Dimensiones técnicas: 175 cm de ancho por 210 cm de alto por 36 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera nórdico. Combina roble macizo y madera de fresno con proporciones equilibradas. Cotas arquitectónicas de plano: 175 cm (Ancho) × 210 cm (Alto) × 36 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-043",
+    "name": "Estantería Flotante Suspendida",
+    "category": "Almacenaje",
+    "room": "salón",
+    "price": 520,
+    "style": "Minimalismo Cálido",
+    "color": "Fresno Claro",
+    "paletteKey": "roble",
+    "dimensions": {
+      "width": 155,
+      "height": 85,
+      "depth": 26
+    },
+    "materials": [
+      "Madera de Fresno",
+      "Herrajes invisibles"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera minimalismo cálido. Combina madera de fresno y herrajes invisibles con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 155 cm (Ancho) × 85 cm (Alto) × 26 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Minimalismo Cálido",
+      "Madera de Fresno",
+      "Estructura Suspendida",
+      "Perfil Extraplano"
+    ],
+    "ragContext": "Estantería Flotante Suspendida. Categoría: Almacenaje. Estancia idónea: salón. Estilo: Minimalismo Cálido. Etiquetas de diseño: Minimalismo Cálido, Madera de Fresno, Estructura Suspendida, Perfil Extraplano. Materiales certificados: Madera de Fresno, Herrajes invisibles. Acabado cromático: Fresno Claro. Dimensiones técnicas: 155 cm de ancho por 85 cm de alto por 26 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera minimalismo cálido. Combina madera de fresno y herrajes invisibles con proporciones equilibradas. Cotas arquitectónicas de plano: 155 cm (Ancho) × 85 cm (Alto) × 26 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-044",
+    "name": "Alacena Rústica de Madera Centenaria",
+    "category": "Almacenaje",
+    "room": "salón",
+    "price": 1280,
+    "style": "Rústico Contemporáneo",
+    "color": "Castaño Tostado",
+    "paletteKey": "nogal",
+    "dimensions": {
+      "width": 110,
+      "height": 170,
+      "depth": 46
+    },
+    "materials": [
+      "Madera Recuperada",
+      "Cerámica Artesanal"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera rústico contemporáneo. Combina madera recuperada y cerámica artesanal con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 110 cm (Ancho) × 170 cm (Alto) × 46 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Rústico Contemporáneo",
+      "Madera Recuperada",
+      "Cerámica Artesanal",
+      "Pátina Artesanal"
+    ],
+    "ragContext": "Alacena Rústica de Madera Centenaria. Categoría: Almacenaje. Estancia idónea: salón. Estilo: Rústico Contemporáneo. Etiquetas de diseño: Rústico Contemporáneo, Madera Recuperada, Cerámica Artesanal, Pátina Artesanal. Materiales certificados: Madera Recuperada, Cerámica Artesanal. Acabado cromático: Castaño Tostado. Dimensiones técnicas: 110 cm de ancho por 170 cm de alto por 46 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera rústico contemporáneo. Combina madera recuperada y cerámica artesanal con proporciones equilibradas. Cotas arquitectónicas de plano: 110 cm (Ancho) × 170 cm (Alto) × 46 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-045",
+    "name": "Librería Loft Perfiles de Acero",
+    "category": "Almacenaje",
+    "room": "salón",
+    "price": 1150,
+    "style": "Industrial Sutil",
+    "color": "Acero y Nogal",
+    "paletteKey": "nogal",
+    "dimensions": {
+      "width": 145,
+      "height": 195,
+      "depth": 38
+    },
+    "materials": [
+      "Acero Pavonado",
+      "Madera de Nogal"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera industrial sutil. Combina acero pavonado y madera de nogal con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 145 cm (Ancho) × 195 cm (Alto) × 38 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Industrial Sutil",
+      "Acero Pavonado",
+      "Madera de Nogal",
+      "Geometría Pura"
+    ],
+    "ragContext": "Librería Loft Perfiles de Acero. Categoría: Almacenaje. Estancia idónea: salón. Estilo: Industrial Sutil. Etiquetas de diseño: Industrial Sutil, Acero Pavonado, Madera de Nogal, Geometría Pura. Materiales certificados: Acero Pavonado, Madera de Nogal. Acabado cromático: Acero y Nogal. Dimensiones técnicas: 145 cm de ancho por 195 cm de alto por 38 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera industrial sutil. Combina acero pavonado y madera de nogal con proporciones equilibradas. Cotas arquitectónicas de plano: 145 cm (Ancho) × 195 cm (Alto) × 38 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-046",
+    "name": "Cómoda 6 Cajones Enrasados",
+    "category": "Almacenaje",
+    "room": "salón",
+    "price": 1040,
+    "style": "Japandi",
+    "color": "Roble Blanqueado",
+    "paletteKey": "roble",
+    "dimensions": {
+      "width": 138,
+      "height": 84,
+      "depth": 48
+    },
+    "materials": [
+      "Roble Macizo",
+      "Madera de Cedro"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera japandi. Combina roble macizo y madera de cedro con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 138 cm (Ancho) × 84 cm (Alto) × 48 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Japandi",
+      "Roble Macizo",
+      "Madera de Cedro",
+      "Geometría Pura"
+    ],
+    "ragContext": "Cómoda 6 Cajones Enrasados. Categoría: Almacenaje. Estancia idónea: salón. Estilo: Japandi. Etiquetas de diseño: Japandi, Roble Macizo, Madera de Cedro, Geometría Pura. Materiales certificados: Roble Macizo, Madera de Cedro. Acabado cromático: Roble Blanqueado. Dimensiones técnicas: 138 cm de ancho por 84 cm de alto por 48 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera japandi. Combina roble macizo y madera de cedro con proporciones equilibradas. Cotas arquitectónicas de plano: 138 cm (Ancho) × 84 cm (Alto) × 48 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-047",
+    "name": "Vitrina Transparente Acero y Cristal",
+    "category": "Almacenaje",
+    "room": "salón",
+    "price": 1490,
+    "style": "Bauhaus",
+    "color": "Acero Negro",
+    "paletteKey": "nogal",
+    "dimensions": {
+      "width": 98,
+      "height": 175,
+      "depth": 40
+    },
+    "materials": [
+      "Acero Pavonado",
+      "Vidrio Estriado"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera bauhaus. Combina acero pavonado y vidrio estriado con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 98 cm (Ancho) × 175 cm (Alto) × 40 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Bauhaus",
+      "Acero Pavonado",
+      "Vidrio Estriado",
+      "Geometría Pura"
+    ],
+    "ragContext": "Vitrina Transparente Acero y Cristal. Categoría: Almacenaje. Estancia idónea: salón. Estilo: Bauhaus. Etiquetas de diseño: Bauhaus, Acero Pavonado, Vidrio Estriado, Geometría Pura. Materiales certificados: Acero Pavonado, Vidrio Estriado. Acabado cromático: Acero Negro. Dimensiones técnicas: 98 cm de ancho por 175 cm de alto por 40 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera bauhaus. Combina acero pavonado y vidrio estriado con proporciones equilibradas. Cotas arquitectónicas de plano: 98 cm (Ancho) × 175 cm (Alto) × 40 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-048",
+    "name": "Plinto Contenedor Piedra Caliza",
+    "category": "Almacenaje",
+    "room": "salón",
+    "price": 760,
+    "style": "Mediterráneo",
+    "color": "Caliza Crema",
+    "paletteKey": "caliza",
+    "dimensions": {
+      "width": 82,
+      "height": 95,
+      "depth": 42
+    },
+    "materials": [
+      "Piedra Caliza",
+      "Madera de Fresno"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera mediterráneo. Combina piedra caliza y madera de fresno con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 82 cm (Ancho) × 95 cm (Alto) × 42 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Mediterráneo",
+      "Piedra Caliza",
+      "Madera de Fresno",
+      "Tacto Poroso"
+    ],
+    "ragContext": "Plinto Contenedor Piedra Caliza. Categoría: Almacenaje. Estancia idónea: salón. Estilo: Mediterráneo. Etiquetas de diseño: Mediterráneo, Piedra Caliza, Madera de Fresno, Tacto Poroso. Materiales certificados: Piedra Caliza, Madera de Fresno. Acabado cromático: Caliza Crema. Dimensiones técnicas: 82 cm de ancho por 95 cm de alto por 42 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera mediterráneo. Combina piedra caliza y madera de fresno con proporciones equilibradas. Cotas arquitectónicas de plano: 82 cm (Ancho) × 95 cm (Alto) × 42 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-049",
+    "name": "Aparador Zen Puertas Shoji",
+    "category": "Almacenaje",
+    "room": "salón",
+    "price": 1620,
+    "style": "Zen",
+    "color": "Roble Natural",
+    "paletteKey": "roble",
+    "dimensions": {
+      "width": 195,
+      "height": 70,
+      "depth": 46
+    },
+    "materials": [
+      "Roble Macizo",
+      "Papel Washi"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera zen. Combina roble macizo y papel washi con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 195 cm (Ancho) × 70 cm (Alto) × 46 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Zen",
+      "Roble Macizo",
+      "Papel Washi",
+      "Geometría Pura"
+    ],
+    "ragContext": "Aparador Zen Puertas Shoji. Categoría: Almacenaje. Estancia idónea: salón. Estilo: Zen. Etiquetas de diseño: Zen, Roble Macizo, Papel Washi, Geometría Pura. Materiales certificados: Roble Macizo, Papel Washi. Acabado cromático: Roble Natural. Dimensiones técnicas: 195 cm de ancho por 70 cm de alto por 46 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera zen. Combina roble macizo y papel washi con proporciones equilibradas. Cotas arquitectónicas de plano: 195 cm (Ancho) × 70 cm (Alto) × 46 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-050",
+    "name": "Baúl Rústico con Herrajes Forjados",
+    "category": "Almacenaje",
+    "room": "salón",
+    "price": 510,
+    "style": "Wabi-Sabi",
+    "color": "Madera Vieja",
+    "paletteKey": "nogal",
+    "dimensions": {
+      "width": 112,
+      "height": 50,
+      "depth": 46
+    },
+    "materials": [
+      "Madera Recuperada",
+      "Acero Pavonado"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera wabi-sabi. Combina madera recuperada y acero pavonado con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 112 cm (Ancho) × 50 cm (Alto) × 46 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Wabi-Sabi",
+      "Madera Recuperada",
+      "Acero Pavonado",
+      "Pátina Artesanal"
+    ],
+    "ragContext": "Baúl Rústico con Herrajes Forjados. Categoría: Almacenaje. Estancia idónea: salón. Estilo: Wabi-Sabi. Etiquetas de diseño: Wabi-Sabi, Madera Recuperada, Acero Pavonado, Pátina Artesanal. Materiales certificados: Madera Recuperada, Acero Pavonado. Acabado cromático: Madera Vieja. Dimensiones técnicas: 112 cm de ancho por 50 cm de alto por 46 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera wabi-sabi. Combina madera recuperada y acero pavonado con proporciones equilibradas. Cotas arquitectónicas de plano: 112 cm (Ancho) × 50 cm (Alto) × 46 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-051",
+    "name": "Mueble Bar Suspendido Travertino",
+    "category": "Almacenaje",
+    "room": "salón",
+    "price": 1420,
+    "style": "Mid-Century",
+    "color": "Nogal y Mármol",
+    "paletteKey": "nogal",
+    "dimensions": {
+      "width": 95,
+      "height": 120,
+      "depth": 42
+    },
+    "materials": [
+      "Madera de Nogal",
+      "Mármol Travertino"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera mid-century. Combina madera de nogal y mármol travertino con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 95 cm (Ancho) × 120 cm (Alto) × 42 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Mid-Century",
+      "Madera de Nogal",
+      "Mármol Travertino",
+      "Latón Satinado"
+    ],
+    "ragContext": "Mueble Bar Suspendido Travertino. Categoría: Almacenaje. Estancia idónea: salón. Estilo: Mid-Century. Etiquetas de diseño: Mid-Century, Madera de Nogal, Mármol Travertino, Latón Satinado. Materiales certificados: Madera de Nogal, Mármol Travertino. Acabado cromático: Nogal y Mármol. Dimensiones técnicas: 95 cm de ancho por 120 cm de alto por 42 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera mid-century. Combina madera de nogal y mármol travertino con proporciones equilibradas. Cotas arquitectónicas de plano: 95 cm (Ancho) × 120 cm (Alto) × 42 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-052",
+    "name": "Librería Baja Divisoria Abierta",
+    "category": "Almacenaje",
+    "room": "salón",
+    "price": 890,
+    "style": "Nórdico",
+    "color": "Roble Claro",
+    "paletteKey": "roble",
+    "dimensions": {
+      "width": 160,
+      "height": 88,
+      "depth": 38
+    },
+    "materials": [
+      "Roble Macizo",
+      "Madera de Fresno"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera nórdico. Combina roble macizo y madera de fresno con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 160 cm (Ancho) × 88 cm (Alto) × 38 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Nórdico",
+      "Roble Macizo",
+      "Madera de Fresno",
+      "Modular"
+    ],
+    "ragContext": "Librería Baja Divisoria Abierta. Categoría: Almacenaje. Estancia idónea: salón. Estilo: Nórdico. Etiquetas de diseño: Nórdico, Roble Macizo, Madera de Fresno, Modular. Materiales certificados: Roble Macizo, Madera de Fresno. Acabado cromático: Roble Claro. Dimensiones técnicas: 160 cm de ancho por 88 cm de alto por 38 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera nórdico. Combina roble macizo y madera de fresno con proporciones equilibradas. Cotas arquitectónicas de plano: 160 cm (Ancho) × 88 cm (Alto) × 38 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-053",
+    "name": "Chifonier Esbelto 5 Cajones",
+    "category": "Almacenaje",
+    "room": "salón",
+    "price": 820,
+    "style": "Minimalismo Cálido",
+    "color": "Fresno y Lino",
+    "paletteKey": "lino",
+    "dimensions": {
+      "width": 65,
+      "height": 130,
+      "depth": 45
+    },
+    "materials": [
+      "Madera de Fresno",
+      "Lino Belga"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera minimalismo cálido. Combina madera de fresno y lino belga con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 65 cm (Ancho) × 130 cm (Alto) × 45 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Minimalismo Cálido",
+      "Madera de Fresno",
+      "Lino Belga",
+      "Perfil Extraplano"
+    ],
+    "ragContext": "Chifonier Esbelto 5 Cajones. Categoría: Almacenaje. Estancia idónea: salón. Estilo: Minimalismo Cálido. Etiquetas de diseño: Minimalismo Cálido, Madera de Fresno, Lino Belga, Perfil Extraplano. Materiales certificados: Madera de Fresno, Lino Belga. Acabado cromático: Fresno y Lino. Dimensiones técnicas: 65 cm de ancho por 130 cm de alto por 45 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera minimalismo cálido. Combina madera de fresno y lino belga con proporciones equilibradas. Cotas arquitectónicas de plano: 65 cm (Ancho) × 130 cm (Alto) × 45 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-054",
+    "name": "Consola Almacén Entrada Rústica",
+    "category": "Almacenaje",
+    "room": "salón",
+    "price": 580,
+    "style": "Rústico Contemporáneo",
+    "color": "Roble Añejo",
+    "paletteKey": "nogal",
+    "dimensions": {
+      "width": 130,
+      "height": 80,
+      "depth": 36
+    },
+    "materials": [
+      "Madera Recuperada",
+      "Barro Cocido"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera rústico contemporáneo. Combina madera recuperada y barro cocido con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 130 cm (Ancho) × 80 cm (Alto) × 36 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Rústico Contemporáneo",
+      "Madera Recuperada",
+      "Barro Cocido",
+      "Pátina Artesanal"
+    ],
+    "ragContext": "Consola Almacén Entrada Rústica. Categoría: Almacenaje. Estancia idónea: salón. Estilo: Rústico Contemporáneo. Etiquetas de diseño: Rústico Contemporáneo, Madera Recuperada, Barro Cocido, Pátina Artesanal. Materiales certificados: Madera Recuperada, Barro Cocido. Acabado cromático: Roble Añejo. Dimensiones técnicas: 130 cm de ancho por 80 cm de alto por 36 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera rústico contemporáneo. Combina madera recuperada y barro cocido con proporciones equilibradas. Cotas arquitectónicas de plano: 130 cm (Ancho) × 80 cm (Alto) × 36 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-055",
+    "name": "Módulo Almacenaje Apilable Box",
+    "category": "Almacenaje",
+    "room": "salón",
+    "price": 340,
+    "style": "Bauhaus",
+    "color": "Acero Lacado",
+    "paletteKey": "roble",
+    "dimensions": {
+      "width": 50,
+      "height": 50,
+      "depth": 40
+    },
+    "materials": [
+      "Acero Pavonado",
+      "Madera de Fresno"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera bauhaus. Combina acero pavonado y madera de fresno con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 50 cm (Ancho) × 50 cm (Alto) × 40 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Bauhaus",
+      "Acero Pavonado",
+      "Modular",
+      "Geometría Pura"
+    ],
+    "ragContext": "Módulo Almacenaje Apilable Box. Categoría: Almacenaje. Estancia idónea: salón. Estilo: Bauhaus. Etiquetas de diseño: Bauhaus, Acero Pavonado, Modular, Geometría Pura. Materiales certificados: Acero Pavonado, Madera de Fresno. Acabado cromático: Acero Lacado. Dimensiones técnicas: 50 cm de ancho por 50 cm de alto por 40 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera bauhaus. Combina acero pavonado y madera de fresno con proporciones equilibradas. Cotas arquitectónicas de plano: 50 cm (Ancho) × 50 cm (Alto) × 40 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-056",
+    "name": "Aparador Monolítico Esculpido",
+    "category": "Almacenaje",
+    "room": "salón",
+    "price": 1850,
+    "style": "Brutalista Sutil",
+    "color": "Caliza y Roble",
+    "paletteKey": "caliza",
+    "dimensions": {
+      "width": 180,
+      "height": 75,
+      "depth": 45
+    },
+    "materials": [
+      "Piedra Caliza",
+      "Roble Macizo"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera brutalista sutil. Combina piedra caliza y roble macizo con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 180 cm (Ancho) × 75 cm (Alto) × 45 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Brutalista Sutil",
+      "Piedra Caliza",
+      "Roble Macizo",
+      "Tacto Poroso"
+    ],
+    "ragContext": "Aparador Monolítico Esculpido. Categoría: Almacenaje. Estancia idónea: salón. Estilo: Brutalista Sutil. Etiquetas de diseño: Brutalista Sutil, Piedra Caliza, Roble Macizo, Tacto Poroso. Materiales certificados: Piedra Caliza, Roble Macizo. Acabado cromático: Caliza y Roble. Dimensiones técnicas: 180 cm de ancho por 75 cm de alto por 45 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera brutalista sutil. Combina piedra caliza y roble macizo con proporciones equilibradas. Cotas arquitectónicas de plano: 180 cm (Ancho) × 75 cm (Alto) × 45 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-057",
+    "name": "Estante Repisa Corrida Extraplana",
+    "category": "Almacenaje",
+    "room": "salón",
+    "price": 260,
+    "style": "Minimalismo Cálido",
+    "color": "Fresno Blanqueado",
+    "paletteKey": "roble",
+    "dimensions": {
+      "width": 180,
+      "height": 12,
+      "depth": 22
+    },
+    "materials": [
+      "Madera de Fresno",
+      "Herrajes invisibles"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera minimalismo cálido. Combina madera de fresno y herrajes invisibles con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 180 cm (Ancho) × 12 cm (Alto) × 22 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Minimalismo Cálido",
+      "Madera de Fresno",
+      "Estructura Suspendida",
+      "Perfil Extraplano"
+    ],
+    "ragContext": "Estante Repisa Corrida Extraplana. Categoría: Almacenaje. Estancia idónea: salón. Estilo: Minimalismo Cálido. Etiquetas de diseño: Minimalismo Cálido, Madera de Fresno, Estructura Suspendida, Perfil Extraplano. Materiales certificados: Madera de Fresno, Herrajes invisibles. Acabado cromático: Fresno Blanqueado. Dimensiones técnicas: 180 cm de ancho por 12 cm de alto por 22 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera minimalismo cálido. Combina madera de fresno y herrajes invisibles con proporciones equilibradas. Cotas arquitectónicas de plano: 180 cm (Ancho) × 12 cm (Alto) × 22 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-058",
+    "name": "Cómoda Japandí Puertas Correderas",
+    "category": "Almacenaje",
+    "room": "salón",
+    "price": 990,
+    "style": "Japandi",
+    "color": "Roble y Junco",
+    "paletteKey": "roble",
+    "dimensions": {
+      "width": 130,
+      "height": 82,
+      "depth": 45
+    },
+    "materials": [
+      "Roble Macizo",
+      "Tatami"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera japandi. Combina roble macizo y tatami con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 130 cm (Ancho) × 82 cm (Alto) × 45 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Japandi",
+      "Roble Macizo",
+      "Tatami",
+      "Geometría Pura"
+    ],
+    "ragContext": "Cómoda Japandí Puertas Correderas. Categoría: Almacenaje. Estancia idónea: salón. Estilo: Japandi. Etiquetas de diseño: Japandi, Roble Macizo, Tatami, Geometría Pura. Materiales certificados: Roble Macizo, Tatami. Acabado cromático: Roble y Junco. Dimensiones técnicas: 130 cm de ancho por 82 cm de alto por 45 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera japandi. Combina roble macizo y tatami con proporciones equilibradas. Cotas arquitectónicas de plano: 130 cm (Ancho) × 82 cm (Alto) × 45 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-059",
+    "name": "Archivador Técnico con Gavetas",
+    "category": "Almacenaje",
+    "room": "salón",
+    "price": 720,
+    "style": "Industrial Sutil",
+    "color": "Acero Oscuro",
+    "paletteKey": "nogal",
+    "dimensions": {
+      "width": 90,
+      "height": 105,
+      "depth": 45
+    },
+    "materials": [
+      "Acero Pavonado",
+      "Cuero Vegetal"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera industrial sutil. Combina acero pavonado y cuero vegetal con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 90 cm (Ancho) × 105 cm (Alto) × 45 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Industrial Sutil",
+      "Acero Pavonado",
+      "Cuero Vegetal",
+      "Geometría Pura"
+    ],
+    "ragContext": "Archivador Técnico con Gavetas. Categoría: Almacenaje. Estancia idónea: salón. Estilo: Industrial Sutil. Etiquetas de diseño: Industrial Sutil, Acero Pavonado, Cuero Vegetal, Geometría Pura. Materiales certificados: Acero Pavonado, Cuero Vegetal. Acabado cromático: Acero Oscuro. Dimensiones técnicas: 90 cm de ancho por 105 cm de alto por 45 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera industrial sutil. Combina acero pavonado y cuero vegetal con proporciones equilibradas. Cotas arquitectónicas de plano: 90 cm (Ancho) × 105 cm (Alto) × 45 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-060",
+    "name": "Alacena Vajillera Calada Washi",
+    "category": "Almacenaje",
+    "room": "salón",
+    "price": 1350,
+    "style": "Zen",
+    "color": "Cedro Claro",
+    "paletteKey": "roble",
+    "dimensions": {
+      "width": 105,
+      "height": 160,
+      "depth": 42
+    },
+    "materials": [
+      "Madera de Cedro",
+      "Papel Washi"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera zen. Combina madera de cedro y papel washi con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 105 cm (Ancho) × 160 cm (Alto) × 42 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Zen",
+      "Madera de Cedro",
+      "Papel Washi",
+      "Luz Tenue"
+    ],
+    "ragContext": "Alacena Vajillera Calada Washi. Categoría: Almacenaje. Estancia idónea: salón. Estilo: Zen. Etiquetas de diseño: Zen, Madera de Cedro, Papel Washi, Luz Tenue. Materiales certificados: Madera de Cedro, Papel Washi. Acabado cromático: Cedro Claro. Dimensiones técnicas: 105 cm de ancho por 160 cm de alto por 42 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera zen. Combina madera de cedro y papel washi con proporciones equilibradas. Cotas arquitectónicas de plano: 105 cm (Ancho) × 160 cm (Alto) × 42 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-061",
+    "name": "Lámpara Suspensión Velo Washi",
+    "category": "Iluminación",
+    "room": "salón",
+    "price": 390,
+    "style": "Japandi",
+    "color": "Lino y Tiza",
+    "paletteKey": "lino",
+    "dimensions": {
+      "width": 65,
+      "height": 45,
+      "depth": 65
+    },
+    "materials": [
+      "Papel Washi",
+      "Madera de Fresno"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera japandi. Combina papel washi y madera de fresno con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 65 cm (Ancho) × 45 cm (Alto) × 65 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Japandi",
+      "Papel Washi",
+      "Madera de Fresno",
+      "Luz Tenue",
+      "Iluminación Indirecta"
+    ],
+    "ragContext": "Lámpara Suspensión Velo Washi. Categoría: Iluminación. Estancia idónea: salón. Estilo: Japandi. Etiquetas de diseño: Japandi, Papel Washi, Madera de Fresno, Luz Tenue, Iluminación Indirecta. Materiales certificados: Papel Washi, Madera de Fresno. Acabado cromático: Lino y Tiza. Dimensiones técnicas: 65 cm de ancho por 45 cm de alto por 65 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera japandi. Combina papel washi y madera de fresno con proporciones equilibradas. Cotas arquitectónicas de plano: 65 cm (Ancho) × 45 cm (Alto) × 65 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-062",
+    "name": "Aplique Rasante Terracota Bruna",
+    "category": "Iluminación",
+    "room": "salón",
+    "price": 210,
+    "style": "Minimalismo Cálido",
+    "color": "Terracota Mate",
+    "paletteKey": "terracota",
+    "dimensions": {
+      "width": 28,
+      "height": 28,
+      "depth": 9
+    },
+    "materials": [
+      "Cerámica Artesanal",
+      "LED Cálido"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera minimalismo cálido. Combina cerámica artesanal y led cálido con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 28 cm (Ancho) × 28 cm (Alto) × 9 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Minimalismo Cálido",
+      "Cerámica Artesanal",
+      "Luz Tenue",
+      "Iluminación Indirecta"
+    ],
+    "ragContext": "Aplique Rasante Terracota Bruna. Categoría: Iluminación. Estancia idónea: salón. Estilo: Minimalismo Cálido. Etiquetas de diseño: Minimalismo Cálido, Cerámica Artesanal, Luz Tenue, Iluminación Indirecta. Materiales certificados: Cerámica Artesanal, LED Cálido. Acabado cromático: Terracota Mate. Dimensiones técnicas: 28 cm de ancho por 28 cm de alto por 9 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera minimalismo cálido. Combina cerámica artesanal y led cálido con proporciones equilibradas. Cotas arquitectónicas de plano: 28 cm (Ancho) × 28 cm (Alto) × 9 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-063",
+    "name": "Lámpara de Pie Arco Latón Macizo",
+    "category": "Iluminación",
+    "room": "salón",
+    "price": 540,
+    "style": "Mid-Century",
+    "color": "Latón Satinado",
+    "paletteKey": "ocre",
+    "dimensions": {
+      "width": 45,
+      "height": 175,
+      "depth": 95
+    },
+    "materials": [
+      "Latón Satinado",
+      "Mármol Travertino"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera mid-century. Combina latón satinado y mármol travertino con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 45 cm (Ancho) × 175 cm (Alto) × 95 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Mid-Century",
+      "Latón Satinado",
+      "Mármol Travertino",
+      "Líneas Orgánicas"
+    ],
+    "ragContext": "Lámpara de Pie Arco Latón Macizo. Categoría: Iluminación. Estancia idónea: salón. Estilo: Mid-Century. Etiquetas de diseño: Mid-Century, Latón Satinado, Mármol Travertino, Líneas Orgánicas. Materiales certificados: Latón Satinado, Mármol Travertino. Acabado cromático: Latón Satinado. Dimensiones técnicas: 45 cm de ancho por 175 cm de alto por 95 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera mid-century. Combina latón satinado y mármol travertino con proporciones equilibradas. Cotas arquitectónicas de plano: 45 cm (Ancho) × 175 cm (Alto) × 95 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-064",
+    "name": "Foco Técnico Orientable Taller",
+    "category": "Iluminación",
+    "room": "salón",
+    "price": 250,
+    "style": "Industrial Sutil",
+    "color": "Negro Pavonado",
+    "paletteKey": "nogal",
+    "dimensions": {
+      "width": 22,
+      "height": 35,
+      "depth": 22
+    },
+    "materials": [
+      "Acero Pavonado",
+      "Vidrio Estriado"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera industrial sutil. Combina acero pavonado y vidrio estriado con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 22 cm (Ancho) × 35 cm (Alto) × 22 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Industrial Sutil",
+      "Acero Pavonado",
+      "Vidrio Estriado",
+      "Geometría Pura"
+    ],
+    "ragContext": "Foco Técnico Orientable Taller. Categoría: Iluminación. Estancia idónea: salón. Estilo: Industrial Sutil. Etiquetas de diseño: Industrial Sutil, Acero Pavonado, Vidrio Estriado, Geometría Pura. Materiales certificados: Acero Pavonado, Vidrio Estriado. Acabado cromático: Negro Pavonado. Dimensiones técnicas: 22 cm de ancho por 35 cm de alto por 22 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera industrial sutil. Combina acero pavonado y vidrio estriado con proporciones equilibradas. Cotas arquitectónicas de plano: 22 cm (Ancho) × 35 cm (Alto) × 22 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-065",
+    "name": "Sobremesa Cerámica Esmaltada Ocre",
+    "category": "Iluminación",
+    "room": "salón",
+    "price": 290,
+    "style": "Rústico Contemporáneo",
+    "color": "Ocre Siena",
+    "paletteKey": "ocre",
+    "dimensions": {
+      "width": 32,
+      "height": 48,
+      "depth": 32
+    },
+    "materials": [
+      "Cerámica Artesanal",
+      "Lino Belga"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera rústico contemporáneo. Combina cerámica artesanal y lino belga con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 32 cm (Ancho) × 48 cm (Alto) × 32 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Rústico Contemporáneo",
+      "Cerámica Artesanal",
+      "Lino Belga",
+      "Luz Tenue"
+    ],
+    "ragContext": "Sobremesa Cerámica Esmaltada Ocre. Categoría: Iluminación. Estancia idónea: salón. Estilo: Rústico Contemporáneo. Etiquetas de diseño: Rústico Contemporáneo, Cerámica Artesanal, Lino Belga, Luz Tenue. Materiales certificados: Cerámica Artesanal, Lino Belga. Acabado cromático: Ocre Siena. Dimensiones técnicas: 32 cm de ancho por 48 cm de alto por 32 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera rústico contemporáneo. Combina cerámica artesanal y lino belga con proporciones equilibradas. Cotas arquitectónicas de plano: 32 cm (Ancho) × 48 cm (Alto) × 32 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-066",
+    "name": "Campana Cenital Nórdica Difusa",
+    "category": "Iluminación",
+    "room": "salón",
+    "price": 330,
+    "style": "Nórdico",
+    "color": "Blanco y Fresno",
+    "paletteKey": "roble",
+    "dimensions": {
+      "width": 52,
+      "height": 36,
+      "depth": 52
+    },
+    "materials": [
+      "Madera de Fresno",
+      "Aluminio mate"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera nórdico. Combina madera de fresno y aluminio mate con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 52 cm (Ancho) × 36 cm (Alto) × 52 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Nórdico",
+      "Madera de Fresno",
+      "Luz Cenital",
+      "Geometría Pura"
+    ],
+    "ragContext": "Campana Cenital Nórdica Difusa. Categoría: Iluminación. Estancia idónea: salón. Estilo: Nórdico. Etiquetas de diseño: Nórdico, Madera de Fresno, Luz Cenital, Geometría Pura. Materiales certificados: Madera de Fresno, Aluminio mate. Acabado cromático: Blanco y Fresno. Dimensiones técnicas: 52 cm de ancho por 36 cm de alto por 52 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera nórdico. Combina madera de fresno y aluminio mate con proporciones equilibradas. Cotas arquitectónicas de plano: 52 cm (Ancho) × 36 cm (Alto) × 52 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-067",
+    "name": "Columna de Suelo Andon Zen",
+    "category": "Iluminación",
+    "room": "salón",
+    "price": 450,
+    "style": "Zen",
+    "color": "Roble y Washi",
+    "paletteKey": "roble",
+    "dimensions": {
+      "width": 34,
+      "height": 115,
+      "depth": 34
+    },
+    "materials": [
+      "Papel Washi",
+      "Roble Macizo"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera zen. Combina papel washi y roble macizo con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 34 cm (Ancho) × 115 cm (Alto) × 34 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Zen",
+      "Papel Washi",
+      "Roble Macizo",
+      "Luz Tenue",
+      "Low-Sitting"
+    ],
+    "ragContext": "Columna de Suelo Andon Zen. Categoría: Iluminación. Estancia idónea: salón. Estilo: Zen. Etiquetas de diseño: Zen, Papel Washi, Roble Macizo, Luz Tenue, Low-Sitting. Materiales certificados: Papel Washi, Roble Macizo. Acabado cromático: Roble y Washi. Dimensiones técnicas: 34 cm de ancho por 115 cm de alto por 34 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera zen. Combina papel washi y roble macizo con proporciones equilibradas. Cotas arquitectónicas de plano: 34 cm (Ancho) × 115 cm (Alto) × 34 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-068",
+    "name": "Lámpara Lineal Bauhaus de Taller",
+    "category": "Iluminación",
+    "room": "salón",
+    "price": 520,
+    "style": "Bauhaus",
+    "color": "Acero y Vidrio",
+    "paletteKey": "nogal",
+    "dimensions": {
+      "width": 125,
+      "height": 18,
+      "depth": 14
+    },
+    "materials": [
+      "Acero Pavonado",
+      "Vidrio Estriado"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera bauhaus. Combina acero pavonado y vidrio estriado con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 125 cm (Ancho) × 18 cm (Alto) × 14 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Bauhaus",
+      "Acero Pavonado",
+      "Vidrio Estriado",
+      "Geometría Pura",
+      "Luz Cenital"
+    ],
+    "ragContext": "Lámpara Lineal Bauhaus de Taller. Categoría: Iluminación. Estancia idónea: salón. Estilo: Bauhaus. Etiquetas de diseño: Bauhaus, Acero Pavonado, Vidrio Estriado, Geometría Pura, Luz Cenital. Materiales certificados: Acero Pavonado, Vidrio Estriado. Acabado cromático: Acero y Vidrio. Dimensiones técnicas: 125 cm de ancho por 18 cm de alto por 14 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera bauhaus. Combina acero pavonado y vidrio estriado con proporciones equilibradas. Cotas arquitectónicas de plano: 125 cm (Ancho) × 18 cm (Alto) × 14 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-069",
+    "name": "Aplique Escultórico Caliza Natural",
+    "category": "Iluminación",
+    "room": "salón",
+    "price": 280,
+    "style": "Mediterráneo",
+    "color": "Caliza Crema",
+    "paletteKey": "caliza",
+    "dimensions": {
+      "width": 25,
+      "height": 35,
+      "depth": 12
+    },
+    "materials": [
+      "Piedra Caliza",
+      "LED Cálido"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera mediterráneo. Combina piedra caliza y led cálido con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 25 cm (Ancho) × 35 cm (Alto) × 12 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Mediterráneo",
+      "Piedra Caliza",
+      "Luz Tenue",
+      "Iluminación Indirecta",
+      "Tacto Poroso"
+    ],
+    "ragContext": "Aplique Escultórico Caliza Natural. Categoría: Iluminación. Estancia idónea: salón. Estilo: Mediterráneo. Etiquetas de diseño: Mediterráneo, Piedra Caliza, Luz Tenue, Iluminación Indirecta, Tacto Poroso. Materiales certificados: Piedra Caliza, LED Cálido. Acabado cromático: Caliza Crema. Dimensiones técnicas: 25 cm de ancho por 35 cm de alto por 12 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera mediterráneo. Combina piedra caliza y led cálido con proporciones equilibradas. Cotas arquitectónicas de plano: 25 cm (Ancho) × 35 cm (Alto) × 12 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-070",
+    "name": "Farolillo Wabi-Sabi Arcilla Ahumada",
+    "category": "Iluminación",
+    "room": "salón",
+    "price": 220,
+    "style": "Wabi-Sabi",
+    "color": "Barro Negro",
+    "paletteKey": "terracota",
+    "dimensions": {
+      "width": 26,
+      "height": 38,
+      "depth": 26
+    },
+    "materials": [
+      "Cerámica Artesanal",
+      "Barro Cocido"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera wabi-sabi. Combina cerámica artesanal y barro cocido con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 26 cm (Ancho) × 38 cm (Alto) × 26 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Wabi-Sabi",
+      "Cerámica Artesanal",
+      "Barro Cocido",
+      "Luz Tenue",
+      "Tacto Poroso"
+    ],
+    "ragContext": "Farolillo Wabi-Sabi Arcilla Ahumada. Categoría: Iluminación. Estancia idónea: salón. Estilo: Wabi-Sabi. Etiquetas de diseño: Wabi-Sabi, Cerámica Artesanal, Barro Cocido, Luz Tenue, Tacto Poroso. Materiales certificados: Cerámica Artesanal, Barro Cocido. Acabado cromático: Barro Negro. Dimensiones técnicas: 26 cm de ancho por 38 cm de alto por 26 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera wabi-sabi. Combina cerámica artesanal y barro cocido con proporciones equilibradas. Cotas arquitectónicas de plano: 26 cm (Ancho) × 38 cm (Alto) × 26 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-071",
+    "name": "Lámpara Suspensión Domo Cerámico",
+    "category": "Iluminación",
+    "room": "salón",
+    "price": 360,
+    "style": "Mediterráneo",
+    "color": "Terracota Clara",
+    "paletteKey": "terracota",
+    "dimensions": {
+      "width": 45,
+      "height": 30,
+      "depth": 45
+    },
+    "materials": [
+      "Cerámica Artesanal",
+      "Latón Satinado"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera mediterráneo. Combina cerámica artesanal y latón satinado con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 45 cm (Ancho) × 30 cm (Alto) × 45 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Mediterráneo",
+      "Cerámica Artesanal",
+      "Latón Satinado",
+      "Luz Cenital"
+    ],
+    "ragContext": "Lámpara Suspensión Domo Cerámico. Categoría: Iluminación. Estancia idónea: salón. Estilo: Mediterráneo. Etiquetas de diseño: Mediterráneo, Cerámica Artesanal, Latón Satinado, Luz Cenital. Materiales certificados: Cerámica Artesanal, Latón Satinado. Acabado cromático: Terracota Clara. Dimensiones técnicas: 45 cm de ancho por 30 cm de alto por 45 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera mediterráneo. Combina cerámica artesanal y latón satinado con proporciones equilibradas. Cotas arquitectónicas de plano: 45 cm (Ancho) × 30 cm (Alto) × 45 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-072",
+    "name": "Aplique Doble Haz Indirecto",
+    "category": "Iluminación",
+    "room": "salón",
+    "price": 180,
+    "style": "Minimalismo Cálido",
+    "color": "Blanco Yeso",
+    "paletteKey": "lino",
+    "dimensions": {
+      "width": 15,
+      "height": 25,
+      "depth": 10
+    },
+    "materials": [
+      "Piedra Caliza",
+      "LED Cálido"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera minimalismo cálido. Combina piedra caliza y led cálido con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 15 cm (Ancho) × 25 cm (Alto) × 10 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Minimalismo Cálido",
+      "Piedra Caliza",
+      "Iluminación Indirecta",
+      "Perfil Extraplano"
+    ],
+    "ragContext": "Aplique Doble Haz Indirecto. Categoría: Iluminación. Estancia idónea: salón. Estilo: Minimalismo Cálido. Etiquetas de diseño: Minimalismo Cálido, Piedra Caliza, Iluminación Indirecta, Perfil Extraplano. Materiales certificados: Piedra Caliza, LED Cálido. Acabado cromático: Blanco Yeso. Dimensiones técnicas: 15 cm de ancho por 25 cm de alto por 10 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera minimalismo cálido. Combina piedra caliza y led cálido con proporciones equilibradas. Cotas arquitectónicas de plano: 15 cm (Ancho) × 25 cm (Alto) × 10 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-073",
+    "name": "Lámpara Sobremesa Esfera Travertino",
+    "category": "Iluminación",
+    "room": "salón",
+    "price": 320,
+    "style": "Mid-Century",
+    "color": "Travertino y Ópalo",
+    "paletteKey": "caliza",
+    "dimensions": {
+      "width": 28,
+      "height": 32,
+      "depth": 28
+    },
+    "materials": [
+      "Mármol Travertino",
+      "Latón Satinado"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera mid-century. Combina mármol travertino y latón satinado con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 28 cm (Ancho) × 32 cm (Alto) × 28 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Mid-Century",
+      "Mármol Travertino",
+      "Latón Satinado",
+      "Luz Tenue"
+    ],
+    "ragContext": "Lámpara Sobremesa Esfera Travertino. Categoría: Iluminación. Estancia idónea: salón. Estilo: Mid-Century. Etiquetas de diseño: Mid-Century, Mármol Travertino, Latón Satinado, Luz Tenue. Materiales certificados: Mármol Travertino, Latón Satinado. Acabado cromático: Travertino y Ópalo. Dimensiones técnicas: 28 cm de ancho por 32 cm de alto por 28 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera mid-century. Combina mármol travertino y latón satinado con proporciones equilibradas. Cotas arquitectónicas de plano: 28 cm (Ancho) × 32 cm (Alto) × 28 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-074",
+    "name": "Pie de Salón Fuste Esbelto Negro",
+    "category": "Iluminación",
+    "room": "salón",
+    "price": 410,
+    "style": "Bauhaus",
+    "color": "Negro Mate",
+    "paletteKey": "nogal",
+    "dimensions": {
+      "width": 35,
+      "height": 160,
+      "depth": 35
+    },
+    "materials": [
+      "Acero Pavonado",
+      "Madera de Fresno"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera bauhaus. Combina acero pavonado y madera de fresno con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 35 cm (Ancho) × 160 cm (Alto) × 35 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Bauhaus",
+      "Acero Pavonado",
+      "Madera de Fresno",
+      "Geometría Pura"
+    ],
+    "ragContext": "Pie de Salón Fuste Esbelto Negro. Categoría: Iluminación. Estancia idónea: salón. Estilo: Bauhaus. Etiquetas de diseño: Bauhaus, Acero Pavonado, Madera de Fresno, Geometría Pura. Materiales certificados: Acero Pavonado, Madera de Fresno. Acabado cromático: Negro Mate. Dimensiones técnicas: 35 cm de ancho por 160 cm de alto por 35 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera bauhaus. Combina acero pavonado y madera de fresno con proporciones equilibradas. Cotas arquitectónicas de plano: 35 cm (Ancho) × 160 cm (Alto) × 35 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-075",
+    "name": "Colgante Cilíndrico Roble Macizo",
+    "category": "Iluminación",
+    "room": "salón",
+    "price": 240,
+    "style": "Nórdico",
+    "color": "Roble Natural",
+    "paletteKey": "roble",
+    "dimensions": {
+      "width": 18,
+      "height": 35,
+      "depth": 18
+    },
+    "materials": [
+      "Roble Macizo",
+      "Cable textil"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera nórdico. Combina roble macizo y cable textil con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 18 cm (Ancho) × 35 cm (Alto) × 18 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Nórdico",
+      "Roble Macizo",
+      "Geometría Pura",
+      "Luz Cenital"
+    ],
+    "ragContext": "Colgante Cilíndrico Roble Macizo. Categoría: Iluminación. Estancia idónea: salón. Estilo: Nórdico. Etiquetas de diseño: Nórdico, Roble Macizo, Geometría Pura, Luz Cenital. Materiales certificados: Roble Macizo, Cable textil. Acabado cromático: Roble Natural. Dimensiones técnicas: 18 cm de ancho por 35 cm de alto por 18 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera nórdico. Combina roble macizo y cable textil con proporciones equilibradas. Cotas arquitectónicas de plano: 18 cm (Ancho) × 35 cm (Alto) × 18 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-076",
+    "name": "Aplique Articulado Lectura Cuero",
+    "category": "Iluminación",
+    "room": "salón",
+    "price": 260,
+    "style": "Industrial Sutil",
+    "color": "Cuero y Acero",
+    "paletteKey": "nogal",
+    "dimensions": {
+      "width": 18,
+      "height": 40,
+      "depth": 35
+    },
+    "materials": [
+      "Cuero Vegetal",
+      "Acero Pavonado"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera industrial sutil. Combina cuero vegetal y acero pavonado con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 18 cm (Ancho) × 40 cm (Alto) × 35 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Industrial Sutil",
+      "Cuero Vegetal",
+      "Acero Pavonado",
+      "Luz Tenue"
+    ],
+    "ragContext": "Aplique Articulado Lectura Cuero. Categoría: Iluminación. Estancia idónea: salón. Estilo: Industrial Sutil. Etiquetas de diseño: Industrial Sutil, Cuero Vegetal, Acero Pavonado, Luz Tenue. Materiales certificados: Cuero Vegetal, Acero Pavonado. Acabado cromático: Cuero y Acero. Dimensiones técnicas: 18 cm de ancho por 40 cm de alto por 35 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera industrial sutil. Combina cuero vegetal y acero pavonado con proporciones equilibradas. Cotas arquitectónicas de plano: 18 cm (Ancho) × 40 cm (Alto) × 35 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-077",
+    "name": "Lámpara de Mesa Plisada Washi",
+    "category": "Iluminación",
+    "room": "salón",
+    "price": 290,
+    "style": "Japandi",
+    "color": "Papel Crudo",
+    "paletteKey": "lino",
+    "dimensions": {
+      "width": 30,
+      "height": 42,
+      "depth": 30
+    },
+    "materials": [
+      "Papel Washi",
+      "Madera de Cedro"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera japandi. Combina papel washi y madera de cedro con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 30 cm (Ancho) × 42 cm (Alto) × 30 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Japandi",
+      "Papel Washi",
+      "Madera de Cedro",
+      "Luz Tenue"
+    ],
+    "ragContext": "Lámpara de Mesa Plisada Washi. Categoría: Iluminación. Estancia idónea: salón. Estilo: Japandi. Etiquetas de diseño: Japandi, Papel Washi, Madera de Cedro, Luz Tenue. Materiales certificados: Papel Washi, Madera de Cedro. Acabado cromático: Papel Crudo. Dimensiones técnicas: 30 cm de ancho por 42 cm de alto por 30 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera japandi. Combina papel washi y madera de cedro con proporciones equilibradas. Cotas arquitectónicas de plano: 30 cm (Ancho) × 42 cm (Alto) × 30 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-078",
+    "name": "Aplique Monolito Piedra Campaspero",
+    "category": "Iluminación",
+    "room": "salón",
+    "price": 340,
+    "style": "Brutalista Sutil",
+    "color": "Caliza Porosa",
+    "paletteKey": "caliza",
+    "dimensions": {
+      "width": 22,
+      "height": 50,
+      "depth": 12
+    },
+    "materials": [
+      "Piedra Caliza",
+      "Acero Pavonado"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera brutalista sutil. Combina piedra caliza y acero pavonado con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 22 cm (Ancho) × 50 cm (Alto) × 12 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Brutalista Sutil",
+      "Piedra Caliza",
+      "Acero Pavonado",
+      "Tacto Poroso",
+      "Iluminación Indirecta"
+    ],
+    "ragContext": "Aplique Monolito Piedra Campaspero. Categoría: Iluminación. Estancia idónea: salón. Estilo: Brutalista Sutil. Etiquetas de diseño: Brutalista Sutil, Piedra Caliza, Acero Pavonado, Tacto Poroso, Iluminación Indirecta. Materiales certificados: Piedra Caliza, Acero Pavonado. Acabado cromático: Caliza Porosa. Dimensiones técnicas: 22 cm de ancho por 50 cm de alto por 12 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera brutalista sutil. Combina piedra caliza y acero pavonado con proporciones equilibradas. Cotas arquitectónicas de plano: 22 cm (Ancho) × 50 cm (Alto) × 12 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-079",
+    "name": "Luminaria Colgante Cuerda y Barro",
+    "category": "Iluminación",
+    "room": "salón",
+    "price": 270,
+    "style": "Rústico Contemporáneo",
+    "color": "Barro y Yute",
+    "paletteKey": "terracota",
+    "dimensions": {
+      "width": 35,
+      "height": 40,
+      "depth": 35
+    },
+    "materials": [
+      "Barro Cocido",
+      "Cuerda Kraft"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera rústico contemporáneo. Combina barro cocido y cuerda kraft con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 35 cm (Ancho) × 40 cm (Alto) × 35 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Rústico Contemporáneo",
+      "Barro Cocido",
+      "Cuerda Kraft",
+      "Luz Tenue"
+    ],
+    "ragContext": "Luminaria Colgante Cuerda y Barro. Categoría: Iluminación. Estancia idónea: salón. Estilo: Rústico Contemporáneo. Etiquetas de diseño: Rústico Contemporáneo, Barro Cocido, Cuerda Kraft, Luz Tenue. Materiales certificados: Barro Cocido, Cuerda Kraft. Acabado cromático: Barro y Yute. Dimensiones técnicas: 35 cm de ancho por 40 cm de alto por 35 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera rústico contemporáneo. Combina barro cocido y cuerda kraft con proporciones equilibradas. Cotas arquitectónicas de plano: 35 cm (Ancho) × 40 cm (Alto) × 35 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-080",
+    "name": "Sobremesa Escultórica Cúpula Zen",
+    "category": "Iluminación",
+    "room": "salón",
+    "price": 380,
+    "style": "Zen",
+    "color": "Roble y Lino",
+    "paletteKey": "roble",
+    "dimensions": {
+      "width": 36,
+      "height": 40,
+      "depth": 36
+    },
+    "materials": [
+      "Roble Macizo",
+      "Lino Belga"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera zen. Combina roble macizo y lino belga con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 36 cm (Ancho) × 40 cm (Alto) × 36 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Zen",
+      "Roble Macizo",
+      "Lino Belga",
+      "Luz Tenue",
+      "Iluminación Indirecta"
+    ],
+    "ragContext": "Sobremesa Escultórica Cúpula Zen. Categoría: Iluminación. Estancia idónea: salón. Estilo: Zen. Etiquetas de diseño: Zen, Roble Macizo, Lino Belga, Luz Tenue, Iluminación Indirecta. Materiales certificados: Roble Macizo, Lino Belga. Acabado cromático: Roble y Lino. Dimensiones técnicas: 36 cm de ancho por 40 cm de alto por 36 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera zen. Combina roble macizo y lino belga con proporciones equilibradas. Cotas arquitectónicas de plano: 36 cm (Ancho) × 40 cm (Alto) × 36 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-081",
+    "name": "Cama Flotante Tatami Kioto",
+    "category": "Dormitorio",
+    "room": "dormitorio",
+    "price": 2280,
+    "style": "Japandi",
+    "color": "Roble Claro",
+    "paletteKey": "roble",
+    "dimensions": {
+      "width": 200,
+      "height": 85,
+      "depth": 220
+    },
+    "materials": [
+      "Roble Macizo",
+      "Tatami"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera japandi. Combina roble macizo y tatami con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 200 cm (Ancho) × 85 cm (Alto) × 220 cm (Profundidad). Ensamble de precisión idóneo para dormitorio.",
+    "tags": [
+      "Japandi",
+      "Roble Macizo",
+      "Tatami",
+      "Low-Sitting",
+      "Geometría Pura"
+    ],
+    "ragContext": "Cama Flotante Tatami Kioto. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo: Japandi. Etiquetas de diseño: Japandi, Roble Macizo, Tatami, Low-Sitting, Geometría Pura. Materiales certificados: Roble Macizo, Tatami. Acabado cromático: Roble Claro. Dimensiones técnicas: 200 cm de ancho por 85 cm de alto por 220 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera japandi. Combina roble macizo y tatami con proporciones equilibradas. Cotas arquitectónicas de plano: 200 cm (Ancho) × 85 cm (Alto) × 220 cm (Profundidad). Ensamble de precisión idóneo para dormitorio."
+  },
+  {
+    "id": "furn-082",
+    "name": "Cabecero Acústico Alistonado Lino",
+    "category": "Dormitorio",
+    "room": "dormitorio",
+    "price": 810,
+    "style": "Minimalismo Cálido",
+    "color": "Fresno y Lino",
+    "paletteKey": "lino",
+    "dimensions": {
+      "width": 240,
+      "height": 110,
+      "depth": 8
+    },
+    "materials": [
+      "Madera de Fresno",
+      "Lino Belga"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera minimalismo cálido. Combina madera de fresno y lino belga con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 240 cm (Ancho) × 110 cm (Alto) × 8 cm (Profundidad). Ensamble de precisión idóneo para dormitorio.",
+    "tags": [
+      "Minimalismo Cálido",
+      "Madera de Fresno",
+      "Lino Belga",
+      "Absorción Acústica"
+    ],
+    "ragContext": "Cabecero Acústico Alistonado Lino. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo: Minimalismo Cálido. Etiquetas de diseño: Minimalismo Cálido, Madera de Fresno, Lino Belga, Absorción Acústica. Materiales certificados: Madera de Fresno, Lino Belga. Acabado cromático: Fresno y Lino. Dimensiones técnicas: 240 cm de ancho por 110 cm de alto por 8 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera minimalismo cálido. Combina madera de fresno y lino belga con proporciones equilibradas. Cotas arquitectónicas de plano: 240 cm (Ancho) × 110 cm (Alto) × 8 cm (Profundidad). Ensamble de precisión idóneo para dormitorio."
+  },
+  {
+    "id": "furn-083",
+    "name": "Mesita de Noche Bloque Travertino",
+    "category": "Dormitorio",
+    "room": "dormitorio",
+    "price": 390,
+    "style": "Mid-Century",
+    "color": "Travertino Romano",
+    "paletteKey": "caliza",
+    "dimensions": {
+      "width": 42,
+      "height": 48,
+      "depth": 38
+    },
+    "materials": [
+      "Mármol Travertino",
+      "Latón Satinado"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera mid-century. Combina mármol travertino y latón satinado con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 42 cm (Ancho) × 48 cm (Alto) × 38 cm (Profundidad). Ensamble de precisión idóneo para dormitorio.",
+    "tags": [
+      "Mid-Century",
+      "Mármol Travertino",
+      "Latón Satinado",
+      "Tacto Poroso"
+    ],
+    "ragContext": "Mesita de Noche Bloque Travertino. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo: Mid-Century. Etiquetas de diseño: Mid-Century, Mármol Travertino, Latón Satinado, Tacto Poroso. Materiales certificados: Mármol Travertino, Latón Satinado. Acabado cromático: Travertino Romano. Dimensiones técnicas: 42 cm de ancho por 48 cm de alto por 38 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera mid-century. Combina mármol travertino y latón satinado con proporciones equilibradas. Cotas arquitectónicas de plano: 42 cm (Ancho) × 48 cm (Alto) × 38 cm (Profundidad). Ensamble de precisión idóneo para dormitorio."
+  },
+  {
+    "id": "furn-084",
+    "name": "Mesita Noche Volada Suspendida",
+    "category": "Dormitorio",
+    "room": "dormitorio",
+    "price": 310,
+    "style": "Zen",
+    "color": "Roble Natural",
+    "paletteKey": "roble",
+    "dimensions": {
+      "width": 48,
+      "height": 18,
+      "depth": 34
+    },
+    "materials": [
+      "Roble Macizo",
+      "Herrajes invisibles"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera zen. Combina roble macizo y herrajes invisibles con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 48 cm (Ancho) × 18 cm (Alto) × 34 cm (Profundidad). Ensamble de precisión idóneo para dormitorio.",
+    "tags": [
+      "Zen",
+      "Roble Macizo",
+      "Estructura Suspendida",
+      "Perfil Extraplano"
+    ],
+    "ragContext": "Mesita Noche Volada Suspendida. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo: Zen. Etiquetas de diseño: Zen, Roble Macizo, Estructura Suspendida, Perfil Extraplano. Materiales certificados: Roble Macizo, Herrajes invisibles. Acabado cromático: Roble Natural. Dimensiones técnicas: 48 cm de ancho por 18 cm de alto por 34 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera zen. Combina roble macizo y herrajes invisibles con proporciones equilibradas. Cotas arquitectónicas de plano: 48 cm (Ancho) × 18 cm (Alto) × 34 cm (Profundidad). Ensamble de precisión idóneo para dormitorio."
+  },
+  {
+    "id": "furn-085",
+    "name": "Galán de Noche Acero y Cuero",
     "category": "Dormitorio",
     "room": "dormitorio",
     "price": 360,
     "style": "Industrial Sutil",
-    "color": "Caliza Crema & Alabastro",
-    "paletteKey": "caliza",
-    "dimensions": {
-      "width": 46,
-      "height": 124,
-      "depth": 37
-    },
-    "materials": [
-      "Cuero de curtición vegetal",
-      "Nogal oscuro"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una estudio de diseño y precisión técnica. Combina cuero de curtición vegetal y nogal oscuro con acabados sensoriales de tonalidad tonos piedra de campaspero, hueso mineral, marfil poroso y travertino.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 46 × 124 × 37 cm. Ensambles vistos y pureza estructural idónea para dormitorio.",
-    "ragContext": "Galán de Noche Escultórico Monolito en Caliza. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: estudio de diseño y precisión técnica. Materiales constructivos: Cuero de curtición vegetal, Nogal oscuro. Paleta y tonalidades: Caliza Crema & Alabastro, tonos piedra de campaspero, hueso mineral, marfil poroso y travertino. Dimensiones técnicas: 46 cm ancho por 124 cm alto por 37 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 46 × 124 × 37 cm. Ensambles vistos y pureza estructural idónea para dormitorio. Descripción sensorial: Pieza de autor pensada para proyectar una estudio de diseño y precisión técnica. Combina cuero de curtición vegetal y nogal oscuro con acabados sensoriales de tonalidad tonos piedra de campaspero, hueso mineral, marfil poroso y travertino."
-  },
-  {
-    "id": "rag-furn-109",
-    "name": "Cama Flotante con Tatami Kumo en Nogal",
-    "category": "Dormitorio",
-    "room": "dormitorio",
-    "price": 2480,
-    "style": "Minimalismo Cálido",
-    "color": "Nogal Profundo & Humo",
+    "color": "Acero y Cuero",
     "paletteKey": "nogal",
     "dimensions": {
-      "width": 195,
-      "height": 84,
-      "depth": 207
+      "width": 46,
+      "height": 120,
+      "depth": 35
     },
     "materials": [
-      "Fresno aceitado",
-      "Travertino poroso",
-      "Tratamiento mate hidrófugo biológico"
+      "Acero Pavonado",
+      "Cuero Vegetal"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una luz tamizada y formas orgánicas. Combina fresno aceitado y travertino poroso con acabados sensoriales de tonalidad tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 195 × 84 × 207 cm. Ensambles vistos y pureza estructural idónea para dormitorio.",
-    "ragContext": "Cama Flotante con Tatami Kumo en Nogal. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: luz tamizada y formas orgánicas. Materiales constructivos: Fresno aceitado, Travertino poroso, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Nogal Profundo & Humo, tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil. Dimensiones técnicas: 195 cm ancho por 84 cm alto por 207 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 195 × 84 × 207 cm. Ensambles vistos y pureza estructural idónea para dormitorio. Descripción sensorial: Pieza de autor pensada para proyectar una luz tamizada y formas orgánicas. Combina fresno aceitado y travertino poroso con acabados sensoriales de tonalidad tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil."
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera industrial sutil. Combina acero pavonado y cuero vegetal con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 46 cm (Ancho) × 120 cm (Alto) × 35 cm (Profundidad). Ensamble de precisión idóneo para dormitorio.",
+    "tags": [
+      "Industrial Sutil",
+      "Acero Pavonado",
+      "Cuero Vegetal",
+      "Geometría Pura"
+    ],
+    "ragContext": "Galán de Noche Acero y Cuero. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo: Industrial Sutil. Etiquetas de diseño: Industrial Sutil, Acero Pavonado, Cuero Vegetal, Geometría Pura. Materiales certificados: Acero Pavonado, Cuero Vegetal. Acabado cromático: Acero y Cuero. Dimensiones técnicas: 46 cm de ancho por 120 cm de alto por 35 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera industrial sutil. Combina acero pavonado y cuero vegetal con proporciones equilibradas. Cotas arquitectónicas de plano: 46 cm (Ancho) × 120 cm (Alto) × 35 cm (Profundidad). Ensamble de precisión idóneo para dormitorio."
   },
   {
-    "id": "rag-furn-110",
-    "name": "Cama con Cabecero Alistonado Bosque en Terracota",
+    "id": "furn-086",
+    "name": "Banco Pie Cama Lana Bouclé",
     "category": "Dormitorio",
     "room": "dormitorio",
-    "price": 2400,
-    "style": "Mid-Century Modern",
-    "color": "Terracota Silvestre",
-    "paletteKey": "terracota",
-    "dimensions": {
-      "width": 192,
-      "height": 105,
-      "depth": 211
-    },
-    "materials": [
-      "Cuero teñido al anilina",
-      "Vidrio ahumado"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1540518614846-7ede433c4ef9?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una elegancia residencial modernista. Combina cuero teñido al anilina y vidrio ahumado con acabados sensoriales de tonalidad tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 192 × 105 × 211 cm. Ensambles vistos y pureza estructural idónea para dormitorio.",
-    "ragContext": "Cama con Cabecero Alistonado Bosque en Terracota. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: elegancia residencial modernista. Materiales constructivos: Cuero teñido al anilina, Vidrio ahumado. Paleta y tonalidades: Terracota Silvestre, tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal. Dimensiones técnicas: 192 cm ancho por 105 cm alto por 211 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 192 × 105 × 211 cm. Ensambles vistos y pureza estructural idónea para dormitorio. Descripción sensorial: Pieza de autor pensada para proyectar una elegancia residencial modernista. Combina cuero teñido al anilina y vidrio ahumado con acabados sensoriales de tonalidad tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal."
-  },
-  {
-    "id": "rag-furn-111",
-    "name": "Mesita de Noche Monolito Zenit en Oliva",
-    "category": "Dormitorio",
-    "room": "dormitorio",
-    "price": 430,
-    "style": "Industrial Sutil",
-    "color": "Oliva Seco & Musgo",
-    "paletteKey": "oliva",
-    "dimensions": {
-      "width": 50,
-      "height": 50,
-      "depth": 41
-    },
-    "materials": [
-      "Hierro forjado negro",
-      "Acero pavonado",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una geometría honesta y constructivista. Combina hierro forjado negro y acero pavonado con acabados sensoriales de tonalidad tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 50 × 50 × 41 cm. Ensambles vistos y pureza estructural idónea para dormitorio.",
-    "ragContext": "Mesita de Noche Monolito Zenit en Oliva. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: geometría honesta y constructivista. Materiales constructivos: Hierro forjado negro, Acero pavonado, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Oliva Seco & Musgo, tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre. Dimensiones técnicas: 50 cm ancho por 50 cm alto por 41 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 50 × 50 × 41 cm. Ensambles vistos y pureza estructural idónea para dormitorio. Descripción sensorial: Pieza de autor pensada para proyectar una geometría honesta y constructivista. Combina hierro forjado negro y acero pavonado con acabados sensoriales de tonalidad tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre."
-  },
-  {
-    "id": "rag-furn-112",
-    "name": "Mesita de Noche Suspendida Nara en Lino",
-    "category": "Dormitorio",
-    "room": "dormitorio",
-    "price": 370,
-    "style": "Minimalismo Cálido",
-    "color": "Lino Crudo & Yeso",
+    "price": 510,
+    "style": "Nórdico",
+    "color": "Blanco Crudo",
     "paletteKey": "lino",
     "dimensions": {
-      "width": 46,
-      "height": 21,
+      "width": 135,
+      "height": 44,
+      "depth": 42
+    },
+    "materials": [
+      "Textura Bouclé",
+      "Madera de Nogal"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera nórdico. Combina textura bouclé y madera de nogal con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 135 cm (Ancho) × 44 cm (Alto) × 42 cm (Profundidad). Ensamble de precisión idóneo para dormitorio.",
+    "tags": [
+      "Nórdico",
+      "Textura Bouclé",
+      "Madera de Nogal",
+      "Líneas Orgánicas"
+    ],
+    "ragContext": "Banco Pie Cama Lana Bouclé. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo: Nórdico. Etiquetas de diseño: Nórdico, Textura Bouclé, Madera de Nogal, Líneas Orgánicas. Materiales certificados: Textura Bouclé, Madera de Nogal. Acabado cromático: Blanco Crudo. Dimensiones técnicas: 135 cm de ancho por 44 cm de alto por 42 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera nórdico. Combina textura bouclé y madera de nogal con proporciones equilibradas. Cotas arquitectónicas de plano: 135 cm (Ancho) × 44 cm (Alto) × 42 cm (Profundidad). Ensamble de precisión idóneo para dormitorio."
+  },
+  {
+    "id": "furn-087",
+    "name": "Cama Dosel Minimalista Líneas Puras",
+    "category": "Dormitorio",
+    "room": "dormitorio",
+    "price": 2520,
+    "style": "Bauhaus",
+    "color": "Acero Pavonado",
+    "paletteKey": "nogal",
+    "dimensions": {
+      "width": 190,
+      "height": 210,
+      "depth": 210
+    },
+    "materials": [
+      "Acero Pavonado",
+      "Roble Macizo"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera bauhaus. Combina acero pavonado y roble macizo con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 190 cm (Ancho) × 210 cm (Alto) × 210 cm (Profundidad). Ensamble de precisión idóneo para dormitorio.",
+    "tags": [
+      "Bauhaus",
+      "Acero Pavonado",
+      "Roble Macizo",
+      "Geometría Pura"
+    ],
+    "ragContext": "Cama Dosel Minimalista Líneas Puras. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo: Bauhaus. Etiquetas de diseño: Bauhaus, Acero Pavonado, Roble Macizo, Geometría Pura. Materiales certificados: Acero Pavonado, Roble Macizo. Acabado cromático: Acero Pavonado. Dimensiones técnicas: 190 cm de ancho por 210 cm de alto por 210 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera bauhaus. Combina acero pavonado y roble macizo con proporciones equilibradas. Cotas arquitectónicas de plano: 190 cm (Ancho) × 210 cm (Alto) × 210 cm (Profundidad). Ensamble de precisión idóneo para dormitorio."
+  },
+  {
+    "id": "furn-088",
+    "name": "Tocador Extraplano Piedra y Espejo",
+    "category": "Dormitorio",
+    "room": "dormitorio",
+    "price": 820,
+    "style": "Mediterráneo",
+    "color": "Caliza y Fresno",
+    "paletteKey": "caliza",
+    "dimensions": {
+      "width": 110,
+      "height": 78,
+      "depth": 40
+    },
+    "materials": [
+      "Piedra Caliza",
+      "Latón Satinado"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera mediterráneo. Combina piedra caliza y latón satinado con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 110 cm (Ancho) × 78 cm (Alto) × 40 cm (Profundidad). Ensamble de precisión idóneo para dormitorio.",
+    "tags": [
+      "Mediterráneo",
+      "Piedra Caliza",
+      "Latón Satinado",
+      "Perfil Extraplano"
+    ],
+    "ragContext": "Tocador Extraplano Piedra y Espejo. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo: Mediterráneo. Etiquetas de diseño: Mediterráneo, Piedra Caliza, Latón Satinado, Perfil Extraplano. Materiales certificados: Piedra Caliza, Latón Satinado. Acabado cromático: Caliza y Fresno. Dimensiones técnicas: 110 cm de ancho por 78 cm de alto por 40 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera mediterráneo. Combina piedra caliza y latón satinado con proporciones equilibradas. Cotas arquitectónicas de plano: 110 cm (Ancho) × 78 cm (Alto) × 40 cm (Profundidad). Ensamble de precisión idóneo para dormitorio."
+  },
+  {
+    "id": "furn-089",
+    "name": "Espejo Joyero Pivotante Nogal",
+    "category": "Dormitorio",
+    "room": "dormitorio",
+    "price": 460,
+    "style": "Mid-Century",
+    "color": "Nogal Cálido",
+    "paletteKey": "nogal",
+    "dimensions": {
+      "width": 50,
+      "height": 168,
+      "depth": 45
+    },
+    "materials": [
+      "Madera de Nogal",
+      "Latón Satinado"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera mid-century. Combina madera de nogal y latón satinado con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 50 cm (Ancho) × 168 cm (Alto) × 45 cm (Profundidad). Ensamble de precisión idóneo para dormitorio.",
+    "tags": [
+      "Mid-Century",
+      "Madera de Nogal",
+      "Latón Satinado",
+      "Líneas Orgánicas"
+    ],
+    "ragContext": "Espejo Joyero Pivotante Nogal. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo: Mid-Century. Etiquetas de diseño: Mid-Century, Madera de Nogal, Latón Satinado, Líneas Orgánicas. Materiales certificados: Madera de Nogal, Latón Satinado. Acabado cromático: Nogal Cálido. Dimensiones técnicas: 50 cm de ancho por 168 cm de alto por 45 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera mid-century. Combina madera de nogal y latón satinado con proporciones equilibradas. Cotas arquitectónicas de plano: 50 cm (Ancho) × 168 cm (Alto) × 45 cm (Profundidad). Ensamble de precisión idóneo para dormitorio."
+  },
+  {
+    "id": "furn-090",
+    "name": "Cabecero Rústico Olivo Centenario",
+    "category": "Dormitorio",
+    "room": "dormitorio",
+    "price": 880,
+    "style": "Rústico Contemporáneo",
+    "color": "Madera y Olivo",
+    "paletteKey": "terracota",
+    "dimensions": {
+      "width": 210,
+      "height": 100,
+      "depth": 6
+    },
+    "materials": [
+      "Madera Recuperada",
+      "Cera virgen"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera rústico contemporáneo. Combina madera recuperada y cera virgen con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 210 cm (Ancho) × 100 cm (Alto) × 6 cm (Profundidad). Ensamble de precisión idóneo para dormitorio.",
+    "tags": [
+      "Rústico Contemporáneo",
+      "Madera Recuperada",
+      "Pátina Artesanal",
+      "Líneas Orgánicas"
+    ],
+    "ragContext": "Cabecero Rústico Olivo Centenario. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo: Rústico Contemporáneo. Etiquetas de diseño: Rústico Contemporáneo, Madera Recuperada, Pátina Artesanal, Líneas Orgánicas. Materiales certificados: Madera Recuperada, Cera virgen. Acabado cromático: Madera y Olivo. Dimensiones técnicas: 210 cm de ancho por 100 cm de alto por 6 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera rústico contemporáneo. Combina madera recuperada y cera virgen con proporciones equilibradas. Cotas arquitectónicas de plano: 210 cm (Ancho) × 100 cm (Alto) × 6 cm (Profundidad). Ensamble de precisión idóneo para dormitorio."
+  },
+  {
+    "id": "furn-091",
+    "name": "Cama Plataforma Roble Bajas Cotas",
+    "category": "Dormitorio",
+    "room": "dormitorio",
+    "price": 1980,
+    "style": "Minimalismo Cálido",
+    "color": "Roble Suave",
+    "paletteKey": "roble",
+    "dimensions": {
+      "width": 190,
+      "height": 65,
+      "depth": 215
+    },
+    "materials": [
+      "Roble Macizo",
+      "Lino Belga"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera minimalismo cálido. Combina roble macizo y lino belga con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 190 cm (Ancho) × 65 cm (Alto) × 215 cm (Profundidad). Ensamble de precisión idóneo para dormitorio.",
+    "tags": [
+      "Minimalismo Cálido",
+      "Roble Macizo",
+      "Lino Belga",
+      "Low-Sitting",
+      "Geometría Pura"
+    ],
+    "ragContext": "Cama Plataforma Roble Bajas Cotas. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo: Minimalismo Cálido. Etiquetas de diseño: Minimalismo Cálido, Roble Macizo, Lino Belga, Low-Sitting, Geometría Pura. Materiales certificados: Roble Macizo, Lino Belga. Acabado cromático: Roble Suave. Dimensiones técnicas: 190 cm de ancho por 65 cm de alto por 215 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera minimalismo cálido. Combina roble macizo y lino belga con proporciones equilibradas. Cotas arquitectónicas de plano: 190 cm (Ancho) × 65 cm (Alto) × 215 cm (Profundidad). Ensamble de precisión idóneo para dormitorio."
+  },
+  {
+    "id": "furn-092",
+    "name": "Mesita Cilíndrica Madera de Cedro",
+    "category": "Dormitorio",
+    "room": "dormitorio",
+    "price": 340,
+    "style": "Japandi",
+    "color": "Cedro Japonés",
+    "paletteKey": "roble",
+    "dimensions": {
+      "width": 40,
+      "height": 46,
+      "depth": 40
+    },
+    "materials": [
+      "Madera de Cedro",
+      "Aceite biológico"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera japandi. Combina madera de cedro y aceite biológico con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 40 cm (Ancho) × 46 cm (Alto) × 40 cm (Profundidad). Ensamble de precisión idóneo para dormitorio.",
+    "tags": [
+      "Japandi",
+      "Madera de Cedro",
+      "Líneas Orgánicas",
+      "Low-Sitting"
+    ],
+    "ragContext": "Mesita Cilíndrica Madera de Cedro. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo: Japandi. Etiquetas de diseño: Japandi, Madera de Cedro, Líneas Orgánicas, Low-Sitting. Materiales certificados: Madera de Cedro, Aceite biológico. Acabado cromático: Cedro Japonés. Dimensiones técnicas: 40 cm de ancho por 46 cm de alto por 40 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera japandi. Combina madera de cedro y aceite biológico con proporciones equilibradas. Cotas arquitectónicas de plano: 40 cm (Ancho) × 46 cm (Alto) × 40 cm (Profundidad). Ensamble de precisión idóneo para dormitorio."
+  },
+  {
+    "id": "furn-093",
+    "name": "Cabecero Tapizado Lino Acolchado",
+    "category": "Dormitorio",
+    "room": "dormitorio",
+    "price": 690,
+    "style": "Nórdico",
+    "color": "Lino Grisáceo",
+    "paletteKey": "lino",
+    "dimensions": {
+      "width": 180,
+      "height": 115,
+      "depth": 10
+    },
+    "materials": [
+      "Lino Belga",
+      "Madera de Fresno"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera nórdico. Combina lino belga y madera de fresno con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 180 cm (Ancho) × 115 cm (Alto) × 10 cm (Profundidad). Ensamble de precisión idóneo para dormitorio.",
+    "tags": [
+      "Nórdico",
+      "Lino Belga",
+      "Madera de Fresno",
+      "Absorción Acústica"
+    ],
+    "ragContext": "Cabecero Tapizado Lino Acolchado. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo: Nórdico. Etiquetas de diseño: Nórdico, Lino Belga, Madera de Fresno, Absorción Acústica. Materiales certificados: Lino Belga, Madera de Fresno. Acabado cromático: Lino Grisáceo. Dimensiones técnicas: 180 cm de ancho por 115 cm de alto por 10 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera nórdico. Combina lino belga y madera de fresno con proporciones equilibradas. Cotas arquitectónicas de plano: 180 cm (Ancho) × 115 cm (Alto) × 10 cm (Profundidad). Ensamble de precisión idóneo para dormitorio."
+  },
+  {
+    "id": "furn-094",
+    "name": "Mesita de Noche Industrial Chapa",
+    "category": "Dormitorio",
+    "room": "dormitorio",
+    "price": 280,
+    "style": "Industrial Sutil",
+    "color": "Acero Negro",
+    "paletteKey": "nogal",
+    "dimensions": {
+      "width": 45,
+      "height": 50,
       "depth": 38
     },
     "materials": [
-      "Mortero de cal",
-      "Lino lavado belga"
+      "Acero Pavonado",
+      "Madera de Nogal"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una atmósfera serena y despojada. Combina mortero de cal y lino lavado belga con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 46 × 21 × 38 cm. Ensambles vistos y pureza estructural idónea para dormitorio.",
-    "ragContext": "Mesita de Noche Suspendida Nara en Lino. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: atmósfera serena y despojada. Materiales constructivos: Mortero de cal, Lino lavado belga. Paleta y tonalidades: Lino Crudo & Yeso, tonos lino natural, arena suave, blanco roto y tiza apagada. Dimensiones técnicas: 46 cm ancho por 21 cm alto por 38 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 46 × 21 × 38 cm. Ensambles vistos y pureza estructural idónea para dormitorio. Descripción sensorial: Pieza de autor pensada para proyectar una atmósfera serena y despojada. Combina mortero de cal y lino lavado belga con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada."
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera industrial sutil. Combina acero pavonado y madera de nogal con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 45 cm (Ancho) × 50 cm (Alto) × 38 cm (Profundidad). Ensamble de precisión idóneo para dormitorio.",
+    "tags": [
+      "Industrial Sutil",
+      "Acero Pavonado",
+      "Madera de Nogal",
+      "Geometría Pura"
+    ],
+    "ragContext": "Mesita de Noche Industrial Chapa. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo: Industrial Sutil. Etiquetas de diseño: Industrial Sutil, Acero Pavonado, Madera de Nogal, Geometría Pura. Materiales certificados: Acero Pavonado, Madera de Nogal. Acabado cromático: Acero Negro. Dimensiones técnicas: 45 cm de ancho por 50 cm de alto por 38 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera industrial sutil. Combina acero pavonado y madera de nogal con proporciones equilibradas. Cotas arquitectónicas de plano: 45 cm (Ancho) × 50 cm (Alto) × 38 cm (Profundidad). Ensamble de precisión idóneo para dormitorio."
   },
   {
-    "id": "rag-furn-113",
-    "name": "Banco Pie de Cama en Lino Monolito en Ocre",
+    "id": "furn-095",
+    "name": "Cama Dosel de Madera y Lino",
     "category": "Dormitorio",
     "room": "dormitorio",
-    "price": 370,
-    "style": "Mid-Century Modern",
-    "color": "Ocre Dorado & Mostaza",
-    "paletteKey": "ocre",
+    "price": 2350,
+    "style": "Mediterráneo",
+    "color": "Fresno y Lino",
+    "paletteKey": "lino",
     "dimensions": {
-      "width": 134,
-      "height": 44,
-      "depth": 39
+      "width": 195,
+      "height": 205,
+      "depth": 215
     },
     "materials": [
-      "Mármol travertino romano",
-      "Latón cepillado",
-      "Tratamiento mate hidrófugo biológico"
+      "Madera de Fresno",
+      "Lino Belga"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una curvas voluptuosas y maderas nobles. Combina mármol travertino romano y latón cepillado con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 134 × 44 × 39 cm. Ensambles vistos y pureza estructural idónea para dormitorio.",
-    "ragContext": "Banco Pie de Cama en Lino Monolito en Ocre. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: curvas voluptuosas y maderas nobles. Materiales constructivos: Mármol travertino romano, Latón cepillado, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Ocre Dorado & Mostaza, tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo. Dimensiones técnicas: 134 cm ancho por 44 cm alto por 39 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 134 × 44 × 39 cm. Ensambles vistos y pureza estructural idónea para dormitorio. Descripción sensorial: Pieza de autor pensada para proyectar una curvas voluptuosas y maderas nobles. Combina mármol travertino romano y latón cepillado con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo."
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera mediterráneo. Combina madera de fresno y lino belga con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 195 cm (Ancho) × 205 cm (Alto) × 215 cm (Profundidad). Ensamble de precisión idóneo para dormitorio.",
+    "tags": [
+      "Mediterráneo",
+      "Madera de Fresno",
+      "Lino Belga",
+      "Luz Tenue"
+    ],
+    "ragContext": "Cama Dosel de Madera y Lino. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo: Mediterráneo. Etiquetas de diseño: Mediterráneo, Madera de Fresno, Lino Belga, Luz Tenue. Materiales certificados: Madera de Fresno, Lino Belga. Acabado cromático: Fresno y Lino. Dimensiones técnicas: 195 cm de ancho por 205 cm de alto por 215 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera mediterráneo. Combina madera de fresno y lino belga con proporciones equilibradas. Cotas arquitectónicas de plano: 195 cm (Ancho) × 205 cm (Alto) × 215 cm (Profundidad). Ensamble de precisión idóneo para dormitorio."
   },
   {
-    "id": "rag-furn-114",
-    "name": "Galán de Noche Escultórico Kumo en Roble",
+    "id": "furn-096",
+    "name": "Comodín Zapatero Estrecho Enrasado",
+    "category": "Dormitorio",
+    "room": "dormitorio",
+    "price": 560,
+    "style": "Bauhaus",
+    "color": "Fresno y Acero",
+    "paletteKey": "roble",
+    "dimensions": {
+      "width": 85,
+      "height": 95,
+      "depth": 24
+    },
+    "materials": [
+      "Madera de Fresno",
+      "Acero Pavonado"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera bauhaus. Combina madera de fresno y acero pavonado con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 85 cm (Ancho) × 95 cm (Alto) × 24 cm (Profundidad). Ensamble de precisión idóneo para dormitorio.",
+    "tags": [
+      "Bauhaus",
+      "Madera de Fresno",
+      "Acero Pavonado",
+      "Perfil Extraplano"
+    ],
+    "ragContext": "Comodín Zapatero Estrecho Enrasado. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo: Bauhaus. Etiquetas de diseño: Bauhaus, Madera de Fresno, Acero Pavonado, Perfil Extraplano. Materiales certificados: Madera de Fresno, Acero Pavonado. Acabado cromático: Fresno y Acero. Dimensiones técnicas: 85 cm de ancho por 95 cm de alto por 24 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera bauhaus. Combina madera de fresno y acero pavonado con proporciones equilibradas. Cotas arquitectónicas de plano: 85 cm (Ancho) × 95 cm (Alto) × 24 cm (Profundidad). Ensamble de precisión idóneo para dormitorio."
+  },
+  {
+    "id": "furn-097",
+    "name": "Mesita Monolítica Caliza Apomazada",
     "category": "Dormitorio",
     "room": "dormitorio",
     "price": 440,
-    "style": "Industrial Sutil",
-    "color": "Roble Claro & Paja",
-    "paletteKey": "roble",
-    "dimensions": {
-      "width": 48,
-      "height": 124,
-      "depth": 34
-    },
-    "materials": [
-      "Nogal oscuro",
-      "Microcemento pulido"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1540518614846-7ede433c4ef9?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una perfiles oscuros y cuero desgastado. Combina nogal oscuro y microcemento pulido con acabados sensoriales de tonalidad tonos madera rubia, trigo seco, fresno tostado y roble blanqueado.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 48 × 124 × 34 cm. Ensambles vistos y pureza estructural idónea para dormitorio.",
-    "ragContext": "Galán de Noche Escultórico Kumo en Roble. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: perfiles oscuros y cuero desgastado. Materiales constructivos: Nogal oscuro, Microcemento pulido. Paleta y tonalidades: Roble Claro & Paja, tonos madera rubia, trigo seco, fresno tostado y roble blanqueado. Dimensiones técnicas: 48 cm ancho por 124 cm alto por 34 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 48 × 124 × 34 cm. Ensambles vistos y pureza estructural idónea para dormitorio. Descripción sensorial: Pieza de autor pensada para proyectar una perfiles oscuros y cuero desgastado. Combina nogal oscuro y microcemento pulido con acabados sensoriales de tonalidad tonos madera rubia, trigo seco, fresno tostado y roble blanqueado."
-  },
-  {
-    "id": "rag-furn-115",
-    "name": "Cama Flotante con Tatami Bosque en Caliza",
-    "category": "Dormitorio",
-    "room": "dormitorio",
-    "price": 2910,
-    "style": "Minimalismo Cálido",
-    "color": "Caliza Crema & Alabastro",
+    "style": "Brutalista Sutil",
+    "color": "Caliza Crema",
     "paletteKey": "caliza",
     "dimensions": {
-      "width": 203,
-      "height": 84,
-      "depth": 224
+      "width": 42,
+      "height": 45,
+      "depth": 42
     },
     "materials": [
-      "Travertino poroso",
-      "Tejido bouclé",
-      "Tratamiento mate hidrófugo biológico"
+      "Piedra Caliza",
+      "Mortero"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una piedras calizas y linos naturales. Combina travertino poroso y tejido bouclé con acabados sensoriales de tonalidad tonos piedra de campaspero, hueso mineral, marfil poroso y travertino.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 203 × 84 × 224 cm. Ensambles vistos y pureza estructural idónea para dormitorio.",
-    "ragContext": "Cama Flotante con Tatami Bosque en Caliza. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: piedras calizas y linos naturales. Materiales constructivos: Travertino poroso, Tejido bouclé, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Caliza Crema & Alabastro, tonos piedra de campaspero, hueso mineral, marfil poroso y travertino. Dimensiones técnicas: 203 cm ancho por 84 cm alto por 224 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 203 × 84 × 224 cm. Ensambles vistos y pureza estructural idónea para dormitorio. Descripción sensorial: Pieza de autor pensada para proyectar una piedras calizas y linos naturales. Combina travertino poroso y tejido bouclé con acabados sensoriales de tonalidad tonos piedra de campaspero, hueso mineral, marfil poroso y travertino."
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera brutalista sutil. Combina piedra caliza y mortero con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 42 cm (Ancho) × 45 cm (Alto) × 42 cm (Profundidad). Ensamble de precisión idóneo para dormitorio.",
+    "tags": [
+      "Brutalista Sutil",
+      "Piedra Caliza",
+      "Tacto Poroso",
+      "Geometría Pura"
+    ],
+    "ragContext": "Mesita Monolítica Caliza Apomazada. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo: Brutalista Sutil. Etiquetas de diseño: Brutalista Sutil, Piedra Caliza, Tacto Poroso, Geometría Pura. Materiales certificados: Piedra Caliza, Mortero. Acabado cromático: Caliza Crema. Dimensiones técnicas: 42 cm de ancho por 45 cm de alto por 42 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera brutalista sutil. Combina piedra caliza y mortero con proporciones equilibradas. Cotas arquitectónicas de plano: 42 cm (Ancho) × 45 cm (Alto) × 42 cm (Profundidad). Ensamble de precisión idóneo para dormitorio."
   },
   {
-    "id": "rag-furn-116",
-    "name": "Cama con Cabecero Alistonado Zenit en Nogal",
+    "id": "furn-098",
+    "name": "Banco Descalzador Cuero Trenzado",
     "category": "Dormitorio",
     "room": "dormitorio",
-    "price": 1490,
-    "style": "Mid-Century Modern",
-    "color": "Nogal Profundo & Humo",
+    "price": 580,
+    "style": "Mid-Century",
+    "color": "Cuero y Nogal",
     "paletteKey": "nogal",
     "dimensions": {
-      "width": 200,
-      "height": 105,
-      "depth": 228
+      "width": 130,
+      "height": 42,
+      "depth": 40
     },
     "materials": [
-      "Vidrio ahumado",
-      "Nogal canaletto"
+      "Cuero Vegetal",
+      "Madera de Nogal"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una proporciones icónicas y nobleza material. Combina vidrio ahumado y nogal canaletto con acabados sensoriales de tonalidad tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 200 × 105 × 228 cm. Ensambles vistos y pureza estructural idónea para dormitorio.",
-    "ragContext": "Cama con Cabecero Alistonado Zenit en Nogal. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: proporciones icónicas y nobleza material. Materiales constructivos: Vidrio ahumado, Nogal canaletto. Paleta y tonalidades: Nogal Profundo & Humo, tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil. Dimensiones técnicas: 200 cm ancho por 105 cm alto por 228 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 200 × 105 × 228 cm. Ensambles vistos y pureza estructural idónea para dormitorio. Descripción sensorial: Pieza de autor pensada para proyectar una proporciones icónicas y nobleza material. Combina vidrio ahumado y nogal canaletto con acabados sensoriales de tonalidad tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil."
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera mid-century. Combina cuero vegetal y madera de nogal con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 130 cm (Ancho) × 42 cm (Alto) × 40 cm (Profundidad). Ensamble de precisión idóneo para dormitorio.",
+    "tags": [
+      "Mid-Century",
+      "Cuero Vegetal",
+      "Madera de Nogal",
+      "Pátina Artesanal"
+    ],
+    "ragContext": "Banco Descalzador Cuero Trenzado. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo: Mid-Century. Etiquetas de diseño: Mid-Century, Cuero Vegetal, Madera de Nogal, Pátina Artesanal. Materiales certificados: Cuero Vegetal, Madera de Nogal. Acabado cromático: Cuero y Nogal. Dimensiones técnicas: 130 cm de ancho por 42 cm de alto por 40 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera mid-century. Combina cuero vegetal y madera de nogal con proporciones equilibradas. Cotas arquitectónicas de plano: 130 cm (Ancho) × 42 cm (Alto) × 40 cm (Profundidad). Ensamble de precisión idóneo para dormitorio."
   },
   {
-    "id": "rag-furn-117",
-    "name": "Alfombra Texturada Duna Voxel en Lino",
+    "id": "furn-099",
+    "name": "Cabecero Biombo Plegable Washi",
+    "category": "Dormitorio",
+    "room": "dormitorio",
+    "price": 740,
+    "style": "Zen",
+    "color": "Papel y Roble",
+    "paletteKey": "roble",
+    "dimensions": {
+      "width": 200,
+      "height": 120,
+      "depth": 5
+    },
+    "materials": [
+      "Papel Washi",
+      "Roble Macizo"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera zen. Combina papel washi y roble macizo con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 200 cm (Ancho) × 120 cm (Alto) × 5 cm (Profundidad). Ensamble de precisión idóneo para dormitorio.",
+    "tags": [
+      "Zen",
+      "Papel Washi",
+      "Roble Macizo",
+      "Luz Tenue"
+    ],
+    "ragContext": "Cabecero Biombo Plegable Washi. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo: Zen. Etiquetas de diseño: Zen, Papel Washi, Roble Macizo, Luz Tenue. Materiales certificados: Papel Washi, Roble Macizo. Acabado cromático: Papel y Roble. Dimensiones técnicas: 200 cm de ancho por 120 cm de alto por 5 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera zen. Combina papel washi y roble macizo con proporciones equilibradas. Cotas arquitectónicas de plano: 200 cm (Ancho) × 120 cm (Alto) × 5 cm (Profundidad). Ensamble de precisión idóneo para dormitorio."
+  },
+  {
+    "id": "furn-100",
+    "name": "Mesita Rústica Tronco de Castaño",
+    "category": "Dormitorio",
+    "room": "dormitorio",
+    "price": 320,
+    "style": "Wabi-Sabi",
+    "color": "Castaño Viejo",
+    "paletteKey": "nogal",
+    "dimensions": {
+      "width": 40,
+      "height": 44,
+      "depth": 40
+    },
+    "materials": [
+      "Madera Recuperada",
+      "Cera virgen"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera wabi-sabi. Combina madera recuperada y cera virgen con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 40 cm (Ancho) × 44 cm (Alto) × 40 cm (Profundidad). Ensamble de precisión idóneo para dormitorio.",
+    "tags": [
+      "Wabi-Sabi",
+      "Madera Recuperada",
+      "Pátina Artesanal",
+      "Tacto Poroso"
+    ],
+    "ragContext": "Mesita Rústica Tronco de Castaño. Categoría: Dormitorio. Estancia idónea: dormitorio. Estilo: Wabi-Sabi. Etiquetas de diseño: Wabi-Sabi, Madera Recuperada, Pátina Artesanal, Tacto Poroso. Materiales certificados: Madera Recuperada, Cera virgen. Acabado cromático: Castaño Viejo. Dimensiones técnicas: 40 cm de ancho por 44 cm de alto por 40 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera wabi-sabi. Combina madera recuperada y cera virgen con proporciones equilibradas. Cotas arquitectónicas de plano: 40 cm (Ancho) × 44 cm (Alto) × 40 cm (Profundidad). Ensamble de precisión idóneo para dormitorio."
+  },
+  {
+    "id": "furn-101",
+    "name": "Alfombra Tejida Lana Duna",
     "category": "Accesorios",
     "room": "salón",
-    "price": 380,
-    "style": "Mid-Century Modern",
-    "color": "Lino Crudo & Yeso",
+    "price": 620,
+    "style": "Minimalismo Cálido",
+    "color": "Blanco Roto",
     "paletteKey": "lino",
     "dimensions": {
-      "width": 221,
-      "height": 2,
-      "depth": 282
+      "width": 250,
+      "height": 3,
+      "depth": 300
     },
     "materials": [
-      "Nogal canaletto",
-      "Mármol travertino romano",
-      "Tratamiento mate hidrófugo biológico"
+      "Lana Virgen",
+      "Lino Belga"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una sofisticación de los años 50. Combina nogal canaletto y mármol travertino romano con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 221 × 2 × 282 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Alfombra Texturada Duna Voxel en Lino. Categoría: Accesorios. Estancia idónea: salón. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: sofisticación de los años 50. Materiales constructivos: Nogal canaletto, Mármol travertino romano, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Lino Crudo & Yeso, tonos lino natural, arena suave, blanco roto y tiza apagada. Dimensiones técnicas: 221 cm ancho por 2 cm alto por 282 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 221 × 2 × 282 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una sofisticación de los años 50. Combina nogal canaletto y mármol travertino romano con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada."
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera minimalismo cálido. Combina lana virgen y lino belga con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 250 cm (Ancho) × 3 cm (Alto) × 300 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Minimalismo Cálido",
+      "Lana Virgen",
+      "Lino Belga",
+      "Líneas Orgánicas",
+      "Absorción Acústica"
+    ],
+    "ragContext": "Alfombra Tejida Lana Duna. Categoría: Accesorios. Estancia idónea: salón. Estilo: Minimalismo Cálido. Etiquetas de diseño: Minimalismo Cálido, Lana Virgen, Lino Belga, Líneas Orgánicas, Absorción Acústica. Materiales certificados: Lana Virgen, Lino Belga. Acabado cromático: Blanco Roto. Dimensiones técnicas: 250 cm de ancho por 3 cm de alto por 300 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera minimalismo cálido. Combina lana virgen y lino belga con proporciones equilibradas. Cotas arquitectónicas de plano: 250 cm (Ancho) × 3 cm (Alto) × 300 cm (Profundidad). Ensamble de precisión idóneo para salón."
   },
   {
-    "id": "rag-furn-118",
-    "name": "Biombo Alistonado de Madera Serena en Ocre",
+    "id": "furn-102",
+    "name": "Biombo Alistonado Shoji Tres Hojas",
+    "category": "Accesorios",
+    "room": "salón",
+    "price": 720,
+    "style": "Japandi",
+    "color": "Cedro Claro",
+    "paletteKey": "roble",
+    "dimensions": {
+      "width": 165,
+      "height": 180,
+      "depth": 4
+    },
+    "materials": [
+      "Papel Washi",
+      "Madera de Cedro"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera japandi. Combina papel washi y madera de cedro con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 165 cm (Ancho) × 180 cm (Alto) × 4 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Japandi",
+      "Papel Washi",
+      "Madera de Cedro",
+      "Luz Tenue"
+    ],
+    "ragContext": "Biombo Alistonado Shoji Tres Hojas. Categoría: Accesorios. Estancia idónea: salón. Estilo: Japandi. Etiquetas de diseño: Japandi, Papel Washi, Madera de Cedro, Luz Tenue. Materiales certificados: Papel Washi, Madera de Cedro. Acabado cromático: Cedro Claro. Dimensiones técnicas: 165 cm de ancho por 180 cm de alto por 4 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera japandi. Combina papel washi y madera de cedro con proporciones equilibradas. Cotas arquitectónicas de plano: 165 cm (Ancho) × 180 cm (Alto) × 4 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-103",
+    "name": "Espejo Monumental Suelo Arco",
     "category": "Accesorios",
     "room": "salón",
     "price": 520,
-    "style": "Industrial Sutil",
-    "color": "Ocre Dorado & Mostaza",
-    "paletteKey": "ocre",
-    "dimensions": {
-      "width": 154,
-      "height": 175,
-      "depth": 8
-    },
-    "materials": [
-      "Cuero de curtición vegetal",
-      "Nogal oscuro"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una estudio de diseño y precisión técnica. Combina cuero de curtición vegetal y nogal oscuro con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 154 × 175 × 8 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Biombo Alistonado de Madera Serena en Ocre. Categoría: Accesorios. Estancia idónea: salón. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: estudio de diseño y precisión técnica. Materiales constructivos: Cuero de curtición vegetal, Nogal oscuro. Paleta y tonalidades: Ocre Dorado & Mostaza, tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo. Dimensiones técnicas: 154 cm ancho por 175 cm alto por 8 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 154 × 175 × 8 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una estudio de diseño y precisión técnica. Combina cuero de curtición vegetal y nogal oscuro con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo."
-  },
-  {
-    "id": "rag-furn-119",
-    "name": "Espejo de Suelo Arco Monumental Estrato en Roble",
-    "category": "Accesorios",
-    "room": "dormitorio",
-    "price": 510,
-    "style": "Minimalismo Cálido",
-    "color": "Roble Claro & Paja",
+    "style": "Nórdico",
+    "color": "Roble Rubio",
     "paletteKey": "roble",
     "dimensions": {
       "width": 90,
-      "height": 205,
+      "height": 195,
       "depth": 5
     },
     "materials": [
-      "Fresno aceitado",
-      "Travertino poroso",
-      "Tratamiento mate hidrófugo biológico"
+      "Roble Macizo",
+      "Vidrio Estriado"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una luz tamizada y formas orgánicas. Combina fresno aceitado y travertino poroso con acabados sensoriales de tonalidad tonos madera rubia, trigo seco, fresno tostado y roble blanqueado.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 90 × 205 × 5 cm. Ensambles vistos y pureza estructural idónea para dormitorio.",
-    "ragContext": "Espejo de Suelo Arco Monumental Estrato en Roble. Categoría: Accesorios. Estancia idónea: dormitorio. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: luz tamizada y formas orgánicas. Materiales constructivos: Fresno aceitado, Travertino poroso, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Roble Claro & Paja, tonos madera rubia, trigo seco, fresno tostado y roble blanqueado. Dimensiones técnicas: 90 cm ancho por 205 cm alto por 5 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 90 × 205 × 5 cm. Ensambles vistos y pureza estructural idónea para dormitorio. Descripción sensorial: Pieza de autor pensada para proyectar una luz tamizada y formas orgánicas. Combina fresno aceitado y travertino poroso con acabados sensoriales de tonalidad tonos madera rubia, trigo seco, fresno tostado y roble blanqueado."
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera nórdico. Combina roble macizo y vidrio estriado con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 90 cm (Ancho) × 195 cm (Alto) × 5 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Nórdico",
+      "Roble Macizo",
+      "Vidrio Estriado",
+      "Líneas Orgánicas"
+    ],
+    "ragContext": "Espejo Monumental Suelo Arco. Categoría: Accesorios. Estancia idónea: salón. Estilo: Nórdico. Etiquetas de diseño: Nórdico, Roble Macizo, Vidrio Estriado, Líneas Orgánicas. Materiales certificados: Roble Macizo, Vidrio Estriado. Acabado cromático: Roble Rubio. Dimensiones técnicas: 90 cm de ancho por 195 cm de alto por 5 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera nórdico. Combina roble macizo y vidrio estriado con proporciones equilibradas. Cotas arquitectónicas de plano: 90 cm (Ancho) × 195 cm (Alto) × 5 cm (Profundidad). Ensamble de precisión idóneo para salón."
   },
   {
-    "id": "rag-furn-120",
-    "name": "Vasija Cerámica Escultural Duna en Caliza",
+    "id": "furn-104",
+    "name": "Vasija Cerámica Negra Escultural",
     "category": "Accesorios",
     "room": "salón",
-    "price": 160,
-    "style": "Mid-Century Modern",
-    "color": "Caliza Crema & Alabastro",
-    "paletteKey": "caliza",
-    "dimensions": {
-      "width": 35,
-      "height": 49,
-      "depth": 36
-    },
-    "materials": [
-      "Cuero teñido al anilina",
-      "Vidrio ahumado"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1579656381226-5fc0f0100c3b?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una elegancia residencial modernista. Combina cuero teñido al anilina y vidrio ahumado con acabados sensoriales de tonalidad tonos piedra de campaspero, hueso mineral, marfil poroso y travertino.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 35 × 49 × 36 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Vasija Cerámica Escultural Duna en Caliza. Categoría: Accesorios. Estancia idónea: salón. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: elegancia residencial modernista. Materiales constructivos: Cuero teñido al anilina, Vidrio ahumado. Paleta y tonalidades: Caliza Crema & Alabastro, tonos piedra de campaspero, hueso mineral, marfil poroso y travertino. Dimensiones técnicas: 35 cm ancho por 49 cm alto por 36 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 35 × 49 × 36 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una elegancia residencial modernista. Combina cuero teñido al anilina y vidrio ahumado con acabados sensoriales de tonalidad tonos piedra de campaspero, hueso mineral, marfil poroso y travertino."
-  },
-  {
-    "id": "rag-furn-121",
-    "name": "Plinto Escultórico en Travertino Linear en Nogal",
-    "category": "Accesorios",
-    "room": "salón",
-    "price": 580,
-    "style": "Industrial Sutil",
-    "color": "Nogal Profundo & Humo",
+    "price": 195,
+    "style": "Wabi-Sabi",
+    "color": "Negro Humo",
     "paletteKey": "nogal",
     "dimensions": {
-      "width": 35,
-      "height": 80,
+      "width": 32,
+      "height": 55,
+      "depth": 32
+    },
+    "materials": [
+      "Cerámica Artesanal",
+      "Barro Cocido"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera wabi-sabi. Combina cerámica artesanal y barro cocido con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 32 cm (Ancho) × 55 cm (Alto) × 32 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Wabi-Sabi",
+      "Cerámica Artesanal",
+      "Barro Cocido",
+      "Tacto Poroso",
+      "Pátina Artesanal"
+    ],
+    "ragContext": "Vasija Cerámica Negra Escultural. Categoría: Accesorios. Estancia idónea: salón. Estilo: Wabi-Sabi. Etiquetas de diseño: Wabi-Sabi, Cerámica Artesanal, Barro Cocido, Tacto Poroso, Pátina Artesanal. Materiales certificados: Cerámica Artesanal, Barro Cocido. Acabado cromático: Negro Humo. Dimensiones técnicas: 32 cm de ancho por 55 cm de alto por 32 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera wabi-sabi. Combina cerámica artesanal y barro cocido con proporciones equilibradas. Cotas arquitectónicas de plano: 32 cm (Ancho) × 55 cm (Alto) × 32 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-105",
+    "name": "Plinto Escultórico en Travertino Puro",
+    "category": "Accesorios",
+    "room": "salón",
+    "price": 410,
+    "style": "Mid-Century",
+    "color": "Travertino Natural",
+    "paletteKey": "caliza",
+    "dimensions": {
+      "width": 30,
+      "height": 85,
       "depth": 30
     },
     "materials": [
-      "Hierro forjado negro",
-      "Acero pavonado",
-      "Tratamiento mate hidrófugo biológico"
+      "Mármol Travertino",
+      "Piedra Caliza"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una geometría honesta y constructivista. Combina hierro forjado negro y acero pavonado con acabados sensoriales de tonalidad tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 35 × 80 × 30 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Plinto Escultórico en Travertino Linear en Nogal. Categoría: Accesorios. Estancia idónea: salón. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: geometría honesta y constructivista. Materiales constructivos: Hierro forjado negro, Acero pavonado, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Nogal Profundo & Humo, tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil. Dimensiones técnicas: 35 cm ancho por 80 cm alto por 30 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 35 × 80 × 30 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una geometría honesta y constructivista. Combina hierro forjado negro y acero pavonado con acabados sensoriales de tonalidad tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil."
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera mid-century. Combina mármol travertino y piedra caliza con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 30 cm (Ancho) × 85 cm (Alto) × 30 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Mid-Century",
+      "Mármol Travertino",
+      "Piedra Caliza",
+      "Geometría Pura"
+    ],
+    "ragContext": "Plinto Escultórico en Travertino Puro. Categoría: Accesorios. Estancia idónea: salón. Estilo: Mid-Century. Etiquetas de diseño: Mid-Century, Mármol Travertino, Piedra Caliza, Geometría Pura. Materiales certificados: Mármol Travertino, Piedra Caliza. Acabado cromático: Travertino Natural. Dimensiones técnicas: 30 cm de ancho por 85 cm de alto por 30 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera mid-century. Combina mármol travertino y piedra caliza con proporciones equilibradas. Cotas arquitectónicas de plano: 30 cm (Ancho) × 85 cm (Alto) × 30 cm (Profundidad). Ensamble de precisión idóneo para salón."
   },
   {
-    "id": "rag-furn-122",
-    "name": "Tapiz Textil Mural de Lana Voxel en Terracota",
+    "id": "furn-106",
+    "name": "Tapiz Mural Hilado de Autor",
     "category": "Accesorios",
     "room": "salón",
-    "price": 650,
-    "style": "Minimalismo Cálido",
-    "color": "Terracota Silvestre",
+    "price": 360,
+    "style": "Rústico Contemporáneo",
+    "color": "Ocre y Terracota",
     "paletteKey": "terracota",
     "dimensions": {
       "width": 110,
-      "height": 168,
-      "depth": 3
+      "height": 160,
+      "depth": 4
     },
     "materials": [
-      "Mortero de cal",
-      "Lino lavado belga"
+      "Lana Virgen",
+      "Roble Macizo"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una atmósfera serena y despojada. Combina mortero de cal y lino lavado belga con acabados sensoriales de tonalidad tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 110 × 168 × 3 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Tapiz Textil Mural de Lana Voxel en Terracota. Categoría: Accesorios. Estancia idónea: salón. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: atmósfera serena y despojada. Materiales constructivos: Mortero de cal, Lino lavado belga. Paleta y tonalidades: Terracota Silvestre, tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal. Dimensiones técnicas: 110 cm ancho por 168 cm alto por 3 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 110 × 168 × 3 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una atmósfera serena y despojada. Combina mortero de cal y lino lavado belga con acabados sensoriales de tonalidad tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal."
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera rústico contemporáneo. Combina lana virgen y roble macizo con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 110 cm (Ancho) × 160 cm (Alto) × 4 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Rústico Contemporáneo",
+      "Lana Virgen",
+      "Roble Macizo",
+      "Absorción Acústica",
+      "Pátina Artesanal"
+    ],
+    "ragContext": "Tapiz Mural Hilado de Autor. Categoría: Accesorios. Estancia idónea: salón. Estilo: Rústico Contemporáneo. Etiquetas de diseño: Rústico Contemporáneo, Lana Virgen, Roble Macizo, Absorción Acústica, Pátina Artesanal. Materiales certificados: Lana Virgen, Roble Macizo. Acabado cromático: Ocre y Terracota. Dimensiones técnicas: 110 cm de ancho por 160 cm de alto por 4 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera rústico contemporáneo. Combina lana virgen y roble macizo con proporciones equilibradas. Cotas arquitectónicas de plano: 110 cm (Ancho) × 160 cm (Alto) × 4 cm (Profundidad). Ensamble de precisión idóneo para salón."
   },
   {
-    "id": "rag-furn-123",
-    "name": "Alfombra Texturada Duna Serena en Oliva",
+    "id": "furn-107",
+    "name": "Juego Cojines Bouclé Geométricos",
     "category": "Accesorios",
     "room": "salón",
-    "price": 820,
-    "style": "Mid-Century Modern",
-    "color": "Oliva Seco & Musgo",
-    "paletteKey": "oliva",
-    "dimensions": {
-      "width": 230,
-      "height": 2,
-      "depth": 306
-    },
-    "materials": [
-      "Mármol travertino romano",
-      "Latón cepillado",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una curvas voluptuosas y maderas nobles. Combina mármol travertino romano y latón cepillado con acabados sensoriales de tonalidad tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 230 × 2 × 306 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Alfombra Texturada Duna Serena en Oliva. Categoría: Accesorios. Estancia idónea: salón. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: curvas voluptuosas y maderas nobles. Materiales constructivos: Mármol travertino romano, Latón cepillado, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Oliva Seco & Musgo, tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre. Dimensiones técnicas: 230 cm ancho por 2 cm alto por 306 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 230 × 2 × 306 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una curvas voluptuosas y maderas nobles. Combina mármol travertino romano y latón cepillado con acabados sensoriales de tonalidad tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre."
-  },
-  {
-    "id": "rag-furn-124",
-    "name": "Biombo Alistonado de Madera Estrato en Lino",
-    "category": "Accesorios",
-    "room": "salón",
-    "price": 960,
-    "style": "Industrial Sutil",
-    "color": "Lino Crudo & Yeso",
+    "price": 175,
+    "style": "Bauhaus",
+    "color": "Gris y Crudo",
     "paletteKey": "lino",
     "dimensions": {
-      "width": 160,
-      "height": 175,
-      "depth": 8
+      "width": 50,
+      "height": 16,
+      "depth": 50
     },
     "materials": [
-      "Nogal oscuro",
-      "Microcemento pulido"
+      "Textura Bouclé",
+      "Lino Belga"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1579656381226-5fc0f0100c3b?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una perfiles oscuros y cuero desgastado. Combina nogal oscuro y microcemento pulido con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 160 × 175 × 8 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Biombo Alistonado de Madera Estrato en Lino. Categoría: Accesorios. Estancia idónea: salón. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: perfiles oscuros y cuero desgastado. Materiales constructivos: Nogal oscuro, Microcemento pulido. Paleta y tonalidades: Lino Crudo & Yeso, tonos lino natural, arena suave, blanco roto y tiza apagada. Dimensiones técnicas: 160 cm ancho por 175 cm alto por 8 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 160 × 175 × 8 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una perfiles oscuros y cuero desgastado. Combina nogal oscuro y microcemento pulido con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada."
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera bauhaus. Combina textura bouclé y lino belga con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 50 cm (Ancho) × 16 cm (Alto) × 50 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Bauhaus",
+      "Textura Bouclé",
+      "Lino Belga",
+      "Geometría Pura"
+    ],
+    "ragContext": "Juego Cojines Bouclé Geométricos. Categoría: Accesorios. Estancia idónea: salón. Estilo: Bauhaus. Etiquetas de diseño: Bauhaus, Textura Bouclé, Lino Belga, Geometría Pura. Materiales certificados: Textura Bouclé, Lino Belga. Acabado cromático: Gris y Crudo. Dimensiones técnicas: 50 cm de ancho por 16 cm de alto por 50 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera bauhaus. Combina textura bouclé y lino belga con proporciones equilibradas. Cotas arquitectónicas de plano: 50 cm (Ancho) × 16 cm (Alto) × 50 cm (Profundidad). Ensamble de precisión idóneo para salón."
   },
   {
-    "id": "rag-furn-125",
-    "name": "Espejo de Suelo Arco Monumental Duna en Ocre",
-    "category": "Accesorios",
-    "room": "dormitorio",
-    "price": 460,
-    "style": "Minimalismo Cálido",
-    "color": "Ocre Dorado & Mostaza",
-    "paletteKey": "ocre",
-    "dimensions": {
-      "width": 94,
-      "height": 205,
-      "depth": 5
-    },
-    "materials": [
-      "Travertino poroso",
-      "Tejido bouclé",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una piedras calizas y linos naturales. Combina travertino poroso y tejido bouclé con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 94 × 205 × 5 cm. Ensambles vistos y pureza estructural idónea para dormitorio.",
-    "ragContext": "Espejo de Suelo Arco Monumental Duna en Ocre. Categoría: Accesorios. Estancia idónea: dormitorio. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: piedras calizas y linos naturales. Materiales constructivos: Travertino poroso, Tejido bouclé, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Ocre Dorado & Mostaza, tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo. Dimensiones técnicas: 94 cm ancho por 205 cm alto por 5 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 94 × 205 × 5 cm. Ensambles vistos y pureza estructural idónea para dormitorio. Descripción sensorial: Pieza de autor pensada para proyectar una piedras calizas y linos naturales. Combina travertino poroso y tejido bouclé con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo."
-  },
-  {
-    "id": "rag-furn-126",
-    "name": "Vasija Cerámica Escultural Linear en Roble",
+    "id": "furn-108",
+    "name": "Revistero de Cuero Cosido Taller",
     "category": "Accesorios",
     "room": "salón",
-    "price": 200,
-    "style": "Mid-Century Modern",
-    "color": "Roble Claro & Paja",
-    "paletteKey": "roble",
-    "dimensions": {
-      "width": 37,
-      "height": 49,
-      "depth": 33
-    },
-    "materials": [
-      "Vidrio ahumado",
-      "Nogal canaletto"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una proporciones icónicas y nobleza material. Combina vidrio ahumado y nogal canaletto con acabados sensoriales de tonalidad tonos madera rubia, trigo seco, fresno tostado y roble blanqueado.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 37 × 49 × 33 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Vasija Cerámica Escultural Linear en Roble. Categoría: Accesorios. Estancia idónea: salón. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: proporciones icónicas y nobleza material. Materiales constructivos: Vidrio ahumado, Nogal canaletto. Paleta y tonalidades: Roble Claro & Paja, tonos madera rubia, trigo seco, fresno tostado y roble blanqueado. Dimensiones técnicas: 37 cm ancho por 49 cm alto por 33 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 37 × 49 × 33 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una proporciones icónicas y nobleza material. Combina vidrio ahumado y nogal canaletto con acabados sensoriales de tonalidad tonos madera rubia, trigo seco, fresno tostado y roble blanqueado."
-  },
-  {
-    "id": "rag-furn-127",
-    "name": "Plinto Escultórico en Travertino Voxel en Caliza",
-    "category": "Accesorios",
-    "room": "salón",
-    "price": 630,
+    "price": 230,
     "style": "Industrial Sutil",
-    "color": "Caliza Crema & Alabastro",
+    "color": "Cuero Robusto",
+    "paletteKey": "nogal",
+    "dimensions": {
+      "width": 42,
+      "height": 38,
+      "depth": 26
+    },
+    "materials": [
+      "Cuero Vegetal",
+      "Acero Pavonado"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera industrial sutil. Combina cuero vegetal y acero pavonado con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 42 cm (Ancho) × 38 cm (Alto) × 26 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Industrial Sutil",
+      "Cuero Vegetal",
+      "Acero Pavonado",
+      "Pátina Artesanal"
+    ],
+    "ragContext": "Revistero de Cuero Cosido Taller. Categoría: Accesorios. Estancia idónea: salón. Estilo: Industrial Sutil. Etiquetas de diseño: Industrial Sutil, Cuero Vegetal, Acero Pavonado, Pátina Artesanal. Materiales certificados: Cuero Vegetal, Acero Pavonado. Acabado cromático: Cuero Robusto. Dimensiones técnicas: 42 cm de ancho por 38 cm de alto por 26 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera industrial sutil. Combina cuero vegetal y acero pavonado con proporciones equilibradas. Cotas arquitectónicas de plano: 42 cm (Ancho) × 38 cm (Alto) × 26 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-109",
+    "name": "Centro de Mesa Pétreo Vado",
+    "category": "Accesorios",
+    "room": "salón",
+    "price": 210,
+    "style": "Zen",
+    "color": "Gris Ceniza",
     "paletteKey": "caliza",
     "dimensions": {
-      "width": 29,
-      "height": 80,
-      "depth": 33
+      "width": 48,
+      "height": 8,
+      "depth": 28
     },
     "materials": [
-      "Acero pavonado",
-      "Cuero de curtición vegetal",
-      "Tratamiento mate hidrófugo biológico"
+      "Piedra Caliza",
+      "Cerámica Artesanal"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una sobriedad tectónica y rigor estructural. Combina acero pavonado y cuero de curtición vegetal con acabados sensoriales de tonalidad tonos piedra de campaspero, hueso mineral, marfil poroso y travertino.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 29 × 80 × 33 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Plinto Escultórico en Travertino Voxel en Caliza. Categoría: Accesorios. Estancia idónea: salón. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: sobriedad tectónica y rigor estructural. Materiales constructivos: Acero pavonado, Cuero de curtición vegetal, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Caliza Crema & Alabastro, tonos piedra de campaspero, hueso mineral, marfil poroso y travertino. Dimensiones técnicas: 29 cm ancho por 80 cm alto por 33 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 29 × 80 × 33 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una sobriedad tectónica y rigor estructural. Combina acero pavonado y cuero de curtición vegetal con acabados sensoriales de tonalidad tonos piedra de campaspero, hueso mineral, marfil poroso y travertino."
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera zen. Combina piedra caliza y cerámica artesanal con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 48 cm (Ancho) × 8 cm (Alto) × 28 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Zen",
+      "Piedra Caliza",
+      "Cerámica Artesanal",
+      "Tacto Poroso",
+      "Low-Sitting"
+    ],
+    "ragContext": "Centro de Mesa Pétreo Vado. Categoría: Accesorios. Estancia idónea: salón. Estilo: Zen. Etiquetas de diseño: Zen, Piedra Caliza, Cerámica Artesanal, Tacto Poroso, Low-Sitting. Materiales certificados: Piedra Caliza, Cerámica Artesanal. Acabado cromático: Gris Ceniza. Dimensiones técnicas: 48 cm de ancho por 8 cm de alto por 28 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera zen. Combina piedra caliza y cerámica artesanal con proporciones equilibradas. Cotas arquitectónicas de plano: 48 cm (Ancho) × 8 cm (Alto) × 28 cm (Profundidad). Ensamble de precisión idóneo para salón."
   },
   {
-    "id": "rag-furn-128",
-    "name": "Tapiz Textil Mural de Lana Serena en Nogal",
+    "id": "furn-110",
+    "name": "Alfombra Mediterránea Lana y Yute",
+    "category": "Accesorios",
+    "room": "salón",
+    "price": 480,
+    "style": "Mediterráneo",
+    "color": "Arena Cálida",
+    "paletteKey": "lino",
+    "dimensions": {
+      "width": 200,
+      "height": 2,
+      "depth": 300
+    },
+    "materials": [
+      "Lana Virgen",
+      "Cuerda Kraft"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera mediterráneo. Combina lana virgen y cuerda kraft con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 200 cm (Ancho) × 2 cm (Alto) × 300 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Mediterráneo",
+      "Lana Virgen",
+      "Cuerda Kraft",
+      "Absorción Acústica"
+    ],
+    "ragContext": "Alfombra Mediterránea Lana y Yute. Categoría: Accesorios. Estancia idónea: salón. Estilo: Mediterráneo. Etiquetas de diseño: Mediterráneo, Lana Virgen, Cuerda Kraft, Absorción Acústica. Materiales certificados: Lana Virgen, Cuerda Kraft. Acabado cromático: Arena Cálida. Dimensiones técnicas: 200 cm de ancho por 2 cm de alto por 300 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera mediterráneo. Combina lana virgen y cuerda kraft con proporciones equilibradas. Cotas arquitectónicas de plano: 200 cm (Ancho) × 2 cm (Alto) × 300 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-111",
+    "name": "Espejo Circular sin Marco Caliza",
     "category": "Accesorios",
     "room": "salón",
     "price": 340,
     "style": "Minimalismo Cálido",
-    "color": "Nogal Profundo & Humo",
-    "paletteKey": "nogal",
+    "color": "Caliza Blanca",
+    "paletteKey": "caliza",
     "dimensions": {
-      "width": 115,
-      "height": 168,
-      "depth": 3
+      "width": 80,
+      "height": 80,
+      "depth": 6
     },
     "materials": [
-      "Lino lavado belga",
-      "Fresno aceitado"
+      "Piedra Caliza",
+      "Latón Satinado"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1579656381226-5fc0f0100c3b?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una texturas táctiles envolventes. Combina lino lavado belga y fresno aceitado con acabados sensoriales de tonalidad tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 115 × 168 × 3 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Tapiz Textil Mural de Lana Serena en Nogal. Categoría: Accesorios. Estancia idónea: salón. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: texturas táctiles envolventes. Materiales constructivos: Lino lavado belga, Fresno aceitado. Paleta y tonalidades: Nogal Profundo & Humo, tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil. Dimensiones técnicas: 115 cm ancho por 168 cm alto por 3 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 115 × 168 × 3 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una texturas táctiles envolventes. Combina lino lavado belga y fresno aceitado con acabados sensoriales de tonalidad tonos nogal ahumado, chocolate amargo, café tostado y ébano sutil."
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera minimalismo cálido. Combina piedra caliza y latón satinado con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 80 cm (Ancho) × 80 cm (Alto) × 6 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Minimalismo Cálido",
+      "Piedra Caliza",
+      "Latón Satinado",
+      "Líneas Orgánicas"
+    ],
+    "ragContext": "Espejo Circular sin Marco Caliza. Categoría: Accesorios. Estancia idónea: salón. Estilo: Minimalismo Cálido. Etiquetas de diseño: Minimalismo Cálido, Piedra Caliza, Latón Satinado, Líneas Orgánicas. Materiales certificados: Piedra Caliza, Latón Satinado. Acabado cromático: Caliza Blanca. Dimensiones técnicas: 80 cm de ancho por 80 cm de alto por 6 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera minimalismo cálido. Combina piedra caliza y latón satinado con proporciones equilibradas. Cotas arquitectónicas de plano: 80 cm (Ancho) × 80 cm (Alto) × 6 cm (Profundidad). Ensamble de precisión idóneo para salón."
   },
   {
-    "id": "rag-furn-129",
-    "name": "Alfombra Texturada Duna Estrato en Terracota",
+    "id": "furn-112",
+    "name": "Perchero de Pie Tallo Escultórico",
     "category": "Accesorios",
     "room": "salón",
-    "price": 660,
-    "style": "Mid-Century Modern",
-    "color": "Terracota Silvestre",
-    "paletteKey": "terracota",
+    "price": 390,
+    "style": "Bauhaus",
+    "color": "Acero y Fresno",
+    "paletteKey": "roble",
     "dimensions": {
-      "width": 240,
-      "height": 2,
-      "depth": 282
-    },
-    "materials": [
-      "Latón cepillado",
-      "Cuero teñido al anilina",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una acentos dorados y encimeras pétreas. Combina latón cepillado y cuero teñido al anilina con acabados sensoriales de tonalidad tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 240 × 2 × 282 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Alfombra Texturada Duna Estrato en Terracota. Categoría: Accesorios. Estancia idónea: salón. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: acentos dorados y encimeras pétreas. Materiales constructivos: Latón cepillado, Cuero teñido al anilina, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Terracota Silvestre, tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal. Dimensiones técnicas: 240 cm ancho por 2 cm alto por 282 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 240 × 2 × 282 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una acentos dorados y encimeras pétreas. Combina latón cepillado y cuero teñido al anilina con acabados sensoriales de tonalidad tonos teja, arcilla quemada, caldera cálido y ladrillo artesanal."
-  },
-  {
-    "id": "rag-furn-130",
-    "name": "Biombo Alistonado de Madera Duna en Oliva",
-    "category": "Accesorios",
-    "room": "salón",
-    "price": 750,
-    "style": "Industrial Sutil",
-    "color": "Oliva Seco & Musgo",
-    "paletteKey": "oliva",
-    "dimensions": {
-      "width": 166,
+      "width": 45,
       "height": 175,
-      "depth": 8
+      "depth": 45
     },
     "materials": [
-      "Microcemento pulido",
-      "Hierro forjado negro"
+      "Acero Pavonado",
+      "Madera de Fresno"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una arquitectura loft y nobleza del acero. Combina microcemento pulido y hierro forjado negro con acabados sensoriales de tonalidad tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 166 × 175 × 8 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Biombo Alistonado de Madera Duna en Oliva. Categoría: Accesorios. Estancia idónea: salón. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: arquitectura loft y nobleza del acero. Materiales constructivos: Microcemento pulido, Hierro forjado negro. Paleta y tonalidades: Oliva Seco & Musgo, tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre. Dimensiones técnicas: 166 cm ancho por 175 cm alto por 8 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 166 × 175 × 8 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una arquitectura loft y nobleza del acero. Combina microcemento pulido y hierro forjado negro con acabados sensoriales de tonalidad tonos verde salvia, oliva ceniza, eucalipto apagado y laurel silvestre."
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera bauhaus. Combina acero pavonado y madera de fresno con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 45 cm (Ancho) × 175 cm (Alto) × 45 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Bauhaus",
+      "Acero Pavonado",
+      "Madera de Fresno",
+      "Geometría Pura"
+    ],
+    "ragContext": "Perchero de Pie Tallo Escultórico. Categoría: Accesorios. Estancia idónea: salón. Estilo: Bauhaus. Etiquetas de diseño: Bauhaus, Acero Pavonado, Madera de Fresno, Geometría Pura. Materiales certificados: Acero Pavonado, Madera de Fresno. Acabado cromático: Acero y Fresno. Dimensiones técnicas: 45 cm de ancho por 175 cm de alto por 45 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera bauhaus. Combina acero pavonado y madera de fresno con proporciones equilibradas. Cotas arquitectónicas de plano: 45 cm (Ancho) × 175 cm (Alto) × 45 cm (Profundidad). Ensamble de precisión idóneo para salón."
   },
   {
-    "id": "rag-furn-131",
-    "name": "Espejo de Suelo Arco Monumental Linear en Lino",
-    "category": "Accesorios",
-    "room": "dormitorio",
-    "price": 420,
-    "style": "Minimalismo Cálido",
-    "color": "Lino Crudo & Yeso",
-    "paletteKey": "lino",
-    "dimensions": {
-      "width": 97,
-      "height": 205,
-      "depth": 5
-    },
-    "materials": [
-      "Tejido bouclé",
-      "Mortero de cal",
-      "Tratamiento mate hidrófugo biológico"
-    ],
-    "imageUrl": "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una arquitectura sensorial táctil. Combina tejido bouclé y mortero de cal con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 97 × 205 × 5 cm. Ensambles vistos y pureza estructural idónea para dormitorio.",
-    "ragContext": "Espejo de Suelo Arco Monumental Linear en Lino. Categoría: Accesorios. Estancia idónea: dormitorio. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: arquitectura sensorial táctil. Materiales constructivos: Tejido bouclé, Mortero de cal, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Lino Crudo & Yeso, tonos lino natural, arena suave, blanco roto y tiza apagada. Dimensiones técnicas: 97 cm ancho por 205 cm alto por 5 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 97 × 205 × 5 cm. Ensambles vistos y pureza estructural idónea para dormitorio. Descripción sensorial: Pieza de autor pensada para proyectar una arquitectura sensorial táctil. Combina tejido bouclé y mortero de cal con acabados sensoriales de tonalidad tonos lino natural, arena suave, blanco roto y tiza apagada."
-  },
-  {
-    "id": "rag-furn-132",
-    "name": "Vasija Cerámica Escultural Voxel en Ocre",
+    "id": "furn-113",
+    "name": "Vasija Alta en Terracota Porosa",
     "category": "Accesorios",
     "room": "salón",
     "price": 240,
-    "style": "Mid-Century Modern",
-    "color": "Ocre Dorado & Mostaza",
-    "paletteKey": "ocre",
+    "style": "Mediterráneo",
+    "color": "Arcilla Viva",
+    "paletteKey": "terracota",
     "dimensions": {
-      "width": 31,
-      "height": 49,
-      "depth": 36
+      "width": 35,
+      "height": 70,
+      "depth": 35
     },
     "materials": [
-      "Nogal canaletto",
-      "Mármol travertino romano"
+      "Barro Cocido",
+      "Cerámica Artesanal"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1579656381226-5fc0f0100c3b?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una sofisticación de los años 50. Combina nogal canaletto y mármol travertino romano con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 31 × 49 × 36 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Vasija Cerámica Escultural Voxel en Ocre. Categoría: Accesorios. Estancia idónea: salón. Estilo y corriente: Mid-Century Modern. Atmósfera y sensación: sofisticación de los años 50. Materiales constructivos: Nogal canaletto, Mármol travertino romano. Paleta y tonalidades: Ocre Dorado & Mostaza, tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo. Dimensiones técnicas: 31 cm ancho por 49 cm alto por 36 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 31 × 49 × 36 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una sofisticación de los años 50. Combina nogal canaletto y mármol travertino romano con acabados sensoriales de tonalidad tonos siena tostada, azafrán, ocre otoñal y ámbar cobrizo."
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera mediterráneo. Combina barro cocido y cerámica artesanal con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 35 cm (Ancho) × 70 cm (Alto) × 35 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Mediterráneo",
+      "Barro Cocido",
+      "Cerámica Artesanal",
+      "Tacto Poroso"
+    ],
+    "ragContext": "Vasija Alta en Terracota Porosa. Categoría: Accesorios. Estancia idónea: salón. Estilo: Mediterráneo. Etiquetas de diseño: Mediterráneo, Barro Cocido, Cerámica Artesanal, Tacto Poroso. Materiales certificados: Barro Cocido, Cerámica Artesanal. Acabado cromático: Arcilla Viva. Dimensiones técnicas: 35 cm de ancho por 70 cm de alto por 35 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera mediterráneo. Combina barro cocido y cerámica artesanal con proporciones equilibradas. Cotas arquitectónicas de plano: 35 cm (Ancho) × 70 cm (Alto) × 35 cm (Profundidad). Ensamble de precisión idóneo para salón."
   },
   {
-    "id": "rag-furn-133",
-    "name": "Plinto Escultórico en Travertino Serena en Roble",
+    "id": "furn-114",
+    "name": "Manta Nido Lana Merina Gruesa",
     "category": "Accesorios",
     "room": "salón",
-    "price": 680,
-    "style": "Industrial Sutil",
-    "color": "Roble Claro & Paja",
+    "price": 220,
+    "style": "Nórdico",
+    "color": "Lana Cruda",
+    "paletteKey": "lino",
+    "dimensions": {
+      "width": 140,
+      "height": 2,
+      "depth": 180
+    },
+    "materials": [
+      "Lana Virgen",
+      "Textura Bouclé"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera nórdico. Combina lana virgen y textura bouclé con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 140 cm (Ancho) × 2 cm (Alto) × 180 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Nórdico",
+      "Lana Virgen",
+      "Textura Bouclé",
+      "Absorción Acústica"
+    ],
+    "ragContext": "Manta Nido Lana Merina Gruesa. Categoría: Accesorios. Estancia idónea: salón. Estilo: Nórdico. Etiquetas de diseño: Nórdico, Lana Virgen, Textura Bouclé, Absorción Acústica. Materiales certificados: Lana Virgen, Textura Bouclé. Acabado cromático: Lana Cruda. Dimensiones técnicas: 140 cm de ancho por 2 cm de alto por 180 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera nórdico. Combina lana virgen y textura bouclé con proporciones equilibradas. Cotas arquitectónicas de plano: 140 cm (Ancho) × 2 cm (Alto) × 180 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-115",
+    "name": "Biombo de Roble Alistonado Divisorio",
+    "category": "Accesorios",
+    "room": "salón",
+    "price": 890,
+    "style": "Mid-Century",
+    "color": "Nogal Suave",
+    "paletteKey": "nogal",
+    "dimensions": {
+      "width": 180,
+      "height": 175,
+      "depth": 6
+    },
+    "materials": [
+      "Madera de Nogal",
+      "Latón Satinado"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera mid-century. Combina madera de nogal y latón satinado con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 180 cm (Ancho) × 175 cm (Alto) × 6 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Mid-Century",
+      "Madera de Nogal",
+      "Latón Satinado",
+      "Geometría Pura"
+    ],
+    "ragContext": "Biombo de Roble Alistonado Divisorio. Categoría: Accesorios. Estancia idónea: salón. Estilo: Mid-Century. Etiquetas de diseño: Mid-Century, Madera de Nogal, Latón Satinado, Geometría Pura. Materiales certificados: Madera de Nogal, Latón Satinado. Acabado cromático: Nogal Suave. Dimensiones técnicas: 180 cm de ancho por 175 cm de alto por 6 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera mid-century. Combina madera de nogal y latón satinado con proporciones equilibradas. Cotas arquitectónicas de plano: 180 cm (Ancho) × 175 cm (Alto) × 6 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-116",
+    "name": "Cojín Cilíndrico Tatami Rollo",
+    "category": "Accesorios",
+    "room": "salón",
+    "price": 130,
+    "style": "Zen",
+    "color": "Lino Natural",
+    "paletteKey": "lino",
+    "dimensions": {
+      "width": 60,
+      "height": 22,
+      "depth": 22
+    },
+    "materials": [
+      "Lino Belga",
+      "Tatami"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera zen. Combina lino belga y tatami con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 60 cm (Ancho) × 22 cm (Alto) × 22 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Zen",
+      "Lino Belga",
+      "Tatami",
+      "Low-Sitting"
+    ],
+    "ragContext": "Cojín Cilíndrico Tatami Rollo. Categoría: Accesorios. Estancia idónea: salón. Estilo: Zen. Etiquetas de diseño: Zen, Lino Belga, Tatami, Low-Sitting. Materiales certificados: Lino Belga, Tatami. Acabado cromático: Lino Natural. Dimensiones técnicas: 60 cm de ancho por 22 cm de alto por 22 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera zen. Combina lino belga y tatami con proporciones equilibradas. Cotas arquitectónicas de plano: 60 cm (Ancho) × 22 cm (Alto) × 22 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-117",
+    "name": "Bandeja Monolítica en Travertino",
+    "category": "Accesorios",
+    "room": "salón",
+    "price": 170,
+    "style": "Minimalismo Cálido",
+    "color": "Travertino Apomazado",
+    "paletteKey": "caliza",
+    "dimensions": {
+      "width": 40,
+      "height": 4,
+      "depth": 25
+    },
+    "materials": [
+      "Mármol Travertino",
+      "Piedra Caliza"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera minimalismo cálido. Combina mármol travertino y piedra caliza con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 40 cm (Ancho) × 4 cm (Alto) × 25 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Minimalismo Cálido",
+      "Mármol Travertino",
+      "Piedra Caliza",
+      "Tacto Poroso"
+    ],
+    "ragContext": "Bandeja Monolítica en Travertino. Categoría: Accesorios. Estancia idónea: salón. Estilo: Minimalismo Cálido. Etiquetas de diseño: Minimalismo Cálido, Mármol Travertino, Piedra Caliza, Tacto Poroso. Materiales certificados: Mármol Travertino, Piedra Caliza. Acabado cromático: Travertino Apomazado. Dimensiones técnicas: 40 cm de ancho por 4 cm de alto por 25 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera minimalismo cálido. Combina mármol travertino y piedra caliza con proporciones equilibradas. Cotas arquitectónicas de plano: 40 cm (Ancho) × 4 cm (Alto) × 25 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-118",
+    "name": "Escultura Mural Alistonada de Cedro",
+    "category": "Accesorios",
+    "room": "salón",
+    "price": 460,
+    "style": "Japandi",
+    "color": "Cedro Aromático",
     "paletteKey": "roble",
     "dimensions": {
-      "width": 31,
+      "width": 120,
       "height": 80,
+      "depth": 8
+    },
+    "materials": [
+      "Madera de Cedro",
+      "Roble Macizo"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera japandi. Combina madera de cedro y roble macizo con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 120 cm (Ancho) × 80 cm (Alto) × 8 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Japandi",
+      "Madera de Cedro",
+      "Roble Macizo",
+      "Absorción Acústica"
+    ],
+    "ragContext": "Escultura Mural Alistonada de Cedro. Categoría: Accesorios. Estancia idónea: salón. Estilo: Japandi. Etiquetas de diseño: Japandi, Madera de Cedro, Roble Macizo, Absorción Acústica. Materiales certificados: Madera de Cedro, Roble Macizo. Acabado cromático: Cedro Aromático. Dimensiones técnicas: 120 cm de ancho por 80 cm de alto por 8 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera japandi. Combina madera de cedro y roble macizo con proporciones equilibradas. Cotas arquitectónicas de plano: 120 cm (Ancho) × 80 cm (Alto) × 8 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-119",
+    "name": "Jarrón Rústico Modelado al Torno",
+    "category": "Accesorios",
+    "room": "salón",
+    "price": 150,
+    "style": "Rústico Contemporáneo",
+    "color": "Barro y Ceniza",
+    "paletteKey": "terracota",
+    "dimensions": {
+      "width": 25,
+      "height": 38,
+      "depth": 25
+    },
+    "materials": [
+      "Barro Cocido",
+      "Cerámica Artesanal"
+    ],
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera rústico contemporáneo. Combina barro cocido y cerámica artesanal con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 25 cm (Ancho) × 38 cm (Alto) × 25 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Rústico Contemporáneo",
+      "Barro Cocido",
+      "Cerámica Artesanal",
+      "Pátina Artesanal"
+    ],
+    "ragContext": "Jarrón Rústico Modelado al Torno. Categoría: Accesorios. Estancia idónea: salón. Estilo: Rústico Contemporáneo. Etiquetas de diseño: Rústico Contemporáneo, Barro Cocido, Cerámica Artesanal, Pátina Artesanal. Materiales certificados: Barro Cocido, Cerámica Artesanal. Acabado cromático: Barro y Ceniza. Dimensiones técnicas: 25 cm de ancho por 38 cm de alto por 25 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera rústico contemporáneo. Combina barro cocido y cerámica artesanal con proporciones equilibradas. Cotas arquitectónicas de plano: 25 cm (Ancho) × 38 cm (Alto) × 25 cm (Profundidad). Ensamble de precisión idóneo para salón."
+  },
+  {
+    "id": "furn-120",
+    "name": "Cesta Revistero Cuero y Roble",
+    "category": "Accesorios",
+    "room": "salón",
+    "price": 190,
+    "style": "Industrial Sutil",
+    "color": "Cuero y Roble",
+    "paletteKey": "nogal",
+    "dimensions": {
+      "width": 38,
+      "height": 32,
       "depth": 30
     },
     "materials": [
-      "Cuero de curtición vegetal",
-      "Nogal oscuro",
-      "Tratamiento mate hidrófugo biológico"
+      "Cuero Vegetal",
+      "Roble Macizo"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una estudio de diseño y precisión técnica. Combina cuero de curtición vegetal y nogal oscuro con acabados sensoriales de tonalidad tonos madera rubia, trigo seco, fresno tostado y roble blanqueado.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 31 × 80 × 30 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Plinto Escultórico en Travertino Serena en Roble. Categoría: Accesorios. Estancia idónea: salón. Estilo y corriente: Industrial Sutil. Atmósfera y sensación: estudio de diseño y precisión técnica. Materiales constructivos: Cuero de curtición vegetal, Nogal oscuro, Tratamiento mate hidrófugo biológico. Paleta y tonalidades: Roble Claro & Paja, tonos madera rubia, trigo seco, fresno tostado y roble blanqueado. Dimensiones técnicas: 31 cm ancho por 80 cm alto por 30 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 31 × 80 × 30 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una estudio de diseño y precisión técnica. Combina cuero de curtición vegetal y nogal oscuro con acabados sensoriales de tonalidad tonos madera rubia, trigo seco, fresno tostado y roble blanqueado."
-  },
-  {
-    "id": "rag-furn-134",
-    "name": "Tapiz Textil Mural de Lana Estrato en Caliza",
-    "category": "Accesorios",
-    "room": "salón",
-    "price": 410,
-    "style": "Minimalismo Cálido",
-    "color": "Caliza Crema & Alabastro",
-    "paletteKey": "caliza",
-    "dimensions": {
-      "width": 120,
-      "height": 168,
-      "depth": 3
-    },
-    "materials": [
-      "Fresno aceitado",
-      "Travertino poroso"
+    "imageUrl": "/foto mueble.png",
+    "description": "Pieza arquitectónica de autor concebida para proyectar una atmósfera industrial sutil. Combina cuero vegetal y roble macizo con proporciones equilibradas.",
+    "architecturalDetail": "Cotas arquitectónicas de plano: 38 cm (Ancho) × 32 cm (Alto) × 30 cm (Profundidad). Ensamble de precisión idóneo para salón.",
+    "tags": [
+      "Industrial Sutil",
+      "Cuero Vegetal",
+      "Roble Macizo",
+      "Pátina Artesanal"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1000&q=80",
-    "description": "Pieza de autor pensada para proyectar una luz tamizada y formas orgánicas. Combina fresno aceitado y travertino poroso con acabados sensoriales de tonalidad tonos piedra de campaspero, hueso mineral, marfil poroso y travertino.",
-    "architecturalDetail": "Cotas arquitectónicas precisas: 120 × 168 × 3 cm. Ensambles vistos y pureza estructural idónea para salón.",
-    "ragContext": "Tapiz Textil Mural de Lana Estrato en Caliza. Categoría: Accesorios. Estancia idónea: salón. Estilo y corriente: Minimalismo Cálido. Atmósfera y sensación: luz tamizada y formas orgánicas. Materiales constructivos: Fresno aceitado, Travertino poroso. Paleta y tonalidades: Caliza Crema & Alabastro, tonos piedra de campaspero, hueso mineral, marfil poroso y travertino. Dimensiones técnicas: 120 cm ancho por 168 cm alto por 3 cm profundidad. Detalle arquitectónico: Cotas arquitectónicas precisas: 120 × 168 × 3 cm. Ensambles vistos y pureza estructural idónea para salón. Descripción sensorial: Pieza de autor pensada para proyectar una luz tamizada y formas orgánicas. Combina fresno aceitado y travertino poroso con acabados sensoriales de tonalidad tonos piedra de campaspero, hueso mineral, marfil poroso y travertino."
+    "ragContext": "Cesta Revistero Cuero y Roble. Categoría: Accesorios. Estancia idónea: salón. Estilo: Industrial Sutil. Etiquetas de diseño: Industrial Sutil, Cuero Vegetal, Roble Macizo, Pátina Artesanal. Materiales certificados: Cuero Vegetal, Roble Macizo. Acabado cromático: Cuero y Roble. Dimensiones técnicas: 38 cm de ancho por 32 cm de alto por 30 cm de fondo. Pieza arquitectónica de autor concebida para proyectar una atmósfera industrial sutil. Combina cuero vegetal y roble macizo con proporciones equilibradas. Cotas arquitectónicas de plano: 38 cm (Ancho) × 32 cm (Alto) × 30 cm (Profundidad). Ensamble de precisión idóneo para salón."
   }
 ];

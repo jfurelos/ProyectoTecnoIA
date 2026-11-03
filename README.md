@@ -7,29 +7,28 @@
 [![JavaScript](https://img.shields.io/badge/ES6_Modules-Native-F7DF1E.svg?logo=javascript&logoColor=black)](https://developer.mozilla.org/es/docs/Web/JavaScript)
 [![CSS](https://img.shields.io/badge/Vanilla_CSS-Design_Tokens-1572B6.svg?logo=css3&logoColor=white)](https://developer.mozilla.org/es/docs/Web/CSS)
 
-Plataforma web de recomendación y matching arquitectónico de mobiliario de autor con **motor RAG semántico en tiempo real**, **persistencia híbrida lista para Firebase Firestore & Auth**, **catálogo de 134 piezas arquitectónicas**, **visión de gustos en lenguaje natural**, **pasarela de checkout con ticket oficial** y **suite de tests automatizados con Vitest**.
+Plataforma web de recomendación y matching arquitectónico de mobiliario de autor con **motor RAG semántico en tiempo real**, **persistencia híbrida lista para Firebase Firestore & Auth**, **catálogo de 120 piezas arquitectónicas con 4 a 6 etiquetas**, **visión de gustos en lenguaje natural**, **pasarela de checkout con ticket oficial** y **suite de tests automatizados con Vitest**.
 
 ---
 
 ## ✨ Nuevas Capacidades y Módulos
 
 ### 1. Motor RAG Semántico para Mobiliario (`RagEngine`)
-* **Vectorización en el Navegador:** Normalización de texto (diacríticos, puntuación), filtrado de stopwords en español, extracción de unigramas y bigramas semánticos (*"luz tenue", "roble claro", "tatami japones"*).
-* **Ponderación TF-IDF y BM25:** Pondera términos clave de diseño, nobles materiales y atmósferas arquitectónicas con multiplicadores de relevancia.
+* **Vectorización Limpia en el Navegador:** Filtrado de stopwords estándar y palabras estructurales/plantilla (`estilo`, `categoria`, `espacio`, `muebles`, etc.) para que no contaminen los vectores ni las explicaciones. Extracción de unigramas y bigramas semánticos (*"luz tenue", "roble claro", "tatami japones"*).
+* **Ponderación TF-IDF y BM25:** Pondera términos clave de diseño, nobles materiales y atmósferas arquitectónicas con vectores unitarios normalizados.
 * **Retrieval por Similitud Coseno:**
   $$\text{Similitud Coseno} = \frac{\vec{U} \cdot \vec{M}_i}{\|\vec{U}\| \|\vec{M}_i\|}$$
-* **Augmented Re-Ranking:** Fusiona la afinidad semántica con restricciones físicas (presupuesto disponible, estancia y cotas de plano).
-* **Generación Explicable RAG:** Sintetiza explicaciones arquitectónicas personalizadas justificando por qué cada mueble responde a la visión textual del usuario.
+* **Curva de Dispersión Dinámica de Porcentajes:** Muebles con alta afinidad alcanzan el **88% - 98%**, mientras que muebles no relacionados caen visiblemente al **25% - 48%**, eliminando el agolpamiento de scores en franjas estrechas.
+* **Generación Explicable RAG de Autor:** Detecta y destaca las etiquetas de diseño coincidentes (ej. *"Afinidad directa con tus preferencias en las etiquetas [Roble Macizo] y [Zen]"*) o conceptos sustantivos reales, sin citar nunca palabras vacías.
 
-### 2. Catálogo Extendido de 134 Muebles Arquitectónicos (`furnitureCatalogRAG.js`)
-* Colección clasificada en 6 categorías:
-  * **Asientos:** Sofás modulares, butacas escultóricas, chaise longues, bancos de entrada y sillas de comedor.
-  * **Mesas:** Mesas de comedor monolíticas y ovales, mesas de centro orgánicas, consolas y escritorios técnicos.
-  * **Almacenaje:** Aparadores coplanares, librerías modulares reticulares, vitrinas y cómodas enrasadas.
-  * **Iluminación:** Lámparas de pie, velos de suspensión cenital, apliques de luz rasante y cúpulas de sobremesa.
-  * **Dormitorio:** Camas flotantes con tatami, cabeceros alistonados, mesitas monolito y bancos en lino.
-  * **Accesorios:** Alfombras de lana virgen, biombos alistonados, espejos monumentales y plintos en travertino.
-* Cada pieza cuenta con cotas técnicas ($A \times H \times P$ en cm), materiales nobles certificados y fragmento de contexto RAG enriquecido.
+### 2. Catálogo Curado de 120 Muebles con 4 a 6 Etiquetas (`furnitureCatalogRAG.js`)
+* **Máxima Diversidad Arquitectónica:** 120 piezas únicas sin variaciones redundantes repartidas equitativamente en 6 categorías (20 Asientos, 20 Mesas, 20 Almacenaje, 20 Iluminación, 20 Dormitorio y 20 Accesorios & Textil).
+* **Restricción de Etiquetas Formales:**
+  * **Cada mueble tiene entre 4 y 6 etiquetas (mínimo 4, máximo 6).**
+  * 43 etiquetas únicas de autor que cubren estilos, materiales nobles, texturas y atmósferas lumínicas.
+  * Gran riqueza semántica para maximizar la dispersión y discriminación del matching RAG.
+* **Imagen Unificada:** Todas las 120 piezas utilizan la imagen local `/foto mueble.png`.
+* Cada pieza cuenta con cotas técnicas de plano ($A \times H \times P$ en cm), materiales nobles certificados y fragmento de contexto semántico RAG enriquecido (`ragContext`).
 
 ### 3. Gustos en Lenguaje Natural (RAG Vision)
 * **En el Registro de Usuario:** Campo multilínea dedicado con píldoras de sugerencias rápidas en un clic (*"Minimalismo cálido con roble y lino"*, *"Estudio industrial sobrio con cuero y acero"*, *"Ambiente mediterráneo con terracota y caliza"*, *"Espacio zen sereno tipo ryokan"*).
@@ -49,7 +48,8 @@ Plataforma web de recomendación y matching arquitectónico de mobiliario de aut
 * Incluye archivo `.env.example` con instrucciones paso a paso para conectar Firebase en segundos.
 
 ### 6. Suite de Tests Automatizados con Vitest
-17 tests unitarios y de integración cubriendo el 100% de la lógica crítica:
+21 tests unitarios y de integración cubriendo el 100% de la lógica crítica:
+* `tests/datasetCardinality.test.js`: Validación estricta de las 120 piezas, rango de 4 a 6 etiquetas por mueble, 20 piezas por categoría e imagen `/foto mueble.png`.
 * `tests/ragEngine.test.js`: Tokenización, bigramas, cálculo de similitud coseno, re-ranking semántico y generación de explicabilidad.
 * `tests/authService.test.js`: Registro, prevención estricta de cuentas duplicadas, validación de contraseñas, login y sincronización de `tasteDescription`.
 * `tests/cestaCheckout.test.js`: Desglose fiscal de IVA 21%, creación de pedidos, emisión de ticket y vaciado de cesta.
@@ -64,7 +64,8 @@ Plataforma web de recomendación y matching arquitectónico de mobiliario de aut
 ├── vite.config.js                       # Configuración de Vite
 ├── package.json                         # Scripts y dependencias (Vite, Vitest, Firebase)
 ├── .env.example                         # Plantilla de variables para conectar Firebase
-├── tests/                               # Suite de tests con Vitest
+├── tests/                               # Suite de tests con Vitest (21 tests)
+│   ├── datasetCardinality.test.js       # Validación de las 120 piezas y 4-6 tags
 │   ├── ragEngine.test.js                # Tests del motor semántico RAG
 │   ├── authService.test.js              # Tests de autenticación y cuentas
 │   ├── cestaCheckout.test.js            # Tests de checkout, cálculo fiscal y ticket
@@ -74,7 +75,7 @@ Plataforma web de recomendación y matching arquitectónico de mobiliario de aut
     ├── config/
     │   └── firebase.js                  # Inicialización plug-and-play de Firebase SDK
     ├── data/
-    │   ├── furnitureCatalogRAG.js       # Catálogo extendido de 134 piezas con metadatos RAG
+    │   ├── furnitureCatalogRAG.js       # Catálogo de 120 piezas con metadatos RAG y 4-6 tags
     │   └── furnitureData.js             # Opciones de onboarding y temas
     ├── services/
     │   ├── ragEngine.js                 # Motor vectorial TF-IDF/BM25 y similitud coseno

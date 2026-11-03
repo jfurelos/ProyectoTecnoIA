@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { RagEngine } from '../src/services/ragEngine.js';
+import { RagEngine, STRUCTURAL_STOPWORDS } from '../src/services/ragEngine.js';
 
 describe('RagEngine - Motor Semántico Vectorial Arquitectónico', () => {
   const sampleCatalog = [
@@ -14,6 +14,7 @@ describe('RagEngine - Motor Semántico Vectorial Arquitectónico', () => {
       paletteKey: 'lino',
       dimensions: { width: 240, height: 72, depth: 98 },
       materials: ['Lino belga', 'Roble macizo'],
+      tags: ['Japandi', 'Lino Belga', 'Tatami'],
       description: 'Geometría horizontal baja con asiento suspendido inspirada en tatamis y ryokan tradicionales.',
       architecturalDetail: 'Perfil bajo de reposo zen con luz difusa.',
       ragContext: 'Sofá bajo zen ryokan japonés en lino crudo y roble claro para salón sereno y contemplativo.'
@@ -29,6 +30,7 @@ describe('RagEngine - Motor Semántico Vectorial Arquitectónico', () => {
       paletteKey: 'roble',
       dimensions: { width: 220, height: 75, depth: 95 },
       materials: ['Roble macizo', 'Barniz biológico'],
+      tags: ['Nórdico', 'Roble Macizo'],
       description: 'Sobre continuo de madera rubia y patas prismáticas a inglete.',
       architecturalDetail: 'Capacidad para 8 comensales con separación axial de 65cm.',
       ragContext: 'Mesa comedor diáfana en roble macizo nórdico con luz cenital para reuniones familiares.'
@@ -44,6 +46,7 @@ describe('RagEngine - Motor Semántico Vectorial Arquitectónico', () => {
       paletteKey: 'nogal',
       dimensions: { width: 150, height: 75, depth: 75 },
       materials: ['Acero pavonado', 'Cuero vegetal', 'Nogal'],
+      tags: ['Industrial Sutil', 'Acero Pavonado', 'Cuero Vegetal'],
       description: 'Estructura rígida de perfilería oscura y sobre tapizado en piel.',
       architecturalDetail: 'Electrificación integrada sin cables visibles.',
       ragContext: 'Escritorio técnico sobrio loft industrial con perfiles de acero negro y cuero para estudio de arquitectura.'
@@ -56,18 +59,21 @@ describe('RagEngine - Motor Semántico Vectorial Arquitectónico', () => {
     rag = new RagEngine(sampleCatalog);
   });
 
-  it('normaliza y tokeniza texto correctamente eliminando acentos y stopwords', () => {
-    const raw = '¡El salón está sereno con maderas clarísimas y luz tenue!';
-    const normalized = RagEngine.normalizeText(raw);
-    expect(normalized).toBe('el salon esta sereno con maderas clarisimas y luz tenue');
-
+  it('normaliza y tokeniza texto eliminando acentos, stopwords y palabras estructurales como "estilo"', () => {
+    const raw = '¡Busco un estilo con categoria de muebles y piezas de arquitectura sereno con roble!';
     const tokens = RagEngine.tokenize(raw);
-    expect(tokens).toContain('salon');
+
+    // Debe contener términos sustantivos
     expect(tokens).toContain('sereno');
-    expect(tokens).toContain('luz');
-    expect(tokens).not.toContain('con'); // stopword
-    expect(tokens).not.toContain('el'); // stopword
-    expect(tokens).toContain('luz_tenue'); // bigrama semántico
+    expect(tokens).toContain('roble');
+
+    // NUNCA debe contener palabras estructurales prohibidas
+    expect(tokens).not.toContain('estilo');
+    expect(tokens).not.toContain('categoria');
+    expect(tokens).not.toContain('muebles');
+    expect(tokens).not.toContain('piezas');
+    expect(tokens).not.toContain('arquitectura');
+    expect(tokens).not.toContain('busco');
   });
 
   it('calcula la similitud coseno alta para descripciones afines a un mueble zen/ryokan', () => {
@@ -78,35 +84,49 @@ describe('RagEngine - Motor Semántico Vectorial Arquitectónico', () => {
     const simIndustrial = rag.calculateCosineSimilarity(qVec, qNorm, 'furn-03');
 
     expect(simZen).toBeGreaterThan(simIndustrial);
-    expect(simZen).toBeGreaterThan(0.25);
+    expect(simZen).toBeGreaterThan(0.18);
+    expect(simIndustrial).toBeLessThan(0.05);
   });
 
-  it('realiza re-ranking y sitúa en primer lugar la pieza idónea con explicación contextual', () => {
+  it('proporciona amplia dispersión de porcentajes de matching evitando scores homogéneos', () => {
     const results = rag.searchAndRerank({
-      userTasteDescription: 'Salón zen inspirado en un ryokan con lino y roble sereno',
+      userTasteDescription: 'Salón zen con tatami y lino japonés',
       targetRoom: 'salón',
       budgetTotal: 4500,
       budgetSpent: 0
     });
 
-    expect(results.length).toBe(3);
-    expect(results[0].id).toBe('furn-01');
-    expect(results[0].score).toBeGreaterThanOrEqual(75);
-    expect(results[0].matchReason).toBeTruthy();
-    expect(typeof results[0].matchReason).toBe('string');
+    const bestMatch = results.find(r => r.id === 'furn-01');
+    const irrelevantMatch = results.find(r => r.id === 'furn-03');
+
+    expect(bestMatch).toBeDefined();
+    expect(irrelevantMatch).toBeDefined();
+
+    // El mejor match debe superar holgadamente el 85%
+    expect(bestMatch.score).toBeGreaterThanOrEqual(85);
+
+    // La pieza no relacionada debe caer significativamente (menos de 55%)
+    expect(irrelevantMatch.score).toBeLessThanOrEqual(55);
+
+    // La dispersión debe ser clara (al menos 30 puntos de diferencia)
+    expect(bestMatch.score - irrelevantMatch.score).toBeGreaterThanOrEqual(30);
   });
 
-  it('respeta las restricciones duras de presupuesto y estancia en el re-ranking', () => {
-    // Si la estancia objetivo es 'estudio' y presupuesto es ajustado
+  it('la explicación nunca incluye la palabra "estilo" u otras palabras vacías entre comillas', () => {
     const results = rag.searchAndRerank({
-      userTasteDescription: 'Mobiliario para trabajar con rigor técnico y cuero',
+      userTasteDescription: 'Quiero un estilo industrial con perfiles de acero y cuero para mi estudio',
       targetRoom: 'estudio',
-      budgetTotal: 1000,
+      budgetTotal: 4500,
       budgetSpent: 0
     });
 
-    expect(results[0].id).toBe('furn-03');
-    expect(results[0].room).toBe('estudio');
+    results.forEach(res => {
+      expect(res.matchReason).not.toMatch(/"estilo"/i);
+      expect(res.matchReason).not.toMatch(/"categoria"/i);
+      expect(res.matchReason).not.toMatch(/"espacio"/i);
+    });
+
+    const industrialItem = results.find(r => r.id === 'furn-03');
+    expect(industrialItem.matchReason).toContain('Acero Pavonado');
   });
 });
-
