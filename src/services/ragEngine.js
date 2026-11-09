@@ -29,8 +29,29 @@ const SPANISH_STOPWORDS = new Set([
   "vosotros", "vuestra", "vuestras", "vuestro", "vuestros", "y", "ya", "yo"
 ]);
 
+// Stopwords en catalán
+const CATALAN_STOPWORDS = new Set([
+  "a", "amb", "de", "del", "dels", "en", "per", "el", "la", "els", "les",
+  "un", "una", "uns", "unes", "com", "que", "aquest", "aquesta", "aquests",
+  "aquestes", "seu", "seva", "seus", "seves", "meu", "teu", "on", "quan",
+  "mes", "molt", "tot", "tota", "tots", "totes", "ja", "si", "no", "hi",
+  "ho", "li", "us", "em", "et", "es", "i", "o"
+]);
+
+// Stopwords en inglés
+const ENGLISH_STOPWORDS = new Set([
+  "a", "an", "the", "and", "or", "in", "on", "at", "to", "for", "of", "with",
+  "by", "from", "up", "about", "into", "over", "after", "is", "are", "was",
+  "were", "be", "been", "being", "have", "has", "had", "do", "does", "did",
+  "but", "if", "then", "else", "when", "where", "why", "how", "all", "any",
+  "both", "each", "few", "more", "most", "other", "some", "such", "no", "nor",
+  "not", "only", "own", "same", "so", "than", "too", "very", "can", "will",
+  "just", "should", "now", "my", "your", "his", "her", "its", "our", "their"
+]);
+
 // Palabras estructurales y de plantilla excluidas de la vectorización y de las explicaciones
 export const STRUCTURAL_STOPWORDS = new Set([
+  // Castellano
   "estilo", "corriente", "categoria", "estancia", "habitacion", "mueble", "muebles",
   "pieza", "piezas", "dimensiones", "medidas", "cotas", "cm", "precio", "pvp",
   "color", "tono", "tonalidad", "tonos", "acabado", "acabados", "sensacion", "sensaciones",
@@ -38,7 +59,19 @@ export const STRUCTURAL_STOPWORDS = new Set([
   "arquitectonica", "diseno", "combinacion", "combina", "ideal", "espacio", "espacios",
   "busco", "quiero", "gustaria", "deseo", "necesito", "proyecto", "para", "con", "sobre",
   "forma", "linea", "lineas", "elemento", "elementos", "ambiente", "ambientes", "tipo",
-  "armoniza", "acordes", "adecuada", "adecuado", "excelente", "buena", "buen"
+  "armoniza", "acordes", "adecuada", "adecuado", "excelente", "buena", "buen",
+  // English
+  "style", "category", "room", "furniture", "pieces", "measurements", "dimensions",
+  "price", "shade", "tones", "finish", "finishes", "atmosphere", "design", "space",
+  "spaces", "looking", "want", "would", "like", "need", "project", "composition",
+  // Català
+  "estil", "habitacio", "habitacio", "mobles", "peces", "mides", "cotes",
+  "preu", "sensacio", "sensacions", "visio", "detalls", "tecnic", "tecnica",
+  "disseny", "espai", "espais", "vull", "agradaria", "necessito",
+  // 中文
+  "风格", "流派", "类别", "分类", "居室", "家具", "单品", "尺寸", "规格",
+  "尺度", "造价", "色调", "饰面", "质感", "氛围", "愿景", "细节", "技术",
+  "建筑", "设计", "搭配", "空间", "寻找", "想要", "希望", "需要", "方案"
 ]);
 
 // Multiplicador de relevancia para términos y conceptos arquitectónicos sustantivos
@@ -114,7 +147,7 @@ export class RagEngine {
   }
 
   /**
-   * Normaliza y limpia una cadena textual
+   * Normaliza y limpia una cadena textual (preservando caracteres CJK y diacríticos latinos)
    */
   static normalizeText(text) {
     if (!text || typeof text !== "string") return "";
@@ -122,28 +155,56 @@ export class RagEngine {
       .toLowerCase()
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
-      .replace(/[^a-z0-9\s]/g, " ")
+      .replace(/[^\p{L}\p{N}\s]/gu, " ")
       .replace(/\s+/g, " ")
       .trim();
   }
 
   /**
-   * Tokeniza un texto excluyendo stopwords estándar y estructurales
+   * Tokeniza un texto excluyendo stopwords estándar y estructurales,
+   * y extrayendo n-gramas CJK para idiomas como el chino.
    */
   static tokenize(text) {
     const clean = RagEngine.normalizeText(text);
     if (!clean) return [];
 
-    const words = clean.split(" ").filter(w => 
-      w.length > 2 && 
-      !SPANISH_STOPWORDS.has(w) && 
-      !STRUCTURAL_STOPWORDS.has(w)
-    );
-    const tokens = [...words];
+    const tokens = [];
+    const latinWords = [];
+    const parts = clean.split(" ").filter(Boolean);
+
+    for (const part of parts) {
+      if (/[\u4e00-\u9fff]/.test(part)) {
+        // Segmentación CJK: generar unigramas y bigramas
+        for (let i = 0; i < part.length; i++) {
+          const char = part[i];
+          if (!STRUCTURAL_STOPWORDS.has(char)) {
+            tokens.push(char);
+          }
+          if (i < part.length - 1) {
+            const bigram = part.slice(i, i + 2);
+            if (!STRUCTURAL_STOPWORDS.has(bigram)) {
+              tokens.push(bigram);
+            }
+          }
+        }
+      } else {
+        if (
+          part.length > 2 &&
+          !SPANISH_STOPWORDS.has(part) &&
+          !STRUCTURAL_STOPWORDS.has(part) &&
+          !CATALAN_STOPWORDS.has(part) &&
+          !ENGLISH_STOPWORDS.has(part)
+        ) {
+          latinWords.push(part);
+        }
+      }
+    }
+
+    tokens.push(...latinWords);
 
     // Bigramas semánticos (ej: "roble claro", "luz tenue", "lana virgen")
-    for (let i = 0; i < words.length - 1; i++) {
-      tokens.push(`${words[i]}_${words[i + 1]}`);
+    for (let i = 0; i < latinWords.length - 1; i++) {
+      tokens.push(`${latinWords[i]}_${latinWords[i + 1]}`);
     }
 
     return tokens;
@@ -184,8 +245,9 @@ export class RagEngine {
       });
     });
 
-    // 2. Calcular IDF (Inverse Document Frequency)
+    // 2. Calcular IDF (Inverse Document Frequency) y registrar vocabulario
     docFrequency.forEach((count, token) => {
+      this.vocabulary.set(token, count);
       const idfValue = Math.log(1 + (N - count + 0.5) / (count + 0.5));
       this.idf.set(token, Math.max(0.25, idfValue));
     });
@@ -290,7 +352,8 @@ export class RagEngine {
     budgetSpent = 0,
     preferredStyle = null,
     preferredPalette = null,
-    topK = 0
+    topK = 0,
+    lang = "es"
   }) {
     if (!this.catalog || this.catalog.length === 0) return [];
 
@@ -368,7 +431,8 @@ export class RagEngine {
         queryTokens,
         hasQuery,
         targetRoom,
-        semanticCosine
+        semanticCosine,
+        lang
       });
 
       return {
@@ -387,9 +451,128 @@ export class RagEngine {
 
   /**
    * Genera el motivo de matching priorizando etiquetas formales y términos sustantivos,
-   * sin palabras de plantilla vacías.
+   * sin palabras de plantilla vacías y adaptado al idioma seleccionado.
    */
-  generateRagExplanation({ item, queryTokens, hasQuery, targetRoom, semanticCosine }) {
+  generateRagExplanation({ item, queryTokens, hasQuery, targetRoom, semanticCosine, lang = "es" }) {
+    const itemMaterials = Array.isArray(item.materials) ? item.materials : [];
+    const mat0 = itemMaterials[0] ? itemMaterials[0].toLowerCase() : "";
+    const itemRoom = item.room || targetRoom || "";
+
+    if (lang === "ca") {
+      if (hasQuery && queryTokens.length > 0) {
+        const itemTags = Array.isArray(item.tags) ? item.tags : [];
+        const matchedTags = itemTags.filter(tag => {
+          const normTag = RagEngine.normalizeText(tag);
+          return queryTokens.some(qt => normTag.includes(qt) || qt.includes(normTag));
+        });
+
+        if (matchedTags.length >= 2) {
+          return `Afinitat directa amb les teves preferències a les etiquetes [${matchedTags.slice(0, 2).join("] i [")}].`;
+        } else if (matchedTags.length === 1) {
+          return `Coincideix amb la teva cerca a l'etiqueta [${matchedTags[0]}] amb acabats en ${mat0}.`;
+        }
+
+        const docTokens = this.documentTokens.get(item.id) || [];
+        const meaningfulMatches = queryTokens.filter(qt => 
+          !qt.includes("_") && 
+          !STRUCTURAL_STOPWORDS.has(qt) && 
+          qt.length >= 2 &&
+          docTokens.includes(qt)
+        );
+
+        if (meaningfulMatches.length >= 2) {
+          const terms = meaningfulMatches.slice(0, 2).map(m => `"${m}"`).join(" i ");
+          return `Respon a la teva cerca de ${terms} pels seus materials nobles en ${mat0}.`;
+        } else if (meaningfulMatches.length === 1) {
+          return `Connecta amb el concepte "${meaningfulMatches[0]}" mitjançant una volumetria sòbria i cotes equilibrades.`;
+        } else if (semanticCosine >= 0.35) {
+          return `Excel·lent afinitat semàntica (${Math.round(semanticCosine * 100)}%) amb l'atmosfera sensorial de la teva visió.`;
+        } else if (semanticCosine >= 0.12) {
+          return `Afinitat complementària amb la teva descripció; peça de suport en ${mat0}.`;
+        } else {
+          return `Contrast estètic per equilibrar la composició del teu ${itemRoom || 'espai'}.`;
+        }
+      }
+      return `Harmonitza amb l'estètica ${item.style} i acabat en ${(item.color || '').toLowerCase()} per al teu ${itemRoom || 'espai'}.`;
+    }
+
+    if (lang === "en") {
+      if (hasQuery && queryTokens.length > 0) {
+        const itemTags = Array.isArray(item.tags) ? item.tags : [];
+        const matchedTags = itemTags.filter(tag => {
+          const normTag = RagEngine.normalizeText(tag);
+          return queryTokens.some(qt => normTag.includes(qt) || qt.includes(normTag));
+        });
+
+        if (matchedTags.length >= 2) {
+          return `Direct affinity with your preferences in the tags [${matchedTags.slice(0, 2).join("] and [")}].`;
+        } else if (matchedTags.length === 1) {
+          return `Matches your search with the tag [${matchedTags[0]}] and ${mat0} finishes.`;
+        }
+
+        const docTokens = this.documentTokens.get(item.id) || [];
+        const meaningfulMatches = queryTokens.filter(qt => 
+          !qt.includes("_") && 
+          !STRUCTURAL_STOPWORDS.has(qt) && 
+          qt.length >= 2 &&
+          docTokens.includes(qt)
+        );
+
+        if (meaningfulMatches.length >= 2) {
+          const terms = meaningfulMatches.slice(0, 2).map(m => `"${m}"`).join(" and ");
+          return `Responds to your search for ${terms} through noble materials in ${mat0}.`;
+        } else if (meaningfulMatches.length === 1) {
+          return `Connects with the concept "${meaningfulMatches[0]}" through balanced proportions and restrained massing.`;
+        } else if (semanticCosine >= 0.35) {
+          return `Outstanding semantic affinity (${Math.round(semanticCosine * 100)}%) with the sensorial atmosphere of your vision.`;
+        } else if (semanticCosine >= 0.12) {
+          return `Complementary affinity with your design brief; accent piece in ${mat0}.`;
+        } else {
+          return `Aesthetic contrast to balance the composition of your ${itemRoom || 'space'}.`;
+        }
+      }
+      return `Harmonizes with ${item.style} aesthetics and ${(item.color || '').toLowerCase()} finish for your ${itemRoom || 'space'}.`;
+    }
+
+    if (lang === "zh") {
+      if (hasQuery && queryTokens.length > 0) {
+        const itemTags = Array.isArray(item.tags) ? item.tags : [];
+        const matchedTags = itemTags.filter(tag => {
+          const normTag = RagEngine.normalizeText(tag);
+          return queryTokens.some(qt => normTag.includes(qt) || qt.includes(normTag));
+        });
+
+        if (matchedTags.length >= 2) {
+          return `契合您对标签 [${matchedTags.slice(0, 2).join("] 与 [")}] 的偏好。`;
+        } else if (matchedTags.length === 1) {
+          return `精准呼应标签 [${matchedTags[0]}]，并采用${itemMaterials[0] || ''}质感饰面。`;
+        }
+
+        const docTokens = this.documentTokens.get(item.id) || [];
+        const meaningfulMatches = queryTokens.filter(qt => 
+          !qt.includes("_") && 
+          !STRUCTURAL_STOPWORDS.has(qt) && 
+          qt.length >= 2 &&
+          docTokens.includes(qt)
+        );
+
+        if (meaningfulMatches.length >= 2) {
+          const terms = meaningfulMatches.slice(0, 2).map(m => `“${m}”`).join("与");
+          return `精选${itemMaterials[0] || ''}等天然材质，回应您对${terms}的追寻。`;
+        } else if (meaningfulMatches.length === 1) {
+          return `以沉稳克制的体量与均衡比例，呼应“${meaningfulMatches[0]}”的设计概念。`;
+        } else if (semanticCosine >= 0.35) {
+          return `与您描述的空间意境具有极高语义契合度（${Math.round(semanticCosine * 100)}%）。`;
+        } else if (semanticCosine >= 0.12) {
+          return `作为互补构件丰富层次，以${itemMaterials[0] || ''}质感点缀空间。`;
+        } else {
+          return `为您的${itemRoom || '空间'}注入微妙的视觉层次与平衡感。`;
+        }
+      }
+      return `契合${item.style}美学，呈现${item.color || ''}质感，适于您的${itemRoom || '空间'}。`;
+    }
+
+    // Por defecto Castellano
     if (hasQuery && queryTokens.length > 0) {
       // 1. Detección de coincidencia directa con las etiquetas oficiales del mueble
       const itemTags = Array.isArray(item.tags) ? item.tags : [];
@@ -401,7 +584,7 @@ export class RagEngine {
       if (matchedTags.length >= 2) {
         return `Afinidad directa con tus preferencias en las etiquetas [${matchedTags.slice(0, 2).join("] y [")}].`;
       } else if (matchedTags.length === 1) {
-        return `Coincide con tu búsqueda en la etiqueta [${matchedTags[0]}] con acabados en ${item.materials[0].toLowerCase()}.`;
+        return `Coincide con tu búsqueda en la etiqueta [${matchedTags[0]}] con acabados en ${mat0}.`;
       }
 
       // 2. Coincidencia con términos sustantivos significativos (materiales, atmósferas, luz)
@@ -415,19 +598,19 @@ export class RagEngine {
 
       if (meaningfulMatches.length >= 2) {
         const terms = meaningfulMatches.slice(0, 2).map(m => `"${m}"`).join(" y ");
-        return `Responde a tu búsqueda de ${terms} por sus materiales nobles en ${item.materials[0].toLowerCase()}.`;
+        return `Responde a tu búsqueda de ${terms} por sus materiales nobles en ${mat0}.`;
       } else if (meaningfulMatches.length === 1) {
         return `Conecta con el concepto "${meaningfulMatches[0]}" mediante una volumetría sobria y cotas equilibradas.`;
       } else if (semanticCosine >= 0.35) {
         return `Excelente afinidad semántica (${Math.round(semanticCosine * 100)}%) con la atmósfera sensorial de tu visión.`;
       } else if (semanticCosine >= 0.12) {
-        return `Afinidad complementaria con tu descripción; pieza de apoyo en ${item.materials[0].toLowerCase()}.`;
+        return `Afinidad complementaria con tu descripción; pieza de apoyo en ${mat0}.`;
       } else {
-        return `Contraste estético para equilibrar la composición de tu ${item.room || targetRoom || 'espacio'}.`;
+        return `Contraste estético para equilibrar la composición de tu ${itemRoom || 'espacio'}.`;
       }
     }
 
     // Fallback arquitectónico sin consulta
-    return `Armoniza con la estética ${item.style} y acabado en ${item.color.toLowerCase()} para ${item.room || 'tu espacio'}.`;
+    return `Armoniza con la estética ${item.style} y acabado en ${(item.color || '').toLowerCase()} para ${itemRoom || 'tu espacio'}.`;
   }
 }

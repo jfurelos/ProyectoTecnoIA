@@ -92,10 +92,11 @@ export class MatchingEngine {
     this.profile.rejectedIds = this.profile.rejectedIds.filter(id => id !== item.id);
 
     // 1. Reforzar Estilo (+0.30)
-    if (this.profile.styleWeights[item.style] !== undefined) {
-      this.profile.styleWeights[item.style] = Math.min(1.5, this.profile.styleWeights[item.style] + 0.30);
+    const styleKey = item.styleKey || item.style;
+    if (this.profile.styleWeights[styleKey] !== undefined) {
+      this.profile.styleWeights[styleKey] = Math.min(1.5, this.profile.styleWeights[styleKey] + 0.30);
     } else {
-      this.profile.styleWeights[item.style] = 0.8;
+      this.profile.styleWeights[styleKey] = 0.8;
     }
 
     // 2. Reforzar Paleta (+0.25)
@@ -126,8 +127,9 @@ export class MatchingEngine {
     }
 
     // Atenuar peso del estilo (-0.18, mínimo 0.08)
-    if (this.profile.styleWeights[item.style] !== undefined) {
-      this.profile.styleWeights[item.style] = Math.max(0.08, this.profile.styleWeights[item.style] - 0.18);
+    const styleKey = item.styleKey || item.style;
+    if (this.profile.styleWeights[styleKey] !== undefined) {
+      this.profile.styleWeights[styleKey] = Math.max(0.08, this.profile.styleWeights[styleKey] - 0.18);
     }
 
     // Atenuar peso de paleta (-0.15, mínimo 0.08)
@@ -153,7 +155,8 @@ export class MatchingEngine {
    */
   calculateScore(item) {
     // 1. Vector Estilo (35%)
-    const styleAffinity = this.profile.styleWeights[item.style] || 0.3;
+    const styleKey = item.styleKey || item.style;
+    const styleAffinity = this.profile.styleWeights[styleKey] || 0.3;
     const normStyle = Math.min(1.0, styleAffinity / 1.2);
 
     // 2. Vector Paleta / Color (25%)
@@ -179,8 +182,10 @@ export class MatchingEngine {
 
     // 4. Vector Estancia / Espacio (15%)
     let roomScore = 0.7;
-    if (item.room) {
-      roomScore = (item.room.toLowerCase() === this.profile.room.toLowerCase()) ? 1.0 : 0.6;
+    const rKey = (item.roomKey || item.room || "").toLowerCase();
+    const profRoom = (this.profile.roomKey || this.profile.room || "").toLowerCase();
+    if (rKey) {
+      roomScore = (rKey === profRoom) ? 1.0 : 0.6;
     }
 
     // Ponderación final compuesta
@@ -194,34 +199,58 @@ export class MatchingEngine {
   /**
    * Genera el motivo explicable de recomendación ("Por qué te encaja")
    */
-  generateMatchReason(item, score) {
+  generateMatchReason(item, score, lang = "es") {
     const reasons = [];
-
-    // Motivo por Estilo
-    const styleW = this.profile.styleWeights[item.style] || 0;
-    if (styleW >= 0.7) {
-      reasons.push(`Armoniza con tu preferencia ${item.style}`);
-    }
-
-    // Motivo por Color / Paleta
+    const styleKey = item.styleKey || item.style;
+    const styleW = this.profile.styleWeights[styleKey] || 0;
     const palW = (item.paletteKey && this.profile.paletteWeights[item.paletteKey]) || 0;
-    if (palW >= 0.7) {
-      reasons.push(`gama cromática en ${item.color.toLowerCase()}`);
-    }
-
-    // Motivo por Presupuesto
     const remaining = Math.max(0, this.profile.budget - this.profile.spent);
-    if (item.price <= remaining && item.price <= this.profile.budget * 0.35) {
-      reasons.push(`excelente equilibrio de coste`);
+    const goodBudget = (item.price <= remaining && item.price <= this.profile.budget * 0.35);
+
+    const roomDict = {
+      salón: { es: "salón", ca: "saló", en: "living room", zh: "客厅" },
+      comedor: { es: "comedor", ca: "menjador", en: "dining room", zh: "餐厅" },
+      dormitorio: { es: "dormitorio", ca: "dormitori", en: "bedroom", zh: "卧室" },
+      estudio: { es: "estudio", ca: "estudi", en: "home office", zh: "书房" }
+    };
+    const profRoomKey = (this.profile.roomKey || this.profile.room || "salón").toLowerCase();
+    const fallbackRoom = (roomDict[profRoomKey] && roomDict[profRoomKey][lang]) || this.profile.room || "";
+    const displayRoom = item.room || fallbackRoom;
+
+    if (lang === "ca") {
+      if (styleW >= 0.7) reasons.push(`Harmonitza amb la teva preferència ${item.style}`);
+      if (palW >= 0.7) reasons.push(`gamma cromàtica en ${(item.color || '').toLowerCase()}`);
+      if (goodBudget) reasons.push(`excel·lent equilibri de cost`);
+      if (reasons.length >= 2) return reasons[0] + " i " + reasons[1] + ".";
+      if (reasons.length === 1) return reasons[0] + ` per al teu ${displayRoom}.`;
+      return `Peça clau amb cota arquitectònica proporcional per al teu ${displayRoom}.`;
     }
 
-    if (reasons.length >= 2) {
-      return reasons[0] + " y " + reasons[1] + ".";
-    } else if (reasons.length === 1) {
-      return reasons[0] + ` para tu ${this.profile.room}.`;
+    if (lang === "en") {
+      if (styleW >= 0.7) reasons.push(`Harmonizes with your ${item.style} preference`);
+      if (palW >= 0.7) reasons.push(`palette in ${(item.color || '').toLowerCase()}`);
+      if (goodBudget) reasons.push(`excellent cost balance`);
+      if (reasons.length >= 2) return reasons[0] + " and " + reasons[1] + ".";
+      if (reasons.length === 1) return reasons[0] + ` for your ${displayRoom}.`;
+      return `Key piece with architectural dimensions proportional to your ${displayRoom}.`;
     }
 
-    return `Pieza clave con cota arquitectónica proporcional a tu ${this.profile.room}.`;
+    if (lang === "zh") {
+      if (styleW >= 0.7) reasons.push(`契合您对${item.style}风格的偏好`);
+      if (palW >= 0.7) reasons.push(`${item.color || ''}色调美学`);
+      if (goodBudget) reasons.push(`极具造价优势`);
+      if (reasons.length >= 2) return reasons[0] + "，且呈现" + reasons[1] + "。";
+      if (reasons.length === 1) return reasons[0] + `，适配您的${displayRoom}。`;
+      return `符合建筑尺度比例的关键家具单品，适配您的${displayRoom}。`;
+    }
+
+    // Por defecto Castellano
+    if (styleW >= 0.7) reasons.push(`Armoniza con tu preferencia ${item.style}`);
+    if (palW >= 0.7) reasons.push(`gama cromática en ${(item.color || '').toLowerCase()}`);
+    if (goodBudget) reasons.push(`excelente equilibrio de coste`);
+    if (reasons.length >= 2) return reasons[0] + " y " + reasons[1] + ".";
+    if (reasons.length === 1) return reasons[0] + ` para tu ${displayRoom}.`;
+    return `Pieza clave con cota arquitectónica proporcional a tu ${displayRoom}.`;
   }
 
   /**

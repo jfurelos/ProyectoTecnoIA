@@ -5,6 +5,7 @@
 
 import { INITIAL_FURNITURE_DATA, ROOM_OPTIONS, STYLE_OPTIONS, PALETTE_OPTIONS } from './data/furnitureData.js';
 import { FURNITURE_CATALOG_RAG } from './data/furnitureCatalogRAG.js';
+import { getCatalogByLang } from './data/catalogs/index.js';
 import { MatchingEngine } from './services/matchingEngine.js';
 import { RagEngine } from './services/ragEngine.js';
 import { CsvCatalogParser } from './services/csvParser.js';
@@ -12,7 +13,14 @@ import { StorageService } from './services/storage.js';
 import { AuthService } from './services/authService.js';
 import { DatabaseAdapter } from './services/dbAdapter.js';
 import { CheckoutService } from './services/checkoutService.js';
-import { LANGUAGE_IMAGES, UI_TRANSLATIONS } from './config/languages.js';
+import {
+  LANGUAGE_IMAGES,
+  UI_TRANSLATIONS,
+  getRoomOptions,
+  getStyleOptions,
+  getPaletteOptions,
+  getQuickSuggestions
+} from './config/languages.js';
 
 export { LANGUAGE_IMAGES, UI_TRANSLATIONS };
 
@@ -24,20 +32,21 @@ class AppState {
     // 1. Usuario actual
     this.currentUser = AuthService.getCurrentUser();
 
-    // 2. Catálogo de Muebles (usa el catálogo canónico de 120 piezas con 4 a 6 etiquetas si no hay uno actualizado)
-    const savedCatalog = StorageService.getCatalog();
-    this.catalog = savedCatalog && savedCatalog.length === 120 && Array.isArray(savedCatalog[0]?.tags) && savedCatalog[0].tags.length >= 4
-      ? savedCatalog 
-      : [...FURNITURE_CATALOG_RAG];
-
-    // Idioma activo y foto asociada a los 120 muebles (es: foto mueble, ca: foto moble, en: photo furniture, zh: jiājù zhàopiàn)
+    // Idioma activo
     const savedLang = typeof localStorage !== 'undefined' ? (localStorage.getItem("espacio_language") || "es") : "es";
     this.currentLanguage = LANGUAGE_IMAGES[savedLang] ? savedLang : "es";
-    const initialImg = LANGUAGE_IMAGES[this.currentLanguage];
 
-    this.catalog.forEach(item => {
-      item.imageUrl = initialImg;
-    });
+    // 2. Catálogo de Muebles según idioma (o CSV personalizado si se cargó)
+    const savedCatalog = StorageService.getCatalog();
+    this.isCustomCatalog = false;
+    if (savedCatalog && (savedCatalog.isCustom || (!Array.isArray(savedCatalog) && Array.isArray(savedCatalog.items)))) {
+      this.isCustomCatalog = true;
+      this.catalog = savedCatalog.items;
+      const initialImg = LANGUAGE_IMAGES[this.currentLanguage];
+      this.catalog.forEach(item => { item.imageUrl = initialImg; });
+    } else {
+      this.catalog = getCatalogByLang(this.currentLanguage);
+    }
 
     // 3. Motor RAG Semántico (Indexa el catálogo actual)
     this.ragEngine = new RagEngine(this.catalog);
@@ -86,7 +95,11 @@ class AppState {
   }
 
   save() {
-    StorageService.saveCatalog(this.catalog);
+    if (this.isCustomCatalog) {
+      StorageService.saveCatalog({ isCustom: true, items: this.catalog });
+    } else {
+      StorageService.saveCatalog(null);
+    }
     StorageService.saveProfile(this.matchingEngine.profile);
     StorageService.saveTheme(this.theme);
     StorageService.saveTasteDescription(this.tasteDescription);
@@ -131,7 +144,6 @@ const state = new AppState();
 // ==========================================================================
 function initApp() {
   initTheme();
-  initLanguageSelector();
   initAuthSystem();
   initOnboarding();
   initToolbarAndFilters();
@@ -139,6 +151,7 @@ function initApp() {
   initCsvModal();
   initVisionModal();
   initCheckoutAndTicket();
+  initLanguageSelector();
   updateUserHeaderDisplay();
   updateLivingProfileHud();
   updateVisionBannerDisplay();
@@ -174,7 +187,9 @@ function initTheme() {
     state.theme = e.target.value;
     document.documentElement.setAttribute("data-theme", state.theme);
     state.save();
-    showToast(`Tema actualizado a: ${e.target.options[e.target.selectedIndex].text}`);
+    const t = UI_TRANSLATIONS[state.currentLanguage] || UI_TRANSLATIONS.es;
+    const themeName = e.target.options[e.target.selectedIndex].text;
+    showToast(typeof t.toastThemeUpdated === "function" ? t.toastThemeUpdated(themeName) : `Tema actualizado a: ${themeName}`);
   });
 }
 
@@ -190,57 +205,80 @@ function applyLanguage(lang) {
     // Si localStorage no está disponible en el entorno
   }
 
-  // 1. Cambiar la foto de todos los muebles del catálogo al archivo correspondiente
-  const targetImg = LANGUAGE_IMAGES[lang];
-  state.catalog.forEach(item => {
-    item.imageUrl = targetImg;
-  });
+  document.documentElement.lang = lang;
+
+  const t = UI_TRANSLATIONS[lang] || UI_TRANSLATIONS.es;
+  if (t.docTitle) {
+    document.title = t.docTitle;
+  }
+
+  // 1. Cargar el catálogo completo correspondiente al idioma si no es un catálogo CSV personalizado
+  if (!state.isCustomCatalog) {
+    state.catalog = getCatalogByLang(lang);
+  } else {
+    const targetImg = LANGUAGE_IMAGES[lang];
+    state.catalog.forEach(item => {
+      item.imageUrl = targetImg;
+    });
+  }
+
+  // Actualizar motor RAG con el catálogo del idioma seleccionado
+  state.ragEngine = new RagEngine(state.catalog);
 
   // 2. Actualizar estado visual de los botones del header
   document.querySelectorAll("#lang-selector-group .lang-btn").forEach(btn => {
     btn.classList.toggle("active", btn.dataset.lang === lang);
   });
 
-  // 3. Traducir textos dinámicos clave de la interfaz
-  const t = UI_TRANSLATIONS[lang] || UI_TRANSLATIONS.es;
+  // 3. Traducir todos los elementos marcados con data-i18n
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if (t[key] !== undefined) {
+      el.textContent = t[key];
+    }
+  });
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
+    const key = el.getAttribute("data-i18n-placeholder");
+    if (t[key] !== undefined) {
+      el.placeholder = t[key];
+    }
+  });
+  document.querySelectorAll("[data-i18n-title]").forEach(el => {
+    const key = el.getAttribute("data-i18n-title");
+    if (t[key] !== undefined) {
+      el.title = t[key];
+    }
+  });
+  document.querySelectorAll("[data-i18n-aria]").forEach(el => {
+    const key = el.getAttribute("data-i18n-aria");
+    if (t[key] !== undefined) {
+      el.setAttribute("aria-label", t[key]);
+    }
+  });
+
   const searchInput = document.getElementById("feed-search-input");
   if (searchInput) searchInput.placeholder = t.searchPlaceholder;
 
-  const styleLabel = document.querySelector(".theme-selector-wrap label");
-  if (styleLabel) styleLabel.textContent = t.styleLabel;
-
-  const roomTitle = document.getElementById("feed-room-title");
-  if (roomTitle) roomTitle.textContent = t.roomTitle;
-
-  const statsText = document.getElementById("feed-stats-text");
-  if (statsText) statsText.textContent = t.statsText;
-
-  const btnProject = document.getElementById("btn-toggle-project");
-  if (btnProject) {
-    const badge = document.getElementById("project-count-badge");
-    const count = badge ? badge.textContent : "0";
-    btnProject.innerHTML = `<span>${t.cestaBtn}</span><span id="project-count-badge" class="project-count-badge">${count}</span>`;
-  }
-
-  const btnPrefs = document.getElementById("btn-restart-onboarding");
-  if (btnPrefs) {
-    btnPrefs.innerHTML = `<span>⚙️</span><span>${t.preferencesBtn}</span>`;
-  }
-
-  const pills = document.querySelectorAll(".category-filter-pills .filter-pill");
-  pills.forEach(pill => {
-    const cat = pill.dataset.category;
-    if (cat === "all") pill.textContent = t.allCategory;
-    else if (cat === "Asientos") pill.textContent = t.catAsientos;
-    else if (cat === "Mesas") pill.textContent = t.catMesas;
-    else if (cat === "Almacenaje") pill.textContent = t.catAlmacenaje;
-    else if (cat === "Iluminación") pill.textContent = t.catIluminacion;
-    else if (cat === "Dormitorio") pill.textContent = t.catDormitorio;
-    else if (cat === "Accesorios") pill.textContent = t.catAccesorios;
+  // Actualizar chips de sugerencias rápidas en auth y visión modal
+  const suggestions = getQuickSuggestions(lang);
+  document.querySelectorAll("#auth-taste-chips .taste-chip, #vision-modal-chips .taste-chip").forEach(chip => {
+    const idx = Number(chip.getAttribute("data-chip-idx"));
+    if (!isNaN(idx) && suggestions[idx]) {
+      chip.textContent = suggestions[idx].chip;
+      chip.setAttribute("data-text", suggestions[idx].text);
+    }
   });
 
-  // 4. Re-renderizar feed y drawer de la cesta con las nuevas fotos
-  renderFeed();
+  // 4. Actualizar vistas dependientes del idioma de forma segura
+  if (typeof updateAuthModalTabs === "function") updateAuthModalTabs();
+  if (typeof updateUserHeaderDisplay === "function") updateUserHeaderDisplay();
+  if (typeof renderRoomChoices === "function") renderRoomChoices();
+  if (typeof renderStyleChoices === "function") renderStyleChoices();
+  if (typeof renderPaletteChoices === "function") renderPaletteChoices();
+  if (typeof updateOnboardingStepView === "function") updateOnboardingStepView();
+  if (typeof updateLivingProfileHud === "function") updateLivingProfileHud();
+  if (typeof updateVisionBannerDisplay === "function") updateVisionBannerDisplay();
+  if (typeof renderFeed === "function") renderFeed();
   if (typeof updateCestaDrawerContent === "function") {
     updateCestaDrawerContent();
   }
@@ -343,6 +381,7 @@ function initAuthSystem() {
   // Cerrar sesión
   if (dropdownBtnLogout) {
     dropdownBtnLogout.addEventListener("click", () => {
+      const t = UI_TRANSLATIONS[state.currentLanguage] || UI_TRANSLATIONS.es;
       AuthService.logout();
       state.currentUser = null;
       state.tasteDescription = "";
@@ -353,7 +392,7 @@ function initAuthSystem() {
       updateVisionBannerDisplay();
       renderFeed();
       if (dropdown) dropdown.classList.remove("open");
-      showToast("Has cerrado sesión. Navegando como invitado.");
+      showToast(t.toastLogout);
     });
   }
 
@@ -380,6 +419,7 @@ function initAuthSystem() {
   if (authForm) {
     authForm.addEventListener("submit", (e) => {
       e.preventDefault();
+      const t = UI_TRANSLATIONS[state.currentLanguage] || UI_TRANSLATIONS.es;
       const usernameInput = document.getElementById("auth-username");
       const passwordInput = document.getElementById("auth-password");
       const confirmInput = document.getElementById("auth-confirm-password");
@@ -404,7 +444,7 @@ function initAuthSystem() {
         updateLivingProfileHud();
         updateVisionBannerDisplay();
         renderFeed();
-        showToast(`¡Cuenta creada con éxito! Bienvenido, ${result.user.username}.`);
+        showToast(t.toastRegisterSuccess(result.user.username));
         // Abrir onboarding para configurar preferencias del nuevo usuario
         openOnboarding();
       } else {
@@ -419,7 +459,7 @@ function initAuthSystem() {
         updateLivingProfileHud();
         updateVisionBannerDisplay();
         renderFeed();
-        showToast(`Sesión iniciada. Bienvenido de nuevo, ${result.user.username}.`);
+        showToast(t.toastLoginSuccess(result.user.username));
       }
     });
   }
@@ -430,40 +470,42 @@ function initAuthSystem() {
       errorAlert.classList.add("visible");
     }
   }
+}
 
-  function updateAuthModalTabs() {
-    const tabLog = document.getElementById("tab-login");
-    const tabReg = document.getElementById("tab-register");
-    const groupConfirm = document.getElementById("group-confirm-password");
-    const groupTaste = document.getElementById("group-taste-description");
-    const submitBtn = document.getElementById("btn-auth-submit");
-    const switchPrompt = document.getElementById("auth-switch-prompt");
-    const switchLnk = document.getElementById("auth-switch-link");
-    const err = document.getElementById("auth-error-alert");
+function updateAuthModalTabs() {
+  const t = UI_TRANSLATIONS[state.currentLanguage] || UI_TRANSLATIONS.es;
+  const tabLog = document.getElementById("tab-login");
+  const tabReg = document.getElementById("tab-register");
+  const groupConfirm = document.getElementById("group-confirm-password");
+  const groupTaste = document.getElementById("group-taste-description");
+  const submitBtn = document.getElementById("btn-auth-submit");
+  const switchPrompt = document.getElementById("auth-switch-prompt");
+  const switchLnk = document.getElementById("auth-switch-link");
+  const err = document.getElementById("auth-error-alert");
 
-    if (err) err.classList.remove("visible");
+  if (err) err.classList.remove("visible");
 
-    if (state.authMode === "register") {
-      if (tabReg) tabReg.classList.add("active");
-      if (tabLog) tabLog.classList.remove("active");
-      if (groupConfirm) groupConfirm.style.display = "flex";
-      if (groupTaste) groupTaste.style.display = "block";
-      if (submitBtn) submitBtn.textContent = "Crear Cuenta de Usuario";
-      if (switchPrompt) switchPrompt.textContent = "¿Ya tienes cuenta?";
-      if (switchLnk) switchLnk.textContent = "Inicia sesión aquí";
-    } else {
-      if (tabLog) tabLog.classList.add("active");
-      if (tabReg) tabReg.classList.remove("active");
-      if (groupConfirm) groupConfirm.style.display = "none";
-      if (groupTaste) groupTaste.style.display = "none";
-      if (submitBtn) submitBtn.textContent = "Iniciar Sesión";
-      if (switchPrompt) switchPrompt.textContent = "¿No tienes cuenta todavía?";
-      if (switchLnk) switchLnk.textContent = "Regístrate aquí";
-    }
+  if (state.authMode === "register") {
+    if (tabReg) tabReg.classList.add("active");
+    if (tabLog) tabLog.classList.remove("active");
+    if (groupConfirm) groupConfirm.style.display = "flex";
+    if (groupTaste) groupTaste.style.display = "block";
+    if (submitBtn) submitBtn.textContent = t.authBtnRegister;
+    if (switchPrompt) switchPrompt.textContent = t.authSwitchHaveAccount;
+    if (switchLnk) switchLnk.textContent = t.authSwitchLoginLink;
+  } else {
+    if (tabLog) tabLog.classList.add("active");
+    if (tabReg) tabReg.classList.remove("active");
+    if (groupConfirm) groupConfirm.style.display = "none";
+    if (groupTaste) groupTaste.style.display = "none";
+    if (submitBtn) submitBtn.textContent = t.authBtnLogin;
+    if (switchPrompt) switchPrompt.textContent = t.authSwitchNoAccount;
+    if (switchLnk) switchLnk.textContent = t.authSwitchRegisterLink;
   }
 }
 
 function updateUserHeaderDisplay() {
+  const t = UI_TRANSLATIONS[state.currentLanguage] || UI_TRANSLATIONS.es;
   const displayName = document.getElementById("user-display-name");
   const avatarBadge = document.getElementById("user-avatar-badge");
   const dropdownName = document.getElementById("dropdown-user-name");
@@ -478,10 +520,10 @@ function updateUserHeaderDisplay() {
     const isCloud = DatabaseAdapter.isCloudMode();
     if (isCloud) {
       cloudBadge.classList.add("connected");
-      cloudText.textContent = "Firebase Cloud";
+      cloudText.textContent = t.cloudFirebase || "Firebase Cloud";
     } else {
       cloudBadge.classList.remove("connected");
-      cloudText.textContent = "Almacenamiento Local";
+      cloudText.textContent = t.cloudLocalStorage || "Almacenamiento Local";
     }
   }
 
@@ -490,15 +532,18 @@ function updateUserHeaderDisplay() {
     if (displayName) displayName.textContent = name;
     if (avatarBadge) avatarBadge.textContent = name.charAt(0).toUpperCase();
     if (dropdownName) dropdownName.textContent = name;
-    if (dropdownMeta) dropdownMeta.textContent = `Cuenta activa · ${state.matchingEngine.profile.room || 'salón'}`;
-    if (dropdownAuthText) dropdownAuthText.textContent = "Cambiar de Cuenta";
+    const roomOpts = getRoomOptions(state.currentLanguage);
+    const userRoomId = (state.matchingEngine.profile.room || 'salón').toLowerCase();
+    const roomObj = roomOpts.find(r => r.id.toLowerCase() === userRoomId);
+    if (dropdownMeta) dropdownMeta.textContent = roomObj ? roomObj.label : (state.matchingEngine.profile.room || 'salón');
+    if (dropdownAuthText) dropdownAuthText.textContent = t.userDropdownAuthSwitch;
     if (dropdownBtnLogout) dropdownBtnLogout.style.display = "flex";
   } else {
-    if (displayName) displayName.textContent = "Iniciar Sesión";
+    if (displayName) displayName.textContent = t.userDisplayNameGuest;
     if (avatarBadge) avatarBadge.textContent = "👤";
-    if (dropdownName) dropdownName.textContent = "Modo Invitado";
-    if (dropdownMeta) dropdownMeta.textContent = "Tus datos se guardan solo localmente";
-    if (dropdownAuthText) dropdownAuthText.textContent = "Iniciar Sesión / Registrarse";
+    if (dropdownName) dropdownName.textContent = t.userDropdownNameGuest;
+    if (dropdownMeta) dropdownMeta.textContent = t.userDropdownGuestDesc;
+    if (dropdownAuthText) dropdownAuthText.textContent = t.userDropdownAuthLogin;
     if (dropdownBtnLogout) dropdownBtnLogout.style.display = "none";
   }
 }
@@ -570,12 +615,14 @@ function closeOnboarding() {
 function renderRoomChoices() {
   const grid = document.getElementById("room-choice-grid");
   if (!grid) return;
+  const t = UI_TRANSLATIONS[state.currentLanguage] || UI_TRANSLATIONS.es;
+  const roomOptions = getRoomOptions(state.currentLanguage);
 
-  grid.innerHTML = ROOM_OPTIONS.map(room => {
+  grid.innerHTML = roomOptions.map(room => {
     const isSelected = state.onboardingSelections.room === room.id;
     return `
       <div class="choice-card ${isSelected ? 'selected' : ''}" data-room-id="${room.id}">
-        <div class="technical-label" style="color: var(--autumn-terracotta); margin-bottom: 4px;">Estancia</div>
+        <div class="technical-label" style="color: var(--autumn-terracotta); margin-bottom: 4px;">${t.onboardingRoomBadge}</div>
         <div class="choice-name">${room.label}</div>
         <div class="choice-desc">${room.desc}</div>
       </div>
@@ -594,8 +641,9 @@ function renderRoomChoices() {
 function renderStyleChoices() {
   const grid = document.getElementById("style-choice-grid");
   if (!grid) return;
+  const styleOptions = getStyleOptions(state.currentLanguage);
 
-  grid.innerHTML = STYLE_OPTIONS.map(style => {
+  grid.innerHTML = styleOptions.map(style => {
     const isSelected = state.onboardingSelections.style === style.id;
     return `
       <div class="choice-card moodboard-card ${isSelected ? 'selected' : ''}" data-style-id="${style.id}">
@@ -652,8 +700,9 @@ function initBudgetStep() {
 function renderPaletteChoices() {
   const grid = document.getElementById("palette-choice-grid");
   if (!grid) return;
+  const paletteOptions = getPaletteOptions(state.currentLanguage);
 
-  grid.innerHTML = PALETTE_OPTIONS.map(pal => {
+  grid.innerHTML = paletteOptions.map(pal => {
     const isSelected = state.onboardingSelections.palette === pal.id;
     return `
       <div class="choice-card palette-choice-card ${isSelected ? 'selected' : ''}" data-palette-id="${pal.id}">
@@ -676,6 +725,7 @@ function renderPaletteChoices() {
 }
 
 function updateOnboardingStepView() {
+  const t = UI_TRANSLATIONS[state.currentLanguage] || UI_TRANSLATIONS.es;
   const stepText = document.getElementById("onboarding-step-text");
   const dots = document.querySelectorAll(".step-dot");
   const btnPrev = document.getElementById("btn-onboarding-prev");
@@ -683,7 +733,7 @@ function updateOnboardingStepView() {
   const title = document.getElementById("onboarding-title");
   const subtitle = document.getElementById("onboarding-subtitle");
 
-  stepText.textContent = `Paso ${state.onboardingStep} de 4`;
+  if (stepText) stepText.textContent = t.onboardingStepIndicator(state.onboardingStep, 4);
 
   dots.forEach(dot => {
     const stepNum = Number(dot.getAttribute("data-step"));
@@ -699,64 +749,77 @@ function updateOnboardingStepView() {
     content.classList.toggle("active", idx + 1 === state.onboardingStep);
   });
 
-  btnPrev.style.visibility = state.onboardingStep === 1 ? "hidden" : "visible";
-  btnNext.textContent = state.onboardingStep === 4 ? "Generar mi Matching Arquitectónico" : "Siguiente paso";
+  if (btnPrev) {
+    btnPrev.style.visibility = state.onboardingStep === 1 ? "hidden" : "visible";
+    btnPrev.textContent = t.onboardingBtnPrev;
+  }
+  if (btnNext) {
+    btnNext.textContent = state.onboardingStep === 4 ? t.onboardingBtnFinish : t.onboardingBtnNext;
+  }
 
   if (state.onboardingStep === 1) {
-    title.textContent = "1. Selecciona la Estancia Principal";
-    subtitle.textContent = "¿Qué espacio arquitectónico vamos a amueblar en este proyecto?";
+    title.textContent = t.onboardingStep1Title;
+    subtitle.textContent = t.onboardingStep1Subtitle;
   } else if (state.onboardingStep === 2) {
-    title.textContent = "2. Estilo Base Arquitectónico";
-    subtitle.textContent = "Elige la corriente de diseño que servirá de ancla para las recomendaciones.";
+    title.textContent = t.onboardingStep2Title;
+    subtitle.textContent = t.onboardingStep2Subtitle;
   } else if (state.onboardingStep === 3) {
-    title.textContent = "3. Presupuesto Estimado del Proyecto";
-    subtitle.textContent = "Ajustaremos las propuestas para mantener la armonía de costes.";
+    title.textContent = t.onboardingStep3Title;
+    subtitle.textContent = t.onboardingStep3Subtitle;
   } else if (state.onboardingStep === 4) {
-    title.textContent = "4. Paleta Cromática & Materiales";
-    subtitle.textContent = "Define la tonalidad dominante para crear una composición coherente.";
+    title.textContent = t.onboardingStep4Title;
+    subtitle.textContent = t.onboardingStep4Subtitle;
   }
 }
 
 function completeOnboarding() {
+  const t = UI_TRANSLATIONS[state.currentLanguage] || UI_TRANSLATIONS.es;
   state.matchingEngine.setFromOnboarding(state.onboardingSelections);
   StorageService.setOnboardingCompleted(true);
   state.save();
   closeOnboarding();
   updateLivingProfileHud();
   renderFeed();
-  showToast("¡Matching inicial generado con éxito! El sistema irá refinando las sugerencias según interactúes.");
+  showToast(t.toastOnboardingCompleted);
 }
 
 // ==========================================================================
 // LIVING PROFILE HUD (OPCIÓN C - APRENDIZAJE PROGRESIVO EN VIVO)
 // ==========================================================================
 function updateLivingProfileHud() {
+  const t = UI_TRANSLATIONS[state.currentLanguage] || UI_TRANSLATIONS.es;
   const dna = state.matchingEngine.getSpaceDna();
+  const styleOptions = getStyleOptions(state.currentLanguage);
+  const paletteOptions = getPaletteOptions(state.currentLanguage);
 
   // 1. Desglose de Estilos
   const stylesContainer = document.getElementById("hud-style-bars");
   if (stylesContainer) {
-    stylesContainer.innerHTML = dna.styles.map(s => `
-      <div class="hud-style-item" title="Afinidad con estilo ${s.name}: ${s.percent}%">
-        <div class="hud-style-label">
-          <span>${s.name}</span>
-          <span class="hud-style-percent">${s.percent}%</span>
+    stylesContainer.innerHTML = dna.styles.map(s => {
+      const matchOpt = styleOptions.find(opt => opt.id === s.name);
+      const styleName = matchOpt ? matchOpt.label : s.name;
+      return `
+        <div class="hud-style-item" title="${t.affinityLabel} ${styleName}: ${s.percent}%">
+          <div class="hud-style-label">
+            <span>${styleName}</span>
+            <span class="hud-style-percent">${s.percent}%</span>
+          </div>
+          <div class="hud-bar-track">
+            <div class="hud-bar-fill" style="width: ${s.percent}%;"></div>
+          </div>
         </div>
-        <div class="hud-bar-track">
-          <div class="hud-bar-fill" style="width: ${s.percent}%;"></div>
-        </div>
-      </div>
-    `).join("");
+      `;
+    }).join("");
   }
 
   // 2. Muestras de Paleta
   const paletteContainer = document.getElementById("hud-palette-group");
   if (paletteContainer) {
     paletteContainer.innerHTML = dna.dominantPalettes.map(key => {
-      const palObj = PALETTE_OPTIONS.find(p => p.id === key);
+      const palObj = paletteOptions.find(p => p.id === key);
       const hex = palObj ? palObj.hex : "#c48b47";
       const label = palObj ? palObj.label : key;
-      return `<div class="palette-swatch-circle" style="background-color: ${hex};" title="Paleta activa: ${label}"></div>`;
+      return `<div class="palette-swatch-circle" style="background-color: ${hex};" title="${label}"></div>`;
     }).join("");
   }
 
@@ -818,15 +881,17 @@ function initToolbarAndFilters() {
 }
 
 function renderFeed() {
+  const t = UI_TRANSLATIONS[state.currentLanguage] || UI_TRANSLATIONS.es;
   const grid = document.getElementById("furniture-grid");
   const statsText = document.getElementById("feed-stats-text");
   const roomTitle = document.getElementById("feed-room-title");
   if (!grid) return;
 
   const userRoom = state.matchingEngine.profile.room || "salón";
-  const roomObj = ROOM_OPTIONS.find(r => r.id === userRoom);
+  const roomOpts = getRoomOptions(state.currentLanguage);
+  const roomObj = roomOpts.find(r => r.id === userRoom);
   if (roomTitle) {
-    roomTitle.textContent = `Recomendaciones para tu ${roomObj ? roomObj.label : userRoom}`;
+    roomTitle.textContent = `${t.roomTitlePrefix} ${roomObj ? roomObj.label : userRoom}`;
   }
 
   const rejectedSet = new Set(state.matchingEngine.profile.rejectedIds);
@@ -835,12 +900,12 @@ function renderFeed() {
   let items = state.catalog.filter(item => !rejectedSet.has(item.id));
 
   if (state.filterCategory !== "all") {
-    items = items.filter(item => item.category === state.filterCategory);
+    items = items.filter(item => (item.categoryKey || item.category) === state.filterCategory || item.category === state.filterCategory);
   }
 
   if (state.searchQuery) {
     items = items.filter(item => {
-      const text = `${item.name} ${item.style} ${item.color} ${item.category} ${item.materials.join(" ")}`.toLowerCase();
+      const text = `${item.name} ${item.style} ${item.color} ${item.category} ${item.materials.join(" ")} ${item.tags ? item.tags.join(" ") : ""}`.toLowerCase();
       return text.includes(state.searchQuery);
     });
   }
@@ -856,22 +921,27 @@ function renderFeed() {
       budgetSpent: state.matchingEngine.profile.spent,
       preferredStyle: state.matchingEngine.profile.preferredStyle,
       preferredPalette: state.matchingEngine.profile.preferredPalette,
-      topK: 0
+      topK: 0,
+      lang: state.currentLanguage
     });
 
     const itemMap = new Map(items.map(it => [it.id, it]));
     scoredItems = ragResults
       .filter(r => itemMap.has(r.id))
-      .map(r => ({
-        ...itemMap.get(r.id),
-        score: r.score,
-        matchReason: r.matchReason,
-        semanticCosine: r.semanticCosine
-      }));
+      .map(r => {
+        const baseItem = itemMap.get(r.id);
+        const matchReason = state.matchingEngine.generateMatchReason(baseItem, r.score, state.currentLanguage);
+        return {
+          ...baseItem,
+          score: r.score,
+          matchReason: r.matchReason || matchReason,
+          semanticCosine: r.semanticCosine
+        };
+      });
   } else {
     scoredItems = items.map(item => {
       const score = state.matchingEngine.calculateScore(item);
-      const matchReason = state.matchingEngine.generateMatchReason(item, score);
+      const matchReason = state.matchingEngine.generateMatchReason(item, score, state.currentLanguage);
       return { ...item, score, matchReason };
     });
   }
@@ -891,16 +961,16 @@ function renderFeed() {
 
   if (statsText) {
     statsText.textContent = hasRagVision
-      ? `Mostrando ${scoredItems.length} recomendaciones afinadas por Motor RAG semántico`
-      : `Mostrando ${scoredItems.length} recomendaciones afinadas a tu perfil arquitectónico`;
+      ? t.statsTextRag(scoredItems.length)
+      : t.statsTextStandard(scoredItems.length);
   }
 
   if (scoredItems.length === 0) {
     grid.innerHTML = `
       <div class="empty-feed-box">
-        <h3 class="empty-feed-title">No hay piezas que coincidan con estos filtros</h3>
-        <p class="empty-feed-desc">Has descartado varias opciones o los filtros actuales son muy estrictos. Prueba a restablecer los filtros o reactivar piezas descartadas.</p>
-        <button id="btn-reset-filters" class="btn btn-primary btn-sm">Limpiar Filtros y Búsqueda</button>
+        <h3 class="empty-feed-title">${t.emptyFeedTitle}</h3>
+        <p class="empty-feed-desc">${t.emptyFeedDesc}</p>
+        <button id="btn-reset-filters" class="btn btn-primary btn-sm">${t.emptyFeedResetBtn}</button>
       </div>
     `;
     const btnReset = document.getElementById("btn-reset-filters");
@@ -926,7 +996,7 @@ function renderFeed() {
           <img src="${item.imageUrl}" alt="${item.name}" class="card-img" loading="lazy">
           <div class="card-badges-overlay">
             <span class="match-score-badge">
-              <span>★</span> ${item.score}% Match
+              <span>★</span> ${item.score}% ${t.matchLabel}
             </span>
             <span class="room-badge">${item.category}</span>
           </div>
@@ -937,7 +1007,7 @@ function renderFeed() {
           <!-- Motivo Explicable del Algoritmo -->
           <div class="match-reason-box">
             <div class="match-reason-text">
-              <strong>Afinidad:</strong> ${item.matchReason}
+              <strong>${t.affinityLabel}</strong> ${item.matchReason}
             </div>
           </div>
 
@@ -952,18 +1022,18 @@ function renderFeed() {
           <!-- Cotas Técnicas (Dibujo Arquitectónico) -->
           <div class="technical-specs-box">
             <div class="cota-line">
-              <span>Cotas (A × H × P):</span>
+              <span>${t.cotasLabel}</span>
               <span class="cota-val">${item.dimensions.width} × ${item.dimensions.height} × ${item.dimensions.depth} cm</span>
             </div>
             <div class="cota-line">
-              <span>Estilo:</span>
+              <span>${t.cardStyleLabel}</span>
               <span class="cota-val">${item.style}</span>
             </div>
           </div>
 
           <!-- Etiquetas de Diseño Oficiales y Materiales -->
           <div class="card-tags-row">
-            ${Array.isArray(item.tags) ? item.tags.map(t => `<span class="material-tag" style="font-weight: 600; color: var(--autumn-terracotta); border-color: rgba(184,84,51,0.35); background: rgba(184,84,51,0.06);">${t}</span>`).join("") : ""}
+            ${Array.isArray(item.tags) ? item.tags.map(tag => `<span class="material-tag" style="font-weight: 600; color: var(--autumn-terracotta); border-color: rgba(184,84,51,0.35); background: rgba(184,84,51,0.06);">${tag}</span>`).join("") : ""}
             ${item.materials.map(m => `<span class="material-tag">${m}</span>`).join("")}
             <span class="material-tag" style="color: var(--text-secondary);">${item.color}</span>
           </div>
@@ -971,16 +1041,16 @@ function renderFeed() {
           <!-- Acciones de Aceptar / Negar (Cesta) -->
           ${isAccepted ? `
             <div class="card-accepted-banner">
-              <span>✓ Añadido a tu Cesta</span>
-              <button class="btn-undo-accept" data-action="undo" data-id="${item.id}">Quitar de la Cesta</button>
+              <span>${t.addedBannerText}</span>
+              <button class="btn-undo-accept" data-action="undo" data-id="${item.id}">${t.addedBannerUndo}</button>
             </div>
           ` : `
             <div class="card-actions-bar">
-              <button class="btn-reject" data-action="reject" data-id="${item.id}" title="Descartar esta recomendación">
-                <span>✕</span> Negar
+              <button class="btn-reject" data-action="reject" data-id="${item.id}" title="${t.btnRejectTitle}">
+                <span>✕</span> ${t.btnReject}
               </button>
-              <button class="btn-accept" data-action="accept" data-id="${item.id}" title="Aceptar oferta y añadir a la cesta">
-                <span>✓</span> Aceptar Oferta
+              <button class="btn-accept" data-action="accept" data-id="${item.id}" title="${t.btnAcceptTitle}">
+                <span>✓</span> ${t.btnAccept}
               </button>
             </div>
           `}
@@ -1011,18 +1081,20 @@ function renderFeed() {
 // INTERACCIONES: ACEPTAR O NEGAR OFERTA (CESTA)
 // ==========================================================================
 function handleAcceptItem(item) {
+  const t = UI_TRANSLATIONS[state.currentLanguage] || UI_TRANSLATIONS.es;
   state.matchingEngine.acceptItem(item);
   state.save();
   updateLivingProfileHud();
   renderFeed();
 
-  showToast(`"${item.name}" añadido a tu Cesta (+${item.price} €).`, {
-    undoText: "Deshacer",
+  showToast(t.toastAddedToCart(item.name, item.price), {
+    undoText: t.toastUndoBtn,
     onUndo: () => handleUndoItem(item)
   });
 }
 
 function handleRejectItem(item) {
+  const t = UI_TRANSLATIONS[state.currentLanguage] || UI_TRANSLATIONS.es;
   const card = document.getElementById(`card-${item.id}`);
   if (card) {
     card.classList.add("dismissing");
@@ -1032,8 +1104,8 @@ function handleRejectItem(item) {
       updateLivingProfileHud();
       renderFeed();
 
-      showToast(`Oferta descartada. El algoritmo atenuó este estilo.`, {
-        undoText: "Deshacer",
+      showToast(t.toastRejectedOffer, {
+        undoText: t.toastUndoBtn,
         onUndo: () => handleUndoItem(item)
       });
     }, 240);
@@ -1042,15 +1114,20 @@ function handleRejectItem(item) {
     state.save();
     updateLivingProfileHud();
     renderFeed();
+    showToast(t.toastRejectedOffer, {
+      undoText: t.toastUndoBtn,
+      onUndo: () => handleUndoItem(item)
+    });
   }
 }
 
 function handleUndoItem(item) {
+  const t = UI_TRANSLATIONS[state.currentLanguage] || UI_TRANSLATIONS.es;
   state.matchingEngine.undoItemAction(item);
   state.save();
   updateLivingProfileHud();
   renderFeed();
-  showToast(`Acción deshecha para "${item.name}".`);
+  showToast(t.toastUndoAction(item.name));
 }
 
 // ==========================================================================
@@ -1080,7 +1157,8 @@ function initCestaDrawer() {
 
   if (btnClear) {
     btnClear.addEventListener("click", () => {
-      if (confirm("¿Estás seguro de vaciar todos los muebles de tu cesta?")) {
+      const t = UI_TRANSLATIONS[state.currentLanguage] || UI_TRANSLATIONS.es;
+      if (confirm(t.drawerClearConfirm)) {
         const acceptedIds = [...state.matchingEngine.profile.acceptedIds];
         acceptedIds.forEach(id => {
           const item = state.catalog.find(it => it.id === id);
@@ -1089,7 +1167,7 @@ function initCestaDrawer() {
         state.save();
         updateLivingProfileHud();
         renderFeed();
-        showToast("Cesta vaciada correctamente.");
+        showToast(t.toastCartEmptied);
       }
     });
   }
@@ -1100,6 +1178,7 @@ function initCestaDrawer() {
 }
 
 function updateCestaDrawerContent() {
+  const t = UI_TRANSLATIONS[state.currentLanguage] || UI_TRANSLATIONS.es;
   const list = document.getElementById("drawer-items-list");
   const subtitle = document.getElementById("drawer-subtitle");
   const spentVal = document.getElementById("drawer-spent-val");
@@ -1114,14 +1193,14 @@ function updateCestaDrawerContent() {
   const totalBudget = state.matchingEngine.profile.budget || 4500;
   const remaining = totalBudget - totalSpent;
 
-  if (subtitle) subtitle.textContent = `${acceptedItems.length} muebles en la cesta`;
+  if (subtitle) subtitle.textContent = t.drawerSubtitle(acceptedItems.length);
   if (spentVal) spentVal.textContent = `${totalSpent.toLocaleString()} €`;
   if (remainingVal) {
     if (remaining >= 0) {
-      remainingVal.textContent = `Restante: ${remaining.toLocaleString()} €`;
+      remainingVal.textContent = t.drawerRemaining(remaining.toLocaleString());
       remainingVal.classList.remove("exceeded");
     } else {
-      remainingVal.textContent = `Excedido por: ${Math.abs(remaining).toLocaleString()} €`;
+      remainingVal.textContent = t.drawerExceeded(Math.abs(remaining).toLocaleString());
       remainingVal.classList.add("exceeded");
     }
   }
@@ -1136,7 +1215,7 @@ function updateCestaDrawerContent() {
     list.innerHTML = `
       <div class="drawer-empty-state">
         <div class="drawer-empty-icon">🧺</div>
-        <div class="drawer-empty-text">Tu cesta está vacía.<br>Explora las recomendaciones y pulsa en "Aceptar Oferta" para ir añadiendo muebles a tu espacio.</div>
+        <div class="drawer-empty-text">${t.drawerEmptyText}</div>
       </div>
     `;
     return;
@@ -1150,7 +1229,7 @@ function updateCestaDrawerContent() {
         <div class="drawer-item-cota">${item.dimensions.width} × ${item.dimensions.height} × ${item.dimensions.depth} cm · ${item.style}</div>
         <div class="drawer-item-price">${item.price.toLocaleString()} €</div>
       </div>
-      <button class="btn-remove-drawer-item" data-id="${item.id}" title="Quitar de la cesta">✕</button>
+      <button class="btn-remove-drawer-item" data-id="${item.id}" title="${t.drawerRemoveTooltip}">✕</button>
     </div>
   `).join("");
 
@@ -1164,19 +1243,28 @@ function updateCestaDrawerContent() {
 }
 
 function exportCestaDossier() {
+  const t = UI_TRANSLATIONS[state.currentLanguage] || UI_TRANSLATIONS.es;
   const acceptedIds = state.matchingEngine.profile.acceptedIds;
   const items = state.catalog.filter(it => acceptedIds.includes(it.id));
   if (items.length === 0) {
-    alert("Agrega al menos un mueble a tu cesta antes de exportar.");
+    alert(t.toastCartExportEmptyAlert);
     return;
   }
 
+  const roomOpts = getRoomOptions(state.currentLanguage);
+  const roomObj = roomOpts.find(r => r.id === state.matchingEngine.profile.room);
+  const localizedRoom = roomObj ? roomObj.label : state.matchingEngine.profile.room;
+
+  const styleOpts = getStyleOptions(state.currentLanguage);
+  const styleObj = styleOpts.find(s => s.id === state.matchingEngine.profile.preferredStyle);
+  const localizedStyle = styleObj ? styleObj.label : state.matchingEngine.profile.preferredStyle;
+
   const dossier = {
-    documento: "ESPACIO · Resumen de Compra y Selección de Cesta",
-    fecha: new Date().toLocaleDateString("es-ES"),
-    usuario: state.currentUser ? state.currentUser.username : "Invitado",
-    estancia: state.matchingEngine.profile.room,
-    estiloPrincipal: state.matchingEngine.profile.preferredStyle,
+    documento: `ESPACIO · ${t.drawerExportBtn}`,
+    fecha: new Date().toLocaleDateString(state.currentLanguage === "en" ? "en-US" : state.currentLanguage === "ca" ? "ca-ES" : state.currentLanguage === "zh" ? "zh-CN" : "es-ES"),
+    usuario: state.currentUser ? state.currentUser.username : (t.userDropdownNameGuest || "Guest"),
+    estancia: localizedRoom,
+    estiloPrincipal: localizedStyle,
     presupuestoAsignado: state.matchingEngine.profile.budget,
     totalCesta: items.reduce((acc, it) => acc + it.price, 0),
     articulosEnCesta: items.map(it => ({
@@ -1197,7 +1285,7 @@ function exportCestaDossier() {
   a.download = `resumen-cesta-${state.matchingEngine.profile.room}.json`;
   a.click();
   URL.revokeObjectURL(url);
-  showToast("Resumen de Cesta descargado con éxito.");
+  showToast(t.toastCartExported);
 }
 
 // ==========================================================================
@@ -1259,6 +1347,7 @@ function initCsvModal() {
   }
 
   function processCsvFile(file) {
+    const t = UI_TRANSLATIONS[state.currentLanguage] || UI_TRANSLATIONS.es;
     const reader = new FileReader();
     reader.onload = (event) => {
       try {
@@ -1267,9 +1356,11 @@ function initCsvModal() {
         state.pendingCsvItems = result.items;
         btnConfirm.disabled = false;
         previewBox.classList.add("visible");
-        statsSummary.textContent = `✓ ${result.items.length} muebles analizados correctamente. Listos para ser cargados.`;
+        statsSummary.textContent = typeof t.csvStatsSummary === "function"
+          ? t.csvStatsSummary(result.items.length)
+          : `✓ ${result.items.length} muebles analizados correctamente. Listos para ser cargados.`;
       } catch (err) {
-        alert("Error al leer el archivo CSV: " + err.message);
+        alert((t.csvErrorReading || "Error al leer el archivo CSV: ") + err.message);
       }
     };
     reader.readAsText(file, "UTF-8");
@@ -1278,12 +1369,17 @@ function initCsvModal() {
   if (btnConfirm) {
     btnConfirm.addEventListener("click", () => {
       if (state.pendingCsvItems && state.pendingCsvItems.length > 0) {
+        state.isCustomCatalog = true;
         state.catalog = state.pendingCsvItems;
+        state.ragEngine = new RagEngine(state.catalog);
         state.save();
         closeModal();
         renderFeed();
         updateLivingProfileHud();
-        showToast(`Catálogo personalizado cargado con ${state.catalog.length} muebles.`);
+        const t = UI_TRANSLATIONS[state.currentLanguage] || UI_TRANSLATIONS.es;
+        showToast(typeof t.csvLoadedToast === "function"
+          ? t.csvLoadedToast(state.catalog.length)
+          : `Catálogo personalizado cargado con ${state.catalog.length} muebles.`);
       }
     });
   }
@@ -1303,18 +1399,16 @@ function initCsvModal() {
 
   if (btnRestore) {
     btnRestore.addEventListener("click", () => {
-      if (confirm("¿Deseas restaurar el catálogo predeterminado de 120 piezas optimizadas para RAG (4 a 6 etiquetas por mueble)?")) {
-        const currentImg = LANGUAGE_IMAGES[state.currentLanguage || "es"] || "/foto mueble.png";
-        state.catalog = FURNITURE_CATALOG_RAG.map(item => ({
-          ...item,
-          imageUrl: currentImg
-        }));
-        state.ragEngine.indexCatalog(state.catalog);
+      const t = UI_TRANSLATIONS[state.currentLanguage] || UI_TRANSLATIONS.es;
+      if (confirm(t.csvRestoreConfirm)) {
+        state.isCustomCatalog = false;
+        state.catalog = getCatalogByLang(state.currentLanguage || "es");
+        state.ragEngine = new RagEngine(state.catalog);
         state.save();
         closeModal();
         renderFeed();
         updateLivingProfileHud();
-        showToast("Catálogo de 120 piezas con 4 a 6 etiquetas restaurado.");
+        showToast(t.csvRestoredToast);
       }
     });
   }
@@ -1368,10 +1462,8 @@ function initVisionModal() {
       updateVisionBannerDisplay();
       renderFeed();
       closeVisionModal();
-      showToast(text 
-        ? "¡Visión arquitectónica actualizada! Matching semántico RAG recalculado." 
-        : "Filtro de visión textual limpiado. Mostrando afinidad estándar."
-      );
+      const t = UI_TRANSLATIONS[state.currentLanguage] || UI_TRANSLATIONS.es;
+      showToast(text ? t.toastVisionUpdated : t.toastVisionCleared);
     });
   }
 }
@@ -1379,13 +1471,14 @@ function initVisionModal() {
 function updateVisionBannerDisplay() {
   const display = document.getElementById("hud-vision-desc-display");
   if (!display) return;
+  const t = UI_TRANSLATIONS[state.currentLanguage] || UI_TRANSLATIONS.es;
 
   if (state.tasteDescription && state.tasteDescription.trim().length > 0) {
     display.textContent = `"${state.tasteDescription}"`;
     display.style.fontStyle = "italic";
     display.style.color = "var(--text-primary)";
   } else {
-    display.textContent = "Sin descripción textual de gustos activa. Haz clic en 'Afinar Visión' para activar matching semántico.";
+    display.textContent = t.hudVisionDefaultDesc;
     display.style.fontStyle = "normal";
     display.style.color = "var(--text-secondary)";
   }
@@ -1411,11 +1504,12 @@ function initCheckoutAndTicket() {
   // Abrir Modal de Checkout
   if (btnOpenCheckout) {
     btnOpenCheckout.addEventListener("click", () => {
+      const t = UI_TRANSLATIONS[state.currentLanguage] || UI_TRANSLATIONS.es;
       const acceptedIds = state.matchingEngine.profile.acceptedIds;
       const acceptedItems = state.catalog.filter(it => acceptedIds.includes(it.id));
 
       if (acceptedItems.length === 0) {
-        showToast("Tu cesta está vacía. Añade al menos un mueble antes de finalizar compra.");
+        showToast(t.checkoutEmptyCartAlert);
         return;
       }
 
@@ -1432,7 +1526,7 @@ function initCheckoutAndTicket() {
       const vatEl = document.getElementById("checkout-vat-val");
       const totalEl = document.getElementById("checkout-total-val");
 
-      if (itemsCountEl) itemsCountEl.textContent = `${totals.count} piezas`;
+      if (itemsCountEl) itemsCountEl.textContent = typeof t.drawerPiecesCount === "function" ? t.drawerPiecesCount(totals.count) : `${totals.count} piezas`;
       if (subtotalEl) subtotalEl.textContent = `${totals.subtotal.toLocaleString()} €`;
       if (vatEl) vatEl.textContent = `${totals.vat.toLocaleString()} €`;
       if (totalEl) totalEl.textContent = `${totals.total.toLocaleString()} €`;
@@ -1472,6 +1566,7 @@ function initCheckoutAndTicket() {
   // Confirmar Pago
   if (btnConfirmCheckout) {
     btnConfirmCheckout.addEventListener("click", async () => {
+      const t = UI_TRANSLATIONS[state.currentLanguage] || UI_TRANSLATIONS.es;
       const nameInput = document.getElementById("checkout-client-name");
       const emailInput = document.getElementById("checkout-client-email");
       const addressInput = document.getElementById("checkout-client-address");
@@ -1483,12 +1578,12 @@ function initCheckoutAndTicket() {
       const phone = phoneInput ? phoneInput.value.trim() : "";
 
       if (!clientName) {
-        alert("Por favor, introduce el nombre del titular o estudio.");
+        alert(t.checkoutNameAlert);
         if (nameInput) nameInput.focus();
         return;
       }
       if (!address) {
-        alert("Por favor, introduce la dirección de entrega del proyecto.");
+        alert(t.checkoutAddressAlert);
         if (addressInput) addressInput.focus();
         return;
       }
@@ -1498,7 +1593,7 @@ function initCheckoutAndTicket() {
 
       try {
         btnConfirmCheckout.disabled = true;
-        btnConfirmCheckout.textContent = "Procesando...";
+        btnConfirmCheckout.textContent = t.checkoutProcessingBtn || "Procesando...";
 
         const result = await CheckoutService.completeCheckout({
           clientName,
@@ -1521,12 +1616,12 @@ function initCheckoutAndTicket() {
         // Actualizar vistas
         updateLivingProfileHud();
         renderFeed();
-        showToast("¡Pago tramitado con éxito! Ticket oficial emitido y cesta vaciada.");
+        showToast(t.toastPaymentSuccess);
       } catch (err) {
-        alert("Error al procesar el pedido: " + err.message);
+        alert("Error: " + err.message);
       } finally {
         btnConfirmCheckout.disabled = false;
-        btnConfirmCheckout.innerHTML = `<span>✓</span><span>Confirmar Pago y Emitir Ticket</span>`;
+        btnConfirmCheckout.innerHTML = `<span>✓</span><span>${t.checkoutConfirmBtn}</span>`;
       }
     });
   }
@@ -1549,37 +1644,59 @@ function initCheckoutAndTicket() {
 function renderArchitecturalTicket(order) {
   const container = document.getElementById("ticket-render-container");
   if (!container) return;
+  const t = UI_TRANSLATIONS[state.currentLanguage] || UI_TRANSLATIONS.es;
+
+  const dateLocale = state.currentLanguage === "en" ? "en-US" : state.currentLanguage === "ca" ? "ca-ES" : state.currentLanguage === "zh" ? "zh-CN" : "es-ES";
+  const formattedDate = order.createdAt
+    ? new Date(order.createdAt).toLocaleDateString(dateLocale, {
+        day: "2-digit",
+        month: "long",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit"
+      })
+    : order.formattedDate;
+
+  const methodKeys = {
+    "Tarjeta Bancaria": t.paymentCard,
+    "Transferencia Arquitectónica": t.paymentTransfer,
+    "Bizum": t.paymentBizum,
+    card: t.paymentCard,
+    transfer: t.paymentTransfer,
+    bizum: t.paymentBizum
+  };
+  const localizedMethod = methodKeys[order.payment.method] || order.payment.method;
 
   container.innerHTML = `
     <div class="architectural-ticket">
       <div class="ticket-header">
         <div>
           <div class="ticket-brand">ESPACIO</div>
-          <div class="ticket-brand-sub">Estudio de Arquitectura & Mobiliario de Autor</div>
+          <div class="ticket-brand-sub">${t.ticketBrandSub}</div>
         </div>
         <div class="ticket-meta-block">
-          <div>Ref. Factura: <span class="ticket-ref-number">${order.orderId}</span></div>
-          <div>Fecha: ${order.formattedDate}</div>
-          <div>Método: <strong>${order.payment.method}</strong></div>
+          <div>${t.ticketRefInvoice} <span class="ticket-ref-number">${order.orderId}</span></div>
+          <div>${t.ticketDate} ${formattedDate}</div>
+          <div>${t.ticketMethod} <strong>${localizedMethod}</strong></div>
         </div>
       </div>
 
       <div class="ticket-client-box">
         <div class="ticket-client-row">
-          <span class="ticket-client-label">Titular:</span>
+          <span class="ticket-client-label">${t.ticketTitular}</span>
           <span>${order.client.name}</span>
         </div>
         <div class="ticket-client-row">
-          <span class="ticket-client-label">Email:</span>
+          <span class="ticket-client-label">${t.ticketEmail}</span>
           <span>${order.client.email}</span>
         </div>
         <div class="ticket-client-row">
-          <span class="ticket-client-label">Entrega:</span>
+          <span class="ticket-client-label">${t.ticketDelivery}</span>
           <span>${order.client.address}</span>
         </div>
         ${order.client.phone ? `
           <div class="ticket-client-row">
-            <span class="ticket-client-label">Teléfono:</span>
+            <span class="ticket-client-label">${t.ticketPhone}</span>
             <span>${order.client.phone}</span>
           </div>
         ` : ''}
@@ -1588,9 +1705,9 @@ function renderArchitecturalTicket(order) {
       <table class="ticket-table">
         <thead>
           <tr>
-            <th>Pieza de Mobiliario</th>
-            <th>Estilo & Cotas (A × H × P)</th>
-            <th style="text-align: right;">Importe</th>
+            <th>${t.ticketColFurniture}</th>
+            <th>${t.ticketColStyleCotas}</th>
+            <th style="text-align: right;">${t.ticketColAmount}</th>
           </tr>
         </thead>
         <tbody>
@@ -1612,25 +1729,25 @@ function renderArchitecturalTicket(order) {
 
       <div class="ticket-totals-wrap">
         <div class="ticket-total-line">
-          <span>Base Imponible:</span>
+          <span>${t.ticketBaseSubtotal}</span>
           <span>${order.totals.subtotal.toLocaleString()} €</span>
         </div>
         <div class="ticket-total-line">
-          <span>IVA Arquitectónico (21%):</span>
+          <span>${t.ticketVat}</span>
           <span>${order.totals.vat.toLocaleString()} €</span>
         </div>
         <div class="ticket-total-line final">
-          <span>TOTAL FACTURADO:</span>
+          <span>${t.ticketTotalFacturado}</span>
           <span>${order.totals.total.toLocaleString()} €</span>
         </div>
       </div>
 
       <div class="ticket-seal">
         <div>
-          <span>Certificación de autenticidad y cotas arquitectónicas homologadas.</span>
+          <span>${t.ticketSealDesc}</span>
         </div>
         <div class="ticket-seal-badge">
-          PAGADO · CERTIFICADO
+          ${t.ticketSealBadge}
         </div>
       </div>
     </div>

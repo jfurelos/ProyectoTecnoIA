@@ -25,87 +25,87 @@
   <!-- ==================== HEADER ARQUITECTÓNICO ==================== -->
   <header class="site-header" id="site-header">
     <div class="container header-container">
-      <a href="#" class="brand-group" id="brand-home-link" aria-label="Inicio">
+      <a href="#" class="brand-group" id="brand-home-link" aria-label="Inicio" data-i18n-aria="brandHomeAria">
         <span class="brand-symbol">E</span>
         <div>
           <span class="brand-title">ESPACIO</span>
-          <span class="brand-tag">Matching Arquitectónico</span>
+          <span class="brand-tag" data-i18n="brandTag">Matching Arquitectónico</span>
         </div>
       </a>
 
       <div class="header-actions">
         <!-- Selector de Estilo / Tema (Flexibilidad de Diseño) -->
-        <div class="theme-selector-wrap" title="Cambiar tema visual">
-          <label for="theme-selector">Estilo:</label>
-          <select id="theme-selector" class="theme-select" aria-label="Seleccionar tema visual">
-            <option value="autumn-default">Otoño Cálido</option>
-            <option value="nordic-light">Nórdico Claro</option>
-            <option value="terracotta-dark">Terracota & Roble</option>
-            <option value="minimal-olive">Ceniza & Oliva</option>
+        <div class="theme-selector-wrap" title="Cambiar tema visual" data-i18n-title="themeWrapTitle">
+          <label for="theme-selector" data-i18n="styleLabel">Estilo:</label>
+          <select id="theme-selector" class="theme-select" aria-label="Seleccionar tema visual" data-i18n-aria="themeSelectAria">
+            <option value="autumn-default" data-i18n="themeAutumn">Otoño Cálido</option>
+            <option value="nordic-light" data-i18n="themeNordic">Nórdico Claro</option>
+            <option value="terracotta-dark" data-i18n="themeTerracotta">Terracota & Roble</option>
+            <option value="minimal-olive" data-i18n="themeMinimal">Ceniza & Oliva</option>
           </select>
         </div>
 
         <!-- Selector de Idioma (4 idiomas con cambio dinámico de fotos de muebles) -->
-        <div class="lang-selector-group" id="lang-selector-group" role="group" aria-label="Seleccionar idioma">
-          <button type="button" class="lang-btn active" data-lang="es" title="Castellano (foto mueble)">
+        <div class="lang-selector-group" id="lang-selector-group" role="group" aria-label="Seleccionar idioma" data-i18n-aria="langSelectAria">
+          <button type="button" class="lang-btn active" data-lang="es" title="Castellano (foto mueble)" data-i18n-title="langBtnTitleEs">
             <span class="lang-code">ES</span>
             <span class="lang-name">Castellano</span>
           </button>
-          <button type="button" class="lang-btn" data-lang="ca" title="Català (foto moble)">
+          <button type="button" class="lang-btn" data-lang="ca" title="Català (foto moble)" data-i18n-title="langBtnTitleCa">
             <span class="lang-code">CA</span>
             <span class="lang-name">Català</span>
           </button>
-          <button type="button" class="lang-btn" data-lang="en" title="English (photo furniture)">
+          <button type="button" class="lang-btn" data-lang="en" title="English (photo furniture)" data-i18n-title="langBtnTitleEn">
             <span class="lang-code">EN</span>
             <span class="lang-name">English</span>
           </button>
-          <button type="button" class="lang-btn" data-lang="zh" title="中文 (jiājù zhàopiàn)">
+          <button type="button" class="lang-btn" data-lang="zh" title="中文 (jiājù zhàopiàn)" data-i18n-title="langBtnTitleZh">
             <span class="lang-code">ZH</span>
             <span class="lang-name">中文</span>
           </button>
         </div>
 
         <!-- Reiniciar Onboarding -->
-        <button id="btn-restart-onboarding" class="btn btn-ghost btn-sm" title="Volver a configurar mis preferencias">
+        <button id="btn-restart-onboarding" class="btn btn-ghost btn-sm" title="Volver a configurar mis preferencias" data-i18n-title="preferencesTitle">
           <span>⚙️</span>
-          <span>Preferencias</span>
+          <span data-i18n="preferencesBtn">Preferencias</span>
         </button>
 
         <!-- Sistema de Cuentas: Menú de Usuario -->
         <div class="user-menu-wrap" id="user-menu-wrap">
-          <button id="btn-user-trigger" class="btn-user-trigger" aria-label="Cuenta de usuario">
+          <button id="btn-user-trigger" class="btn-user-trigger" aria-label="Cuenta de usuario" data-i18n-aria="userTriggerAria">
             <span class="user-avatar-badge" id="user-avatar-badge">👤</span>
-            <span id="user-display-name">Iniciar Sesión</span>
+            <span id="user-display-name" data-i18n="userDisplayNameGuest">Iniciar Sesión</span>
             <span class="user-caret">▼</span>
           </button>
           
           <div class="user-dropdown-menu" id="user-dropdown-menu">
             <div class="user-dropdown-header">
-              <div class="user-dropdown-name" id="dropdown-user-name">Invitado</div>
-              <div class="user-dropdown-meta" id="dropdown-user-meta">Sin cuenta activa</div>
+              <div class="user-dropdown-name" id="dropdown-user-name" data-i18n="userDropdownNameGuest">Invitado</div>
+              <div class="user-dropdown-meta" id="dropdown-user-meta" data-i18n="userDropdownMetaGuest">Sin cuenta activa</div>
             </div>
             <button class="user-dropdown-item" id="dropdown-btn-auth">
               <span>🔑</span>
-              <span id="dropdown-auth-text">Iniciar Sesión / Registrarse</span>
+              <span id="dropdown-auth-text" data-i18n="userDropdownAuthLogin">Iniciar Sesión / Registrarse</span>
             </button>
             <button class="user-dropdown-item" id="dropdown-btn-vision">
               <span>✨</span>
-              <span>Mi Visión Arquitectónica (RAG)</span>
+              <span data-i18n="userMenuVision">Mi Visión Arquitectónica (RAG)</span>
             </button>
             <button class="user-dropdown-item" id="dropdown-btn-preferences">
               <span>⚙️</span>
-              <span>Modificar Preferencias</span>
+              <span data-i18n="userMenuPreferences">Modificar Preferencias</span>
             </button>
             <button class="user-dropdown-item danger" id="dropdown-btn-logout" style="display: none;">
               <span>🚪</span>
-              <span>Cerrar Sesión</span>
+              <span data-i18n="userMenuLogout">Cerrar Sesión</span>
             </button>
           </div>
         </div>
 
         <!-- Botón Desplegar Cesta (anteriormente Mi Proyecto) -->
-        <button id="btn-toggle-project" class="btn-project-trigger" aria-label="Ver muebles en la cesta">
-          <span>🧺 Cesta</span>
+        <button id="btn-toggle-project" class="btn-project-trigger" aria-label="Ver muebles en la cesta" data-i18n-aria="toggleProjectAria">
+          <span id="btn-project-label" data-i18n="cestaBtn">🧺 Cesta</span>
           <span id="project-count-badge" class="project-count-badge">0</span>
         </button>
       </div>
@@ -113,13 +113,13 @@
   </header>
 
   <!-- ==================== LIVING PROFILE HUD (APRENDIZAJE EN VIVO) ==================== -->
-  <section class="living-profile-hud" id="living-profile-hud" aria-label="Panel de aprendizaje dinámico">
+  <section class="living-profile-hud" id="living-profile-hud" aria-label="Panel de aprendizaje dinámico" data-i18n-aria="hudSectionAria">
     <div class="container hud-container">
       <div class="hud-status-badge">
         <div class="pulsing-dot" aria-hidden="true"></div>
         <div>
-          <div class="hud-title">ADN de tu Espacio</div>
-          <div class="hud-subtitle" id="hud-learning-status">Aprendiendo de tus elecciones en vivo</div>
+          <div class="hud-title" data-i18n="hudTitle">ADN de tu Espacio</div>
+          <div class="hud-subtitle" id="hud-learning-status" data-i18n="hudSubtitle">Aprendiendo de tus elecciones en vivo</div>
         </div>
       </div>
 
@@ -130,17 +130,17 @@
         </div>
 
         <!-- Paleta Dominante -->
-        <div class="hud-palette-group" id="hud-palette-group" title="Muestras cromáticas activas en tu perfil">
+        <div class="hud-palette-group" id="hud-palette-group" title="Muestras cromáticas activas en tu perfil" data-i18n-title="hudPaletteTitle">
           <!-- Inyectado con JS -->
         </div>
 
         <!-- Monitor de Presupuesto -->
         <div class="hud-budget-group">
           <div class="hud-budget-text">
-            <span class="hud-budget-title">Presupuesto</span>
+            <span class="hud-budget-title" data-i18n="hudBudgetTitle">Presupuesto</span>
             <span class="hud-budget-amount" id="hud-budget-text">0 € / 4.500 €</span>
           </div>
-          <div class="hud-budget-meter" title="Consumo de presupuesto">
+          <div class="hud-budget-meter" title="Consumo de presupuesto" data-i18n-title="hudBudgetMeterTitle">
             <div id="hud-budget-meter-fill" class="hud-budget-meter-fill" style="width: 0%;"></div>
           </div>
         </div>
@@ -149,11 +149,11 @@
       <!-- Banner de Visión Arquitectónica RAG -->
       <div class="hud-vision-banner" id="hud-vision-banner">
         <div class="hud-vision-text" id="hud-vision-text">
-          <strong>Visión RAG Activa:</strong>
-          <span id="hud-vision-desc-display">Sin descripción textual de gustos activa. Haz clic en "Afinar Visión" para activar matching semántico.</span>
+          <strong data-i18n="hudVisionTitle">Visión RAG Activa:</strong>
+          <span id="hud-vision-desc-display" data-i18n="hudVisionDefaultDesc">Sin descripción textual de gustos activa. Haz clic en "Afinar Visión" para activar matching semántico.</span>
         </div>
         <button id="btn-edit-vision-hud" class="hud-vision-btn-edit">
-          <span>✨ Afinar Visión RAG</span>
+          <span data-i18n="hudVisionBtn">✨ Afinar Visión RAG</span>
         </button>
       </div>
     </div>
@@ -174,28 +174,28 @@
             <!-- Buscador -->
             <div class="search-input-wrap">
               <span class="search-icon">🔍</span>
-              <input type="text" id="feed-search-input" class="search-input" placeholder="Buscar por pieza, material o estilo...">
+              <input type="text" id="feed-search-input" class="search-input" placeholder="Buscar por pieza, material o estilo..." data-i18n-placeholder="searchPlaceholder">
             </div>
 
             <!-- Ordenación -->
-            <select id="feed-sort-select" class="sort-select" aria-label="Ordenar recomendaciones">
-              <option value="match-desc">Mayor Coincidencia (% Match)</option>
-              <option value="price-asc">Precio: más accesible primero</option>
-              <option value="price-desc">Precio: mayor valor primero</option>
-              <option value="width-desc">Dimensiones: mayor tamaño</option>
+            <select id="feed-sort-select" class="sort-select" aria-label="Ordenar recomendaciones" data-i18n-aria="feedSortAria">
+              <option value="match-desc" data-i18n="sortMatchDesc">Mayor Coincidencia (% Match)</option>
+              <option value="price-asc" data-i18n="sortPriceAsc">Precio: más accesible primero</option>
+              <option value="price-desc" data-i18n="sortPriceDesc">Precio: mayor valor primero</option>
+              <option value="width-desc" data-i18n="sortWidthDesc">Dimensiones: mayor tamaño</option>
             </select>
           </div>
         </div>
 
         <!-- Filtros por Categoría -->
         <div class="category-filter-pills" id="category-filter-pills" role="tablist">
-          <button class="filter-pill active" data-category="all">Todos los Muebles</button>
-          <button class="filter-pill" data-category="Asientos">Asientos & Sofás</button>
-          <button class="filter-pill" data-category="Mesas">Mesas & Escritorios</button>
-          <button class="filter-pill" data-category="Almacenaje">Almacenaje & Librerías</button>
-          <button class="filter-pill" data-category="Iluminación">Iluminación</button>
-          <button class="filter-pill" data-category="Dormitorio">Dormitorio</button>
-          <button class="filter-pill" data-category="Accesorios">Accesorios & Textil</button>
+          <button class="filter-pill active" data-category="all" data-i18n="allCategory">Todos los Muebles</button>
+          <button class="filter-pill" data-category="Asientos" data-i18n="catAsientos">Asientos & Sofás</button>
+          <button class="filter-pill" data-category="Mesas" data-i18n="catMesas">Mesas & Escritorios</button>
+          <button class="filter-pill" data-category="Almacenaje" data-i18n="catAlmacenaje">Almacenaje & Librerías</button>
+          <button class="filter-pill" data-category="Iluminación" data-i18n="catIluminacion">Iluminación</button>
+          <button class="filter-pill" data-category="Dormitorio" data-i18n="catDormitorio">Dormitorio</button>
+          <button class="filter-pill" data-category="Accesorios" data-i18n="catAccesorios">Accesorios & Textil</button>
         </div>
       </div>
 
@@ -208,23 +208,23 @@
 
   <!-- ==================== DRAWER LATERAL: CESTA (ANTES MI PROYECTO) ==================== -->
   <div id="project-drawer-overlay" class="project-drawer-overlay" aria-hidden="true"></div>
-  <aside id="project-drawer" class="project-drawer" aria-label="Panel Cesta de Mobiliario" role="dialog">
+  <aside id="project-drawer" class="project-drawer" aria-label="Panel Cesta de Mobiliario" role="dialog" data-i18n-aria="drawerAria">
     <div class="drawer-header">
       <div>
-        <h2 class="drawer-header-title">Tu Cesta</h2>
+        <h2 class="drawer-header-title" data-i18n="drawerTitle">Tu Cesta</h2>
         <span class="drawer-header-subtitle" id="drawer-subtitle">0 muebles en la cesta</span>
       </div>
-      <button id="btn-close-drawer" class="btn-close-drawer" aria-label="Cerrar cesta">✕</button>
+      <button id="btn-close-drawer" class="btn-close-drawer" aria-label="Cerrar cesta" data-i18n-aria="closeDrawerAria">✕</button>
     </div>
 
     <!-- Resumen de Presupuesto de la Cesta -->
     <div class="drawer-budget-overview">
       <div class="drawer-budget-row">
-        <span class="drawer-budget-label">Total en Cesta:</span>
+        <span class="drawer-budget-label" data-i18n="drawerTotalLabel">Total en Cesta:</span>
         <span class="drawer-budget-val" id="drawer-spent-val">0 €</span>
       </div>
       <div class="drawer-budget-row">
-        <span class="drawer-budget-label">Presupuesto Límite:</span>
+        <span class="drawer-budget-label" data-i18n="drawerLimitLabel">Presupuesto Límite:</span>
         <span class="drawer-budget-remaining" id="drawer-remaining-val">Restante: 4.500 €</span>
       </div>
       <div class="drawer-budget-bar-track">
@@ -241,13 +241,13 @@
     <div class="drawer-footer">
       <button id="btn-open-checkout" class="btn btn-terracotta" style="width: 100%; margin-bottom: var(--space-xs);">
         <span>💳</span>
-        <span>Finalizar Compra y Emitir Ticket</span>
+        <span data-i18n="drawerCheckoutBtn">Finalizar Compra y Emitir Ticket</span>
       </button>
       <button id="btn-export-project" class="btn btn-primary" style="width: 100%;">
         <span>📋</span>
-        <span>Descargar Resumen de la Cesta</span>
+        <span data-i18n="drawerExportBtn">Descargar Resumen de la Cesta</span>
       </button>
-      <button id="btn-clear-project" class="btn btn-ghost btn-sm" style="width: 100%;">
+      <button id="btn-clear-project" class="btn btn-ghost btn-sm" style="width: 100%;" data-i18n="drawerClearBtn">
         Vaciar cesta actual
       </button>
     </div>
@@ -257,14 +257,14 @@
   <div id="auth-modal-overlay" class="modal-overlay" role="dialog" aria-modal="true">
     <div class="modal-container" style="max-width: 440px;">
       <div class="modal-header">
-        <h3 class="modal-title font-editorial">Cuenta de Usuario</h3>
-        <button id="btn-close-auth-modal" class="btn-close-drawer" aria-label="Cerrar modal">✕</button>
+        <h3 class="modal-title font-editorial" data-i18n="authModalTitle">Cuenta de Usuario</h3>
+        <button id="btn-close-auth-modal" class="btn-close-drawer" aria-label="Cerrar modal" data-i18n-aria="closeModalAria">✕</button>
       </div>
 
       <!-- Pestañas Iniciar Sesión / Crear Cuenta -->
       <div class="auth-tabs">
-        <button class="auth-tab-btn active" id="tab-login" data-tab="login">Iniciar Sesión</button>
-        <button class="auth-tab-btn" id="tab-register" data-tab="register">Crear Cuenta</button>
+        <button class="auth-tab-btn active" id="tab-login" data-tab="login" data-i18n="authTabLogin">Iniciar Sesión</button>
+        <button class="auth-tab-btn" id="tab-register" data-tab="register" data-i18n="authTabRegister">Crear Cuenta</button>
       </div>
 
       <div class="auth-form-wrap">
@@ -273,30 +273,30 @@
 
         <form id="auth-form" onsubmit="return false;">
           <div class="form-group">
-            <label for="auth-username" class="form-label">Nombre de Usuario</label>
-            <input type="text" id="auth-username" class="form-input" placeholder="ej. Carlos_Arquitectura" autocomplete="username" required>
+            <label for="auth-username" class="form-label" data-i18n="authLabelUsername">Nombre de Usuario</label>
+            <input type="text" id="auth-username" class="form-input" placeholder="ej. Carlos_Arquitectura" data-i18n-placeholder="authPlaceholderUsername" autocomplete="username" required>
           </div>
 
           <div class="form-group" style="margin-top: var(--space-md);">
-            <label for="auth-password" class="form-label">Contraseña</label>
+            <label for="auth-password" class="form-label" data-i18n="authLabelPassword">Contraseña</label>
             <input type="password" id="auth-password" class="form-input" placeholder="••••••••" autocomplete="current-password" required>
           </div>
 
           <!-- Campo solo visible en Registro -->
           <div class="form-group" id="group-confirm-password" style="margin-top: var(--space-md); display: none;">
-            <label for="auth-confirm-password" class="form-label">Confirmar Contraseña</label>
+            <label for="auth-confirm-password" class="form-label" data-i18n="authLabelConfirm">Confirmar Contraseña</label>
             <input type="password" id="auth-confirm-password" class="form-input" placeholder="••••••••" autocomplete="new-password">
           </div>
 
           <!-- Campo Gustos RAG (visible en Registro) -->
           <div class="form-group" id="group-taste-description" style="margin-top: var(--space-md); display: none;">
-            <label for="auth-taste-desc" class="form-label">Tu Visión o Sensaciones de Espacio (RAG)</label>
-            <textarea id="auth-taste-desc" class="taste-textarea" rows="2" placeholder="ej. Salón sereno con luz tenue, maderas de roble y lino..."></textarea>
-            <div class="taste-chips-group">
-              <span class="taste-chip" data-text="Minimalismo cálido con roble, lino y luz tenue">Minimalismo cálido</span>
-              <span class="taste-chip" data-text="Estudio industrial sobrio con cuero, nogal y acero">Estudio industrial</span>
-              <span class="taste-chip" data-text="Ambiente mediterráneo con terracota y caliza">Mediterráneo cálido</span>
-              <span class="taste-chip" data-text="Espacio zen sereno tipo ryokan japonés">Zen Ryokan</span>
+            <label for="auth-taste-desc" class="form-label" data-i18n="authLabelTaste">Tu Visión o Sensaciones de Espacio (RAG)</label>
+            <textarea id="auth-taste-desc" class="taste-textarea" rows="2" placeholder="ej. Salón sereno con luz tenue, maderas de roble y lino..." data-i18n-placeholder="authPlaceholderTaste"></textarea>
+            <div class="taste-chips-group" id="auth-taste-chips">
+              <span class="taste-chip" data-chip-idx="0">Minimalismo cálido</span>
+              <span class="taste-chip" data-chip-idx="1">Estudio industrial</span>
+              <span class="taste-chip" data-chip-idx="2">Mediterráneo cálido</span>
+              <span class="taste-chip" data-chip-idx="3">Zen Ryokan</span>
             </div>
           </div>
 
@@ -306,8 +306,8 @@
         </form>
 
         <p class="auth-helper-text">
-          <span id="auth-switch-prompt">¿No tienes cuenta todavía?</span>
-          <a class="auth-switch-link" id="auth-switch-link">Regístrate aquí</a>
+          <span id="auth-switch-prompt" data-i18n="authSwitchNoAccount">¿No tienes cuenta todavía?</span>
+          <a class="auth-switch-link" id="auth-switch-link" data-i18n="authSwitchRegisterLink">Regístrate aquí</a>
         </p>
       </div>
     </div>
@@ -317,7 +317,7 @@
   <div id="onboarding-overlay" class="onboarding-overlay hidden" role="dialog" aria-modal="true">
     <div class="onboarding-card">
       <div class="onboarding-header" style="position: relative;">
-        <button id="btn-close-onboarding" class="btn-close-drawer" aria-label="Cerrar ventana" style="position: absolute; right: 0; top: 0; font-size: 1.2rem; cursor: pointer;">✕</button>
+        <button id="btn-close-onboarding" class="btn-close-drawer" aria-label="Cerrar ventana" data-i18n-aria="closeOnboardingAria" style="position: absolute; right: 0; top: 0; font-size: 1.2rem; cursor: pointer;">✕</button>
         <div class="onboarding-stepper">
           <span class="step-indicator" id="onboarding-step-text">Paso 1 de 4</span>
           <div class="step-dots">
@@ -352,21 +352,21 @@
             <div class="budget-presets" id="budget-presets-grid">
               <div class="budget-preset-card" data-budget="2000">
                 <div class="budget-preset-amount">2.000 €</div>
-                <div class="budget-preset-label">Esencial</div>
+                <div class="budget-preset-label" id="budget-preset-label-2000" data-i18n="presetEssential">Esencial</div>
               </div>
               <div class="budget-preset-card selected" data-budget="4500">
                 <div class="budget-preset-amount">4.500 €</div>
-                <div class="budget-preset-label">Estudio de Autor</div>
+                <div class="budget-preset-label" id="budget-preset-label-4500" data-i18n="presetStudio">Estudio de Autor</div>
               </div>
               <div class="budget-preset-card" data-budget="8000">
                 <div class="budget-preset-amount">8.000 €</div>
-                <div class="budget-preset-label">Integral Premium</div>
+                <div class="budget-preset-label" id="budget-preset-label-8000" data-i18n="presetPremium">Integral Premium</div>
               </div>
             </div>
 
             <div class="budget-slider-box">
               <div class="budget-slider-header">
-                <span class="technical-label">Presupuesto Personalizado</span>
+                <span class="technical-label" data-i18n="onboardingCustomBudget">Presupuesto Personalizado</span>
                 <span class="budget-slider-display" id="budget-slider-display">4.500 €</span>
               </div>
               <input type="range" id="budget-slider" class="budget-range-input" min="1000" max="15000" step="250" value="4500">
@@ -383,8 +383,8 @@
       </div>
 
       <div class="onboarding-footer">
-        <button id="btn-onboarding-prev" class="btn btn-outline" style="visibility: hidden;">Anterior</button>
-        <button id="btn-onboarding-next" class="btn btn-terracotta">Siguiente paso</button>
+        <button id="btn-onboarding-prev" class="btn btn-outline" data-i18n="onboardingBtnPrev" style="visibility: hidden;">Anterior</button>
+        <button id="btn-onboarding-next" class="btn btn-terracotta" data-i18n="onboardingBtnNext">Siguiente paso</button>
       </div>
     </div>
   </div>
@@ -393,43 +393,43 @@
   <div id="csv-modal-overlay" class="modal-overlay" role="dialog" aria-modal="true">
     <div class="modal-container">
       <div class="modal-header">
-        <h3 class="modal-title font-editorial">Importar Catálogo de Muebles CSV</h3>
-        <button id="btn-close-csv-modal" class="btn-close-drawer" aria-label="Cerrar modal">✕</button>
+        <h3 class="modal-title font-editorial" data-i18n="csvModalTitle">Importar Catálogo de Muebles CSV</h3>
+        <button id="btn-close-csv-modal" class="btn-close-drawer" aria-label="Cerrar modal" data-i18n-aria="closeModalAria">✕</button>
       </div>
 
       <div class="modal-body">
-        <p style="margin-bottom: var(--space-md); font-size: var(--text-sm);">
+        <p data-i18n="csvModalDesc" style="margin-bottom: var(--space-md); font-size: var(--text-sm);">
           Carga un archivo CSV con tus propios muebles (dimensiones, nombre, precio, estilo, color, etc.). El sistema normalizará las columnas automáticamente.
         </p>
 
         <!-- Dropzone -->
         <div id="csv-dropzone" class="csv-dropzone">
           <div class="dropzone-icon">📥</div>
-          <div class="dropzone-title">Arrastra tu archivo CSV aquí</div>
-          <div class="dropzone-desc">o haz clic para seleccionar desde tu equipo</div>
+          <div class="dropzone-title" data-i18n="csvDropzoneTitle">Arrastra tu archivo CSV aquí</div>
+          <div class="dropzone-desc" data-i18n="csvDropzoneDesc">o haz clic para seleccionar desde tu equipo</div>
           <input type="file" id="csv-file-input" accept=".csv,text/csv" style="display: none;">
         </div>
 
         <!-- Resumen de previsualización -->
         <div id="csv-preview-box" class="csv-preview-box">
-          <div class="csv-preview-title">Resultado del Análisis</div>
+          <div class="csv-preview-title" data-i18n="csvPreviewTitle">Resultado del Análisis</div>
           <div id="csv-stats-summary" class="csv-stats-summary">0 piezas preparadas para importación</div>
         </div>
 
         <div style="display: flex; gap: var(--space-sm); align-items: center; flex-wrap: wrap;">
           <button id="btn-download-sample-csv" class="btn btn-outline btn-sm">
             <span>📄</span>
-            <span>Descargar Plantilla CSV de Muestra</span>
+            <span data-i18n="csvSampleBtn">Descargar Plantilla CSV de Muestra</span>
           </button>
-          <button id="btn-restore-default-catalog" class="btn btn-ghost btn-sm">
+          <button id="btn-restore-default-catalog" class="btn btn-ghost btn-sm" data-i18n="csvRestoreBtn">
             Restaurar catálogo por defecto
           </button>
         </div>
       </div>
 
       <div class="modal-footer">
-        <button id="btn-cancel-csv" class="btn btn-outline">Cancelar</button>
-        <button id="btn-confirm-csv" class="btn btn-terracotta" disabled>Cargar Catálogo</button>
+        <button id="btn-cancel-csv" class="btn btn-outline" data-i18n="csvCancelBtn">Cancelar</button>
+        <button id="btn-confirm-csv" class="btn btn-terracotta" disabled data-i18n="csvConfirmBtn">Cargar Catálogo</button>
       </div>
     </div>
   </div>
@@ -439,37 +439,37 @@
     <div class="modal-container" style="max-width: 580px;">
       <div class="modal-header">
         <div>
-          <h3 class="modal-title font-editorial">Tu Visión de Espacio (RAG Semántico)</h3>
-          <span style="font-size: var(--text-xs); color: var(--text-secondary);">Matching en lenguaje natural por similitud vectorial coseno</span>
+          <h3 class="modal-title font-editorial" data-i18n="visionModalTitle">Tu Visión de Espacio (RAG Semántico)</h3>
+          <span data-i18n="visionModalSubtitle" style="font-size: var(--text-xs); color: var(--text-secondary);">Matching en lenguaje natural por similitud vectorial coseno</span>
         </div>
-        <button id="btn-close-vision-modal" class="btn-close-drawer" aria-label="Cerrar modal">✕</button>
+        <button id="btn-close-vision-modal" class="btn-close-drawer" aria-label="Cerrar modal" data-i18n-aria="closeModalAria">✕</button>
       </div>
 
       <div class="modal-body">
-        <p style="margin-bottom: var(--space-sm); font-size: var(--text-sm); line-height: 1.5;">
+        <p data-i18n="visionModalDesc" style="margin-bottom: var(--space-sm); font-size: var(--text-sm); line-height: 1.5;">
           Describe libremente las sensaciones, iluminación, texturas y materiales que imaginas. El motor RAG vectorizará tu descripción y reordenará el catálogo priorizando las piezas que mejor capturen tu visión.
         </p>
 
         <div class="form-group">
-          <label for="vision-modal-textarea" class="form-label">Descripción Textual de Gustos & Atmósfera</label>
-          <textarea id="vision-modal-textarea" class="taste-textarea" rows="4" placeholder="ej. Busco un salón sereno, con luz tenue y maderas claras que me recuerde a un ryokan japonés contemporáneo..."></textarea>
+          <label for="vision-modal-textarea" class="form-label" data-i18n="visionLabelTextarea">Descripción Textual de Gustos & Atmósfera</label>
+          <textarea id="vision-modal-textarea" class="taste-textarea" rows="4" placeholder="ej. Busco un salón sereno, con luz tenue y maderas claras que me recuerde a un ryokan japonés contemporáneo..." data-i18n-placeholder="visionPlaceholderTextarea"></textarea>
         </div>
 
         <div style="margin-top: var(--space-md);">
-          <span class="technical-label" style="display: block; margin-bottom: 6px;">Sugerencias Rápidas de Autor</span>
+          <span class="technical-label" data-i18n="visionQuickSuggestionsTitle" style="display: block; margin-bottom: 6px;">Sugerencias Rápidas de Autor</span>
           <div class="taste-chips-group" id="vision-modal-chips">
-            <span class="taste-chip" data-text="Minimalismo cálido con roble blanqueado, lino y luz tenue tamizada">Minimalismo cálido</span>
-            <span class="taste-chip" data-text="Estudio industrial sobrio con cuero desgastado, nogal y perfiles de acero">Estudio industrial</span>
-            <span class="taste-chip" data-text="Ambiente mediterráneo con terracota, caliza porosa y barro cocido">Mediterráneo vernáculo</span>
-            <span class="taste-chip" data-text="Espacio zen sereno estilo ryokan japonés con tatamis y maderas claras">Zen Ryokan</span>
-            <span class="taste-chip" data-text="Salón contemporáneo mid-century con nogal, mármol travertino y latón cepillado">Mid-Century Modern</span>
+            <span class="taste-chip" data-chip-idx="0">Minimalismo cálido</span>
+            <span class="taste-chip" data-chip-idx="1">Estudio industrial</span>
+            <span class="taste-chip" data-chip-idx="2">Mediterráneo vernáculo</span>
+            <span class="taste-chip" data-chip-idx="3">Zen Ryokan</span>
+            <span class="taste-chip" data-chip-idx="4">Mid-Century Modern</span>
           </div>
         </div>
       </div>
 
       <div class="modal-footer">
-        <button id="btn-cancel-vision" class="btn btn-outline">Cancelar</button>
-        <button id="btn-save-vision" class="btn btn-terracotta">Guardar y Actualizar Recomendaciones</button>
+        <button id="btn-cancel-vision" class="btn btn-outline" data-i18n="visionCancelBtn">Cancelar</button>
+        <button id="btn-save-vision" class="btn btn-terracotta" data-i18n="visionSaveBtn">Guardar y Actualizar Recomendaciones</button>
       </div>
     </div>
   </div>
@@ -479,97 +479,97 @@
     <div class="modal-container" style="max-width: 620px;">
       <div class="modal-header">
         <div>
-          <h3 class="modal-title font-editorial">Pasarela de Checkout · Pedido Arquitectónico</h3>
-          <span style="font-size: var(--text-xs); color: var(--text-secondary);">Simulación segura de compra y emisión de factura oficial</span>
+          <h3 class="modal-title font-editorial" data-i18n="checkoutModalTitle">Pasarela de Checkout · Pedido Arquitectónico</h3>
+          <span data-i18n="checkoutModalSubtitle" style="font-size: var(--text-xs); color: var(--text-secondary);">Simulación segura de compra y emisión de factura oficial</span>
         </div>
-        <button id="btn-close-checkout-modal" class="btn-close-drawer" aria-label="Cerrar checkout">✕</button>
+        <button id="btn-close-checkout-modal" class="btn-close-drawer" aria-label="Cerrar checkout" data-i18n-aria="closeCheckoutAria">✕</button>
       </div>
 
       <div class="modal-body">
         <!-- Selector de Métodos de Pago -->
-        <span class="technical-label" style="display: block; margin-bottom: 8px;">1. Selecciona Método de Pago</span>
+        <span class="technical-label" data-i18n="checkoutStep1Title" style="display: block; margin-bottom: 8px;">1. Selecciona Método de Pago</span>
         <div class="payment-methods-grid" id="checkout-payment-methods">
           <div class="payment-method-card selected" data-method="Tarjeta Bancaria">
             <div class="payment-method-icon">💳</div>
-            <div class="payment-method-name">Tarjeta Bancaria</div>
+            <div class="payment-method-name" data-i18n="paymentCard">Tarjeta Bancaria</div>
           </div>
           <div class="payment-method-card" data-method="Transferencia Arquitectónica">
             <div class="payment-method-icon">🏛️</div>
-            <div class="payment-method-name">Transferencia</div>
+            <div class="payment-method-name" data-i18n="paymentTransfer">Transferencia</div>
           </div>
           <div class="payment-method-card" data-method="Bizum">
             <div class="payment-method-icon">📱</div>
-            <div class="payment-method-name">Bizum</div>
+            <div class="payment-method-name" data-i18n="paymentBizum">Bizum</div>
           </div>
         </div>
 
         <!-- Campos de Tarjeta Simulada (Ocultables según método) -->
         <div class="card-fields-wrap" id="checkout-card-fields">
           <div class="form-group" style="margin-bottom: var(--space-sm);">
-            <label class="form-label">Número de Tarjeta</label>
+            <label class="form-label" data-i18n="checkoutCardNumber">Número de Tarjeta</label>
             <input type="text" id="checkout-card-number" class="form-input" placeholder="4532 •••• •••• 8821" maxlength="19" value="4532 8920 1142 8821">
           </div>
           <div class="card-fields-row">
             <div class="form-group" style="flex: 1;">
-              <label class="form-label">Caducidad</label>
+              <label class="form-label" data-i18n="checkoutCardExpiry">Caducidad</label>
               <input type="text" id="checkout-card-expiry" class="form-input" placeholder="MM/AA" maxlength="5" value="12/28">
             </div>
             <div class="form-group" style="flex: 1;">
-              <label class="form-label">CVC / CVV</label>
+              <label class="form-label" data-i18n="checkoutCardCvc">CVC / CVV</label>
               <input type="text" id="checkout-card-cvc" class="form-input" placeholder="•••" maxlength="4" value="419">
             </div>
           </div>
         </div>
 
         <!-- Datos de Entrega y Facturación -->
-        <span class="technical-label" style="display: block; margin-bottom: 8px;">2. Datos de Facturación y Entrega</span>
+        <span class="technical-label" data-i18n="checkoutStep2Title" style="display: block; margin-bottom: 8px;">2. Datos de Facturación y Entrega</span>
         <form id="checkout-form" onsubmit="return false;">
           <div class="form-group" style="margin-bottom: var(--space-sm);">
-            <label for="checkout-client-name" class="form-label">Titular / Nombre del Estudio</label>
-            <input type="text" id="checkout-client-name" class="form-input" placeholder="ej. Estudio Arquitectura & Diseño" required>
+            <label for="checkout-client-name" class="form-label" data-i18n="checkoutClientNameLabel">Titular / Nombre del Estudio</label>
+            <input type="text" id="checkout-client-name" class="form-input" placeholder="ej. Estudio Arquitectura & Diseño" data-i18n-placeholder="checkoutClientNamePlaceholder" required>
           </div>
           <div class="card-fields-row" style="margin-bottom: var(--space-sm);">
             <div class="form-group" style="flex: 1;">
-              <label for="checkout-client-email" class="form-label">Correo Electrónico</label>
-              <input type="email" id="checkout-client-email" class="form-input" placeholder="proyectos@estudio.es" required>
+              <label for="checkout-client-email" class="form-label" data-i18n="checkoutClientEmailLabel">Correo Electrónico</label>
+              <input type="email" id="checkout-client-email" class="form-input" placeholder="proyectos@estudio.es" data-i18n-placeholder="checkoutClientEmailPlaceholder" required>
             </div>
             <div class="form-group" style="flex: 1;">
-              <label for="checkout-client-phone" class="form-label">Teléfono de Contacto</label>
+              <label for="checkout-client-phone" class="form-label" data-i18n="checkoutClientPhoneLabel">Teléfono de Contacto</label>
               <input type="tel" id="checkout-client-phone" class="form-input" placeholder="+34 600 000 000">
             </div>
           </div>
           <div class="form-group" style="margin-bottom: var(--space-md);">
-            <label for="checkout-client-address" class="form-label">Dirección de Entrega del Proyecto</label>
-            <input type="text" id="checkout-client-address" class="form-input" placeholder="Calle, número, piso y ciudad" required>
+            <label for="checkout-client-address" class="form-label" data-i18n="checkoutClientAddressLabel">Dirección de Entrega del Proyecto</label>
+            <input type="text" id="checkout-client-address" class="form-input" placeholder="Calle, número, piso y ciudad" data-i18n-placeholder="checkoutClientAddressPlaceholder" required>
           </div>
         </form>
 
         <!-- Desglose de Totales -->
         <div class="checkout-breakdown" id="checkout-breakdown">
           <div class="breakdown-row">
-            <span>Piezas en la Cesta:</span>
+            <span data-i18n="checkoutBreakdownItems">Piezas en la Cesta:</span>
             <span id="checkout-items-count">0 muebles</span>
           </div>
           <div class="breakdown-row">
-            <span>Base Imponible:</span>
+            <span data-i18n="checkoutBreakdownSubtotal">Base Imponible:</span>
             <span id="checkout-subtotal-val">0 €</span>
           </div>
           <div class="breakdown-row">
-            <span>IVA Arquitectónico (21%):</span>
+            <span data-i18n="checkoutBreakdownVat">IVA Arquitectónico (21%):</span>
             <span id="checkout-vat-val">0 €</span>
           </div>
           <div class="breakdown-row total">
-            <span>Total a Pagar:</span>
+            <span data-i18n="checkoutBreakdownTotal">Total a Pagar:</span>
             <span id="checkout-total-val" style="color: var(--autumn-terracotta);">0 €</span>
           </div>
         </div>
       </div>
 
       <div class="modal-footer">
-        <button id="btn-cancel-checkout" class="btn btn-outline">Cancelar</button>
+        <button id="btn-cancel-checkout" class="btn btn-outline" data-i18n="checkoutCancelBtn">Cancelar</button>
         <button id="btn-confirm-checkout" class="btn btn-terracotta">
           <span>✓</span>
-          <span>Confirmar Pago y Emitir Ticket</span>
+          <span data-i18n="checkoutConfirmBtn">Confirmar Pago y Emitir Ticket</span>
         </button>
       </div>
     </div>
@@ -580,10 +580,10 @@
     <div class="modal-container" style="max-width: 680px;">
       <div class="modal-header">
         <div>
-          <h3 class="modal-title font-editorial">Ticket de Compra Arquitectónico</h3>
-          <span style="font-size: var(--text-xs); color: var(--text-secondary);">Documento acreditativo oficial de selección</span>
+          <h3 class="modal-title font-editorial" data-i18n="ticketModalTitle">Ticket de Compra Arquitectónico</h3>
+          <span data-i18n="ticketModalSubtitle" style="font-size: var(--text-xs); color: var(--text-secondary);">Documento acreditativo oficial de selección</span>
         </div>
-        <button id="btn-close-ticket-modal-header" class="btn-close-drawer" aria-label="Cerrar ticket">✕</button>
+        <button id="btn-close-ticket-modal-header" class="btn-close-drawer" aria-label="Cerrar ticket" data-i18n-aria="closeTicketAria">✕</button>
       </div>
 
       <div class="modal-body" style="padding: var(--space-lg);">
@@ -595,10 +595,10 @@
       <div class="modal-footer">
         <button id="btn-print-ticket" class="btn btn-outline">
           <span>🖨️</span>
-          <span>Imprimir / Guardar en PDF</span>
+          <span data-i18n="ticketPrintBtn">Imprimir / Guardar en PDF</span>
         </button>
         <button id="btn-finish-ticket" class="btn btn-terracotta">
-          <span>Aceptar y Volver al Catálogo</span>
+          <span data-i18n="ticketFinishBtn">Aceptar y Volver al Catálogo</span>
         </button>
       </div>
     </div>
