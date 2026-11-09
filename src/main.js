@@ -12,6 +12,9 @@ import { StorageService } from './services/storage.js';
 import { AuthService } from './services/authService.js';
 import { DatabaseAdapter } from './services/dbAdapter.js';
 import { CheckoutService } from './services/checkoutService.js';
+import { LANGUAGE_IMAGES, UI_TRANSLATIONS } from './config/languages.js';
+
+export { LANGUAGE_IMAGES, UI_TRANSLATIONS };
 
 // ==========================================================================
 // ESTADO GLOBAL DE LA APLICACIÓN
@@ -27,9 +30,13 @@ class AppState {
       ? savedCatalog 
       : [...FURNITURE_CATALOG_RAG];
 
-    // Asegurar que todas las imágenes del dataset utilicen la foto local foto mueble.png
+    // Idioma activo y foto asociada a los 120 muebles (es: foto mueble, ca: foto moble, en: photo furniture, zh: jiājù zhàopiàn)
+    const savedLang = typeof localStorage !== 'undefined' ? (localStorage.getItem("espacio_language") || "es") : "es";
+    this.currentLanguage = LANGUAGE_IMAGES[savedLang] ? savedLang : "es";
+    const initialImg = LANGUAGE_IMAGES[this.currentLanguage];
+
     this.catalog.forEach(item => {
-      item.imageUrl = "/foto mueble.png";
+      item.imageUrl = initialImg;
     });
 
     // 3. Motor RAG Semántico (Indexa el catálogo actual)
@@ -124,6 +131,7 @@ const state = new AppState();
 // ==========================================================================
 document.addEventListener("DOMContentLoaded", () => {
   initTheme();
+  initLanguageSelector();
   initAuthSystem();
   initOnboarding();
   initToolbarAndFilters();
@@ -157,6 +165,91 @@ function initTheme() {
     document.documentElement.setAttribute("data-theme", state.theme);
     state.save();
     showToast(`Tema actualizado a: ${e.target.options[e.target.selectedIndex].text}`);
+  });
+}
+
+// ==========================================================================
+// GESTIÓN DE IDIOMAS Y FOTOS DE MUEBLES (ES, CA, EN, ZH)
+// ==========================================================================
+function applyLanguage(lang) {
+  if (!LANGUAGE_IMAGES[lang]) lang = "es";
+  state.currentLanguage = lang;
+  try {
+    localStorage.setItem("espacio_language", lang);
+  } catch (e) {
+    // Si localStorage no está disponible en el entorno
+  }
+
+  // 1. Cambiar la foto de todos los muebles del catálogo al archivo correspondiente
+  const targetImg = LANGUAGE_IMAGES[lang];
+  state.catalog.forEach(item => {
+    item.imageUrl = targetImg;
+  });
+
+  // 2. Actualizar estado visual de los botones del header
+  document.querySelectorAll("#lang-selector-group .lang-btn").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.lang === lang);
+  });
+
+  // 3. Traducir textos dinámicos clave de la interfaz
+  const t = UI_TRANSLATIONS[lang] || UI_TRANSLATIONS.es;
+  const searchInput = document.getElementById("feed-search-input");
+  if (searchInput) searchInput.placeholder = t.searchPlaceholder;
+
+  const styleLabel = document.querySelector(".theme-selector-wrap label");
+  if (styleLabel) styleLabel.textContent = t.styleLabel;
+
+  const roomTitle = document.getElementById("feed-room-title");
+  if (roomTitle) roomTitle.textContent = t.roomTitle;
+
+  const statsText = document.getElementById("feed-stats-text");
+  if (statsText) statsText.textContent = t.statsText;
+
+  const btnProject = document.getElementById("btn-toggle-project");
+  if (btnProject) {
+    const badge = document.getElementById("project-count-badge");
+    const count = badge ? badge.textContent : "0";
+    btnProject.innerHTML = `<span>${t.cestaBtn}</span><span id="project-count-badge" class="project-count-badge">${count}</span>`;
+  }
+
+  const btnPrefs = document.getElementById("btn-restart-onboarding");
+  if (btnPrefs) {
+    btnPrefs.innerHTML = `<span>⚙️</span><span>${t.preferencesBtn}</span>`;
+  }
+
+  const pills = document.querySelectorAll(".category-filter-pills .filter-pill");
+  pills.forEach(pill => {
+    const cat = pill.dataset.category;
+    if (cat === "all") pill.textContent = t.allCategory;
+    else if (cat === "Asientos") pill.textContent = t.catAsientos;
+    else if (cat === "Mesas") pill.textContent = t.catMesas;
+    else if (cat === "Almacenaje") pill.textContent = t.catAlmacenaje;
+    else if (cat === "Iluminación") pill.textContent = t.catIluminacion;
+    else if (cat === "Dormitorio") pill.textContent = t.catDormitorio;
+    else if (cat === "Accesorios") pill.textContent = t.catAccesorios;
+  });
+
+  // 4. Re-renderizar feed y drawer de la cesta con las nuevas fotos
+  renderFeed();
+  renderDrawer();
+}
+
+function initLanguageSelector() {
+  const container = document.getElementById("lang-selector-group");
+  if (!container) return;
+
+  // Aplicar idioma inicial guardado o por defecto
+  applyLanguage(state.currentLanguage || "es");
+
+  container.addEventListener("click", (e) => {
+    const btn = e.target.closest(".lang-btn");
+    if (!btn) return;
+    const selectedLang = btn.dataset.lang;
+    if (selectedLang && selectedLang !== state.currentLanguage) {
+      applyLanguage(selectedLang);
+      const t = UI_TRANSLATIONS[selectedLang];
+      showToast(t ? t.toast : `Idioma: ${selectedLang}`);
+    }
   });
 }
 
@@ -1188,7 +1281,11 @@ function initCsvModal() {
   if (btnRestore) {
     btnRestore.addEventListener("click", () => {
       if (confirm("¿Deseas restaurar el catálogo predeterminado de 120 piezas optimizadas para RAG (4 a 6 etiquetas por mueble)?")) {
-        state.catalog = [...FURNITURE_CATALOG_RAG];
+        const currentImg = LANGUAGE_IMAGES[state.currentLanguage || "es"] || "/foto mueble.png";
+        state.catalog = FURNITURE_CATALOG_RAG.map(item => ({
+          ...item,
+          imageUrl: currentImg
+        }));
         state.ragEngine.indexCatalog(state.catalog);
         state.save();
         closeModal();

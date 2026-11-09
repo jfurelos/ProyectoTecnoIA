@@ -119,6 +119,66 @@
   outline: none;
 }
 
+/* ==========================================================================
+   SELECTOR DE IDIOMA (4 IDIOMAS CON FOTOS SINCRONIZADAS)
+   ========================================================================== */
+.lang-selector-group {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 2px;
+  gap: 2px;
+}
+
+.lang-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  border-radius: calc(var(--radius-sm) - 2px);
+  padding: 4px 8px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  line-height: 1.2;
+}
+
+.lang-btn:hover {
+  color: var(--text-primary);
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="terracotta-dark"] .lang-btn:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.lang-btn.active {
+  background-color: var(--autumn-terracotta);
+  color: #ffffff !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.lang-btn .lang-name {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .lang-btn .lang-name {
+    display: none;
+  }
+  .lang-btn {
+    padding: 4px 6px;
+  }
+}
+
 /* Botón de Proyecto (Drawer) */
 .btn-project-trigger {
   position: relative;

@@ -44,12 +44,14 @@
 
 .search-input-wrap {
   position: relative;
-  min-width: 240px;
+  min-width: 320px;
+  width: 340px;
+  max-width: 100%;
 }
 
 .search-input {
   width: 100%;
-  padding: 8px 12px 8px 32px;
+  padding: 8px 14px 8px 34px;
   background-color: var(--bg-surface);
   border: 1px solid var(--border-default);
   border-radius: var(--radius-sm);
@@ -58,6 +60,11 @@
   color: var(--text-primary);
   outline: none;
   transition: border-color var(--transition-fast);
+}
+
+.search-input::placeholder {
+  color: var(--text-muted);
+  opacity: 0.85;
 }
 
 .search-input:focus {

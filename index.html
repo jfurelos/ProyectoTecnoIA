@@ -45,23 +45,25 @@
           </select>
         </div>
 
-        <!-- Estado de Persistencia (Local / Firebase) -->
-        <div id="cloud-status-badge" class="cloud-status-badge" title="Estado de almacenamiento">
-          <span>●</span>
-          <span id="cloud-status-text">Local</span>
+        <!-- Selector de Idioma (4 idiomas con cambio dinámico de fotos de muebles) -->
+        <div class="lang-selector-group" id="lang-selector-group" role="group" aria-label="Seleccionar idioma">
+          <button type="button" class="lang-btn active" data-lang="es" title="Castellano (foto mueble)">
+            <span class="lang-code">ES</span>
+            <span class="lang-name">Castellano</span>
+          </button>
+          <button type="button" class="lang-btn" data-lang="ca" title="Català (foto moble)">
+            <span class="lang-code">CA</span>
+            <span class="lang-name">Català</span>
+          </button>
+          <button type="button" class="lang-btn" data-lang="en" title="English (photo furniture)">
+            <span class="lang-code">EN</span>
+            <span class="lang-name">English</span>
+          </button>
+          <button type="button" class="lang-btn" data-lang="zh" title="中文 (jiājù zhàopiàn)">
+            <span class="lang-code">ZH</span>
+            <span class="lang-name">中文</span>
+          </button>
         </div>
-
-        <!-- Botón Gustos / Visión RAG -->
-        <button id="btn-open-vision-header" class="btn btn-outline btn-sm" title="Describir mi visión en lenguaje natural (RAG)">
-          <span>✨</span>
-          <span>Visión RAG</span>
-        </button>
-
-        <!-- Importar Catálogo CSV -->
-        <button id="btn-open-csv" class="btn btn-outline btn-sm" title="Importar muebles desde archivo CSV">
-          <span>📁</span>
-          <span>Importar CSV</span>
-        </button>
 
         <!-- Reiniciar Onboarding -->
         <button id="btn-restart-onboarding" class="btn btn-ghost btn-sm" title="Volver a configurar mis preferencias">
