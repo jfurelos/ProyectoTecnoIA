@@ -129,7 +129,7 @@ const state = new AppState();
 // ==========================================================================
 // INICIALIZACIÓN DE LA APLICACIÓN
 // ==========================================================================
-document.addEventListener("DOMContentLoaded", () => {
+function initApp() {
   initTheme();
   initLanguageSelector();
   initAuthSystem();
@@ -147,8 +147,18 @@ document.addEventListener("DOMContentLoaded", () => {
   // Si no hay usuario y no se ha completado el onboarding previamente, mostrarlo al inicio (Opción A)
   if (!StorageService.isOnboardingCompleted() && !state.currentUser) {
     openOnboarding();
+  } else {
+    closeOnboarding();
   }
-});
+}
+
+if (typeof document !== "undefined") {
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initApp);
+  } else {
+    initApp();
+  }
+}
 
 // ==========================================================================
 // GESTIÓN DE TEMAS (DISEÑO FLEXIBLE ARQUITECTÓNICO)
@@ -231,7 +241,9 @@ function applyLanguage(lang) {
 
   // 4. Re-renderizar feed y drawer de la cesta con las nuevas fotos
   renderFeed();
-  renderDrawer();
+  if (typeof updateCestaDrawerContent === "function") {
+    updateCestaDrawerContent();
+  }
 }
 
 function initLanguageSelector() {
@@ -498,6 +510,7 @@ function initOnboarding() {
   const btnRestart = document.getElementById("btn-restart-onboarding");
   const btnPrev = document.getElementById("btn-onboarding-prev");
   const btnNext = document.getElementById("btn-onboarding-next");
+  const btnClose = document.getElementById("btn-close-onboarding");
 
   if (btnRestart) {
     btnRestart.addEventListener("click", () => {
@@ -506,26 +519,36 @@ function initOnboarding() {
     });
   }
 
+  if (btnClose) {
+    btnClose.addEventListener("click", () => {
+      closeOnboarding();
+    });
+  }
+
   renderRoomChoices();
   renderStyleChoices();
   initBudgetStep();
   renderPaletteChoices();
 
-  btnPrev.addEventListener("click", () => {
-    if (state.onboardingStep > 1) {
-      state.onboardingStep--;
-      updateOnboardingStepView();
-    }
-  });
+  if (btnPrev) {
+    btnPrev.addEventListener("click", () => {
+      if (state.onboardingStep > 1) {
+        state.onboardingStep--;
+        updateOnboardingStepView();
+      }
+    });
+  }
 
-  btnNext.addEventListener("click", () => {
-    if (state.onboardingStep < 4) {
-      state.onboardingStep++;
-      updateOnboardingStepView();
-    } else {
-      completeOnboarding();
-    }
-  });
+  if (btnNext) {
+    btnNext.addEventListener("click", () => {
+      if (state.onboardingStep < 4) {
+        state.onboardingStep++;
+        updateOnboardingStepView();
+      } else {
+        completeOnboarding();
+      }
+    });
+  }
 }
 
 function openOnboarding() {

@@ -84,3 +84,4 @@ export const UI_TRANSLATIONS = {
     toast: "语言已切换为中文 (jiājù zhàopiàn)"
   }
 };
+

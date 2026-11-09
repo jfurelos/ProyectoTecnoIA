@@ -314,9 +314,10 @@
   </div>
 
   <!-- ==================== ONBOARDING MODAL (OPCIÓN A) ==================== -->
-  <div id="onboarding-overlay" class="onboarding-overlay" role="dialog" aria-modal="true">
+  <div id="onboarding-overlay" class="onboarding-overlay hidden" role="dialog" aria-modal="true">
     <div class="onboarding-card">
-      <div class="onboarding-header">
+      <div class="onboarding-header" style="position: relative;">
+        <button id="btn-close-onboarding" class="btn-close-drawer" aria-label="Cerrar ventana" style="position: absolute; right: 0; top: 0; font-size: 1.2rem; cursor: pointer;">✕</button>
         <div class="onboarding-stepper">
           <span class="step-indicator" id="onboarding-step-text">Paso 1 de 4</span>
           <div class="step-dots">
